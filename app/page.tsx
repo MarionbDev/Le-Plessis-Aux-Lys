@@ -1,9 +1,7 @@
-import DrawingListGallery from "./drawings/_components/DrawingListGallery";
-
 export default function Home() {
   return (
     <main className="">
-      <DrawingListGallery />
+      <h1></h1>
     </main>
   );
 }
