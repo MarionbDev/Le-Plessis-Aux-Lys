@@ -10,7 +10,7 @@ import {
 import { LogIn } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export default function NavBar() {
+export default function NavBarDesktop() {
   const router = useRouter();
 
   const handleButtonClick = () => {
@@ -18,7 +18,7 @@ export default function NavBar() {
   };
   return (
     <>
-      <Menubar className=" flex gap-6 px-10  border-none">
+      <Menubar className=" flex  gap-6 px-10  border-none ">
         <MenubarMenu>
           <MenubarTrigger onClick={() => router.push("/")}>
             Accueil
@@ -65,11 +65,16 @@ export default function NavBar() {
           </MenubarTrigger>
         </MenubarMenu>
         <MenubarMenu>
-          <button onClick={handleButtonClick} type="button">
-            <LogIn />
+          <button
+            onClick={handleButtonClick}
+            type="button"
+            className=" flex gap-2"
+          >
+            <LogIn className=" text-slate-700" /> Se connecter
           </button>
         </MenubarMenu>
       </Menubar>
     </>
   );
 }
+
