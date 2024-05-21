@@ -21,7 +21,7 @@ export default function NavBarMobile() {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger className="mr-10">
-          <Menu />
+          <Menu size={42} />
         </DropdownMenuTrigger>
         <DropdownMenuContent className=" bg-[#fafafc] mr-1 ">
           <DropdownMenuLabel className="flex justify-center my-2 text-base">
