@@ -14,6 +14,7 @@ const config = {
       colors: {
         black: "#1F1F29",
         bk_txt: "#1A1313",
+        bg_menu: "#e0c133",
       },
       fontSize: {
         sm: "0.6rem",

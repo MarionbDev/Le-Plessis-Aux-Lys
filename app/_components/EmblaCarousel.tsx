@@ -1,50 +1,41 @@
 "use client";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { EmblaOptionsType } from "embla-carousel";
 import Autoplay from "embla-carousel-autoplay";
+import Fade from "embla-carousel-fade";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
+import React from "react";
 
 type PropType = {
   slides: string[];
   options?: EmblaOptionsType;
 };
 
-export default function EmblaCarousel(props: PropType) {
+const EmblaCarousel: React.FC<PropType> = (props) => {
   const { slides, options } = props;
-  const [emblaRef] = useEmblaCarousel(options);
+  const [emblaRef] = useEmblaCarousel(options, [Autoplay(), Fade()]);
 
   return (
-    <Carousel
-      opts={{ loop: true, duration: 40 }}
-      plugins={[
-        Autoplay({
-          delay: 10000,
-          stopOnMouseEnter: true,
-        }),
-      ]}
-      ref={emblaRef}
-      className=" "
-    >
-      <CarouselContent className="">
-        {slides.map((slide, index) => (
-          <CarouselItem key={index}>
-            <Image
-              src={slide}
-              width={600}
-              height={200}
-              alt={`Photo ${index + 1}`}
-              className="h-48 w-full object-scale-down md:h-[32rem] "
-            />
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-    </Carousel>
+    <div className="embla">
+      <div className="embla_viewport" ref={emblaRef}>
+        <div className="embla_container">
+          {slides.map((slide, index) => (
+            <div className="embla_slide" key={index}>
+              <Image
+                src={slide}
+                width={600}
+                height={200}
+                alt={`Photo ${index + 1}`}
+                className="h-48 w-full object-scale-down md:h-[32rem] "
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default EmblaCarousel;
 
