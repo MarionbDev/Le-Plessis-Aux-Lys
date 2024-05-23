@@ -41,19 +41,19 @@ export default function NavBarDesktop() {
           <MenubarContent className=" bg-[#fafafc]">
             <MenubarItem
               onClick={() => router.push("/chambre-1")}
-              className=" hover:bg-bg_menu/40 text-xl"
+              className=" hover:bg-gold/30 text-xl"
             >
               Chambre 1
             </MenubarItem>
             <MenubarItem
               onClick={() => router.push("/chambre-2")}
-              className=" hover:bg-bg_menu/40 text-xl"
+              className=" hover:bg-gold/30 text-xl"
             >
               Chambre 2
             </MenubarItem>
             <MenubarItem
               onClick={() => router.push("/chambre-3")}
-              className=" hover:bg-bg_menu/40 text-xl"
+              className=" hover:bg-gold/30 text-xl"
             >
               Chambre 3
             </MenubarItem>
@@ -79,7 +79,7 @@ export default function NavBarDesktop() {
           <button
             onClick={handleButtonClick}
             type="button"
-            className=" flex gap-2 text-xl"
+            className=" flex gap-2 text-xl opacity-50 hover:opacity-100 "
           >
             <LogIn size={32} />
           </button>

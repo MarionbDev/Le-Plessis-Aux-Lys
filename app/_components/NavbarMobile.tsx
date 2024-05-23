@@ -21,18 +21,18 @@ export default function NavBarMobile() {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger className="mr-10">
-          <Menu size={42} />
+          <Menu className=" w-10 h-10 text-bk_txt/80" />
         </DropdownMenuTrigger>
         <DropdownMenuContent className=" bg-[#fafafc] mr-1 ">
-          <DropdownMenuLabel className="flex justify-center my-2 text-base">
+          <DropdownMenuLabel className="flex justify-center my-2 text-md ">
             Bienvenue
           </DropdownMenuLabel>
-          <DropdownMenuSeparator className=" border-[1px] " />
+          <DropdownMenuSeparator className=" border-b-[1px] " />
           <Menubar className=" flex flex-col h-82 gap-6 px-6   border-none  ">
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => router.push("/")}
-                className="text-base"
+                className="text-[0.9rem]"
               >
                 Accueil
               </MenubarTrigger>
@@ -40,7 +40,7 @@ export default function NavBarMobile() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => router.push("/gîte")}
-                className="text-base"
+                className="text-[0.9rem]"
               >
                 Gîte
               </MenubarTrigger>
@@ -49,7 +49,7 @@ export default function NavBarMobile() {
               <MenubarTrigger>
                 <div
                   onClick={() => router.push("/chambres")}
-                  className="text-base"
+                  className="text-[0.9rem]"
                 >
                   Chambres
                 </div>
@@ -58,7 +58,7 @@ export default function NavBarMobile() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => router.push("/a-visiter")}
-                className="text-base"
+                className="text-[0.9rem]"
               >
                 A visiter
               </MenubarTrigger>
@@ -66,7 +66,7 @@ export default function NavBarMobile() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => router.push("/nous-contacter")}
-                className="text-base"
+                className="text-[0.9rem]"
               >
                 Nous contacter
               </MenubarTrigger>
@@ -75,9 +75,9 @@ export default function NavBarMobile() {
               <MenubarTrigger
                 onClick={handleButtonClick}
                 type="button"
-                className=" flex gap-2 text-base"
+                className=" flex  gap-2 text-[0.9rem] italic opacity-50 hover:opacity-100 "
               >
-                <LogIn className=" text-slate-700" /> Se connecter
+                <LogIn className=" text-slate-800/90 " /> Se connecter
               </MenubarTrigger>
             </MenubarMenu>
           </Menubar>
