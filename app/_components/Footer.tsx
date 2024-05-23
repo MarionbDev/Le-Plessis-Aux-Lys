@@ -8,7 +8,7 @@ export default function Footer() {
       </div>
       <div className="flex flex-col md:flex-row md:justify-center w-full pt-4 gap-2">
         <p>@Copyright {currentYear} </p>
-        <p>Création : Marion Baston </p>
+        {/* <p>Création : Marion Baston </p> */}
         <p>Mentions Légales </p>
       </div>
     </div>
