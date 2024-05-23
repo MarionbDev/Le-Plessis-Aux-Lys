@@ -44,7 +44,6 @@ export default function UserLoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -53,10 +52,8 @@ export default function UserLoginForm() {
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+    // à définir
     console.log(values);
   }
 
@@ -66,10 +63,10 @@ export default function UserLoginForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-8 flex justify-center items-center h-screen"
       >
-        <Card className=" md:w-[50%] xl:w-[30%] ">
+        <Card className=" w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] ">
           <CardHeader>
-            <CardTitle>Connexion</CardTitle>
-            <CardDescription>
+            <CardTitle className=" md:text-[1.8rem]">Espace réservé</CardTitle>
+            <CardDescription className="italic text-[0.9rem] md:text-md lg:text-[1.4rem]">
               Se connecter à l'espace d'administration
             </CardDescription>
           </CardHeader>
@@ -79,11 +76,12 @@ export default function UserLoginForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className=" text-md lg:text-2xl ">Email</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="example@example.com"
                       type="email"
+                      className=" text-md md:text-lg "
                       {...field}
                     />
                   </FormControl>
@@ -97,16 +95,19 @@ export default function UserLoginForm() {
               name="password"
               render={({ field }) => (
                 <FormItem className=" mt-4">
-                  <FormLabel>Mot de passe</FormLabel>
+                  <FormLabel className="  text-md lg:text-2xl">
+                    Mot de passe
+                  </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="*********"
                       type={showPassword ? "text" : "password"}
                       autoComplete="current-password"
+                      className=" text-md md:text-lg "
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className=" text-[0.8rem] md:text-md pl-2" />
                 </FormItem>
               )}
             />
@@ -114,7 +115,7 @@ export default function UserLoginForm() {
               onClick={() => setShowPassword(!showPassword)}
               className=" cursor-pointer hover:underline"
             >
-              <p className=" text-[13px] mt-1 md:text-sm italic text-bk_txt">
+              <p className=" text-[13px] pl-2 mt-1 md:text-[1rem]  italic text-bk_txt">
                 Afficher le mot de passe
               </p>
             </div>
@@ -124,12 +125,12 @@ export default function UserLoginForm() {
               role="button"
               aria-label="se connecter"
               disabled={isLoading}
-              className="gap-3  bg-black text-white hover:bg-slate-700"
+              className="gap-3 lg:gap-4  bg-black text-white hover:bg-slate-700  text-md lg:text-xl "
             >
               {isLoading ? (
                 <Loader className="animate-spin" size="16" />
               ) : (
-                <LogIn size="16" />
+                <LogIn className="w-6 h-6 " />
               )}
               Se connecter
             </Button>

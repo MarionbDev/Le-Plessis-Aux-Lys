@@ -31,8 +31,8 @@ export default function DescriptionWebSite() {
         >
           <h2 className="text-md lg:text-xl mx-12 lg:mx-96 mt-12 text-justify">
             <p>
-              Céline et Thierry sont heureux de vous accueillir au PLE1SIS AUX
-              LYS.
+              Céline et Thierry sont heureux de vous accueillir au Plessis aux
+              Lys.
               <br />
               Demeure de caractère datant du XIXème siècle, situé dans le
               village de La chapelle aux Lys, cité au guide vert de 2023 comme
