@@ -33,12 +33,14 @@ export default function NavBarDesktop() {
           </MenubarTrigger>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger>
-            <div onClick={() => router.push("/chambres")} className="text-xl">
-              Chambres
-            </div>
-          </MenubarTrigger>
+          <MenubarTrigger className="text-xl">Chambres</MenubarTrigger>
           <MenubarContent className=" bg-[#fafafc]">
+            <MenubarItem
+              onClick={() => router.push("/les-chambres")}
+              className=" hover:bg-gold/30 text-xl"
+            >
+              Toutes les chambres
+            </MenubarItem>
             <MenubarItem
               onClick={() => router.push("/chambre-1")}
               className=" hover:bg-gold/30 text-xl"
@@ -58,6 +60,14 @@ export default function NavBarDesktop() {
               Chambre 3
             </MenubarItem>
           </MenubarContent>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger
+            onClick={() => router.push("/tarifs")}
+            className="text-xl"
+          >
+            Tarifs
+          </MenubarTrigger>
         </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger
