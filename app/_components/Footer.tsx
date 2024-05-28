@@ -1,7 +1,7 @@
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <div className="  mt-28  text-lg p-4 ">
+    <div className="  mt-28  text-lg lg:text-sm p-4 ">
       <div className=" flex flex-col  md:flex-row md:justify-center  gap-4">
         <h4>Contact</h4>
         <h4>Plan du site</h4>

@@ -1,0 +1,42 @@
+/* NAVBAR DESKTOP*/
+
+.activeLink {
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-top: 13px;
+}
+
+.nonActiveLink {
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-top: 13px;
+}
+
+.underline {
+  height: 2px;
+  background-color: transparent;
+  width: 0%;
+  transition:
+    width 0.4s,
+    background-color 0.5s;
+  margin: 10px auto 0 auto;
+  border-radius: 50px;
+}
+
+.activeLink .underline {
+  width: 100%;
+  padding-right: 5px;
+  background-color: #885439;
+}
+
+.nonActiveLink:hover .underline {
+  width: 100%;
+  background-color: #cb997e;
+}
+
