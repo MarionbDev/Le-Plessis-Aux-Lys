@@ -18,7 +18,7 @@ const sectionVariants: Variants = {
 
 export default function ImageWebSite() {
   return (
-    <div className="mt-20 lg:mt-40">
+    <div className="mt-20 lg:mt-32">
       <motion.section
         initial="hide"
         whileInView="show"
@@ -38,8 +38,9 @@ export default function ImageWebSite() {
             alt="parc"
             className="w-full lg:w-3/5 "
           />
-          <div className=" absolute flex justify-center items-center bg-slate-50/80 w-[16rem] h-20 md:w-[26rem]  md:h-[10rem] xl:w-[36rem] xl:h-[14rem] 2xl:w-[42rem] 2xl:h-[20rem]">
-            <h2 className=" text-xl md:text-[2rem] lg:text-[2rem] xl:text-[3rem] 2xl:text-[3.5rem]  flex flex-col justify-center items-center w-[15rem] h-16 m-2 md:w-[24rem]  md:h-[8rem] xl:w-[34rem] xl:h-[12rem] 2xl:w-[38rem] 2xl:h-[16rem] border-[2px] lg:border-[2px] xl:border-[4px]  border-gold md:gap-5 xl:gap-14">
+
+          <div className="absolute flex justify-center items-center  bg-yellow-50/80  w-[16rem] h-20 lg:w-[32rem] lg:h-[9rem] tracking-[6px] ">
+            <h2 className="font-prata text-title_color uppercase font-light text-xl lg:text-[2.2rem] flex flex-col justify-center items-center w-[15rem] h-16 m-2 lg:w-[30rem] lg:h-[12rem] border-[3px] border-gold md:gap-5 lg:gap-8  ">
               <p>Gîte</p>
               <p>Chambres d'Hôtes</p>
             </h2>

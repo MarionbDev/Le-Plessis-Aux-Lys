@@ -3,13 +3,24 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
+
+.font-text {
+  font-family: "Open Sans", sans-serif;
+}
+
+.font-prata {
+  font-family: "Prata", serif;
+  font-style: normal;
+}
 
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
-.title-home {
+.font-title-home {
   font-family: "Montserrat";
 }
 
