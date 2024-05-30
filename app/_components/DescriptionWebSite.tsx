@@ -13,8 +13,8 @@ const sectionVariants: Variants = {
   show: {
     opacity: 1,
     transition: {
-      duration: 1.5,
-      delay: 0.5,
+      duration: 1,
+      delay: 0.8,
     },
   },
 };
@@ -27,7 +27,8 @@ const imageVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.7,
+      delay: 0.2,
     },
   },
 };
@@ -41,7 +42,7 @@ export default function DescriptionWebSite() {
   ];
 
   return (
-    <div className="font-text text-text_color mt-24 lg:mt-38">
+    <div className="font-text text-text_color mt-24 lg:mt-40">
       <motion.section
         initial="hide"
         whileInView="show"
@@ -54,7 +55,7 @@ export default function DescriptionWebSite() {
           transition={{ duration: 0.5 }}
         >
           <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-52 mt-12 text-justify  leading-relaxed">
-            <span className="flex justify-center w-2/3 mb-20 border-t-2 border-separator"></span>
+            <span className="flex justify-center w-2/4 mb-20 border-t-2 border-separator"></span>
             <div className="flex justify-between items-center gap-28">
               <Image
                 src={parc}
@@ -82,17 +83,15 @@ export default function DescriptionWebSite() {
         initial="hide"
         whileInView="show"
         exit="hide"
-        variants={imageVariants}
+        variants={sectionVariants}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-56 mt-12 text-justify  leading-relaxed">
-            <span className="flex justify-center my-20 w-2/3 border-t-2 border-separator"></span>
-            <EmblaCarousel slides={imagesLoc} />
-
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-56 mt-32 text-justify  leading-relaxed">
+            <span className="flex justify-center my-20 w-2/4 border-t-2 border-separator"></span>
             <p className="my-4">
               3 chambres de charme possédant chacune leur salle d'eau et leurs
               toilettes et un gite de 2 à 4 personnes, vous accueilleront au
@@ -109,18 +108,33 @@ export default function DescriptionWebSite() {
         initial="hide"
         whileInView="show"
         exit="hide"
-        variants={sectionVariants}
+        variants={imageVariants}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-56 mt-12 text-justify  leading-relaxed">
-            <span className="flex justify-center my-20 w-2/3 border-t-2 border-separator"></span>
+          <EmblaCarousel slides={imagesLoc} />
+        </motion.div>
+      </motion.section>
+
+      <motion.section
+        initial="hide"
+        whileInView="show"
+        exit="hide"
+        variants={sectionVariants}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
+        >
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-56 mt-32 text-justify  leading-relaxed">
+            <span className="flex justify-center my-20 w-2/4 border-t-2 border-separator"></span>
 
             <div className="flex justify-between items-center gap-28">
-              <p>
+              <p className="my-4">
                 Idéalement situé pour découvrir notre belle région de Vendée ,
                 Le Plessis aux Lys n'est qu'à 10mn d'un des plus beaux villages
                 de France: Vouvant et de la forêt de Mervent; à 20mn du marais
