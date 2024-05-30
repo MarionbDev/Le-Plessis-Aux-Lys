@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import DescriptionWebSite from "./_components/DescriptionWebSite";
 import Footer from "./_components/Footer";
-import ImageWebSite from "./_components/ImageWebSite";
+import ImageHomeWebSite from "./_components/ImageHomeWebSite";
 
 const DynamicMap = dynamic(() => import("./_components/Map"), {
   ssr: false,
@@ -18,9 +18,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-      <main className=" ">
-        <ImageWebSite />
+    <div className=" bg-[#fdfdfd] ">
+      <main>
+        <ImageHomeWebSite />
         <DescriptionWebSite />
         <DynamicMap />
       </main>

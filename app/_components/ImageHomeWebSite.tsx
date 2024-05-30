@@ -16,9 +16,9 @@ const sectionVariants: Variants = {
   },
 };
 
-export default function ImageWebSite() {
+export default function ImageHomeWebSite() {
   return (
-    <div className="mt-20 lg:mt-32">
+    <div className="mt-20 lg:mt-40">
       <motion.section
         initial="hide"
         whileInView="show"
@@ -36,12 +36,12 @@ export default function ImageWebSite() {
             height={300}
             width={600}
             alt="parc"
-            className="w-full lg:w-3/5 "
+            className="w-full lg:w-3/5 h-96  object-cover"
           />
 
-          <div className="absolute flex justify-center items-center  bg-yellow-50/80  w-[16rem] h-20 lg:w-[32rem] lg:h-[9rem] tracking-[6px] ">
+          <div className="absolute flex justify-center items-center  bg-yellow-50/90  w-[16rem] h-20 lg:w-[32rem] lg:h-[9rem] tracking-[6px] ">
             <h2 className="font-prata text-title_color uppercase font-light text-xl lg:text-[2.2rem] flex flex-col justify-center items-center w-[15rem] h-16 m-2 lg:w-[30rem] lg:h-[12rem] border-[3px] border-gold md:gap-5 lg:gap-8  ">
-              <p>Gîte</p>
+              <p>Gîte et</p>
               <p>Chambres d'Hôtes</p>
             </h2>
           </div>

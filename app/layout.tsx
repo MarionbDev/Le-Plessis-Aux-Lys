@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="fixed w-screen top-0 z-50 bg-none">
+        <header className="fixed w-screen top-0 z-50 bg-none ">
           {/* <Header /> */}
           <Navbar />
         </header>{" "}
