@@ -32,7 +32,7 @@ export default function ImageHomeWebSite() {
           className="flex justify-center items-center"
         >
           <Image
-            src={"/parc2.jpg"}
+            src={"/parc/parc2.jpg"}
             height={300}
             width={600}
             alt="parc"
