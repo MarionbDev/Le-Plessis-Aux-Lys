@@ -2,8 +2,6 @@
 
 .activeLink {
   font-family: "Open Sans", sans-serif;
-  text-transform: uppercase;
-  font-size: 14px;
   letter-spacing: 3px;
   text-align: center;
   margin-top: 13px;
@@ -11,8 +9,6 @@
 
 .nonActiveLink {
   font-family: "Open Sans", sans-serif;
-  text-transform: uppercase;
-  font-size: 14px;
   letter-spacing: 3px;
   text-align: center;
   margin-top: 13px;
@@ -31,12 +27,11 @@
 
 .activeLink .underline {
   width: 100%;
-  padding-right: 5px;
-  background-color: #885439;
+  background-color: #bbbb57;
 }
 
 .nonActiveLink:hover .underline {
   width: 100%;
-  background-color: #cb997e;
+  background-color: #c7c75e71;
 }
 
