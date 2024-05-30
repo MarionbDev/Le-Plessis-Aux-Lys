@@ -65,8 +65,8 @@ export default function UserLoginForm() {
       >
         <Card className=" w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] ">
           <CardHeader>
-            <CardTitle className=" md:text-[1.8rem]">Espace réservé</CardTitle>
-            <CardDescription className="italic text-[0.9rem] md:text-md lg:text-[1.4rem]">
+            <CardTitle className=" md:text-[1.4rem]">Espace réservé</CardTitle>
+            <CardDescription className="italic text-[0.9rem] md:text-md lg:text-[1rem]">
               Se connecter à l'espace d'administration
             </CardDescription>
           </CardHeader>
@@ -76,12 +76,12 @@ export default function UserLoginForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className=" text-md lg:text-2xl ">Email</FormLabel>
+                  <FormLabel className=" text-md lg:text-lg ">Email</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="example@example.com"
                       type="email"
-                      className=" text-md md:text-lg "
+                      className=" text-md md:text-md "
                       {...field}
                     />
                   </FormControl>
@@ -95,7 +95,7 @@ export default function UserLoginForm() {
               name="password"
               render={({ field }) => (
                 <FormItem className=" mt-4">
-                  <FormLabel className="  text-md lg:text-2xl">
+                  <FormLabel className="  text-md lg:text-lg">
                     Mot de passe
                   </FormLabel>
                   <FormControl>
@@ -103,7 +103,7 @@ export default function UserLoginForm() {
                       placeholder="*********"
                       type={showPassword ? "text" : "password"}
                       autoComplete="current-password"
-                      className=" text-md md:text-lg "
+                      className=" text-md md:text-md "
                       {...field}
                     />
                   </FormControl>
@@ -125,7 +125,7 @@ export default function UserLoginForm() {
               role="button"
               aria-label="se connecter"
               disabled={isLoading}
-              className="gap-3 lg:gap-4  bg-black text-white hover:bg-slate-700  text-md lg:text-xl "
+              className="gap-3 lg:gap-4  bg-black text-white hover:bg-slate-700  text-md lg:text-md "
             >
               {isLoading ? (
                 <Loader className="animate-spin" size="16" />

@@ -8,6 +8,7 @@
 
 .font-text {
   font-family: "Open Sans", sans-serif;
+  letter-spacing: 1px;
 }
 
 .font-prata {
@@ -29,11 +30,6 @@
 @media only screen and (min-width: 1025px) {
   .navbar-mobile {
     display: none;
-  }
-  header {
-    background-color: #f5f5fa42;
-    box-shadow: 12px 12px 40px 1px #9999c542;
-    /* box-shadow: 10px #89899e; */
   }
 }
 
