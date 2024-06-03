@@ -18,8 +18,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className=" bg-[#fdfdfd] ">
-      <main>
+    <div className="  ">
+      <main className=" bg-[#fdfdfd]">
         <ImageHomeWebSite />
         <DescriptionWebSite />
         <DynamicMap />

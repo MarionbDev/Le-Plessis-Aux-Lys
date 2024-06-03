@@ -17,10 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-[#fdfdfd]">
       <body className={inter.className}>
-        <header className="fixed w-screen top-0 z-50 bg-none ">
-          {/* <Header /> */}
+        <header className="fixed w-screen top-0 z-50 bg-none bg-transparent  ">
           <Navbar />
         </header>{" "}
         {children}
