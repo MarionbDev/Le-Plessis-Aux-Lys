@@ -6,6 +6,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
+
 .font-text {
   font-family: "Open Sans", sans-serif;
   letter-spacing: 1px;
@@ -71,4 +75,6 @@
 .embla_slide_img {
   user-select: none;
 }
+
+
 

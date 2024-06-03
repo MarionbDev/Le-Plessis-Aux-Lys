@@ -49,7 +49,7 @@ export default function Map() {
           transition={{ duration: 0.5 }}
         >
           <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-56 mt-12 text-justify  leading-relaxed">
-            <span className="flex justify-center my-20 w-2/4 border-t-2 border-separator"></span>
+            {/* <span className="flex justify-center my-20 w-2/4 border-t-2 border-separator"></span> */}
             <MapContainer
               center={position}
               zoom={9}

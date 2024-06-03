@@ -60,17 +60,17 @@ export default function DescriptionWebSite() {
           {/* <div className="flex justify-center">
             <span className="flex justify-center w-2/4 mb-20 border-t-2 border-separator"></span>
           </div> */}
-          <div className=" bg-gold/10 py-20">
-            <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-44  text-justify  leading-relaxed">
+          <div className=" bg-gold/10 py-16 mx-6 shadow-div">
+            <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-36  text-justify leading-loose">
               <div className="flex justify-between items-center gap-36">
                 <Image
                   src={parc}
-                  width={400}
+                  width={420}
                   height={500}
                   alt="Photo du parc du gîte"
-                  className=" rounded-sm shadow-basic"
+                  className=" rounded-sm shadow-basic border-2 p-1 bg-white"
                 />
-                <p className="">
+                <p>
                   Céline et Thierry sont heureux de vous accueillir au Plessis
                   aux Lys.
                   <br />
@@ -97,9 +97,9 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-56 mt-24 text-justify  leading-relaxed">
-            <span className="flex justify-center my-20 w-2/4 border-t-2 border-separator"></span>
-            <p className="my-4">
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-56 mt-36 text-justify  leading-loose">
+            {/* <span className="flex justify-center my-20 w-2/4 border-t-2 border-separator"></span> */}
+            <p className="my-4 mx-2">
               3 chambres de charme possédant chacune leur salle d'eau et leurs
               toilettes et un gite de 2 à 4 personnes, vous accueilleront au
               sein d'un parc ou trônent des arbres séculaires qui vous
@@ -191,13 +191,13 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <div className="flex justify-center mt-32">
+          {/* <div className="flex justify-center mt-32">
             <span className="flex justify-center w-2/4 mb-20 border-t-2 border-separator"></span>
-          </div>
-          <div className=" bg-yellow/30 py-20">
-            <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-44  text-justify  leading-relaxed">
-              <div className="flex justify-between items-center gap-32">
-                <p className="my-4">
+          </div> */}
+          <div className=" bg-gold/10 py-16 shadow-div  mt-44 mx-6">
+            <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-36  text-justify  leading-loose">
+              <div className="flex justify-between items-center gap-36">
+                <p>
                   Idéalement situé pour découvrir notre belle région de Vendée ,
                   Le Plessis aux Lys n'est qu'à 10mn d'un des plus beaux
                   villages de France: Vouvant et de la forêt de Mervent; à 20mn
@@ -212,7 +212,7 @@ export default function DescriptionWebSite() {
                   width={500}
                   height={500}
                   alt="Photo du parc du gîte"
-                  className=" rounded-sm shadow-basic"
+                  className=" rounded-sm shadow-basic border-2 p-1 bg-white"
                 />
               </div>
             </div>
