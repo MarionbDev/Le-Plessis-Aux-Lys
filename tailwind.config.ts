@@ -16,6 +16,7 @@ const config = {
         navbar: "0px 3px 10px -2px rgba(0, 0, 0, 0.38)",
       },
       colors: {
+        yellow: "#b7ae47",
         black: "#1F1F29",
         bk_txt: "#1A1313",
         bg_menu: "#e0c133",

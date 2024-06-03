@@ -39,10 +39,10 @@ export default function ImageHomeWebSite() {
             className="w-full lg:w-3/5 h-96  object-cover"
           />
 
-          <div className="absolute flex justify-center items-center  bg-yellow-50/90  w-[16rem] h-20 lg:w-[32rem] lg:h-[9rem] tracking-[6px] ">
-            <h2 className="font-prata text-title_color uppercase font-light text-xl lg:text-[2.2rem] flex flex-col justify-center items-center w-[15rem] h-16 m-2 lg:w-[30rem] lg:h-[12rem] border-[3px] border-gold md:gap-5 lg:gap-8  ">
-              <p>Gîte et</p>
-              <p>Chambres d'Hôtes</p>
+          <div className="absolute flex justify-center items-center  bg-[#fcf9c9]/70   w-[16rem] h-20 lg:w-[32rem] lg:h-[9rem] tracking-[6px] ">
+            <h2 className="font-prata text-title_color  uppercase font-light text-xl lg:text-[2.2rem] flex flex-col justify-center items-center w-[15rem] h-16 m-2 lg:w-[30rem] lg:h-[12rem] border-[3px] border-gold md:gap-5 lg:gap-8  ">
+              <p className=" ">Gîte et</p>
+              <p className=" ">Chambres d'Hôtes</p>
             </h2>
           </div>
         </motion.div>

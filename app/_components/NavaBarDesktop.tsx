@@ -25,7 +25,7 @@ export default function NavBarDesktop() {
   };
   return (
     <>
-      <div className=" font-text text-text_color flex gap-4 px-10  border-none  ">
+      <div className=" font-text text-text_color flex gap-4 px-10  border-none ">
         <Link
           href={"/"}
           onClick={() => router.push("/")}
