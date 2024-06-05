@@ -43,38 +43,3 @@ html {
   }
 }
 
-/* Library Embla Carousel */
-.embla {
-  max-width: 48rem;
-  margin: auto;
-  --slide-height: 19rem;
-  --slide-spacing: 1rem;
-  --slide-size: 100%;
-}
-.embla_viewport {
-  overflow: hidden;
-}
-.embla_container {
-  backface-visibility: hidden;
-  display: flex;
-  touch-action: pan-y pinch-zoom;
-  margin-left: calc(var(--slide-spacing) * -1);
-}
-.embla_slide {
-  flex: 0 0 var(--slide-size);
-  min-width: 0;
-  padding-left: var(--slide-spacing);
-}
-.embla_slide_img {
-  border-radius: 1.8rem;
-  display: block;
-  height: var(--slide-height);
-  width: 100%;
-  object-fit: cover;
-}
-.embla_slide_img {
-  user-select: none;
-}
-
-
-
