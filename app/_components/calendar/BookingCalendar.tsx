@@ -18,7 +18,7 @@ export default function BookingCalendar() {
         selected={range}
         onSelect={setRange}
         numberOfMonths={2}
-        className="text-slate-600 "
+        className="text-slate-600 h-[17rem] text-sm "
       />
     </>
   );

@@ -11,6 +11,9 @@ const config = {
   prefix: "",
   theme: {
     extend: {
+      screens: {
+        "3xl": "1600px",
+      },
       boxShadow: {
         basic: "-6px 8px 18px 0px rgba(0, 0, 0, 0.40);",
         div: "-6px 8px 18px 0px rgba(0, 0, 0, 0.20);",

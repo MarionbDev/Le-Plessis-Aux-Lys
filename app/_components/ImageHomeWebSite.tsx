@@ -18,7 +18,7 @@ const sectionVariants: Variants = {
 
 export default function ImageHomeWebSite() {
   return (
-    <div className="mt-20 lg:mt-40">
+    <div className="mt-20 lg:mt-28">
       <motion.section
         initial="hide"
         whileInView="show"
@@ -33,13 +33,13 @@ export default function ImageHomeWebSite() {
         >
           <Image
             src={"/parc/parc2.jpg"}
-            height={400}
-            width={600}
+            width={1000}
+            height={800}
             alt="parc"
-            className="w-full lg:w-[60rem] h-[29rem]  object-cover rounded-sm shadow-basic border-2 p-1"
+            className="w-full lg:w-full lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem] object-cover object-center rounded-sm shadow-basic "
           />
-          <div className="absolute flex justify-center items-center  bg-[#fcf9c9]/70   w-[16rem] h-20 lg:w-[32rem] lg:h-[9rem] tracking-[6px] ">
-            <h2 className="font-prata text-title_color  uppercase font-light text-xl lg:text-[2.2rem] flex flex-col justify-center items-center w-[15rem] h-16 m-2 lg:w-[30rem] lg:h-[12rem] border-[3px] border-gold md:gap-5 lg:gap-8  ">
+          <div className="absolute flex justify-center items-center  bg-[#64641fd8]  w-[16rem] h-20 lg:w-[40rem] lg:h-[9rem] tracking-[6px] ">
+            <h2 className="font-prata text-[#e9e7e7]  uppercase font-extrabold text-xl lg:text-[2.2rem] flex flex-col justify-center items-center w-[15rem] h-16 m-2 lg:w-[34rem] lg:h-[12rem] border-[3px] border-gold md:gap-5 lg:gap-8  ">
               <p className=" ">Gîte et</p>
               <p className=" ">Chambres d'Hôtes</p>
             </h2>
