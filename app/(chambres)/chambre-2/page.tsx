@@ -1,7 +1,19 @@
+import RentalPage from "@/app/_components/RentalPage";
+
+const imagesChambre2 = ["/chambres/ch-2.jpg"];
+
 export default function RoomsTwo() {
   return (
-    <div className="mt-40 ml-20">
-      <h2>Chambre 2</h2>
+    <div className=" h-screen">
+      <RentalPage
+        title="Chambre 2"
+        lowSeasonNightRate={75}
+        // lowSeasonWeeklyRate={560}
+        highSeasonNightRate={75}
+        // highSeasonWeeklyRate={680}
+        imagesSlide={imagesChambre2}
+      />
     </div>
   );
 }
+

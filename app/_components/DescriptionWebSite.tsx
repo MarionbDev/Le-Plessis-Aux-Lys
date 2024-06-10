@@ -17,7 +17,7 @@ const sectionVariants: Variants = {
     opacity: 1,
     transition: {
       duration: 1,
-      delay: 0.8,
+      delay: 0.6,
     },
   },
 };
@@ -39,7 +39,7 @@ const imageVariants: Variants = {
 
 export default function DescriptionWebSite() {
   return (
-    <div className="font-text text-text_color pt-10 xl:pt-6  ">
+    <div className="font-text text-text_color pt-10 xl:pt-6 ">
       <motion.section
         initial="hide"
         whileInView="show"
@@ -68,9 +68,8 @@ export default function DescriptionWebSite() {
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
         >
-          <div className="mx-56 flex flex-col items-center gap-12 text-center leading-loose  text-lg mt-10">
+          <div className="mx-56 flex items-center gap-12 leading-loose  text-lg mt-20">
             <p>
               Demeure de caractère datant du XIXème siècle, situé dans le
               village de La chapelle aux Lys, cité au guide vert de 2023 comme
