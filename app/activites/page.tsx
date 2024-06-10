@@ -1,13 +1,11 @@
 "use client";
 
 import VisitContext from "@/hooks/VisitContext";
-import { ReactNode } from "react";
 import VisitArticle from "../_components/VisitArticle";
 
-export default function ToVisited({ children }: { children: ReactNode }) {
+export default function ToVisited() {
   const visitContextValue = {
     framerMotionVariants: {
-      // Propriétés de configuration de Framer Motion
       hide: {
         opacity: 0,
       },
@@ -19,7 +17,6 @@ export default function ToVisited({ children }: { children: ReactNode }) {
         },
       },
     },
-    // Autres valeurs du contexte
   };
 
   return (
@@ -31,7 +28,6 @@ export default function ToVisited({ children }: { children: ReactNode }) {
       <span className="flex justify-center w-2/4 border-t-2 py-10 border-separator"></span>
       <div className="flex flex-col gap-12">
         <VisitContext.Provider value={visitContextValue}>
-          {children}
           <VisitArticle visitTitle="Lorem ipsum" />
           <VisitArticle visitTitle="Lorem ipsum" />
           <VisitArticle visitTitle="Lorem ipsum" />

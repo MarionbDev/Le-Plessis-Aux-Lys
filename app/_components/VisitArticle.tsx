@@ -5,25 +5,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Variants, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useContext } from "react";
 import VisitContext from "../../hooks/VisitContext";
+
 type PropType = {
   visitTitle: string;
-};
-
-const sectionVariants: Variants = {
-  hide: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-      delay: 0.6,
-    },
-  },
 };
 
 export default function VisitArticle({ visitTitle }: PropType) {
