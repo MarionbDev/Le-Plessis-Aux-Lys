@@ -20,7 +20,7 @@ const config = {
         navbar: "0px 3px 10px -2px rgba(0, 0, 0, 0.38)",
       },
       colors: {
-        yellow: "#b7ae47",
+        yellow: "#bbbb57",
         black: "#1F1F29",
         bk_txt: "#1A1313",
         bg_menu: "#e0c133",
@@ -31,6 +31,9 @@ const config = {
         titleHome_color: "#60605d",
         title_color: "#3f3f3b",
         separator: "#bbbb57",
+      },
+      backgroundImage: {
+        gradient_about: " linear-gradient(-50deg, #ffffff 20%, #bbbb57 130%);",
       },
     },
   },

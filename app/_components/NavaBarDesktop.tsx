@@ -25,7 +25,7 @@ export default function NavBarDesktop() {
   };
   return (
     <>
-      <div className=" font-text text-text_color flex gap-4 px-10  border-none ">
+      <div className=" font-text text-text_color flex gap-6 px-10  border-none ">
         <Link
           href={"/"}
           onClick={() => router.push("/")}
@@ -47,59 +47,57 @@ export default function NavBarDesktop() {
         <div
           onMouseEnter={() => handleMouseEnter(0)}
           onMouseLeave={handleMouseLeave}
-          className={`flex flex-col ${currentRoute === "/chambres" ? styles.activeLink : styles.nonActiveLink}`}
+          className={`flex flex-col  ${currentRoute === "/chambres" ? styles.activeLink : styles.nonActiveLink}`}
         >
-          <div className="text-xl lg:text-[1rem]">Chambres</div>
+          <div className="text-xl relative z-50 lg:text-[1rem]">Chambres</div>
           <span className={styles.underline}></span>
 
           <div
-            className={`${activeIndex === 0 ? "block" : "hidden"} text-start  bg-[#fafafc] flex flex-col absolute top-[69px] w-52 rounded-sm`}
+            className={`${activeIndex === 0 ? "block" : "hidden"} text-start h-[15rem] w-24  flex flex-col absolute top-[5px] z-0 pt-16 rounded-sm`}
           >
-            <Link
-              href={"/toutes-les-chambres"}
-              onClick={() => router.push("/les-chambres")}
-              className="   hover:bg-subMenu text-xl px-2 lg:text-[0.9rem] rounded-sm"
-            >
-              Toutes les chambres
-            </Link>
-            <Link
-              href={"/chambre-1"}
-              onClick={() => router.push("/chambre-1")}
-              className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
-            >
-              Chambre 1
-            </Link>
-            <Link
-              href={"/chambre-2"}
-              onClick={() => router.push("/chambre-2")}
-              className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem]"
-            >
-              Chambre 2
-            </Link>
-            <Link
-              href={"/chambre-3"}
-              onClick={() => router.push("/chambre-3")}
-              className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] rounded-sm"
-            >
-              Chambre 3
-            </Link>
+            <div className="flex flex-col bg-[#fafafc]  w-52  ">
+              <div className="px-2 text-xl lg:text-[0.9rem]">
+                Toutes les chambres
+              </div>
+              <Link
+                href={"/chambre-1"}
+                onClick={() => router.push("/chambre-1")}
+                className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
+              >
+                Chambre 1
+              </Link>
+              <Link
+                href={"/chambre-2"}
+                onClick={() => router.push("/chambre-2")}
+                className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem]"
+              >
+                Chambre 2
+              </Link>
+              <Link
+                href={"/chambre-3"}
+                onClick={() => router.push("/chambre-3")}
+                className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] rounded-sm"
+              >
+                Chambre 3
+              </Link>
+            </div>
           </div>
         </div>
-        <Link
+        {/* <Link
           href={"/tarifs"}
           onClick={() => router.push("/tarifs")}
           className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/tarifs" ? styles.activeLink : styles.nonActiveLink}`}
         >
           Tarifs
           <span className={styles.underline}></span>
-        </Link>
+        </Link> */}
 
         <Link
-          href={"/a-visiter"}
-          onClick={() => router.push("/a-visiter")}
-          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/a-visiter" ? styles.activeLink : styles.nonActiveLink}`}
+          href={"/activites"}
+          onClick={() => router.push("/activites")}
+          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/activites" ? styles.activeLink : styles.nonActiveLink}`}
         >
-          A visiter
+          Activités
           <span className={styles.underline}></span>
         </Link>
 

@@ -13,12 +13,11 @@ import {
 import styles from "./Carousel.module.css";
 
 type PropType = {
-  slides: string[];
+  slides?: string[];
   options?: EmblaOptionsType;
 };
 
-const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props;
+const EmblaCarousel: React.FC<PropType> = ({ slides = [], options }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
 
   const {
@@ -40,13 +39,13 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   width={600}
                   height={200}
                   alt={`Photo ${index + 1}`}
-                  className="object-scale-down md:h-[28rem] mr-40   "
+                  className="  object-scale-down h-[33rem]  "
                 />
               </div>
             </div>
           ))}
         </div>
-      </div>
+      </div>{" "}
       <div className={styles.embla__controls}>
         <div className={styles.embla__buttons}>
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
