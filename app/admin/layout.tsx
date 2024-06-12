@@ -1,12 +1,15 @@
 import { ReactNode } from "react";
+import NavBarAdmin from "../_components/NavBarAdmin";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   //TODO protéger les routes ADMIN avec un middleware
   return (
-    <div>
+    <section className="mt-40">
+      <NavBarAdmin />
       <p>essai layout admin</p>
+
       {children}
-    </div>
+    </section>
   );
 }
 

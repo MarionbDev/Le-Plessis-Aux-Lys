@@ -3,8 +3,8 @@
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import DescriptionWebSite from "./_components/DescriptionWebSite";
-import Footer from "./_components/Footer";
 import ImageHomeWebSite from "./_components/ImageHomeWebSite";
+import UserLayout from "./user/layout";
 
 const DynamicMap = dynamic(() => import("./_components/Map"), {
   ssr: false,
@@ -18,13 +18,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="  ">
-      <main className=" ">
-        <ImageHomeWebSite />
-        <DescriptionWebSite />
-        <DynamicMap />
-      </main>
-      <Footer />
-    </div>
+    <UserLayout>
+      <div className="  ">
+        {/* <div className="fixed w-screen top-0 z-50 bg-none bg-transparent">
+        <NavbarUser />
+      </div> */}
+        <main className=" ">
+          <ImageHomeWebSite />
+          <DescriptionWebSite />
+          <DynamicMap />
+        </main>
+      </div>
+    </UserLayout>
   );
 }

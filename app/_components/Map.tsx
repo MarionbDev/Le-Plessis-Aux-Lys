@@ -9,7 +9,7 @@ import gite from "../../public/gite/gite.jpg";
 import icon from "../../public/icon-marker.svg";
 import parc from "../../public/parc/parc1.jpg";
 
-const position: [number, number] = [46.6281776, -0.09];
+const position: [number, number] = [46.6280278, -0.6603611];
 
 const imageVariants: Variants = {
   hide: {

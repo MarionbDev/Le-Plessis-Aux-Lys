@@ -1,5 +1,6 @@
 "use client";
-import RentalPage from "../_components/RentalPage";
+
+import RentalPage from "@/app/_components/RentalPage";
 
 const imagesGite = ["/gite/gite.jpg", "/gite/gite2.jpg", "/gite/gite3.jpg"];
 

@@ -36,9 +36,9 @@ export default function NavBarDesktop() {
         </Link>
 
         <Link
-          href={"/gite"}
-          onClick={() => router.push("/gite")}
-          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/gite" ? styles.activeLink : styles.nonActiveLink}`}
+          href={"/user/gite"}
+          onClick={() => router.push("/user/gite")}
+          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/user/gite" ? styles.activeLink : styles.nonActiveLink}`}
         >
           Gîte
           <span className={styles.underline}></span>
@@ -47,7 +47,7 @@ export default function NavBarDesktop() {
         <div
           onMouseEnter={() => handleMouseEnter(0)}
           onMouseLeave={handleMouseLeave}
-          className={`flex flex-col  ${currentRoute === "/chambres" ? styles.activeLink : styles.nonActiveLink}`}
+          className={`flex flex-col  ${currentRoute === "/user/chambres" ? styles.activeLink : styles.nonActiveLink}`}
         >
           <div className="text-xl relative z-50 lg:text-[1rem]">Chambres</div>
           <span className={styles.underline}></span>
@@ -60,22 +60,22 @@ export default function NavBarDesktop() {
                 Toutes les chambres
               </div>
               <Link
-                href={"/chambre-1"}
-                onClick={() => router.push("/chambre-1")}
+                href={"/user/chambre-1"}
+                onClick={() => router.push("/user/chambre-1")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
               >
                 Chambre 1
               </Link>
               <Link
-                href={"/chambre-2"}
-                onClick={() => router.push("/chambre-2")}
+                href={"/user/chambre-2"}
+                onClick={() => router.push("/user/chambre-2")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem]"
               >
                 Chambre 2
               </Link>
               <Link
-                href={"/chambre-3"}
-                onClick={() => router.push("/chambre-3")}
+                href={"/user/chambre-3"}
+                onClick={() => router.push("/user/chambre-3")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] rounded-sm"
               >
                 Chambre 3
@@ -83,28 +83,28 @@ export default function NavBarDesktop() {
             </div>
           </div>
         </div>
-        {/* <Link
-          href={"/tarifs"}
-          onClick={() => router.push("/tarifs")}
-          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/tarifs" ? styles.activeLink : styles.nonActiveLink}`}
+        <Link
+          href={"/user/jardin"}
+          onClick={() => router.push("/user/jardin")}
+          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/user/jardin" ? styles.activeLink : styles.nonActiveLink}`}
         >
-          Tarifs
+          Jardin
           <span className={styles.underline}></span>
-        </Link> */}
+        </Link>
 
         <Link
-          href={"/activites"}
-          onClick={() => router.push("/activites")}
-          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/activites" ? styles.activeLink : styles.nonActiveLink}`}
+          href={"/user/activites"}
+          onClick={() => router.push("/user/activites")}
+          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/user/activites" ? styles.activeLink : styles.nonActiveLink}`}
         >
           Activités
           <span className={styles.underline}></span>
         </Link>
 
         <Link
-          href={"/nous-contacter"}
-          onClick={() => router.push("/nous-contacter")}
-          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/nous-contacter" ? styles.activeLink : styles.nonActiveLink}`}
+          href={"/user/nous-contacter"}
+          onClick={() => router.push("/user/nous-contacter")}
+          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/user/nous-contacter" ? styles.activeLink : styles.nonActiveLink}`}
         >
           Nous contacter
           <span className={styles.underline}></span>
