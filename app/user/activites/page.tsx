@@ -1,7 +1,7 @@
 "use client";
 
+import VisitArticle from "@/app/_components/VisitArticle";
 import VisitContext from "@/hooks/VisitContext";
-import VisitArticle from "../_components/VisitArticle";
 
 export default function ToVisited() {
   const visitContextValue = {

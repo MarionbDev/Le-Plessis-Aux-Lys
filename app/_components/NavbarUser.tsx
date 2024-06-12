@@ -4,7 +4,7 @@ import useScrollListener from "@/hooks/useScrollListener";
 import { useEffect, useState } from "react";
 import NavBarDesktop from "./NavaBarDesktop";
 
-export default function Navbar() {
+export default function NavbarUser() {
   const [navClassList, setNavClassList] = useState<string[]>([]);
   const scroll = useScrollListener();
 
