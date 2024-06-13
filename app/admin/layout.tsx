@@ -4,10 +4,8 @@ import NavBarAdmin from "../_components/NavBarAdmin";
 export default function AdminLayout({ children }: { children: ReactNode }) {
   //TODO protéger les routes ADMIN avec un middleware
   return (
-    <section className="mt-40">
+    <section className="">
       <NavBarAdmin />
-      <p>essai layout admin</p>
-
       {children}
     </section>
   );

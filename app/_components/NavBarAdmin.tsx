@@ -1,7 +1,9 @@
+import NavbarDesktopAdmin from "./NavBarDesktopAdmin";
+
 export default function NavBarAdmin() {
   return (
     <div className="">
-      <p>NavbarAdmin</p>
+      <NavbarDesktopAdmin />
     </div>
   );
 }
