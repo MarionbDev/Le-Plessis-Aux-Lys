@@ -16,8 +16,6 @@ export default function GiteAndRooms() {
       url: "/chambres/ch-2.jpg",
       orientation: "horizontal" as "horizontal",
     },
-    // { url: "/chambres/chambres2.jpg", orientation: "vertical" as "vertical" },
-    // { url: "/chambres/chambres3.jpg", orientation: "vertical" as "vertical" },
   ];
   const chambre3 = [
     {

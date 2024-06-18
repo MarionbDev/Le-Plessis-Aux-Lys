@@ -1,6 +1,10 @@
 import RentalPage from "@/app/_components/RentalPage";
 
-const imagesChambre2 = ["/chambres/ch-2.jpg"];
+const imagesChambre2 = [
+  "/chambres/ch-2.jpg",
+  "/chambres/ch-2-1.jpg",
+  "/chambres/ch-2-2.jpg",
+];
 
 export default function RoomsTwo() {
   return (
