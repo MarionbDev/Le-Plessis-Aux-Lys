@@ -16,6 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { loginUser } from "@/services/auth.services";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader, LogIn, Milestone } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -39,9 +40,13 @@ const formSchema = z.object({
     ),
 });
 
+type FormSchemaType = z.infer<typeof formSchema>;
+
 export default function UserLoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -51,12 +56,17 @@ export default function UserLoginForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // à définir
-    console.log(values);
-  }
-
-  const router = useRouter();
+  const handleLoginFormSubmit = async (values: FormSchemaType) => {
+    try {
+      setIsLoading(true);
+      await loginUser(values);
+      router.push("/admin");
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleClickHome = () => {
     if (router) {
@@ -77,7 +87,7 @@ export default function UserLoginForm() {
       <div className="w-full">
         <Form {...form}>
           <form
-            onSubmit={form.handleSubmit(onSubmit)}
+            onSubmit={form.handleSubmit(handleLoginFormSubmit)}
             className="space-y-8 flex justify-center items-center   "
           >
             <div className=" shadow-div rounded-md border-2 border-yellow/50  w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] ">
