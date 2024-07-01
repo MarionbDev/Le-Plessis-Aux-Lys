@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,8 +12,48 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
+import { FormEvent, useState } from "react";
 
 export default function ContactForm() {
+  const [lastname, setLatsName] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmitFormContact = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      console.log("Submitting form...");
+      const response = await fetch("http://localhost:3000/api/email/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ lastname, firstname, email, message }),
+      });
+      console.log("Received response :", response);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log("data client : ", data);
+
+      if (data && data.message) {
+        alert(`Thank you for your interest ! ${data.message}`);
+        setLatsName("");
+        setFirstname("");
+        setEmail("");
+        setMessage("");
+      } else {
+        alert("Apologies ! Please try again");
+      }
+    } catch (error) {
+      console.error("Error :", error);
+    }
+  };
+
   return (
     <div className=" font-text flex justify-around items-center w-full mt-28  ">
       <Image
@@ -23,27 +65,39 @@ export default function ContactForm() {
       />
       <div className=" shadow-div rounded-md border-2 border-yellow/50 ">
         <Card className=" max-w-xl text-text_color ">
-          <CardHeader>
-            {/* <CardTitle>Contactez nous</CardTitle> */}
-            <CardDescription className=" text-md font-medium ">
-              Remplissez le formulaire ci-dessous et nous vous répondrons dans
-              les plus brefs délais.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form className="space-y-4 ">
+          <form onSubmit={handleSubmitFormContact} className="space-y-4 ">
+            <CardHeader>
+              {/* <CardTitle>Contactez nous</CardTitle> */}
+              <CardDescription className=" text-md font-medium ">
+                Remplissez le formulaire ci-dessous et nous vous répondrons dans
+                les plus brefs délais.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
               <div className="grid grid-cols-2 gap-4 ">
                 <div className="space-y-2 ">
                   <Label htmlFor="first-name" className="text-text_color">
                     Nom
                   </Label>
-                  <Input id="first-name" placeholder="John" required />
+                  <Input
+                    id="first-name"
+                    placeholder="John"
+                    required
+                    value={lastname}
+                    onChange={(e) => setLatsName(e.target.value)}
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="last-name" className="text-text_color">
                     Prénom
                   </Label>
-                  <Input id="last-name" placeholder="Doe" required />
+                  <Input
+                    id="last-name"
+                    placeholder="Doe"
+                    required
+                    value={firstname}
+                    onChange={(e) => setFirstname(e.target.value)}
+                  />
                 </div>
               </div>
               <div className="space-y-2">
@@ -55,6 +109,8 @@ export default function ContactForm() {
                   type="email"
                   placeholder="john@example.com"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="space-y-2">
@@ -66,19 +122,21 @@ export default function ContactForm() {
                   placeholder="..."
                   className="min-h-[120px] "
                   required
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
-            </form>
-          </CardContent>
-          <CardFooter>
-            <Button
-              type="submit"
-              className="ml-auto hover:text-white hover:bg-gold bg-gold/30 "
-            >
-              Envoyer
-            </Button>
-          </CardFooter>
-        </Card>{" "}
+            </CardContent>
+            <CardFooter>
+              <Button
+                type="submit"
+                className="ml-auto hover:text-white hover:bg-gold bg-gold/30 "
+              >
+                Envoyer
+              </Button>
+            </CardFooter>{" "}
+          </form>
+        </Card>
       </div>
     </div>
   );
