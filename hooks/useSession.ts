@@ -27,9 +27,26 @@ export default function useSession() {
         setLoading(false);
       }
     };
+
     fetchSession();
   }, []);
 
-  return { user, loading, error };
+  const refreshSession = async () => {
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.auth.refreshSession();
+      if (error) {
+        throw error;
+      }
+      setUser(data?.session?.user || null);
+    } catch (error: any) {
+      console.error(error);
+      setError({ message: error.message });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { user, loading, error, refreshSession };
 }
 

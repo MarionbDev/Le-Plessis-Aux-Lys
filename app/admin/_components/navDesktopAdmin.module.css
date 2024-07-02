@@ -1,4 +1,4 @@
-/* NAVBAR DESKTOP*/
+/* NAVBAR DESKTOP ADMIN*/
 
 .activeLink {
   font-family: "Open Sans", sans-serif;
@@ -33,5 +33,11 @@
 .nonActiveLink:hover .underline {
   width: 100%;
   background-color: #c7c75e71;
+}
+
+.LogOut {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 3px;
+  text-align: center;
 }
 

@@ -19,7 +19,7 @@ const EmailTemplate = ({ firstname, lastname, email, message }: PropType) => (
           Message de {firstname} {lastname} :
         </Heading>
         <Text>{message}</Text>
-        <Text> Voici mon email : {email}</Text>
+        <Text> Voici mon email : {email} </Text>
       </Container>
     </Html>
   </Tailwind>
