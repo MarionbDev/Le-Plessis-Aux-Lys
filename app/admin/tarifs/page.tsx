@@ -1,6 +1,6 @@
 "use client";
 
-import { getAllRentals } from "@/app/api/prices/route";
+import { getAllRentals } from "@/app/api/rentals/route";
 import { useEffect, useState } from "react";
 import RateRentalCardAdmin from "./components/Rate";
 
