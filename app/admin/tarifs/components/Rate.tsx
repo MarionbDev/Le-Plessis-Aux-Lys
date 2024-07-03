@@ -17,7 +17,7 @@ type PropTypes = {
   highSeasonRateNight: string;
   lowSeasonRateWeek: string;
   highSeasonRateWeek: string;
-  onSave: (UpdatedRates: UpdatedRates) => void;
+  // onSave: (UpdatedRates: UpdatedRates) => void;
 };
 
 type UpdatedRates = {
@@ -33,7 +33,7 @@ export default function RateRentalCardAdmin({
   highSeasonRateNight,
   lowSeasonRateWeek,
   highSeasonRateWeek,
-  onSave,
+  // onSave,
 }: PropTypes) {
   const [rates, setRates] = useState<UpdatedRates>({
     lowSeasonRateNight,
@@ -47,9 +47,9 @@ export default function RateRentalCardAdmin({
     setRates((prevRates) => ({ ...prevRates, [name]: value }));
   };
 
-  const handleSave = () => {
-    onSave(rates);
-  };
+  // const handleSave = () => {
+  //   onSave(rates);
+  // };
 
   return (
     <div className="flex flex-col shadow-div rounded-md border-2 border-yellow/50 p-4  ">
@@ -57,7 +57,7 @@ export default function RateRentalCardAdmin({
         <TableHeader>
           <TableRow>
             <TableHead className="w-[150px] text-center  font-semibold text-[1.1rem]">
-              {nameRental}
+              {nameRental.charAt(0).toUpperCase() + nameRental.slice(1)}
             </TableHead>
             <TableHead className=" text-center">Basse Saison</TableHead>
             <TableHead className=" text-center">Haute saison</TableHead>
@@ -93,7 +93,7 @@ export default function RateRentalCardAdmin({
       </Table>
       <div className="flex justify-center">
         <Button
-          onClick={handleSave}
+          // onClick={handleSave}
           className=" font-text hover:text-white hover:bg-gold/80 bg-gold/30 mt-4"
         >
           Enregistrer

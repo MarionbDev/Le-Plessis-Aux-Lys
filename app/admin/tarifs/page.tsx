@@ -1,56 +1,48 @@
 "use client";
 
+import { getAllRentals } from "@/app/api/rentals/route";
+import { useEffect, useState } from "react";
 import RateRentalCardAdmin from "./components/Rate";
 
-type UpdatedRates = {
-  lowSeasonRateNight: string;
-  highSeasonRateNight: string;
-  lowSeasonRateWeek: string;
-  highSeasonRateWeek: string;
+type Rental = {
+  id: string;
+  name: string;
+  type: "gîte" | "chambre 1" | "chambre 2" | "chambre 3";
+  price_low_season_night: number;
+  price_high_season_night: number;
+  price_low_season_week: number;
+  price_high_season_week: number;
 };
 
-export default function RentalRates() {
-  // Logique pour gérer la mise à jour des tarifs
-  // Appeler l'API
+export default function ListRentalRates() {
+  const [rentals, setRentals] = useState<Rental[]>([]);
 
-  const handleSaveRates = (nameRental: string, updateRates: UpdatedRates) => {
-    console.log(`Tarifs mis à jour pour ${nameRental}:`, updateRates);
-  };
+  useEffect(() => {
+    const fetchRentals = async () => {
+      try {
+        const rentalsData = await getAllRentals();
+        setRentals(rentalsData);
+      } catch (error) {
+        console.error("Error fetching rentals:", error);
+      }
+    };
+
+    fetchRentals();
+  }, []);
+
   return (
     <>
       <div className="flex flex-wrap gap-16 gap-x-32 mx-10 justify-center my-20">
-        <RateRentalCardAdmin
-          nameRental="Gîte"
-          lowSeasonRateNight="90"
-          highSeasonRateNight="110"
-          lowSeasonRateWeek="560"
-          highSeasonRateWeek="960"
-          onSave={(updatedRates) => handleSaveRates("Gîte", updatedRates)}
-        />
-        <RateRentalCardAdmin
-          nameRental="Chambre 1"
-          lowSeasonRateNight="75"
-          highSeasonRateNight="75"
-          lowSeasonRateWeek="75"
-          highSeasonRateWeek="75"
-          onSave={(updatedRates) => handleSaveRates("Chambre 1", updatedRates)}
-        />
-        <RateRentalCardAdmin
-          nameRental="Chambre 2"
-          lowSeasonRateNight="75"
-          highSeasonRateNight="75"
-          lowSeasonRateWeek="75"
-          highSeasonRateWeek="75"
-          onSave={(updatedRates) => handleSaveRates("Chambre 2", updatedRates)}
-        />
-        <RateRentalCardAdmin
-          nameRental="Chambre 3"
-          lowSeasonRateNight="75"
-          highSeasonRateNight="75"
-          lowSeasonRateWeek="75"
-          highSeasonRateWeek="75"
-          onSave={(updatedRates) => handleSaveRates("Chambre 3", updatedRates)}
-        />
+        {rentals.map((rental) => (
+          <RateRentalCardAdmin
+            key={rental.id}
+            nameRental={rental.type}
+            lowSeasonRateNight={rental.price_low_season_night.toString()}
+            highSeasonRateNight={rental.price_high_season_night.toString()}
+            lowSeasonRateWeek={rental.price_low_season_week.toString()}
+            highSeasonRateWeek={rental.price_high_season_week.toString()}
+          />
+        ))}
       </div>
     </>
   );
