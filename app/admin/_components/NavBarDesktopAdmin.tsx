@@ -3,6 +3,7 @@ import { logout } from "@/services/auth.services";
 import { LogOut } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { toast, Toaster } from "sonner";
 import styles from "./navDesktopAdmin.module.css";
 
 export default function NavbarDesktopAdmin() {
@@ -12,7 +13,10 @@ export default function NavbarDesktopAdmin() {
 
   const handleLogOut = async () => {
     await logout();
-    router.push("/");
+    toast.success("Déconnexion réussie !");
+    setTimeout(() => {
+      router.push("/");
+    }, 2000);
   };
 
   return (
@@ -55,7 +59,7 @@ export default function NavbarDesktopAdmin() {
             <span className={styles.underline}></span>
           </Link>
         </div>
-
+        <Toaster richColors />
         <Button
           onClick={handleLogOut}
           role="button"
