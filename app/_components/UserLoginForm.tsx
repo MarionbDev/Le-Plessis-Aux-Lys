@@ -18,10 +18,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { loginUser } from "@/services/auth.services";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader, LogIn, Milestone } from "lucide-react";
+import { CircleCheck, CircleX, Loader, LogIn, Milestone } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast, Toaster } from "sonner";
 import { z } from "zod";
 
 const formSchema = z.object({
@@ -31,20 +32,34 @@ const formSchema = z.object({
     .email({ message: "Adresse email invalide" }),
   password: z
     .string()
-    .regex(
-      /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
-      {
-        message:
-          "  Le mot de passe doit comporter au moins 8 caractères, une majuscule, une minuscule et un chiffre.",
-      },
-    ),
+    .min(8)
+    .regex(/(?=.*\d)/)
+    .regex(/(?=.*[a-z])/)
+    .regex(/(?=.*[A-Z])/),
 });
 
 type FormSchemaType = z.infer<typeof formSchema>;
 
 export default function UserLoginForm() {
-  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [passwordValidations, setPasswordValidations] = useState({
+    minLength: false,
+    hasNumber: false,
+    hasLowerCase: false,
+    hasUpperCase: false,
+  });
+
+  const handlePasswordChange = (password: string) => {
+    const validations = {
+      minLength: password.length >= 8,
+      hasNumber: /(?=.*\d)/.test(password),
+      hasLowerCase: /(?=.*[a-z])/.test(password),
+      hasUpperCase: /(?=.*[A-Z])/.test(password),
+    };
+
+    setPasswordValidations(validations);
+  };
 
   const router = useRouter();
 
@@ -60,9 +75,14 @@ export default function UserLoginForm() {
     try {
       setIsLoading(true);
       await loginUser(values);
-      router.push("/admin");
+      toast.success("Connexion réussie !");
+      setTimeout(() => {
+        router.push("/admin");
+      }, 2000);
     } catch (error) {
-      console.error(error);
+      toast.error(
+        "Une erreur s'est produite lors de la connexion, veuillez réésayger !",
+      );
     } finally {
       setIsLoading(false);
     }
@@ -118,7 +138,7 @@ export default function UserLoginForm() {
                           />
                         </FormControl>
 
-                        <FormMessage />
+                        <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
                       </FormItem>
                     )}
                   />
@@ -136,10 +156,67 @@ export default function UserLoginForm() {
                             type={showPassword ? "text" : "password"}
                             autoComplete="current-password"
                             className=" text-md md:text-md "
-                            {...field}
+                            onChange={(e) => {
+                              field.onChange(e);
+                              handlePasswordChange(e.target.value);
+                            }}
+                            value={field.value}
                           />
                         </FormControl>
-                        <FormMessage className=" text-[0.8rem] md:text-md pl-2" />
+                        <div className="flex items-center mt-1">
+                          {passwordValidations.minLength ? (
+                            <CircleCheck
+                              size={16}
+                              className="text-green-500 mr-2"
+                            />
+                          ) : (
+                            <CircleX size={16} className="text-red-500 mr-2" />
+                          )}
+                          <p className="text-xs md:text-sm text-text_color">
+                            Minimum 8 caractères
+                          </p>
+                        </div>
+                        <div className="flex items-center mt-1">
+                          {passwordValidations.hasNumber ? (
+                            <CircleCheck
+                              size={16}
+                              className="text-green-500 mr-2"
+                            />
+                          ) : (
+                            <CircleX size={16} className="text-red-500 mr-2" />
+                          )}
+                          <p className="text-xs md:text-sm text-text_color">
+                            Minimum un chiffre
+                          </p>
+                        </div>
+                        <div className="flex items-center mt-1">
+                          {passwordValidations.hasLowerCase ? (
+                            <CircleCheck
+                              size={16}
+                              className="text-green-500 mr-2"
+                            />
+                          ) : (
+                            <CircleX size={16} className="text-red-500 mr-2" />
+                          )}
+                          <p className="text-xs md:text-sm text-text_color">
+                            Minimum une minuscule
+                          </p>
+                        </div>
+                        <div className="flex items-center mt-1">
+                          {passwordValidations.hasUpperCase ? (
+                            <CircleCheck
+                              size={16}
+                              className="text-green-500 mr-2"
+                            />
+                          ) : (
+                            <CircleX size={16} className="text-red-500 mr-2" />
+                          )}
+                          <p className="text-xs md:text-sm text-text_color">
+                            Minimum une majuscule
+                          </p>
+                        </div>
+
+                        <FormMessage className=" text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
                       </FormItem>
                     )}
                   />
@@ -153,6 +230,7 @@ export default function UserLoginForm() {
                   </div>
                 </CardContent>
                 <CardFooter className="flex justify-center">
+                  <Toaster richColors />
                   <Button
                     role="button"
                     aria-label="se connecter"

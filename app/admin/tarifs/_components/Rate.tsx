@@ -1,5 +1,6 @@
 "use client";
 
+import { updateRentalPrices } from "@/app/api/rentals/route";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -10,14 +11,15 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useState } from "react";
+import { toast, Toaster } from "sonner";
 
 type PropTypes = {
   nameRental: string;
+  id: string;
   lowSeasonRateNight: string;
   highSeasonRateNight: string;
   lowSeasonRateWeek: string;
   highSeasonRateWeek: string;
-  // onSave: (UpdatedRates: UpdatedRates) => void;
 };
 
 type UpdatedRates = {
@@ -28,6 +30,7 @@ type UpdatedRates = {
 };
 
 export default function RateRentalCardAdmin({
+  id,
   nameRental,
   lowSeasonRateNight,
   highSeasonRateNight,
@@ -47,9 +50,15 @@ export default function RateRentalCardAdmin({
     setRates((prevRates) => ({ ...prevRates, [name]: value }));
   };
 
-  // const handleSave = () => {
-  //   onSave(rates);
-  // };
+  const handleSave = async () => {
+    try {
+      await updateRentalPrices(id, rates);
+      toast.success("Mise à jour des prix enregistrées !");
+    } catch (error) {
+      console.error("Error updating prices:", error);
+      toast.error("Erreur de mise à jour des prix !");
+    }
+  };
 
   return (
     <div className="flex flex-col shadow-div rounded-md border-2 border-yellow/50 p-4  ">
@@ -73,27 +82,49 @@ export default function RateRentalCardAdmin({
                 value={rates.lowSeasonRateNight}
                 onChange={handleChange}
                 className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md"
-              />{" "}
+              />
               <span>€</span>
             </TableCell>
             <TableCell className=" text-center">
-              {highSeasonRateNight} €
+              <input
+                type="text"
+                name="highSeasonRateNight"
+                value={rates.highSeasonRateNight}
+                onChange={handleChange}
+                className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md"
+              />
+              <span>€</span>
             </TableCell>
           </TableRow>
           <TableRow>
             <TableCell className="font-medium">Semaine</TableCell>
             <TableCell className=" text-center">
-              {lowSeasonRateWeek} €
+              <input
+                type="text"
+                name="lowSeasonRateWeek"
+                value={rates.lowSeasonRateWeek}
+                onChange={handleChange}
+                className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md"
+              />
+              <span>€</span>
             </TableCell>
             <TableCell className=" text-center">
-              {highSeasonRateWeek} €
+              <input
+                type="text"
+                name="highSeasonRateWeek"
+                value={rates.highSeasonRateWeek}
+                onChange={handleChange}
+                className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md"
+              />
+              <span>€</span>
             </TableCell>
           </TableRow>
         </TableBody>
       </Table>
       <div className="flex justify-center">
+        <Toaster richColors />
         <Button
-          // onClick={handleSave}
+          onClick={handleSave}
           className=" font-text hover:text-white hover:bg-gold/80 bg-gold/30 mt-4"
         >
           Enregistrer
