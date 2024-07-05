@@ -21,8 +21,6 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   //   }
   // }, []);
 
-  // console.log("user layout", user);
-
   // useEffect(() => {
   //   if (getIsAuthenticated()) {
   //     console.log("Refreshing session...");
@@ -38,9 +36,9 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   //   );
   // }
 
-  if (error) {
-    return <p>Une erreur s'est produite : {error.message}</p>;
-  }
+  // if (error) {
+  //   return <p>Une erreur s'est produite : {error.message}</p>;
+  // }
 
   return (
     <section className="">

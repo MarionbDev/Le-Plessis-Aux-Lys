@@ -163,6 +163,14 @@ export default function UserLoginForm() {
                             value={field.value}
                           />
                         </FormControl>
+                        <div
+                          onClick={() => setShowPassword(!showPassword)}
+                          className=" cursor-pointer hover:underline"
+                        >
+                          <p className=" text-[13px] pl-2 mt-1 md:text-[0.8rem] underline  italic text-text_color ">
+                            Afficher le mot de passe
+                          </p>
+                        </div>
                         <div className="flex items-center mt-1">
                           {passwordValidations.minLength ? (
                             <CircleCheck
@@ -220,14 +228,6 @@ export default function UserLoginForm() {
                       </FormItem>
                     )}
                   />
-                  <div
-                    onClick={() => setShowPassword(!showPassword)}
-                    className=" cursor-pointer hover:underline"
-                  >
-                    <p className=" text-[13px] pl-2 mt-1 md:text-[1rem]  italic text-text_color ">
-                      Afficher le mot de passe
-                    </p>
-                  </div>
                 </CardContent>
                 <CardFooter className="flex justify-center">
                   <Toaster richColors />
