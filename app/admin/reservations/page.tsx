@@ -1,3 +1,4 @@
+"use client";
 import ListRentalsCalendar from "./_components/ListRentalsCalendar";
 
 export default function Bookings() {
@@ -5,9 +6,8 @@ export default function Bookings() {
     <>
       <h2>Les réservations</h2>
       <div>
-        {/* importer le composant Calendar réutilisable pour chaque location */}
+        <ListRentalsCalendar />
       </div>
-      <ListRentalsCalendar />
     </>
   );
 }

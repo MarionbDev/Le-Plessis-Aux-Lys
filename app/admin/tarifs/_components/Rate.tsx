@@ -1,5 +1,3 @@
-"use client";
-
 import { updateRentalPrices } from "@/app/api/rentals/route";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,17 +14,17 @@ import { toast, Toaster } from "sonner";
 type PropTypes = {
   nameRental: string;
   id: string;
-  lowSeasonRateNight: string;
-  highSeasonRateNight: string;
-  lowSeasonRateWeek: string;
-  highSeasonRateWeek: string;
+  lowSeasonRateNight: number;
+  highSeasonRateNight: number;
+  lowSeasonRateWeek: number;
+  highSeasonRateWeek: number;
 };
 
 type UpdatedRates = {
-  lowSeasonRateNight: string;
-  highSeasonRateNight: string;
-  lowSeasonRateWeek: string;
-  highSeasonRateWeek: string;
+  lowSeasonRateNight: number;
+  highSeasonRateNight: number;
+  lowSeasonRateWeek: number;
+  highSeasonRateWeek: number;
 };
 
 export default function RateRentalCardAdmin({
@@ -36,7 +34,6 @@ export default function RateRentalCardAdmin({
   highSeasonRateNight,
   lowSeasonRateWeek,
   highSeasonRateWeek,
-  // onSave,
 }: PropTypes) {
   const [rates, setRates] = useState<UpdatedRates>({
     lowSeasonRateNight,
@@ -47,7 +44,10 @@ export default function RateRentalCardAdmin({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setRates((prevRates) => ({ ...prevRates, [name]: value }));
+    setRates((prevRates) => ({
+      ...prevRates,
+      [name]: value,
+    }));
   };
 
   const handleSave = async () => {
@@ -59,6 +59,9 @@ export default function RateRentalCardAdmin({
       toast.error("Erreur de mise à jour des prix !");
     }
   };
+
+  const displayValue = (value: number | undefined) =>
+    value != null ? value : "-";
 
   return (
     <div className="flex flex-col shadow-div rounded-md border-2 border-yellow/50 p-4  ">
@@ -79,7 +82,7 @@ export default function RateRentalCardAdmin({
               <input
                 type="text"
                 name="lowSeasonRateNight"
-                value={rates.lowSeasonRateNight}
+                value={displayValue(rates.lowSeasonRateNight)}
                 onChange={handleChange}
                 className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md"
               />
@@ -89,7 +92,7 @@ export default function RateRentalCardAdmin({
               <input
                 type="text"
                 name="highSeasonRateNight"
-                value={rates.highSeasonRateNight}
+                value={displayValue(rates.highSeasonRateNight)}
                 onChange={handleChange}
                 className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md"
               />
@@ -102,7 +105,7 @@ export default function RateRentalCardAdmin({
               <input
                 type="text"
                 name="lowSeasonRateWeek"
-                value={rates.lowSeasonRateWeek}
+                value={displayValue(rates.lowSeasonRateWeek)}
                 onChange={handleChange}
                 className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md"
               />
@@ -112,7 +115,7 @@ export default function RateRentalCardAdmin({
               <input
                 type="text"
                 name="highSeasonRateWeek"
-                value={rates.highSeasonRateWeek}
+                value={displayValue(rates.highSeasonRateWeek)}
                 onChange={handleChange}
                 className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md"
               />

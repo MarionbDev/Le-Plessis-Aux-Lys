@@ -22,6 +22,9 @@ export default function RentalPage({
   highSeasonWeeklyRate,
   imagesSlide,
 }: PropType) {
+  const displayRate = (rate?: number) =>
+    rate !== undefined && rate !== null ? `${rate} €` : "-";
+
   return (
     <div className="font-text text-text_color pt-[2rem] gap-16">
       <div className="flex justify-around items-center ml-10">
@@ -41,28 +44,14 @@ export default function RentalPage({
                 <div className="flex flex-col items-center">
                   <p className="font-semibold">Basse Saison</p>
                   <p>
-                    {lowSeasonNightRate !== undefined
-                      ? `${lowSeasonNightRate} €`
-                      : "-"}
-                  </p>
-                  <p>
-                    {lowSeasonWeeklyRate !== undefined
-                      ? `${lowSeasonWeeklyRate} €`
-                      : "-"}{" "}
+                    <p>{displayRate(lowSeasonNightRate)}</p>
+                    <p>{displayRate(lowSeasonWeeklyRate)}</p>
                   </p>
                 </div>
                 <div className="flex flex-col items-center">
                   <p className="font-semibold">Haute Saison</p>
-                  <p>
-                    {highSeasonNightRate !== undefined
-                      ? `${highSeasonNightRate} €`
-                      : "-"}{" "}
-                  </p>
-                  <p>
-                    {highSeasonWeeklyRate !== undefined
-                      ? `${highSeasonWeeklyRate} €`
-                      : "-"}{" "}
-                  </p>
+                  <p>{displayRate(highSeasonNightRate)}</p>
+                  <p>{displayRate(highSeasonWeeklyRate)}</p>
                 </div>
               </div>
             </section>

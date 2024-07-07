@@ -1,44 +1,52 @@
-"use client";
-
-import { addCalendar, getAllCalendar } from "@/app/api/calendar/route";
-import { format } from "date-fns";
+import { CalendarEvent } from "@/app/types";
 import { fr } from "date-fns/locale";
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { DateRange, DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import { toast } from "sonner";
 
-type Reservation = {
+type ReservationInput = {
   id: string;
   rental_id: string;
   start_date: string;
   end_date: string;
 };
 
-export default function CalendarRentalsCardAdmin() {
-  const [selectedDates, setSelectedDates] = React.useState<
-    DateRange | undefined
-  >({
+type AddReservationProps = {
+  rentalType: "gîte" | "chambre 1" | "chambre 2" | "chambre 3"; // Utilisation de l'ENUM rental_type
+  fetchReservedDates: (
+    rental_type: "gîte" | "chambre 1" | "chambre 2" | "chambre 3",
+  ) => Promise<ReservationInput[]>;
+  addCalendarEvent: (event: CalendarEvent) => Promise<void>;
+};
+
+const AddReservation: React.FC<AddReservationProps> = ({
+  rentalType,
+  fetchReservedDates,
+  addCalendarEvent,
+}) => {
+  const [selectedDates, setSelectedDates] = useState<DateRange | undefined>({
     from: undefined,
     to: undefined,
   });
-  const [reservedDates, setReservedDates] = React.useState<Reservation[]>([]);
+  const [reservedDates, setReservedDates] = useState<ReservationInput[]>([]);
 
-  console.log("selectedDates:", selectedDates);
-  console.log("reservedDates:", reservedDates);
+  useEffect(() => {
+    const fetchReservedDatesForRentalType = async () => {
+      try {
+        const fetchedDates = await fetchReservedDates(rentalType);
+        console.log(`fatche calendar ${rentalType} : `, fetchedDates);
+        setReservedDates(fetchedDates);
+      } catch (error) {
+        console.error(
+          `Error fetching reserved dates for ${rentalType}:`,
+          error,
+        );
+      }
+    };
 
-  // Récupérer les dates aux chargements depuis Supabase
-  const fetchCalendar = async () => {
-    try {
-      const fetchedCalendar = await getAllCalendar();
-      setReservedDates(fetchedCalendar);
-    } catch (error) {
-      console.error("Error fetching calendar", error);
-    }
-  };
-
-  React.useEffect(() => {
-    fetchCalendar();
-  }, []);
+    fetchReservedDatesForRentalType();
+  }, [rentalType, fetchReservedDates]);
 
   const handleSelect = (range: DateRange | undefined) => {
     setSelectedDates(range);
@@ -46,35 +54,30 @@ export default function CalendarRentalsCardAdmin() {
 
   const handleSubmit = async () => {
     if (!selectedDates?.from || !selectedDates?.to) {
-      console.error("Veuillez sélectionner une plage de dates complète");
+      console.error("Veuillez sélectionner une plage de dates");
       return;
     }
 
     try {
-      // Cloner les dates sélectionnées pour éviter de modifier l'état directement
       const startDate = new Date(selectedDates.from);
       const endDate = new Date(selectedDates.to);
-
-      // // Ajouter 1 jour à la date de fin pour inclure cette journée dans la plage
       endDate.setDate(endDate.getDate() + 1);
-      // // Ajouter 1 jour à la date de début pour inclure cette journée dans la plage
       startDate.setDate(startDate.getDate() + 1);
 
-      // Convertir les dates en format ISO sans l'heure
       const formattedStartDate = startDate.toISOString().split("T")[0];
       const formattedEndDate = endDate.toISOString().split("T")[0];
 
-      // Envoyer les dates au serveur
-      await addCalendar({
+      await addCalendarEvent({
+        rental_type: rentalType,
         start_date: formattedStartDate,
         end_date: formattedEndDate,
       });
 
-      // Rafraîchir les dates depuis Supabase
-      await fetchCalendar();
+      toast.success("Réservation ajoutée avec succès !");
       setSelectedDates({ from: undefined, to: undefined });
     } catch (error: any) {
       console.error("Error submitting dates:", error.message);
+      toast.error("Erreur lors de l'ajout de la réservation !");
     }
   };
 
@@ -126,10 +129,9 @@ export default function CalendarRentalsCardAdmin() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <DayPicker
         mode="range"
-        locale={fr}
         selected={selectedDates}
         onSelect={handleSelect}
         modifiers={modifiers}
@@ -141,32 +143,12 @@ export default function CalendarRentalsCardAdmin() {
           },
         ])}
         footer={footer}
+        locale={fr}
       />
-      <div>
-        <button onClick={handleSubmit} className="bg-slate-300">
-          Submit
-        </button>
-      </div>
-      <div>
-        <p>Récap des dates réservées :</p>
-        <ul>
-          {reservedDates.map((date) => (
-            <li key={date.id}>
-              <p>
-                Du{" "}
-                {format(new Date(date.start_date), "dd MMMM yyyy", {
-                  locale: fr,
-                })}{" "}
-                au{" "}
-                {format(new Date(date.end_date), "dd MMMM yyyy", {
-                  locale: fr,
-                })}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <button onClick={handleSubmit}>Ajouter Réservation</button>
     </div>
   );
-}
+};
+
+export default AddReservation;
 

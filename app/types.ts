@@ -12,3 +12,9 @@ export type Reservation = {
   rentals: RentalCalendar;
 };
 
+export type CalendarEvent = {
+  rental_type: "gîte" | "chambre 1" | "chambre 2" | "chambre 3";
+  start_date: string;
+  end_date: string;
+};
+
