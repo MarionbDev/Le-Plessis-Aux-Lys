@@ -1,6 +1,6 @@
 import { addCalendar, getAllCalendar } from "@/app/api/calendar/route";
 import { getAllRentals } from "@/app/api/rentals/route";
-import { CalendarEvent } from "@/app/types";
+import { CalendarEvent } from "@/app/types"; // Assurez-vous que le type est correctement importé
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
 import AddReservation from "./Calendar";
@@ -8,7 +8,7 @@ import AddReservation from "./Calendar";
 type RentalCalendar = {
   id: string;
   name: string;
-  type: "gîte" | "chambre 1" | "chambre 2" | "chambre 3";
+  type: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
   rental_id: string;
 };
 
@@ -30,15 +30,15 @@ const ListRentalsCalendar: React.FC = () => {
   }, []);
 
   const sortRentalsCalendar = (rentals: RentalCalendar[]) => {
-    const order = ["gîte", "chambre 1", "chambre 2", "chambre 3"];
+    const order = ["gite", "chambre 1", "chambre 2", "chambre 3"];
     return rentals.sort(
       (a, b) => order.indexOf(a.type) - order.indexOf(b.type),
     );
   };
 
   const fetchReservedDates = async (
-    rental_type: "gîte" | "chambre 1" | "chambre 2" | "chambre 3",
-  ) => {
+    rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3",
+  ): Promise<CalendarEvent[]> => {
     try {
       const fetchedDates = await getAllCalendar(rental_type);
       return fetchedDates;

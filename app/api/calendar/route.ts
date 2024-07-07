@@ -1,39 +1,31 @@
-// api/calendar/route.ts
+import { CalendarEvent } from "@/app/types";
 import supabase from "@/lib/database";
-
-type CalendarEvent = {
-  rental_type: "gîte" | "chambre 1" | "chambre 2" | "chambre 3";
-  start_date: string;
-  end_date: string;
-};
 
 export const getAllCalendar = async (
   rental_type: CalendarEvent["rental_type"],
-) => {
+): Promise<CalendarEvent[]> => {
   try {
     const { data, error } = await supabase
       .from("calendar")
       .select("*")
       .eq("rental_type", rental_type);
     if (error) throw error;
-    return data;
+    return data as CalendarEvent[];
   } catch (error) {
     throw error;
   }
 };
 
-export const addCalendar = async ({
-  rental_type,
-  start_date,
-  end_date,
-}: CalendarEvent) => {
+export const addCalendar = async (
+  event: CalendarEvent,
+): Promise<CalendarEvent[]> => {
   try {
     const { data, error } = await supabase
       .from("calendar")
-      .insert([{ rental_type, start_date, end_date }])
+      .insert([event])
       .select();
     if (error) throw error;
-    return data;
+    return data as CalendarEvent[];
   } catch (error) {
     console.error("Error adding calendar event:", error);
     throw error;

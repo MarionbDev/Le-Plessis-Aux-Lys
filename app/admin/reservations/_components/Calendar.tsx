@@ -1,21 +1,14 @@
-import { CalendarEvent } from "@/app/types";
+import { CalendarEvent, ReservationInput } from "@/app/types";
 import { fr } from "date-fns/locale";
 import React, { useEffect, useState } from "react";
 import { DateRange, DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { toast } from "sonner";
 
-type ReservationInput = {
-  id: string;
-  rental_id: string;
-  start_date: string;
-  end_date: string;
-};
-
 type AddReservationProps = {
-  rentalType: "gîte" | "chambre 1" | "chambre 2" | "chambre 3"; // Utilisation de l'ENUM rental_type
+  rentalType: "gite" | "chambre 1" | "chambre 2" | "chambre 3"; // Utilisation de l'ENUM rental_type
   fetchReservedDates: (
-    rental_type: "gîte" | "chambre 1" | "chambre 2" | "chambre 3",
+    rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3",
   ) => Promise<ReservationInput[]>;
   addCalendarEvent: (event: CalendarEvent) => Promise<void>;
 };
@@ -68,6 +61,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
       const formattedEndDate = endDate.toISOString().split("T")[0];
 
       await addCalendarEvent({
+        id: "",
         rental_type: rentalType,
         start_date: formattedStartDate,
         end_date: formattedEndDate,
