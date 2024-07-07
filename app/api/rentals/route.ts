@@ -1,17 +1,11 @@
+import { UpdatedPrices } from "@/app/types";
 import supabase from "@/lib/database";
-
-type UpdatedPrices = {
-  lowSeasonRateNight: number;
-  highSeasonRateNight: number;
-  lowSeasonRateWeek: number;
-  highSeasonRateWeek: number;
-};
 
 export const getAllRentals = async () => {
   try {
     const { data: allRentals, error } = await supabase
       .from("rentals")
-      .select(`*`);
+      .select("*");
 
     if (error) throw error;
     console.log("Fetched prices:", allRentals);
@@ -45,4 +39,3 @@ export const updateRentalPrices = async (
     throw error;
   }
 };
-
