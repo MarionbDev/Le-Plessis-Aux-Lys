@@ -1,10 +1,10 @@
 import supabase from "@/lib/database";
 
 type UpdatedPrices = {
-  lowSeasonRateNight: string;
-  highSeasonRateNight: string;
-  lowSeasonRateWeek: string;
-  highSeasonRateWeek: string;
+  lowSeasonRateNight: number;
+  highSeasonRateNight: number;
+  lowSeasonRateWeek: number;
+  highSeasonRateWeek: number;
 };
 
 export const getAllRentals = async () => {
