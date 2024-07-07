@@ -1,16 +1,9 @@
 import { addCalendar, getAllCalendar } from "@/app/api/calendar/route";
 import { getAllRentals } from "@/app/api/rentals/route";
-import { CalendarEvent } from "@/app/types"; // Assurez-vous que le type est correctement importé
+import { CalendarEvent, RentalCalendar, ReservationInput } from "@/app/types"; // Assurez-vous que le type est correctement importé
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
 import AddReservation from "./Calendar";
-
-type RentalCalendar = {
-  id: string;
-  name: string;
-  type: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
-  rental_id: string;
-};
 
 const ListRentalsCalendar: React.FC = () => {
   const [rentalsCalendar, setRentalsCalendar] = useState<RentalCalendar[]>([]);
@@ -38,10 +31,19 @@ const ListRentalsCalendar: React.FC = () => {
 
   const fetchReservedDates = async (
     rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3",
-  ): Promise<CalendarEvent[]> => {
+  ): Promise<ReservationInput[]> => {
     try {
       const fetchedDates = await getAllCalendar(rental_type);
-      return fetchedDates;
+      // Transformez les dates récupérées si nécessaire
+      const transformedDates: ReservationInput[] = fetchedDates
+        .filter((date) => typeof date.id === "string") // Filtre pour s'assurer que id est une chaîne valide
+        .map((date) => ({
+          id: date.id as string, // Conversion de id en type string
+          rental_type: date.rental_type,
+          start_date: date.start_date,
+          end_date: date.end_date,
+        }));
+      return transformedDates;
     } catch (error) {
       console.error(`Error fetching reserved dates for ${rental_type}:`, error);
       throw error;

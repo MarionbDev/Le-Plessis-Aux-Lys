@@ -13,7 +13,7 @@ export type Reservation = {
 };
 
 export type CalendarEvent = {
-  id: string;
+  id?: string;
   rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
   start_date: string;
   end_date: string;
@@ -21,7 +21,6 @@ export type CalendarEvent = {
 
 export type ReservationInput = {
   id: string;
-
   rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
   start_date: string;
   end_date: string;

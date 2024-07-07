@@ -6,7 +6,7 @@ import "react-day-picker/dist/style.css";
 import { toast } from "sonner";
 
 type AddReservationProps = {
-  rentalType: "gite" | "chambre 1" | "chambre 2" | "chambre 3"; // Utilisation de l'ENUM rental_type
+  rentalType: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
   fetchReservedDates: (
     rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3",
   ) => Promise<ReservationInput[]>;
@@ -28,7 +28,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
     const fetchReservedDatesForRentalType = async () => {
       try {
         const fetchedDates = await fetchReservedDates(rentalType);
-        console.log(`fatche calendar ${rentalType} : `, fetchedDates);
+        console.log(`fetch calendar ${rentalType} : `, fetchedDates);
         setReservedDates(fetchedDates);
       } catch (error) {
         console.error(
@@ -61,7 +61,6 @@ const AddReservation: React.FC<AddReservationProps> = ({
       const formattedEndDate = endDate.toISOString().split("T")[0];
 
       await addCalendarEvent({
-        id: "",
         rental_type: rentalType,
         start_date: formattedStartDate,
         end_date: formattedEndDate,
