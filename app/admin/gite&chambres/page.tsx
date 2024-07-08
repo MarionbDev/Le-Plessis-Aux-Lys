@@ -25,8 +25,7 @@ export default function GiteAndRooms() {
     { url: "/chambres/ch-3-1.jpg", orientation: "horizontal" as "horizontal" },
   ];
   return (
-    <div className=" mt-16 ">
-      <h3>Mise à jour des informations</h3>
+    <div className=" my-20 ">
       <div className="flex justify-around gap-y-20 flex-wrap mx-20 mt-10 ">
         <CardPhotosAdmin title="Gîte" slides={gite} />
         <CardPhotosAdmin title="Chambre 1" slides={chambre1} />

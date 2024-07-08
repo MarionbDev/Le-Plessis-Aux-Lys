@@ -1,4 +1,8 @@
-import { addCalendar, getAllCalendar } from "@/app/api/calendar/route";
+import {
+  addCalendar,
+  deleteCalendar,
+  getAllCalendar,
+} from "@/app/api/calendar/route";
 import { getAllRentals } from "@/app/api/rentals/route";
 import { CalendarEvent, RentalCalendar, ReservationInput } from "@/app/types"; // Assurez-vous que le type est correctement importé
 import React, { useEffect, useState } from "react";
@@ -42,6 +46,7 @@ const ListRentalsCalendar: React.FC = () => {
           rental_type: date.rental_type,
           start_date: date.start_date,
           end_date: date.end_date,
+          type: date.type,
         }));
       return transformedDates;
     } catch (error) {
@@ -60,18 +65,40 @@ const ListRentalsCalendar: React.FC = () => {
     }
   };
 
+  const handleDeleteReservation = async (id: string) => {
+    try {
+      await deleteCalendar(id);
+      toast.success("Réservation supprimée avec succès !");
+    } catch (error) {
+      console.error("Error deleting calendar event:", error);
+      toast.error("Erreur lors de la suppression de la réservation !");
+    }
+  };
+
+  // const handleUpdateReservation = async (id: string, event: CalendarEvent) => {
+  //   try {
+  //     await updateCalendar(id, event);
+  //     toast.success("Réservation mise à jour avec succès !");
+  //   } catch (error) {
+  //     console.error("Error updating calendar event:", error);
+  //     toast.error("Erreur lors de la mise à jour de la réservation !");
+  //   }
+  // };
+
   return (
-    <div className="flex flex-wrap gap-16 gap-x-32 mx-10 justify-center my-20">
-      {rentalsCalendar.map((rental) => (
-        <div key={rental.id}>
-          <p>{rental.type}</p>
-          <AddReservation
-            rentalType={rental.type}
-            fetchReservedDates={fetchReservedDates}
-            addCalendarEvent={handleAddCalendarEvent}
-          />
-        </div>
-      ))}
+    <div className="  my-20 ">
+      <div className="flex flex-wrap gap-16 gap-x-30 mx-10 justify-center ">
+        {rentalsCalendar.map((rental) => (
+          <div key={rental.id}>
+            <AddReservation
+              rentalType={rental.type}
+              fetchReservedDates={fetchReservedDates}
+              addCalendarEvent={handleAddCalendarEvent}
+              deleteReservation={handleDeleteReservation}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
