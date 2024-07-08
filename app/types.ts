@@ -17,6 +17,7 @@ export type CalendarEvent = {
   rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
   start_date: string;
   end_date: string;
+  type: "indisponible" | "reserve";
 };
 
 export type ReservationInput = {
@@ -24,5 +25,6 @@ export type ReservationInput = {
   rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
   start_date: string;
   end_date: string;
+  type: "indisponible" | "reserve";
 };
 
