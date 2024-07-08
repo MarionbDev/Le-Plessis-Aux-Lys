@@ -188,92 +188,101 @@ const AddReservation: React.FC<AddReservationProps> = ({
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="font-text flex justify-around gap-10 w-[45rem] shadow-div rounded-md border-2 border-yellow/50 p-4 ">
-      <div className="flex flex-col items-center">
-        <p className="font-semibold text-[1.1rem] mb-2">
-          {rentalType.charAt(0).toUpperCase() + rentalType.slice(1)}{" "}
-        </p>
-        <DayPicker
-          mode="range"
-          locale={fr}
-          selected={selectedDates}
-          onSelect={handleSelect}
-          modifiers={modifiers}
-          modifiersStyles={modifiersStyles}
-          disabled={reservedDates.flatMap((reservation) => [
-            {
-              from: new Date(reservation.start_date),
-              to: new Date(reservation.end_date),
-            },
-          ])}
-          footer={footer}
-          captionLayout="dropdown"
-          fromYear={2024}
-          toYear={currentYear + 3}
-          className=""
-        />
+    <div className="font-text  gap-10 w-[40rem] shadow-div rounded-md border-2 border-yellow/50 py-4 ">
+      <p className="font-semibold text-center text-[1.2rem] mb-2">
+        {rentalType.charAt(0).toUpperCase() + rentalType.slice(1)}{" "}
+      </p>
+      <div className="flex justify-around">
+        <div className="flex flex-col items-center">
+          <DayPicker
+            mode="range"
+            locale={fr}
+            selected={selectedDates}
+            onSelect={handleSelect}
+            modifiers={modifiers}
+            modifiersStyles={modifiersStyles}
+            disabled={reservedDates.flatMap((reservation) => [
+              {
+                from: new Date(reservation.start_date),
+                to: new Date(reservation.end_date),
+              },
+            ])}
+            footer={footer}
+            captionLayout="dropdown"
+            fromYear={2024}
+            toYear={currentYear + 3}
+            className=""
+          />
 
-        <div className="flex gap-4 mt-4">
-          <button
-            className={`px-4 py-2 ${
-              reservationType === "reserve"
-                ? "bg-[#dd5757] text-white shadow-div font-text rounded-md text-sm"
-                : "bg-gray-200 rounded-md font-text text-sm"
-            }`}
-            onClick={() => setReservationType("reserve")}
-          >
-            Réservé
-          </button>
-          <button
-            className={`px-4 py-2 ${
-              reservationType === "indisponible"
-                ? "bg-gray-400 text-white shadow-div font-text rounded-md text-sm"
-                : "bg-gray-200 rounded-md font-text text-sm"
-            }`}
-            onClick={() => setReservationType("indisponible")}
-          >
-            Indisponible
-          </button>
+          <div className="flex flex-col">
+            <div className="flex gap-4 mb-2 ">
+              <button
+                className={`px-4 py-2 ${
+                  reservationType === "reserve"
+                    ? "bg-[#dd5757] text-white shadow-div font-text rounded-md text-sm"
+                    : "bg-gray-200 rounded-md font-text text-sm"
+                }`}
+                onClick={() => setReservationType("reserve")}
+              >
+                Réservé
+              </button>
+              <button
+                className={`px-4 py-2 ${
+                  reservationType === "indisponible"
+                    ? "bg-gray-400 text-white shadow-div font-text rounded-md text-sm"
+                    : "bg-gray-200 rounded-md font-text text-sm"
+                }`}
+                onClick={() => setReservationType("indisponible")}
+              >
+                Indisponible
+              </button>
+            </div>
+            <p className="text-[0.85rem] italic">
+              Veuillez selectionner un statut
+            </p>
+          </div>
+          <div className="my-2">
+            <button
+              onClick={handleSubmit}
+              className="font-text text-base w-[12rem] hover:text-white hover:bg-gold/80 bg-gold/30 mt-4 py-2 px-2  rounded-md"
+            >
+              Ajouter Réservation
+            </button>
+          </div>
         </div>
-        <div className="mt-4">
-          <button
-            onClick={handleSubmit}
-            className="font-text hover:text-white hover:bg-gold/80 bg-gold/30 mt-4 py-2 px-4 rounded-md"
-          >
-            Ajouter Réservation
-          </button>
+        <div className="flex flex-col min-w-72 items-center mt-5">
+          <p className="mb-6">Réservations</p>
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Rechercher par date"
+            className="mb-4 p-2 border border-gray-300 rounded italic text-sm w-48"
+          />
+          {filteredDates.length > 0 && searchTerm && (
+            <ol className="">
+              {filteredDates.map((reservation) => (
+                <li key={reservation.id} className="mb-2 text-sm flex">
+                  <p>
+                    Du {new Date(reservation.start_date).toLocaleDateString()}{" "}
+                    au {new Date(reservation.end_date).toLocaleDateString()}
+                  </p>
+                  <button
+                    onClick={() => handleDelete(reservation.id)}
+                    className="text-red-500 hover:underline ml-2"
+                  >
+                    <Trash2 size={18} />
+                  </button>
+                </li>
+              ))}
+            </ol>
+          )}
+          {filteredDates.length === 0 && searchTerm && (
+            <p className="italic text-sm w-48">
+              Aucune réservation trouvée pour cette recherche.
+            </p>
+          )}
         </div>
-      </div>
-      <div className="flex flex-col items-center mt-10">
-        <p className="mb-6">Les réservations</p>
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Rechercher par date"
-          className="mb-4 p-2 border border-gray-300 rounded"
-        />
-        {filteredDates.length > 0 && searchTerm && (
-          <ol className="">
-            {filteredDates.map((reservation) => (
-              <li key={reservation.id} className="mb-2 text-sm flex">
-                <p>
-                  Du {new Date(reservation.start_date).toLocaleDateString()} au{" "}
-                  {new Date(reservation.end_date).toLocaleDateString()}
-                </p>
-                <button
-                  onClick={() => handleDelete(reservation.id)}
-                  className="text-red-500 hover:underline ml-2"
-                >
-                  <Trash2 size={18} />
-                </button>
-              </li>
-            ))}
-          </ol>
-        )}
-        {filteredDates.length === 0 && searchTerm && (
-          <p>Aucune réservation trouvée pour cette recherche.</p>
-        )}
       </div>
     </div>
   );

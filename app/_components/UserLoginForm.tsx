@@ -88,22 +88,10 @@ export default function UserLoginForm() {
     }
   };
 
-  const handleClickHome = () => {
-    if (router) {
-      router.push("/");
-    }
-  };
+
 
   return (
     <div className=" flex flex-col justify-center  gap-24 -mt-16  h-screen">
-      <Button
-        type="button"
-        onClick={handleClickHome}
-        className=" border w-[12rem] rounded-full ml-6 gap-2  bg-slate-100 hover:bg-slate-200 text-text_color text-md lg:text-md"
-      >
-        <Milestone size={20} className="transform scale-x-[-1] " /> Retour à
-        l'accueil
-      </Button>
       <div className="w-full">
         <Form {...form}>
           <form
