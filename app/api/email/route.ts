@@ -14,12 +14,7 @@ export const POST = async (request: NextRequest) => {
 
     console.log("body server", body);
 
-    // Vérifier que TO_EMAIL est défini et non undefined
-    if (!process.env.TO_EMAIL) {
-      throw new Error("TO_EMAIL is not defined in environment variables");
-    }
-
-    const toEmail = process.env.TO_EMAIL;
+    // const toEmail = process.env.TO_EMAIL;
 
     resend.emails.send({
       from: `${firstname} ${lastname} <onboarding@resend.dev>`,
