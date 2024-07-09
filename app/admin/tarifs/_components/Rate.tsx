@@ -74,10 +74,10 @@ export default function RateRentalCardAdmin({
       };
 
       await updateRentalPrices(id, updatedRates);
-      toast.success("Mise à jour des prix enregistrées !");
+      toast.success("Les tarifs ont été mis à jour avec succès !");
     } catch (error) {
       console.error("Error updating prices:", error);
-      toast.error("Erreur de mise à jour des prix !");
+      toast.error("Erreur de mise à jour des tarifs !");
     }
   };
 
