@@ -18,7 +18,7 @@ export const POST = async (request: NextRequest) => {
 
     resend.emails.send({
       from: `${firstname} ${lastname} <onboarding@resend.dev>`,
-      to: "marionbaston84@gmail.com",
+      to: ["marionbaston84@gmail.com"],
       // changer avec les données avec celles du client dans la database
       subject: "Message envoyé depuis Le Plessis Aux Lys ",
       react: EmailTemplate({ firstname, lastname, email, message }),
