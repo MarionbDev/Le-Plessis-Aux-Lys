@@ -20,7 +20,7 @@ export default function NavbarDesktopAdmin() {
   };
 
   return (
-    <div className=" mx-10 mt-8">
+    <div className="navbar-desktop-admin mx-10 mt-8">
       <div className="flex justify-between items-center text-text_color font-text">
         <div className=" gap-6 flex">
           <Link

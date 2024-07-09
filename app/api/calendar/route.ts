@@ -26,7 +26,7 @@ export const addCalendar = async (event: CalendarEvent): Promise<void> => {
       throw error;
     }
 
-    console.log("Event added successfully");
+    // console.log("Event added successfully");
   } catch (error: any) {
     console.error("Error adding calendar event:", error.message);
     throw error;
@@ -41,7 +41,7 @@ export const deleteCalendar = async (id: string): Promise<void> => {
       throw error;
     }
 
-    console.log("Event deleted successfully");
+    // console.log("Event deleted successfully");
   } catch (error: any) {
     console.error("Error deleting calendar event:", error.message);
     throw error;

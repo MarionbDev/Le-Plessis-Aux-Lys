@@ -24,7 +24,7 @@ export default function Garden() {
 
   return (
     <div className="mx-20 flex flex-col items-center">
-      <h2 className="mt-40 mb-20">Jardin</h2>
+      {/* <h2 className="mt-40 mb-20">Jardin</h2> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {images.map((image, index) => (
           <div key={index} className="flex justify-center items-center ">

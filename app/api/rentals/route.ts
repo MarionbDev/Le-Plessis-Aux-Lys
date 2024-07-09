@@ -1,4 +1,4 @@
-import { UpdatedPrices } from "@/app/types";
+import { UpdatedRates } from "@/app/types";
 import supabase from "@/lib/database";
 
 export const getAllRentals = async () => {
@@ -8,7 +8,6 @@ export const getAllRentals = async () => {
       .select("*");
 
     if (error) throw error;
-    console.log("Fetched prices:", allRentals);
 
     return allRentals;
   } catch (error) {
@@ -19,7 +18,7 @@ export const getAllRentals = async () => {
 
 export const updateRentalPrices = async (
   id: string,
-  updatePrices: UpdatedPrices,
+  updatePrices: UpdatedRates,
 ) => {
   try {
     const { data, error } = await supabase
@@ -33,9 +32,9 @@ export const updateRentalPrices = async (
       .eq("id", id);
 
     if (error) throw error;
-    console.log("Update prices:", data);
   } catch (error) {
     console.error("Error update price", error);
     throw error;
   }
 };
+

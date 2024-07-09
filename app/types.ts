@@ -28,3 +28,10 @@ export type ReservationInput = {
   type: "indisponible" | "reserve";
 };
 
+export type UpdatedRates = {
+  lowSeasonRateNight: number | null | undefined;
+  highSeasonRateNight: number | null | undefined;
+  lowSeasonRateWeek: number | null | undefined;
+  highSeasonRateWeek: number | null | undefined;
+};
+
