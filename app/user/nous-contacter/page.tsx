@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { FormEvent, useState } from "react";
+import { toast, Toaster } from "sonner";
 
 export default function ContactForm() {
   const [lastname, setLatsName] = useState("");
@@ -25,13 +26,16 @@ export default function ContactForm() {
 
     try {
       console.log("Submitting form...");
-      const response = await fetch("http://localhost:3000/api/email/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/email/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ lastname, firstname, email, message }),
         },
-        body: JSON.stringify({ lastname, firstname, email, message }),
-      });
+      );
       console.log("Received response :", response);
 
       if (!response.ok) {
@@ -41,13 +45,13 @@ export default function ContactForm() {
       console.log("data client : ", data);
 
       if (data && data.message) {
-        alert(`Thank you for your interest ! ${data.message}`);
+        toast.success("Email envoyé avec succès !");
         setLatsName("");
         setFirstname("");
         setEmail("");
         setMessage("");
       } else {
-        alert("Apologies ! Please try again");
+        toast.error("Une erreur s'est produite ! Veuillez réessayer !");
       }
     } catch (error) {
       console.error("Error :", error);
@@ -137,6 +141,7 @@ export default function ContactForm() {
             </CardFooter>{" "}
           </form>
         </Card>
+        <Toaster richColors />
       </div>
     </div>
   );
