@@ -1,4 +1,5 @@
 import { CalendarEvent, ReservationInput } from "@/app/types";
+import { Button } from "@/components/ui/button";
 import { fr } from "date-fns/locale";
 import { Trash2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
@@ -21,6 +22,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
   addCalendarEvent,
   deleteReservation,
 }) => {
+  console.log("AddReservation component re-rendered");
   const [selectedDates, setSelectedDates] = useState<DateRange | undefined>({
     from: undefined,
     to: undefined,
@@ -37,7 +39,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
       try {
         const fetchedDates = await fetchReservedDates(rentalType);
         setReservedDates(fetchedDates);
-        setFilteredDates(fetchedDates); // Initialisation avec toutes les réservations
+        setFilteredDates(fetchedDates);
       } catch (error) {
         console.error(
           `Error fetching reserved dates for ${rentalType}:`,
@@ -51,17 +53,17 @@ const AddReservation: React.FC<AddReservationProps> = ({
 
   const handleSelect = (range: DateRange | undefined) => {
     setSelectedDates(range);
-    console.log("Selected dates:", range);
+    // console.log("Selected dates:", range);
   };
 
   const handleSubmit = async () => {
     if (!selectedDates?.from || !selectedDates?.to) {
-      console.error("Veuillez sélectionner une plage de dates");
+      toast.warning("Veuillez sélectionner une ou plusieurs dates");
       return;
     }
 
     if (!reservationType) {
-      console.error("Veuillez sélectionner un type de réservation");
+      toast.warning("Veuillez sélectionner un type de réservation");
       return;
     }
 
@@ -74,9 +76,9 @@ const AddReservation: React.FC<AddReservationProps> = ({
       const formattedStartDate = startDate.toISOString().split("T")[0];
       const formattedEndDate = endDate.toISOString().split("T")[0];
 
-      console.log(
-        `Submitting dates: ${formattedStartDate} to ${formattedEndDate}`,
-      );
+      // console.log(
+      //   `Submitting dates: ${formattedStartDate} to ${formattedEndDate}`,
+      // );
 
       await addCalendarEvent({
         rental_type: rentalType,
@@ -85,7 +87,8 @@ const AddReservation: React.FC<AddReservationProps> = ({
         type: reservationType,
       });
 
-      toast.success("Réservation ajoutée avec succès !");
+      console.log("Setting state after successful submission");
+
       setSelectedDates({ from: undefined, to: undefined });
       setReservationType(undefined);
       const updatedReservedDates = await fetchReservedDates(rentalType);
@@ -102,7 +105,6 @@ const AddReservation: React.FC<AddReservationProps> = ({
       setReservedDates(
         reservedDates.filter((reservation) => reservation.id !== id),
       );
-      toast.success("Réservation supprimée avec succès !");
     } catch (error: any) {
       console.error("Error deleting reservation:", error.message);
       toast.error("Erreur lors de la suppression de la réservation !");
@@ -188,11 +190,11 @@ const AddReservation: React.FC<AddReservationProps> = ({
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="font-text  gap-10 w-[40rem] shadow-div rounded-md border-2 border-yellow/50 py-4 ">
+    <div className="font-text md:gap-10 shadow-div rounded-md border-2 border-yellow/50 py-4 mx-6 ">
       <p className="font-semibold text-center text-[1.2rem] mb-2">
         {rentalType.charAt(0).toUpperCase() + rentalType.slice(1)}{" "}
       </p>
-      <div className="flex justify-around">
+      <div className="flex flex-col md:flex-row md:justify-around">
         <div className="flex flex-col items-center">
           <DayPicker
             mode="range"
@@ -216,7 +218,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
 
           <div className="flex flex-col">
             <div className="flex gap-4 mb-2 ">
-              <button
+              <Button
                 className={`px-4 py-2 ${
                   reservationType === "reserve"
                     ? "bg-[#dd5757] text-white shadow-div font-text rounded-md text-sm"
@@ -225,33 +227,41 @@ const AddReservation: React.FC<AddReservationProps> = ({
                 onClick={() => setReservationType("reserve")}
               >
                 Réservé
-              </button>
-              <button
+              </Button>
+              <Button
                 className={`px-4 py-2 ${
                   reservationType === "indisponible"
                     ? "bg-gray-400 text-white shadow-div font-text rounded-md text-sm"
                     : "bg-gray-200 rounded-md font-text text-sm"
                 }`}
-                onClick={() => setReservationType("indisponible")}
+                onClick={() => {
+                  console.log("Button Réservé clicked");
+                  setReservationType("indisponible");
+                }}
               >
                 Indisponible
-              </button>
+              </Button>
             </div>
-            <p className="text-[0.85rem] italic">
-              Veuillez selectionner un statut
-            </p>
+            <div className=" h-[1.8rem] ">
+              <p
+                className={`text-[0.85rem]  ${reservationType !== undefined ? "hidden" : "italic"}`}
+              >
+                Veuillez sélectionner un statut
+              </p>
+            </div>
           </div>
-          <div className="my-2">
-            <button
+          <div className="md:pb-2">
+            <Button
               onClick={handleSubmit}
               className="font-text text-base w-[12rem] hover:text-white hover:bg-gold/80 bg-gold/30 mt-4 py-2 px-2  rounded-md"
             >
               Ajouter Réservation
-            </button>
+            </Button>
           </div>
         </div>
-        <div className="flex flex-col min-w-72 items-center mt-5">
-          <p className="mb-6">Réservations</p>
+
+        <div className="flex flex-col min-w-72 items-center h-[12rem] md:h-[35rem]  md:mt-5">
+          <p className="md:mb-6 invisible md:visible ">Réservations</p>
           <input
             type="text"
             value={searchTerm}
@@ -260,7 +270,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
             className="mb-4 p-2 border border-gray-300 rounded italic text-sm w-48"
           />
           {filteredDates.length > 0 && searchTerm && (
-            <ol className="">
+            <ul className=" overflow-auto h-[12rem]  md:h-[25rem]   ">
               {filteredDates.map((reservation) => (
                 <li key={reservation.id} className="mb-2 text-sm flex">
                   <p>
@@ -275,7 +285,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
                   </button>
                 </li>
               ))}
-            </ol>
+            </ul>
           )}
           {filteredDates.length === 0 && searchTerm && (
             <p className="italic text-sm w-48">

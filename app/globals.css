@@ -41,5 +41,8 @@ html {
   .navbar-desktop {
     display: none;
   }
+  .navbar-desktop-admin {
+    display: none;
+  }
 }
 

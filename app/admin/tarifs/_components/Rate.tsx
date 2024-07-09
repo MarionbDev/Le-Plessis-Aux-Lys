@@ -89,15 +89,19 @@ export default function RateRentalCardAdmin({
   };
 
   return (
-    <div className="flex flex-col shadow-div rounded-md border-2 border-yellow/50 p-4  ">
-      <Table className=" w-[30rem] font-text text-gray-800">
+    <div className="flex flex-col shadow-div rounded-md border-2 border-yellow/50 pb-2 md:p-4  ">
+      <Table className="w-[20rem] md:w-[30rem] font-text text-gray-800">
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[150px] text-center  font-semibold text-[1.1rem]">
+            <TableHead className="w-[40px] md:w-[150px] text-center  font-semibold md:text-[1.1rem]">
               {nameRental.charAt(0).toUpperCase() + nameRental.slice(1)}
             </TableHead>
-            <TableHead className=" text-center">Basse Saison</TableHead>
-            <TableHead className=" text-center">Haute saison</TableHead>
+            <TableHead className=" text-center w-[50px] md:w-[150px]">
+              Basse Saison
+            </TableHead>
+            <TableHead className=" text-center w-[50px] md:w-[150px]">
+              Haute saison
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -109,7 +113,7 @@ export default function RateRentalCardAdmin({
                 name="lowSeasonRateNight"
                 value={displayValue(rates.lowSeasonRateNight)}
                 onChange={handleChange}
-                className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md border-2"
+                className="w-12 md:w-16 text-center hover:bg-yellow/20 p-1 rounded-md border-2"
               />
               <span className="ml-1">€</span>
             </TableCell>
@@ -119,7 +123,7 @@ export default function RateRentalCardAdmin({
                 name="highSeasonRateNight"
                 value={displayValue(rates.highSeasonRateNight)}
                 onChange={handleChange}
-                className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md border-2"
+                className="w-12 md:w-16 text-center hover:bg-yellow/20 p-1 rounded-md border-2"
               />
               <span className="ml-1">€</span>
             </TableCell>
@@ -132,7 +136,7 @@ export default function RateRentalCardAdmin({
                 name="lowSeasonRateWeek"
                 value={displayValue(rates.lowSeasonRateWeek)}
                 onChange={handleChange}
-                className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md border-2"
+                className="w-12 md:w-16 text-center hover:bg-yellow/20 p-1 rounded-md border-2"
               />
               <span className="ml-1">€</span>
             </TableCell>
@@ -142,7 +146,7 @@ export default function RateRentalCardAdmin({
                 name="highSeasonRateWeek"
                 value={displayValue(rates.highSeasonRateWeek)}
                 onChange={handleChange}
-                className="w-16 text-center hover:bg-yellow/20 p-1 rounded-md border-2"
+                className="w-12 md:w-16 text-center hover:bg-yellow/20 p-1 rounded-md border-2"
               />
               <span className="ml-1">€</span>
             </TableCell>

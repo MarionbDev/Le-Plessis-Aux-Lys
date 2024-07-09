@@ -86,8 +86,8 @@ const ListRentalsCalendar: React.FC = () => {
   // };
 
   return (
-    <div className="  my-20 ">
-      <div className="flex flex-wrap gap-16 gap-x-30 mx-10 justify-center ">
+    <div className=" my-20 ">
+      <div className="flex flex-col md:flex-row md:flex-wrap gap-8 md:gap-y-16  md:mx-10 justify-center ">
         {rentalsCalendar.map((rental) => (
           <div key={rental.id}>
             <AddReservation

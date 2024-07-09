@@ -38,8 +38,8 @@ export default function ListRentalRates() {
 
   return (
     <>
-      <div className=" flex flex-col  my-20">
-        <div className="flex flex-wrap gap-12 gap-x-32 mx-10 justify-center">
+      <div className=" flex flex-col my-20">
+        <div className="flex flex-wrap gap-12 md:gap-x-32 md:mx-10 justify-center">
           {rentals.map((rental) => (
             <RateRentalCardAdmin
               key={rental.id}
