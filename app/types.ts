@@ -4,9 +4,17 @@ export type RentalCalendar = {
   type: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
 };
 
+export type CustomDateRange = {
+  from: Date;
+  to: Date;
+  rentalType: RentalType;
+  type: "indisponible" | "reserve";
+};
+
+export type RentalType = "gite" | "chambre 1" | "chambre 2" | "chambre 3";
+
 export type Reservation = {
   id: string;
-
   start_date: string;
   end_date: string;
   rentals: RentalCalendar;

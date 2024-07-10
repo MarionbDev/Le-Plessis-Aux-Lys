@@ -7,7 +7,7 @@ import { Loader } from "lucide-react";
 const imagesGite = ["/gite/gite.jpg", "/gite/gite2.jpg", "/gite/gite3.jpg"];
 
 export default function Gîte() {
-  const { rates, loading, error } = useRentalRates("gîte");
+  const { rates, loading, error } = useRentalRates("gite");
 
   if (loading) {
     return (
@@ -31,6 +31,7 @@ export default function Gîte() {
           highSeasonNightRate={rates.price_high_season_night}
           highSeasonWeeklyRate={rates.price_high_season_week}
           imagesSlide={imagesGite}
+          rentalType="gite"
         />
       )}
     </div>
