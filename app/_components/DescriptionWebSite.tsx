@@ -71,7 +71,7 @@ export default function DescriptionWebSite() {
         >
           <div className="mx-56 flex items-center gap-12 leading-loose  text-lg mt-20">
             <p>
-              Demeure de caractère datant du XIXème siècle, situé dans le
+              Demeure de caractère datant du XIXème siècle, située dans le
               village de La chapelle aux Lys, cité au guide vert de 2023 comme
               étant le plus petit village possédant son Planétarium que vous
               pourrez découvrir à 2 minute à pieds.

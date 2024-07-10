@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -6,15 +5,29 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ImagePlus, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import Image from "next/image";
+
+import { Button } from "@/components/ui/button";
+import UploadFileAdmin from "./UploadFileAdmin";
 
 type PropType = {
   title: string;
   slides?: { url: string; orientation: "horizontal" | "vertical" }[];
+  onUploadComplete: (uploadedFileData: {
+    url: string;
+    orientation: "horizontal" | "vertical";
+    id: string;
+    path: string;
+    fullPath: string;
+  }) => void; // Définir la fonction de rappel onUploadComplete comme une prop requise
 };
 
-export default function CardPhotosAdmin({ title, slides = [] }: PropType) {
+export default function CardPhotosAdmin({
+  title,
+  slides = [],
+  onUploadComplete,
+}: PropType) {
   return (
     <>
       <div className="flex justify-around">
@@ -23,9 +36,10 @@ export default function CardPhotosAdmin({ title, slides = [] }: PropType) {
             <div className="flex justify-between items-center">
               <CardTitle>{title}</CardTitle>
               <CardDescription>
-                <Button>
+                {/* <Button>
                   <ImagePlus size={26} className=" hover:scale-125" />
-                </Button>
+                </Button> */}
+                <UploadFileAdmin onUploadComplete={onUploadComplete} />
               </CardDescription>
             </div>
           </CardHeader>
@@ -43,11 +57,14 @@ export default function CardPhotosAdmin({ title, slides = [] }: PropType) {
                       width={slide.orientation === "horizontal" ? 320 : 160}
                       height={slide.orientation === "horizontal" ? 500 : 100}
                       alt={`Photo ${index + 1}`}
+                      objectFit="cover"
+                      objectPosition="center"
+                      priority
                       className=" p-0"
                     />
-                    <button className="  relative -top-9 bg-white  p-1 rounded-tr-md border-l-2 border-b-2">
+                    <Button className="  relative -top-9 bg-white  p-1 rounded-tr-md border-l-2 border-b-2">
                       <Trash2 size={20} className=" hover:scale-110" />
-                    </button>
+                    </Button>
                   </div>
                 </div>
               ))}{" "}

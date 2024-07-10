@@ -1,36 +1,83 @@
+"use client";
+
 import CardPhotosAdmin from "@/app/_components/CardPhotoAdmin";
+import { getImagesFromBucket } from "@/app/api/uploadFile/route";
+import { useEffect, useState } from "react";
 
 export default function GiteAndRooms() {
-  const gite = [
-    { url: "/gite/gite.jpg", orientation: "horizontal" as "horizontal" },
-    { url: "/gite/gite2.jpg", orientation: "vertical" as "vertical" },
-    { url: "/gite/gite3.jpg", orientation: "vertical" as "vertical" },
-  ];
+  const [gite, setGite] = useState<
+    { url: string; orientation: "horizontal" | "vertical" }[]
+  >([]);
+  const [chambre1, setChambre1] = useState<
+    { url: string; orientation: "horizontal" | "vertical" }[]
+  >([]);
+  const [chambre2, setChambre2] = useState<
+    { url: string; orientation: "horizontal" | "vertical" }[]
+  >([]);
+  const [chambre3, setChambre3] = useState<
+    { url: string; orientation: "horizontal" | "vertical" }[]
+  >([]);
 
-  const chambre1 = [
-    { url: "/chambres/ch-1.jpg", orientation: "horizontal" as "horizontal" },
-    { url: "/chambres/ch-1-1.jpg", orientation: "horizontal" as "horizontal" },
-  ];
-  const chambre2 = [
-    {
-      url: "/chambres/ch-2.jpg",
-      orientation: "horizontal" as "horizontal",
-    },
-  ];
-  const chambre3 = [
-    {
-      url: "/chambres/ch-3.jpg",
-      orientation: "horizontal" as "horizontal",
-    },
-    { url: "/chambres/ch-3-1.jpg", orientation: "horizontal" as "horizontal" },
-  ];
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const giteUrls = await getImagesFromBucket("gite");
+        const chambre1Urls = await getImagesFromBucket("chambre1");
+        const chambre2Urls = await getImagesFromBucket("chambre2");
+        const chambre3Urls = await getImagesFromBucket("chambre3");
+
+        setGite(giteUrls.map((url) => ({ url, orientation: "horizontal" })));
+        setChambre1(
+          chambre1Urls.map((url) => ({ url, orientation: "horizontal" })),
+        );
+        setChambre2(
+          chambre2Urls.map((url) => ({ url, orientation: "horizontal" })),
+        );
+        setChambre3(
+          chambre3Urls.map((url) => ({ url, orientation: "horizontal" })),
+        );
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  const handleUploadComplete = (uploadedFileData: {
+    url: string;
+    orientation: "horizontal" | "vertical";
+    id: string;
+    path: string;
+    fullPath: string;
+  }) => {
+    // Ajouter la nouvelle image téléchargée dans l'état local correspondant (gite, chambre1, chambre2, chambre3)
+    setGite([...gite, uploadedFileData]); // Adapter pour les autres chambres si nécessaire
+  };
+
   return (
     <div className=" my-20 ">
       <div className="flex justify-around gap-y-20 flex-wrap mx-20 mt-10 ">
-        <CardPhotosAdmin title="Gîte" slides={gite} />
-        <CardPhotosAdmin title="Chambre 1" slides={chambre1} />
-        <CardPhotosAdmin title="Chambre 2" slides={chambre2} />
-        <CardPhotosAdmin title="Chambre 3" slides={chambre3} />
+        <CardPhotosAdmin
+          title="Gîte"
+          slides={gite}
+          onUploadComplete={handleUploadComplete}
+        />
+        <CardPhotosAdmin
+          title="Chambre 1"
+          slides={chambre1}
+          onUploadComplete={handleUploadComplete}
+        />
+        <CardPhotosAdmin
+          title="Chambre 2"
+          slides={chambre2}
+          onUploadComplete={handleUploadComplete}
+        />
+        <CardPhotosAdmin
+          title="Chambre 3"
+          slides={chambre3}
+          onUploadComplete={handleUploadComplete}
+        />
       </div>
     </div>
   );
