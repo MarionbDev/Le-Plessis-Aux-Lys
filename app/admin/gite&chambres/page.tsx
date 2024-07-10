@@ -6,16 +6,16 @@ import { useEffect, useState } from "react";
 
 export default function GiteAndRooms() {
   const [gite, setGite] = useState<
-    { url: string; orientation: "horizontal" | "vertical" }[]
+    { path: string; orientation: "horizontal" | "vertical" }[]
   >([]);
   const [chambre1, setChambre1] = useState<
-    { url: string; orientation: "horizontal" | "vertical" }[]
+    { path: string; orientation: "horizontal" | "vertical" }[]
   >([]);
   const [chambre2, setChambre2] = useState<
-    { url: string; orientation: "horizontal" | "vertical" }[]
+    { path: string; orientation: "horizontal" | "vertical" }[]
   >([]);
   const [chambre3, setChambre3] = useState<
-    { url: string; orientation: "horizontal" | "vertical" }[]
+    { path: string; orientation: "horizontal" | "vertical" }[]
   >([]);
 
   useEffect(() => {
@@ -26,15 +26,15 @@ export default function GiteAndRooms() {
         const chambre2Urls = await getImagesFromBucket("chambre2");
         const chambre3Urls = await getImagesFromBucket("chambre3");
 
-        setGite(giteUrls.map((url) => ({ url, orientation: "horizontal" })));
+        setGite(giteUrls.map((path) => ({ path, orientation: "horizontal" })));
         setChambre1(
-          chambre1Urls.map((url) => ({ url, orientation: "horizontal" })),
+          chambre1Urls.map((path) => ({ path, orientation: "horizontal" })),
         );
         setChambre2(
-          chambre2Urls.map((url) => ({ url, orientation: "horizontal" })),
+          chambre2Urls.map((path) => ({ path, orientation: "horizontal" })),
         );
         setChambre3(
-          chambre3Urls.map((url) => ({ url, orientation: "horizontal" })),
+          chambre3Urls.map((path) => ({ path, orientation: "horizontal" })),
         );
       } catch (error) {
         console.error("Error fetching images:", error);
@@ -45,7 +45,6 @@ export default function GiteAndRooms() {
   }, []);
 
   const handleUploadComplete = (uploadedFileData: {
-    url: string;
     orientation: "horizontal" | "vertical";
     id: string;
     path: string;

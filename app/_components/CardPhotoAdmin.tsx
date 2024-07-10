@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Trash2 } from "lucide-react";
 import Image from "next/image";
 
@@ -13,9 +7,8 @@ import UploadFileAdmin from "./UploadFileAdmin";
 
 type PropType = {
   title: string;
-  slides?: { url: string; orientation: "horizontal" | "vertical" }[];
+  slides?: { path: string; orientation: "horizontal" | "vertical" }[];
   onUploadComplete: (uploadedFileData: {
-    url: string;
     orientation: "horizontal" | "vertical";
     id: string;
     path: string;
@@ -33,39 +26,35 @@ export default function CardPhotosAdmin({
       <div className="flex justify-around">
         <Card className=" w-[30rem] h-[28rem]">
           <CardHeader>
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col  justify-between items-center">
               <CardTitle>{title}</CardTitle>
-              <CardDescription>
-                {/* <Button>
-                  <ImagePlus size={26} className=" hover:scale-125" />
-                </Button> */}
-                <UploadFileAdmin onUploadComplete={onUploadComplete} />
-              </CardDescription>
+
+              <UploadFileAdmin onUploadComplete={onUploadComplete} />
             </div>
           </CardHeader>
 
           <CardContent>
-            <div className="flex gap-4 h-[22rem]   overflow-x-auto overflow-y-hidden ">
+            <div className="flex gap-4 h-[19rem]   overflow-x-auto overflow-y-hidden ">
               {slides.map((slide, index) => (
                 <div
                   key={index}
-                  className={`min-w-[${slide.orientation === "horizontal" ? "600px" : "200px"}] min-h-[22rem] flex-shrink-0 flex items-center `}
+                  className="h-[18rem] flex-shrink-0 flex items-center  justify-center relative"
                 >
-                  <div>
+                  <div className=" flex justify-center items-center">
                     <Image
-                      src={slide.url}
-                      width={slide.orientation === "horizontal" ? 320 : 160}
-                      height={slide.orientation === "horizontal" ? 500 : 100}
+                      src={slide.path}
+                      width={200}
+                      height={200}
                       alt={`Photo ${index + 1}`}
                       objectFit="cover"
                       objectPosition="center"
                       priority
                       className=" p-0"
                     />
-                    <Button className="  relative -top-9 bg-white  p-1 rounded-tr-md border-l-2 border-b-2">
-                      <Trash2 size={20} className=" hover:scale-110" />
-                    </Button>
                   </div>
+                  <Button className=" absolute  bg-white  p-1 rounded-tr-md border-l-2 border-b-2">
+                    <Trash2 size={20} className=" hover:scale-110" />
+                  </Button>
                 </div>
               ))}{" "}
             </div>

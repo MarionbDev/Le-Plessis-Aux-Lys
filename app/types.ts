@@ -36,7 +36,6 @@ export type UpdatedRates = {
 };
 
 export type onUploadComplete = {
-  url: string;
   orientation: "horizontal" | "vertical";
   id: string;
   path: string;

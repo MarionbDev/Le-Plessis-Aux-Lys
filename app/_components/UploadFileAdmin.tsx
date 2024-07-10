@@ -41,8 +41,8 @@ export default function UploadFileAdmin({
   };
 
   return (
-    <>
-      <form onSubmit={uploadFileImage}>
+    <div>
+      <form onSubmit={uploadFileImage} className=" flex flex-col">
         <input
           type="file"
           id="upload"
@@ -51,7 +51,7 @@ export default function UploadFileAdmin({
         />
         <button type="submit">Télécharger</button>
       </form>
-    </>
+    </div>
   );
 }
 
