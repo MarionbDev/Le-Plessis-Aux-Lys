@@ -35,3 +35,21 @@ export type UpdatedRates = {
   highSeasonRateWeek: number | null | undefined;
 };
 
+export type onUploadComplete = {
+  orientation: "horizontal" | "vertical";
+  id: string;
+  path: string;
+  fullPath: string;
+};
+
+export type UploadFileAdminProps = {
+  onUploadComplete: (uploadedFileData: onUploadComplete) => void;
+};
+
+export type uploadedFileData = {
+  orientation: "horizontal" | "vertical";
+  id: string;
+  path: string;
+  fullPath: string;
+};
+

@@ -12,6 +12,9 @@ const nextConfig = {
     // => checkFields<DIFF< : resolve terminal error : run build
     ignoreBuildErrors: true,
   },
+  images: {
+    domains: ["zsycdbufjrptszftdbdg.supabase.co"],
+  },
 };
 
 export default nextConfig;
