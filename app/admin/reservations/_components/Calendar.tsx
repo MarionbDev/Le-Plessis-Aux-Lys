@@ -111,20 +111,20 @@ const AddReservation: React.FC<AddReservationProps> = ({
     }
   };
 
-  const isDateReserved = (day: Date, type: "indisponible" | "reserve") => {
-    const dayTimestamp = day.getTime();
+  // const isDateReserved = (day: Date, type: "indisponible" | "reserve") => {
+  //   const dayTimestamp = day.getTime();
 
-    const isReserved = reservedDates.some((reservation) => {
-      const startDate = new Date(reservation.start_date).getTime();
-      const endDate = new Date(reservation.end_date).getTime();
+  //   const isReserved = reservedDates.some((reservation) => {
+  //     const startDate = new Date(reservation.start_date).getTime();
+  //     const endDate = new Date(reservation.end_date).getTime();
 
-      const isInRange = dayTimestamp >= startDate && dayTimestamp <= endDate;
+  //     const isInRange = dayTimestamp >= startDate && dayTimestamp <= endDate;
 
-      return isInRange && reservation.type === type;
-    });
+  //     return isInRange && reservation.type === type;
+  //   });
 
-    return isReserved;
-  };
+  //   return isReserved;
+  // };
 
   useEffect(() => {
     // Filtrer les réservations en fonction de searchTerm
@@ -143,8 +143,18 @@ const AddReservation: React.FC<AddReservationProps> = ({
       from: selectedDates?.from,
       to: selectedDates?.to,
     },
-    reserved: (day: Date) => isDateReserved(day, "reserve"),
-    unavailable: (day: Date) => isDateReserved(day, "indisponible"),
+    reserved: reservedDates
+      .filter((date) => date.type === "reserve")
+      .map(({ start_date, end_date }) => ({
+        from: new Date(start_date),
+        to: new Date(end_date),
+      })),
+    unavailable: reservedDates
+      .filter((date) => date.type === "indisponible")
+      .map(({ start_date, end_date }) => ({
+        from: new Date(start_date),
+        to: new Date(end_date),
+      })),
   };
 
   const modifiersStyles = {
@@ -154,12 +164,13 @@ const AddReservation: React.FC<AddReservationProps> = ({
       borderRadius: "50px",
     },
     reserved: {
-      backgroundColor: "#b72121",
+      backgroundColor: "#e22626",
       color: "#ffffff",
     },
     unavailable: {
-      backgroundColor: "#e5e7eb",
-      color: "#686666",
+      color: "#c3c5c9",
+      textDecoration: "line-through",
+      textDecorationColor: "#a2a3a5",
     },
   };
 
@@ -203,12 +214,12 @@ const AddReservation: React.FC<AddReservationProps> = ({
             onSelect={handleSelect}
             modifiers={modifiers}
             modifiersStyles={modifiersStyles}
-            disabled={reservedDates.flatMap((reservation) => [
-              {
-                from: new Date(reservation.start_date),
-                to: new Date(reservation.end_date),
-              },
-            ])}
+            // disabled={reservedDates.flatMap((reservation) => [
+            //   {
+            //     from: new Date(reservation.start_date),
+            //     to: new Date(reservation.end_date),
+            //   },
+            // ])}
             footer={footer}
             captionLayout="dropdown"
             fromYear={2024}
@@ -221,7 +232,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
               <Button
                 className={`px-4 py-2 ${
                   reservationType === "reserve"
-                    ? "bg-[#dd5757] text-white shadow-div font-text rounded-md text-sm"
+                    ? "bg-[#e22626] text-white shadow-div font-text rounded-md text-sm"
                     : "bg-gray-200 rounded-md font-text text-sm"
                 }`}
                 onClick={() => setReservationType("reserve")}
@@ -239,7 +250,9 @@ const AddReservation: React.FC<AddReservationProps> = ({
                   setReservationType("indisponible");
                 }}
               >
-                Indisponible
+                <div className="absolute h-px w-24 bg-[#424346] "></div>
+
+                <p>Indisponible</p>
               </Button>
             </div>
             <div className=" h-[1.8rem] ">
@@ -260,7 +273,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-col min-w-72 items-center h-[12rem] md:h-[35rem]  md:mt-5">
+        <div className="flex flex-col min-w-72 items-center h-[12rem] md:h-[28rem]  md:mt-5">
           <p className="md:mb-6 invisible md:visible ">Réservations</p>
           <input
             type="text"

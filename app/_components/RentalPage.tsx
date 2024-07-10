@@ -1,7 +1,10 @@
 "use client";
 import { EmblaOptionsType } from "embla-carousel";
+import { useEffect, useState } from "react";
 import BookingCalendar from "../_components/calendar/BookingCalendar";
 import EmblaCarousel from "../_components/carousel/EmblaCarousel";
+import { getAllCalendar } from "../api/calendar/route";
+import { CustomDateRange, RentalType } from "../types";
 
 type PropType = {
   title: string;
@@ -10,6 +13,7 @@ type PropType = {
   highSeasonNightRate?: number;
   highSeasonWeeklyRate?: number;
   imagesSlide?: string[];
+  rentalType: RentalType;
 };
 
 const OPTIONS: EmblaOptionsType = { loop: true, dragFree: true };
@@ -21,7 +25,29 @@ export default function RentalPage({
   highSeasonNightRate,
   highSeasonWeeklyRate,
   imagesSlide,
+  rentalType,
 }: PropType) {
+  const [reservedDates, setReservedDates] = useState<CustomDateRange[]>([]);
+
+  useEffect(() => {
+    async function fetchReservedDates() {
+      try {
+        const reservations = await getAllCalendar(rentalType);
+        const reservedDates = reservations.map((reservation) => ({
+          from: new Date(reservation.start_date),
+          to: new Date(reservation.end_date),
+          rentalType,
+          type: reservation.type,
+        }));
+        console.log("Dates réservés:", reservedDates);
+        setReservedDates(reservedDates);
+      } catch (error) {
+        console.error("Error fetching reserved dates:", error);
+      }
+    }
+    fetchReservedDates();
+  }, [rentalType]);
+
   const displayRate = (rate?: number) =>
     rate !== undefined && rate !== null ? `${rate} €` : "-";
 
@@ -56,9 +82,9 @@ export default function RentalPage({
               </div>
             </section>
           )}
-          <section className="mt-10 p-4 border-gold border-2 ">
+          <section className="mt-10 p-4 border-gold border-2 rounded-md">
             <div className=" ">
-              <BookingCalendar />
+              <BookingCalendar reservedDates={reservedDates} />
             </div>
             <div>
               <ul className="flex justify-end gap-10 italic text-[0.8rem]">
@@ -67,12 +93,12 @@ export default function RentalPage({
                   <p>Disponible</p>
                 </li>
                 <li className="flex gap-2 items-center">
-                  <span className=" w-4 h-4 bg-red-500 border-2 rounded-full"></span>
-                  <p>Loué</p>
+                  <span className=" w-4 h-4 bg-[#e22626] border-2 rounded-full"></span>
+                  <p>Réservé</p>
                 </li>
                 <li className="flex gap-2 items-center">
                   <span className=" w-4 h-4 bg-white border-2 rounded-full relative flex items-center">
-                    <div className="absolute h-px w-3 bg-slate-400 -rotate-45"></div>
+                    <div className="absolute h-px w-3 bg-[#a2a3a5] "></div>
                   </span>
                   <p>Indisponible</p>
                 </li>

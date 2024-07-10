@@ -31,6 +31,7 @@ export default function RoomsOne() {
           highSeasonNightRate={rates.price_high_season_night}
           highSeasonWeeklyRate={rates.price_high_season_week}
           imagesSlide={imagesChambre1}
+          rentalType="chambre 1"
         />
       )}
     </div>
