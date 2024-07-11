@@ -26,11 +26,12 @@ export const getImagesFromBucket = async (bucket: string) => {
 export const upload = async (
   file: File,
   orientation: "horizontal" | "vertical",
+  bucket: string,
 ) => {
   try {
     const fileName = `${Date.now()}_${file.name}`;
     const { data, error } = await supabase.storage
-      .from("gite")
+      .from(bucket)
       .upload(fileName, file);
 
     if (error) throw error;
@@ -45,7 +46,9 @@ export const upload = async (
 
 export const deleteUploadFile = async (filePath: string) => {
   try {
-    const { error } = await supabase.storage.from("avatars").remove([filePath]);
+    const { error } = await supabase.storage
+      .from("rentals_images")
+      .remove([filePath]);
 
     if (error) {
       throw error;

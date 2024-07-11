@@ -13,13 +13,15 @@ type PropType = {
     id: string;
     path: string;
     fullPath: string;
-  }) => void; // Définir la fonction de rappel onUploadComplete comme une prop requise
+  }) => void;
+  bucket: string; // Définir la fonction de rappel onUploadComplete comme une prop requise
 };
 
 export default function CardPhotosAdmin({
   title,
   slides = [],
   onUploadComplete,
+  bucket,
 }: PropType) {
   return (
     <>
@@ -29,7 +31,10 @@ export default function CardPhotosAdmin({
             <div className="flex flex-col  justify-between items-center">
               <CardTitle>{title}</CardTitle>
 
-              <UploadFileAdmin onUploadComplete={onUploadComplete} />
+              <UploadFileAdmin
+                onUploadComplete={onUploadComplete}
+                bucket={bucket}
+              />
             </div>
           </CardHeader>
 

@@ -46,18 +46,18 @@ export type UpdatedRates = {
 export type onUploadComplete = {
   orientation: "horizontal" | "vertical";
   id: string;
-  path: string;
   fullPath: string;
+  image_path: string;
 };
 
 export type UploadFileAdminProps = {
-  onUploadComplete: (uploadedFileData: onUploadComplete) => void;
+  onUploadComplete?: (uploadedFileData: onUploadComplete) => void;
 };
 
 export type uploadedFileData = {
   orientation: "horizontal" | "vertical";
   id: string;
-  path: string;
+  image_path: string;
   fullPath: string;
 };
 
@@ -66,5 +66,14 @@ export type ReservationListProps = {
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
   filteredDates: ReservationInput[];
   handleDelete: (id: string) => void;
+};
+
+export type ArticleProps = {
+  title: string;
+  description: string;
+  content: string;
+  url_link: string;
+  image_path: string;
+  onUploadComplete?: (uploadedFileData: onUploadComplete) => void;
 };
 

@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { upload } from "../api/uploadFile/route";
-import { UploadFileAdminProps } from "../types";
+import { UploadFileAdminProps, onUploadComplete } from "../types";
 
-export default function UploadFileAdmin({
-  onUploadComplete,
-}: UploadFileAdminProps) {
+interface Props extends UploadFileAdminProps {
+  bucket: string;
+  onUploadComplete: (uploadedFileData: onUploadComplete) => void;
+}
+
+export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
   const [file, setFile] = useState<File | null>(null);
+  const [uploadedFilePath, setUploadedFilePath] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files ? event.target.files[0] : null;
@@ -16,10 +20,11 @@ export default function UploadFileAdmin({
     return width > height ? "horizontal" : "vertical";
   };
 
-  const uploadFileImage = async (event: React.FormEvent) => {
+  const uploadFileImage = async (
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => {
     event.preventDefault();
 
-    // Vérifier si file est null
     if (!file) {
       console.error("No file selected!");
       return;
@@ -30,8 +35,10 @@ export default function UploadFileAdmin({
       const orientation = getOrientation(img.width, img.height);
 
       try {
-        const uploadedFileData = await upload(file, orientation);
+        const uploadedFileData = await upload(file, orientation, bucket);
         console.log("Uploaded file:", uploadedFileData);
+        setUploadedFilePath(uploadedFileData.fullPath);
+        // onUploadComplete(uploadedFileData);
       } catch (error) {
         console.error("Error uploading file:", error);
       }
@@ -42,15 +49,17 @@ export default function UploadFileAdmin({
 
   return (
     <div>
-      <form onSubmit={uploadFileImage} className=" flex flex-col">
+      <div className="flex flex-col">
         <input
           type="file"
           id="upload"
           accept="image/*"
           onChange={handleFileChange}
         />
-        <button type="submit">Télécharger</button>
-      </form>
+        <button type="button" onClick={uploadFileImage}>
+          Télécharger
+        </button>
+      </div>
     </div>
   );
 }
