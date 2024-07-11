@@ -61,3 +61,10 @@ export type uploadedFileData = {
   fullPath: string;
 };
 
+export type ReservationListProps = {
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  filteredDates: ReservationInput[];
+  handleDelete: (id: string) => void;
+};
+

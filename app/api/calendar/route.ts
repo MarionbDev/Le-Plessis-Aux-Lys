@@ -8,7 +8,8 @@ export const getAllCalendar = async (
     const { data, error } = await supabase
       .from("calendar")
       .select("*")
-      .eq("rental_type", rental_type);
+      .eq("rental_type", rental_type)
+      .order("start_date", { ascending: true });
 
     if (error) throw error;
 
