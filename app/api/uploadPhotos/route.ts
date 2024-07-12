@@ -23,7 +23,7 @@ export const getImagesFromBucket = async (bucket: string) => {
   }
 };
 
-export const upload = async (
+export const uploadPhotos = async (
   file: File,
   orientation: "horizontal" | "vertical",
   bucket: string,

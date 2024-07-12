@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { upload } from "../api/uploadFile/route";
+import { uploadPhotos } from "../api/uploadPhotos/route";
 import { UploadFileAdminProps, onUploadComplete } from "../types";
 
 interface Props extends UploadFileAdminProps {
@@ -35,7 +35,7 @@ export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
       const orientation = getOrientation(img.width, img.height);
 
       try {
-        const uploadedFileData = await upload(file, orientation, bucket);
+        const uploadedFileData = await uploadPhotos(file, orientation, bucket);
         console.log("Uploaded file:", uploadedFileData);
         setUploadedFilePath(uploadedFileData.fullPath);
         // onUploadComplete(uploadedFileData);

@@ -69,6 +69,7 @@ export type ReservationListProps = {
 };
 
 export type ArticleProps = {
+  id: string;
   title: string;
   description: string;
   content: string;

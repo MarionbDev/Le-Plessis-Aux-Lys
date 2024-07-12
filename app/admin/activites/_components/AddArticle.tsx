@@ -25,11 +25,10 @@ import { Input } from "@/components/ui/input";
 // import { Loader2, LogIn } from "lucide-react";
 
 // import ReactQuill from "react-quill";
-import { addArticle } from "@/app/api/article/route";
-import { ArticleProps, onUploadComplete } from "@/app/types";
+import { postArticle } from "@/app/api/article/route";
 import { zodResolver } from "@hookform/resolvers/zod";
 import dynamic from "next/dynamic";
-import { Toaster, toast } from "sonner";
+import { toast, Toaster } from "sonner";
 import { z } from "zod";
 
 const ReactQuill = dynamic(() => import("react-quill"), {
@@ -46,14 +45,9 @@ const formSchema = z.object({
 
 type FormSchemaType = z.infer<typeof formSchema>;
 
-export type AddArticleProps = {
-  onUploadComplete: (uploadedFileData: onUploadComplete) => void;
-};
-
-export default function AddArticle({ onUploadComplete }: AddArticleProps) {
+export default function AddArticle() {
   const [isLoading, setIsLoading] = useState(false);
   const [uploadedFilePath, setUploadedFilePath] = useState<string>("");
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   // const router = useRouter();
 
@@ -68,63 +62,73 @@ export default function AddArticle({ onUploadComplete }: AddArticleProps) {
     },
   });
 
+  // const handleLoginFormSubmit = async (values: FormSchemaType) => {
+  //   try {
+  //     setIsLoading(true);
+
+  //     // Créer l'objet articleData avec tous les champs
+  //     const articleData = {
+  //       title: values.title,
+  //       description: values.description,
+  //       content: values.content,
+  //       url_link: values.url_link,
+  //       image_path: uploadedFilePath,
+  //     };
+
+  //     if (loading || !accessToken) {
+  //       toast.error("Utilisateur non authentifié");
+  //       return;
+  //     }
+
+  //     const response = await fetch("/api/article", {
+  //       method: "POST",
+  //       headers: {
+  //         Authorization: `Bearer ${accessToken}`,
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(articleData), // Envoyez articleData ici
+  //     });
+
+  //     const result = await response.json();
+  //     if (response.ok) {
+  //       toast.success("Ajout de l'article réussi !");
+  //       form.reset();
+  //       setUploadedFilePath("");
+  //     } else {
+  //       toast.error(`Erreur: ${result.message}`);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     toast.error("Erreur lors de l'ajout de l'article.");
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
   const handleLoginFormSubmit = async (values: FormSchemaType) => {
     try {
       setIsLoading(true);
 
-      // Exemple de gestion d'image après téléchargement avec UploadFileAdmin
-      const uploadedFileData = await handleImageUpload(); // Fonction à implémenter pour gérer le téléchargement de l'image
-
-      const articleData: ArticleProps = {
+      const articleData = {
         title: values.title,
         description: values.description,
         content: values.content,
         url_link: values.url_link,
-        image_path: values.image_path, // Chemin de l'image téléchargée
+        image_path: uploadedFilePath,
       };
 
-      await addArticle(articleData); // Envoi de l'article avec le chemin de l'image
+      // Appelez directement postArticle
+      await postArticle(articleData);
 
-      console.log("articledata:", articleData);
       toast.success("Ajout de l'article réussi !");
-    } catch (error: any) {
-      console.error(error);
-      toast.error(error.message);
-      if (error.error_description) {
-        toast.error(error.description);
-      }
+      form.reset();
+      setUploadedFilePath("");
+    } catch (error) {
+      console.error("Erreur :", error);
+      toast.error("Erreur lors de l'ajout de l'article.");
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const handleFileChange = async (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      try {
-        setIsLoading(true);
-        const uploadedFilePath = await uploadFile(file); // Téléchargez le fichier vers votre système de stockage
-        form.setValue("image_path", uploadedFilePath); // Mettez à jour le champ image_path dans le formulaire
-      } catch (error) {
-        console.error("Erreur lors du téléchargement du fichier :", error);
-        toast.error("Erreur lors du téléchargement du fichier.");
-      } finally {
-        setIsLoading(false);
-      }
-    }
-  };
-
-  const uploadFile = async (file: File): Promise<string> => {
-    // Ici, vous devrez implémenter la logique de téléchargement vers votre système de stockage (par exemple, Supabase Storage)
-    // C'est un exemple mock pour simuler le téléchargement
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const uploadedFilePath = `/chemin/vers/l/image/${file.name}`; // Simule le chemin relatif du fichier téléchargé
-        resolve(uploadedFilePath);
-      }, 2000); // Simule un délai de 2 secondes pour le téléchargement
-    });
   };
 
   return (
@@ -213,8 +217,30 @@ export default function AddArticle({ onUploadComplete }: AddArticleProps) {
                         type="file"
                         id="upload"
                         accept="image/*"
-                        // onChange={handleFileChange}
-                        {...field}
+                        onChange={async (e) => {
+                          if (e.target.files) {
+                            const formData = new FormData();
+                            Object.values(e.target.files).forEach((file) => {
+                              formData.append("file", file);
+                            });
+
+                            const response = await fetch(
+                              "/api/uploadArticlePhoto",
+                              {
+                                method: "POST",
+                                body: formData,
+                              },
+                            );
+
+                            const result = await response.json();
+                            if (result.success) {
+                              alert("Upload ok : " + result.name);
+                              setUploadedFilePath(result.image_path);
+                            } else {
+                              alert("Upload failed");
+                            }
+                          }
+                        }}
                       />
                     </FormControl>
                     <FormMessage />

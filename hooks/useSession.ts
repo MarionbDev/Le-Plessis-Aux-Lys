@@ -10,6 +10,7 @@ export default function useSession() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<ErrorType | null>(null);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchSession = async () => {
@@ -20,6 +21,8 @@ export default function useSession() {
           throw error;
         }
         setUser(data?.session?.user || null);
+        setAccessToken(data?.session?.access_token || null);
+        // console.log("data session ", data);
       } catch (error: any) {
         console.error(error);
         setError({ message: error.message });
@@ -39,6 +42,7 @@ export default function useSession() {
         throw error;
       }
       setUser(data?.session?.user || null);
+      setAccessToken(data?.session?.access_token || null);
     } catch (error: any) {
       console.error(error);
       setError({ message: error.message });
@@ -47,6 +51,6 @@ export default function useSession() {
     }
   };
 
-  return { user, loading, error, refreshSession };
+  return { user, loading, error, refreshSession, accessToken };
 }
 

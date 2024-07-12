@@ -1,7 +1,7 @@
 "use client";
 
 import CardPhotosAdmin from "@/app/_components/CardPhotoAdmin";
-import { getImagesFromBucket } from "@/app/api/uploadFile/route";
+import { getImagesFromBucket } from "@/app/api/uploadPhotos/route";
 import { useEffect, useState } from "react";
 
 export default function GiteAndRooms() {
