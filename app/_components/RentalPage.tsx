@@ -82,7 +82,7 @@ export default function RentalPage({
               </div>
             </section>
           )}
-          <section className="mt-10 p-4 border-gold border-2 rounded-md">
+          <section className="mt-10 p-4  shadow-div rounded-md border-2 border-yellow/50">
             <div className=" ">
               <BookingCalendar reservedDates={reservedDates} />
             </div>

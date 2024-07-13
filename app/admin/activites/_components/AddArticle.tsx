@@ -200,7 +200,7 @@ export default function AddArticle() {
                   <FormItem className="mt-10 w-40">
                     <FormLabel>URL</FormLabel>
                     <FormControl>
-                      <Input type="text" {...field} />
+                      <Input type="link" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

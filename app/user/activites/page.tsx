@@ -1,9 +1,35 @@
 "use client";
 
 import VisitArticle from "@/app/_components/VisitArticle";
+import { getAllArticles } from "@/app/api/article/route";
 import VisitContext from "@/hooks/VisitContext";
+import { useEffect, useState } from "react";
+
+type PropType = {
+  id: string;
+  title: string;
+  description: string;
+  content: string;
+  url_link: string;
+  image_path: string;
+};
 
 export default function ToVisited() {
+  const [activities, setActivities] = useState<PropType[]>([]);
+
+  useEffect(() => {
+    async function fetchAllActivities() {
+      try {
+        const fetchedActivities = await getAllArticles();
+        console.log("Activities fetched :", fetchedActivities);
+        setActivities(fetchedActivities as PropType[]);
+      } catch (error) {
+        console.error("Error fetching activities :", error);
+      }
+    }
+    fetchAllActivities();
+  }, []);
+
   const visitContextValue = {
     framerMotionVariants: {
       hide: {
@@ -26,14 +52,23 @@ export default function ToVisited() {
         ses sites emblématiques et sa douceur de vivre."{" "}
       </h3>
       <span className="flex justify-center w-2/4 border-t-2 py-10 border-separator"></span>
-      <div className="flex flex-col gap-12">
+
+      <ul className="grid grid-cols-3 gap-4 place-items-center gap-x-28 gap-y-12 mt-2">
         <VisitContext.Provider value={visitContextValue}>
-          <VisitArticle visitTitle="Lorem ipsum" />
-          <VisitArticle visitTitle="Lorem ipsum" />
-          <VisitArticle visitTitle="Lorem ipsum" />
-          <VisitArticle visitTitle="Lorem ipsum" />
+          {activities.map((activity) => (
+            <li key={activity.id}>
+              <VisitArticle
+                id={activity.id}
+                title={activity.title}
+                description={activity.description}
+                content={activity.content}
+                url_link={activity.url_link}
+                image_path={activity.image_path}
+              />
+            </li>
+          ))}
         </VisitContext.Provider>
-      </div>
+      </ul>
     </div>
   );
 }
