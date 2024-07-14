@@ -74,11 +74,11 @@ export default function UserLoginForm() {
   const handleLoginFormSubmit = async (values: FormSchemaType) => {
     try {
       setIsLoading(true);
-
       await loginUser(values);
-      toast.success("Connexion réussie !");
+      toast.loading("Connexion en cours...");
       setTimeout(() => {
         router.push("/admin");
+        setIsLoading(false);
       }, 2000);
     } catch (error) {
       toast.error(
@@ -91,7 +91,7 @@ export default function UserLoginForm() {
 
   return (
     <div className=" flex flex-col justify-center  gap-24 -mt-16  h-screen">
-      <div className="w-full">
+      <div className=" w-full">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleLoginFormSubmit)}

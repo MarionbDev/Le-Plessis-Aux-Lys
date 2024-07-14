@@ -47,7 +47,6 @@ export default function VisitArticle({
             <CardHeader className=" pb-0 mx-2 ">
               <div className="flex justify-between">
                 <CardTitle className=" font-bold mt-4">{title}</CardTitle>
-
                 <Image
                   src={image_path}
                   width={180}

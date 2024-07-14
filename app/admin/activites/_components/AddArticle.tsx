@@ -123,6 +123,7 @@ export default function AddArticle() {
       toast.success("Ajout de l'article réussi !");
       form.reset();
       setUploadedFilePath("");
+      // router.push("/");
     } catch (error) {
       console.error("Erreur :", error);
       toast.error("Erreur lors de l'ajout de l'article.");
@@ -132,7 +133,7 @@ export default function AddArticle() {
   };
 
   return (
-    <>
+    <div className=" w-[50vw] min-w-[200px] max-w-[800px]">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleLoginFormSubmit)}>
           <Card>
@@ -267,7 +268,7 @@ export default function AddArticle() {
         </form>
       </Form>
       <Toaster />
-    </>
+    </div>
   );
 }
 

@@ -17,10 +17,6 @@ export default function Gîte() {
     );
   }
 
-  if (error) {
-    return <div>Une erreur s'est produite : {error}</div>;
-  }
-
   return (
     <div className=" h-screen">
       {rates && (
