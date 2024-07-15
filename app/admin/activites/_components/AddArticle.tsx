@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 
 // import ReactQuill from "react-quill";
 import { postArticle } from "@/app/api/article/route";
+import supabase from "@/lib/database";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import dynamic from "next/dynamic";
@@ -89,24 +90,56 @@ export default function AddArticle() {
     }
   };
 
+  // const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.files) {
+  //     const formData = new FormData();
+  //     Array.from(e.target.files).forEach((file) => {
+  //       formData.append("file", file);
+  //     });
+
+  //     const response = await fetch("/api/uploadArticlePhoto", {
+  //       method: "POST",
+  //       body: formData,
+  //     });
+
+  //     const result = await response.json();
+  //     if (result.success) {
+  //       setUploadedFilePath(result.image_path);
+  //     } else {
+  //       alert("Upload failed");
+  //     }
+  //   }
+  // };
+
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      const formData = new FormData();
-      Array.from(e.target.files).forEach((file) => {
-        formData.append("file", file);
-      });
+      const file = e.target.files[0];
+      const fileName = `${Date.now()}-${file.name}`;
 
-      const response = await fetch("/api/uploadArticlePhoto", {
-        method: "POST",
-        body: formData,
-      });
+      // Téléchargez le fichier sur Supabase Storage
+      const { data, error } = await supabase.storage
+        .from("uploadImageArticle") // Remplacez par le nom de votre bucket
+        .upload(fileName, file);
 
-      const result = await response.json();
-      if (result.success) {
-        setUploadedFilePath(result.image_path);
-      } else {
-        alert("Upload failed");
+      if (error) {
+        console.error("Erreur lors du téléchargement de l'image :", error);
+        toast.error("Erreur lors de l'upload de l'image.");
+        return;
       }
+
+      // Obtenez l'URL publique du fichier
+      const { data: urlData } = supabase.storage
+        .from("uploadImageArticle")
+        .getPublicUrl(fileName);
+
+      if (!urlData) {
+        console.error("Erreur lors de l'obtention de l'URL publique :");
+        toast.error("Erreur lors de l'obtention de l'URL de l'image.");
+        return;
+      }
+
+      setUploadedFilePath(urlData.publicUrl);
+      toast.success("Image téléchargée avec succès !");
     }
   };
 
