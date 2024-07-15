@@ -39,7 +39,7 @@ const EmblaCarousel: React.FC<PropType> = ({ slides = [], options }) => {
                   width={600}
                   height={200}
                   alt={`Photo ${index + 1}`}
-                  className="  object-scale-down h-[33rem]  "
+                  className="  object-scale-down h-[33rem] "
                 />
               </div>
             </div>

@@ -7,14 +7,26 @@ import {
 } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useContext } from "react";
 import VisitContext from "../../hooks/VisitContext";
 
 type PropType = {
-  visitTitle: string;
+  id: string;
+  title: string;
+  description: string;
+  content: string;
+  url_link: string;
+  image_path: string;
 };
 
-export default function VisitArticle({ visitTitle }: PropType) {
+export default function VisitArticle({
+  title,
+  description,
+  content,
+  url_link,
+  image_path,
+}: PropType) {
   const visitContext = useContext(VisitContext);
   const { framerMotionVariants } = visitContext;
 
@@ -30,37 +42,33 @@ export default function VisitArticle({ visitTitle }: PropType) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="shadow-div rounded-md">
-          <Card className=" font-text text-sm max-w-6xl mx-auto  text-text_color bg-yellow/10  ">
-            <CardHeader className=" pb-0">
-              <CardTitle className=" font-bold">{visitTitle}</CardTitle>
-              <CardDescription>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Distinctio expedita omnis obcaecati.
-                </p>
-              </CardDescription>
-            </CardHeader>
-            <CardContent className=" flex items-center gap-6 pb-0 ">
-              <div>
+        <div className="bg-yellow/10 shadow-div rounded-md  ">
+          <Card className=" font-text text-sm m  w-[23rem] h-[35rem] text-text_color   ">
+            <CardHeader className=" pb-0 mx-2 ">
+              <div className="flex justify-between">
+                <CardTitle className=" font-bold mt-4">{title}</CardTitle>
                 <Image
-                  src="/image-interface.svg"
-                  width={800}
-                  height={100}
-                  alt="image"
-                  className=" max-w-[13rem] object-scale-down"
+                  src={image_path}
+                  width={180}
+                  height={180}
+                  alt={`Photo de l'article ${title}`}
+                  className=" max-w-[13rem] max-h-[8rem] object-contain "
                 />
               </div>
-              <p className="">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto in magnam quis at iure laudantium nulla id corporis
-                aut facere beatae tenetur quas cupiditate perspiciatis delectus
-                non, nemo aliquam esse. Corrupti repellat placeat rerum
-                consequatur! Odit dolores odio ad architecto sit, vero magni
-                quibusdam voluptates at eum deserunt dolorem adipisci esse modi
-                nesciunt nemo? Similique incidunt provident ab eius rem.
-              </p>
-            </CardContent>
+            </CardHeader>
+            <div className="  mx-6 mb-4 py-3 h-[22rem]  overflow-auto  mostly-customized-scrollbar">
+              <CardDescription className=" mb-4 mx-6">
+                <p>{description}</p>
+              </CardDescription>
+              <CardContent className="   ">
+                <div className="  ">
+                  <p dangerouslySetInnerHTML={{ __html: content }} />
+                </div>
+              </CardContent>
+            </div>
+            <Link href={`/${url_link}`} className=" text-center ">
+              <p className="  font-semibold hover:text-gold">{url_link}</p>
+            </Link>{" "}
           </Card>
         </div>
       </motion.div>

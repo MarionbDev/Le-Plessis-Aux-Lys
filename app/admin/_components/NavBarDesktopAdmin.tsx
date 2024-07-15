@@ -13,7 +13,7 @@ export default function NavbarDesktopAdmin() {
 
   const handleLogOut = async () => {
     await logout();
-    toast.success("Déconnexion réussie !");
+    toast.loading("Déconnexion en cours...");
     setTimeout(() => {
       router.push("/");
     }, 2000);

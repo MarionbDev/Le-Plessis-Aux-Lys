@@ -1,7 +1,7 @@
 "use client";
 
 import CardPhotosAdmin from "@/app/_components/CardPhotoAdmin";
-import { getImagesFromBucket } from "@/app/api/uploadFile/route";
+import { getImagesFromBucket } from "@/app/api/uploadPhotos/route";
 import { useEffect, useState } from "react";
 
 export default function GiteAndRooms() {
@@ -22,9 +22,9 @@ export default function GiteAndRooms() {
     const fetchImages = async () => {
       try {
         const giteUrls = await getImagesFromBucket("gite");
-        const chambre1Urls = await getImagesFromBucket("chambre1");
-        const chambre2Urls = await getImagesFromBucket("chambre2");
-        const chambre3Urls = await getImagesFromBucket("chambre3");
+        const chambre1Urls = await getImagesFromBucket("chambre 1");
+        const chambre2Urls = await getImagesFromBucket("chambre 2");
+        const chambre3Urls = await getImagesFromBucket("chambre 3");
 
         setGite(giteUrls.map((path) => ({ path, orientation: "horizontal" })));
         setChambre1(
@@ -51,7 +51,15 @@ export default function GiteAndRooms() {
     fullPath: string;
   }) => {
     // Ajouter la nouvelle image téléchargée dans l'état local correspondant (gite, chambre1, chambre2, chambre3)
-    setGite([...gite, uploadedFileData]); // Adapter pour les autres chambres si nécessaire
+    if (uploadedFileData.fullPath.includes("gite")) {
+      setGite((prevGite) => [...prevGite, uploadedFileData]);
+    } else if (uploadedFileData.fullPath.includes("chambre1")) {
+      setChambre1((prevChambre1) => [...prevChambre1, uploadedFileData]);
+    } else if (uploadedFileData.fullPath.includes("chambre2")) {
+      setChambre2((prevChambre2) => [...prevChambre2, uploadedFileData]);
+    } else if (uploadedFileData.fullPath.includes("chambre3")) {
+      setChambre3((prevChambre3) => [...prevChambre3, uploadedFileData]);
+    }
   };
 
   return (
@@ -61,21 +69,25 @@ export default function GiteAndRooms() {
           title="Gîte"
           slides={gite}
           onUploadComplete={handleUploadComplete}
+          bucket="gite"
         />
         <CardPhotosAdmin
           title="Chambre 1"
           slides={chambre1}
           onUploadComplete={handleUploadComplete}
+          bucket="chambre 1"
         />
         <CardPhotosAdmin
           title="Chambre 2"
           slides={chambre2}
           onUploadComplete={handleUploadComplete}
+          bucket="chambre 2"
         />
         <CardPhotosAdmin
           title="Chambre 3"
           slides={chambre3}
           onUploadComplete={handleUploadComplete}
+          bucket="chambre 3"
         />
       </div>
     </div>

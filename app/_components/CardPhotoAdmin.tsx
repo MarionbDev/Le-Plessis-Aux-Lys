@@ -8,18 +8,15 @@ import UploadFileAdmin from "./UploadFileAdmin";
 type PropType = {
   title: string;
   slides?: { path: string; orientation: "horizontal" | "vertical" }[];
-  onUploadComplete: (uploadedFileData: {
-    orientation: "horizontal" | "vertical";
-    id: string;
-    path: string;
-    fullPath: string;
-  }) => void; // Définir la fonction de rappel onUploadComplete comme une prop requise
+  onUploadComplete: (uploadedFileData: {}) => void;
+  bucket: string;
 };
 
 export default function CardPhotosAdmin({
   title,
   slides = [],
   onUploadComplete,
+  bucket,
 }: PropType) {
   return (
     <>
@@ -29,7 +26,10 @@ export default function CardPhotosAdmin({
             <div className="flex flex-col  justify-between items-center">
               <CardTitle>{title}</CardTitle>
 
-              <UploadFileAdmin onUploadComplete={onUploadComplete} />
+              <UploadFileAdmin
+                onUploadComplete={onUploadComplete}
+                bucket={bucket}
+              />
             </div>
           </CardHeader>
 
@@ -46,8 +46,7 @@ export default function CardPhotosAdmin({
                       width={200}
                       height={200}
                       alt={`Photo ${index + 1}`}
-                      objectFit="cover"
-                      objectPosition="center"
+                      style={{ objectFit: "cover", objectPosition: "center" }}
                       priority
                       className=" p-0"
                     />

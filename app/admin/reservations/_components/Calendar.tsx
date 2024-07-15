@@ -1,11 +1,11 @@
 import { CalendarEvent, ReservationInput } from "@/app/types";
 import { Button } from "@/components/ui/button";
 import { fr } from "date-fns/locale";
-import { Trash2 } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { DateRange, DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { toast } from "sonner";
+import ReservationList from "./ReservationList";
 
 type AddReservationProps = {
   rentalType: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
@@ -35,6 +35,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
   const [filteredDates, setFilteredDates] = useState<ReservationInput[]>([]);
 
   useEffect(() => {
+    console.log("Effect triggered for fetchReservedDates");
     const fetchReservedDatesForRentalType = async () => {
       try {
         const fetchedDates = await fetchReservedDates(rentalType);
@@ -51,12 +52,16 @@ const AddReservation: React.FC<AddReservationProps> = ({
     fetchReservedDatesForRentalType();
   }, [rentalType, fetchReservedDates]);
 
-  const handleSelect = (range: DateRange | undefined) => {
+  const handleSelect = useCallback((range: DateRange | undefined) => {
+    console.log("handleSelect function created");
+
     setSelectedDates(range);
     // console.log("Selected dates:", range);
-  };
+  }, []);
 
-  const handleSubmit = async () => {
+  const handleSubmit = useCallback(async () => {
+    console.log("handleSubmit function created");
+
     if (!selectedDates?.from || !selectedDates?.to) {
       toast.warning("Veuillez sélectionner une ou plusieurs dates");
       return;
@@ -76,10 +81,6 @@ const AddReservation: React.FC<AddReservationProps> = ({
       const formattedStartDate = startDate.toISOString().split("T")[0];
       const formattedEndDate = endDate.toISOString().split("T")[0];
 
-      // console.log(
-      //   `Submitting dates: ${formattedStartDate} to ${formattedEndDate}`,
-      // );
-
       await addCalendarEvent({
         rental_type: rentalType,
         start_date: formattedStartDate,
@@ -97,36 +98,32 @@ const AddReservation: React.FC<AddReservationProps> = ({
       console.error("Error submitting dates:", error.message);
       toast.error("Erreur lors de l'ajout de la réservation !");
     }
-  };
+  }, [
+    selectedDates,
+    reservationType,
+    rentalType,
+    addCalendarEvent,
+    fetchReservedDates,
+  ]);
 
-  const handleDelete = async (id: string) => {
-    try {
-      await deleteReservation(id);
-      setReservedDates(
-        reservedDates.filter((reservation) => reservation.id !== id),
-      );
-    } catch (error: any) {
-      console.error("Error deleting reservation:", error.message);
-      toast.error("Erreur lors de la suppression de la réservation !");
-    }
-  };
-
-  // const isDateReserved = (day: Date, type: "indisponible" | "reserve") => {
-  //   const dayTimestamp = day.getTime();
-
-  //   const isReserved = reservedDates.some((reservation) => {
-  //     const startDate = new Date(reservation.start_date).getTime();
-  //     const endDate = new Date(reservation.end_date).getTime();
-
-  //     const isInRange = dayTimestamp >= startDate && dayTimestamp <= endDate;
-
-  //     return isInRange && reservation.type === type;
-  //   });
-
-  //   return isReserved;
-  // };
+  const handleDelete = useCallback(
+    async (id: string) => {
+      console.log("handleDelete function created");
+      try {
+        await deleteReservation(id);
+        setReservedDates(
+          reservedDates.filter((reservation) => reservation.id !== id),
+        );
+      } catch (error: any) {
+        // console.error("Error deleting reservation:", error.message);
+        toast.error("Erreur lors de la suppression de la réservation !");
+      }
+    },
+    [reservedDates, deleteReservation],
+  );
 
   useEffect(() => {
+    console.log("Effect triggered for filteredReservations");
     // Filtrer les réservations en fonction de searchTerm
     const filteredReservations = reservedDates.filter(
       (reservation) =>
@@ -138,41 +135,49 @@ const AddReservation: React.FC<AddReservationProps> = ({
     setFilteredDates(filteredReservations);
   }, [searchTerm, reservedDates]);
 
-  const modifiers = {
-    selectedRange: {
-      from: selectedDates?.from,
-      to: selectedDates?.to,
-    },
-    reserved: reservedDates
-      .filter((date) => date.type === "reserve")
-      .map(({ start_date, end_date }) => ({
-        from: new Date(start_date),
-        to: new Date(end_date),
-      })),
-    unavailable: reservedDates
-      .filter((date) => date.type === "indisponible")
-      .map(({ start_date, end_date }) => ({
-        from: new Date(start_date),
-        to: new Date(end_date),
-      })),
-  };
+  const modifiers = useMemo(
+    () => ({
+      selectedRange: {
+        from: selectedDates?.from,
+        to: selectedDates?.to,
+      },
+      reserved: reservedDates
+        .filter((date) => date.type === "reserve")
+        .map(({ start_date, end_date }) => ({
+          from: new Date(start_date),
+          to: new Date(end_date),
+        })),
+      unavailable: reservedDates
+        .filter((date) => date.type === "indisponible")
+        .map(({ start_date, end_date }) => ({
+          from: new Date(start_date),
+          to: new Date(end_date),
+        })),
+    }),
+    [selectedDates, reservedDates],
+  );
 
-  const modifiersStyles = {
-    selected: {
-      backgroundColor: "#1976D2",
-      color: "white",
-      borderRadius: "50px",
-    },
-    reserved: {
-      backgroundColor: "#e22626",
-      color: "#ffffff",
-    },
-    unavailable: {
-      color: "#c3c5c9",
-      textDecoration: "line-through",
-      textDecorationColor: "#a2a3a5",
-    },
-  };
+  console.log("Modifiers updated:", modifiers);
+
+  const modifiersStyles = useMemo(
+    () => ({
+      selected: {
+        backgroundColor: "#1976D2",
+        color: "white",
+        borderRadius: "50px",
+      },
+      reserved: {
+        backgroundColor: "#e22626",
+        color: "#ffffff",
+      },
+      unavailable: {
+        color: "#c3c5c9",
+        textDecoration: "line-through",
+        textDecorationColor: "#a2a3a5",
+      },
+    }),
+    [],
+  );
 
   let footer = (
     <p className="text-[0.85rem] italic ">
@@ -214,12 +219,6 @@ const AddReservation: React.FC<AddReservationProps> = ({
             onSelect={handleSelect}
             modifiers={modifiers}
             modifiersStyles={modifiersStyles}
-            // disabled={reservedDates.flatMap((reservation) => [
-            //   {
-            //     from: new Date(reservation.start_date),
-            //     to: new Date(reservation.end_date),
-            //   },
-            // ])}
             footer={footer}
             captionLayout="dropdown"
             fromYear={2024}
@@ -272,40 +271,12 @@ const AddReservation: React.FC<AddReservationProps> = ({
             </Button>
           </div>
         </div>
-
-        <div className="flex flex-col min-w-72 items-center h-[12rem] md:h-[28rem]  md:mt-5">
-          <p className="md:mb-6 invisible md:visible ">Réservations</p>
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Rechercher par date"
-            className="mb-4 p-2 border border-gray-300 rounded italic text-sm w-48"
-          />
-          {filteredDates.length > 0 && searchTerm && (
-            <ul className=" overflow-auto h-[12rem]  md:h-[25rem]   ">
-              {filteredDates.map((reservation) => (
-                <li key={reservation.id} className="mb-2 text-sm flex">
-                  <p>
-                    Du {new Date(reservation.start_date).toLocaleDateString()}{" "}
-                    au {new Date(reservation.end_date).toLocaleDateString()}
-                  </p>
-                  <button
-                    onClick={() => handleDelete(reservation.id)}
-                    className="text-red-500 hover:underline ml-2"
-                  >
-                    <Trash2 size={18} />
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-          {filteredDates.length === 0 && searchTerm && (
-            <p className="italic text-sm w-48">
-              Aucune réservation trouvée pour cette recherche.
-            </p>
-          )}
-        </div>
+        <ReservationList
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          filteredDates={filteredDates}
+          handleDelete={handleDelete}
+        />
       </div>
     </div>
   );

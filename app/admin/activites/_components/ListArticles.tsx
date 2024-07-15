@@ -1,0 +1,90 @@
+import { deleteArticle, getAllArticles } from "@/app/api/article/route";
+import { ArticleProps } from "@/app/types";
+import { Button } from "@/components/ui/button";
+import VisitContext from "@/hooks/VisitContext";
+import { CirclePlus } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import Article from "./Article";
+
+export default function ListArticles() {
+  const [articles, setArticles] = useState<ArticleProps[]>([]);
+
+  useEffect(() => {
+    async function fetchAllArticles() {
+      try {
+        const fetchedArticles = await getAllArticles();
+        console.log("Articles fetched:", fetchedArticles);
+        setArticles(fetchedArticles as ArticleProps[]);
+      } catch (error) {
+        console.error("Error fetching articles:", error);
+      }
+    }
+    fetchAllArticles();
+  }, []);
+
+  const handleDeleteArticle = async (id: string) => {
+    try {
+      await deleteArticle(id);
+      const updatedArticles = await getAllArticles();
+      setArticles(updatedArticles as ArticleProps[]);
+      toast.success("L'activité a été supprimée avec succès !");
+    } catch (error) {
+      console.error("Error deleting calendar event:", error);
+      toast.error("Erreur lors de la suppression de l'article !");
+    }
+  };
+
+  const visitContextValue = {
+    framerMotionVariants: {
+      hide: {
+        opacity: 0,
+      },
+      show: {
+        opacity: 1,
+        transition: {
+          duration: 1,
+          delay: 0.6,
+        },
+      },
+    },
+  };
+
+  const reversedArticles = [...articles].reverse();
+
+  return (
+    <div className="flex flex-col ">
+      <div className="grid grid-cols-4 my-10 ">
+        <div className=" grid col-start-4 place-items-end">
+          <Link href="?modal=true">
+            <Button
+              type="button"
+              className=" gap-3 lg:gap-4 border border-gray-300  hover:bg-yellow/50  text-text_color text-md lg:text-md  "
+            >
+              <CirclePlus /> Ajouter une activité
+            </Button>
+          </Link>
+        </div>
+      </div>
+      <ul className="grid grid-cols-3 gap-4 place-items-center  gap-x-28  gap-y-12">
+        <VisitContext.Provider value={visitContextValue}>
+          {reversedArticles.map((article) => (
+            <li key={article.id}>
+              <Article
+                id={article.id}
+                title={article.title}
+                description={article.description}
+                content={article.content}
+                url_link={article.url_link}
+                image_path={article.image_path}
+                handleDelete={handleDeleteArticle}
+              />
+            </li>
+          ))}
+        </VisitContext.Provider>
+      </ul>
+    </div>
+  );
+}
+

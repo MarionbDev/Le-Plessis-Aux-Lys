@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { loginUser } from "@/services/auth.services";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CircleCheck, CircleX, Loader, LogIn, Milestone } from "lucide-react";
+import { CircleCheck, CircleX, Loader, LogIn } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -75,9 +75,10 @@ export default function UserLoginForm() {
     try {
       setIsLoading(true);
       await loginUser(values);
-      toast.success("Connexion réussie !");
+      toast.loading("Connexion en cours...");
       setTimeout(() => {
         router.push("/admin");
+        setIsLoading(false);
       }, 2000);
     } catch (error) {
       toast.error(
@@ -88,11 +89,9 @@ export default function UserLoginForm() {
     }
   };
 
-
-
   return (
     <div className=" flex flex-col justify-center  gap-24 -mt-16  h-screen">
-      <div className="w-full">
+      <div className=" w-full">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleLoginFormSubmit)}
