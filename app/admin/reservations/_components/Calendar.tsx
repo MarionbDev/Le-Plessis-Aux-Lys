@@ -115,7 +115,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
           reservedDates.filter((reservation) => reservation.id !== id),
         );
       } catch (error: any) {
-        console.error("Error deleting reservation:", error.message);
+        // console.error("Error deleting reservation:", error.message);
         toast.error("Erreur lors de la suppression de la réservation !");
       }
     },

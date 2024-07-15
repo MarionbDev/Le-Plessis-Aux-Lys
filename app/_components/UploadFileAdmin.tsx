@@ -36,7 +36,7 @@ export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
 
       try {
         const uploadedFileData = await uploadPhotos(file, orientation, bucket);
-        console.log("Uploaded file:", uploadedFileData);
+        // console.log("Uploaded file:", uploadedFileData);
         setUploadedFilePath(uploadedFileData.fullPath);
         // onUploadComplete(uploadedFileData);
       } catch (error) {

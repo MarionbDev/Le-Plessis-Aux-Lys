@@ -53,3 +53,15 @@ export const postArticle = async (articleData: ArticleData) => {
   return data;
 };
 
+export const deleteArticle = async (id: string): Promise<void> => {
+  try {
+    const { error } = await supabase.from("article").delete().eq("id", id);
+    if (error) {
+      throw error;
+    }
+  } catch (error: any) {
+    console.error("Error deleting article :", error.message);
+    throw error;
+  }
+};
+

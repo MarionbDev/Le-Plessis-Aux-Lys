@@ -47,7 +47,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <section className="">
+    <section className=" h-screen font-text">
       <NavbarDesktopAdmin />
 
       {children}

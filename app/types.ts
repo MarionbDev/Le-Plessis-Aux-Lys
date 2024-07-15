@@ -76,5 +76,6 @@ export type ArticleProps = {
   url_link: string;
   image_path: string;
   onUploadComplete?: (uploadedFileData: onUploadComplete) => void;
+  handleDelete: (id: string) => void;
 };
 
