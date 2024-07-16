@@ -20,8 +20,12 @@ export default function LoginPage() {
         onClick={handleClickHome}
         className=" border w-[12rem] mt-10 rounded-full ml-6 gap-2  bg-slate-100 hover:bg-slate-200 text-text_color text-md lg:text-md"
       >
-        <Milestone size={20} className="transform scale-x-[-1] " /> Retour à
-        l'accueil
+        <Milestone
+          size={20}
+          color="#bbbb57"
+          className="transform scale-x-[-1] "
+        />{" "}
+        Retour à l'accueil
       </Button>
       <UserLoginForm />
     </div>

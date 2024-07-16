@@ -18,7 +18,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const isAuthenticated = getIsAuthenticated();
-    console.log(isAuthenticated);
+    // console.log(isAuthenticated);
 
     if (!isAuthenticated) {
       router.replace("/");
@@ -29,7 +29,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (getIsAuthenticated()) {
-      console.log("Refreshing session...");
+      // console.log("Refreshing session...");
       refreshSession();
     }
   }, []);

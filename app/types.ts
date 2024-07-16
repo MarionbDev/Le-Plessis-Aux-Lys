@@ -79,3 +79,8 @@ export type ArticleProps = {
   handleDelete: (id: string) => void;
 };
 
+export type Slide = {
+  image_path: string;
+  title: string;
+};
+

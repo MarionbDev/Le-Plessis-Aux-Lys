@@ -93,7 +93,7 @@ export default function RentalPage({
                   <p>Disponible</p>
                 </li>
                 <li className="flex gap-2 items-center">
-                  <span className=" w-4 h-4 bg-[#e22626] border-2 rounded-full"></span>
+                  <span className=" w-4 h-4 bg-[#db3636] border-2 rounded-full"></span>
                   <p>Réservé</p>
                 </li>
                 <li className="flex gap-2 items-center">

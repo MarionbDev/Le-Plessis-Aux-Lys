@@ -44,6 +44,10 @@ const formSchema = z.object({
 
 type FormSchemaType = z.infer<typeof formSchema>;
 
+// type AddArticleProps = {
+//   onAddArticle: (newArticle: ArticleProps) => void;
+// };
+
 export default function AddArticle() {
   const [isLoading, setIsLoading] = useState(false);
   const [uploadedFilePath, setUploadedFilePath] = useState<string>("");
@@ -73,52 +77,30 @@ export default function AddArticle() {
         image_path: uploadedFilePath,
       };
 
-      // Appelez directement postArticle
       await postArticle(articleData);
 
       form.reset();
       setUploadedFilePath("");
-      toast.success("Ajout de l'activité en-cours !");
+      toast.success("Ajout de l'activité réussie !");
       setTimeout(() => {
         router.push("/admin/activites");
       }, 2000);
     } catch (error) {
       console.error("Erreur :", error);
-      toast.error("Erreur lors de l'ajout de l'article.");
+      toast.error("Erreur lors de l'ajout de l'activité.");
     } finally {
       setIsLoading(false);
     }
   };
-
-  // const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   if (e.target.files) {
-  //     const formData = new FormData();
-  //     Array.from(e.target.files).forEach((file) => {
-  //       formData.append("file", file);
-  //     });
-
-  //     const response = await fetch("/api/uploadArticlePhoto", {
-  //       method: "POST",
-  //       body: formData,
-  //     });
-
-  //     const result = await response.json();
-  //     if (result.success) {
-  //       setUploadedFilePath(result.image_path);
-  //     } else {
-  //       alert("Upload failed");
-  //     }
-  //   }
-  // };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const file = e.target.files[0];
       const fileName = `${Date.now()}-${file.name}`;
 
-      // Téléchargez le fichier sur Supabase Storage
+      // Télécharge le fichier sur Supabase Storage
       const { data, error } = await supabase.storage
-        .from("uploadImageArticle") // Remplacez par le nom de votre bucket
+        .from("uploadImageArticle")
         .upload(fileName, file);
 
       if (error) {
@@ -127,7 +109,7 @@ export default function AddArticle() {
         return;
       }
 
-      // Obtenez l'URL publique du fichier
+      // Obtenenir l'URL publique du fichier
       const { data: urlData } = supabase.storage
         .from("uploadImageArticle")
         .getPublicUrl(fileName);
@@ -139,7 +121,22 @@ export default function AddArticle() {
       }
 
       setUploadedFilePath(urlData.publicUrl);
-      toast.success("Image téléchargée avec succès !");
+
+      const dataImage = data;
+
+      const promise = () =>
+        new Promise((resolve) =>
+          setTimeout(() => {
+            resolve({ name: "Sonner" });
+          }, 2000),
+        );
+      toast.promise(promise(), {
+        loading: "Téléchargement de l'image en-cours...",
+        success: (data) => {
+          return `Téléchargement de l'image réussi ! ${dataImage.path} `;
+        },
+        error: "Error",
+      });
     }
   };
 
@@ -150,7 +147,6 @@ export default function AddArticle() {
           <Card className=" h-[36rem] text-text_color   ">
             <CardHeader>
               <CardTitle>Ajouter une activité</CardTitle>
-              {/* <CardDescription></CardDescription> */}
             </CardHeader>
             <CardContent className="flex flex-col justify-around p-4 h-[32rem] ">
               <div className="flex justify-between gap-10">

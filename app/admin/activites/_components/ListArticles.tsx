@@ -4,25 +4,29 @@ import { Button } from "@/components/ui/button";
 import VisitContext from "@/hooks/VisitContext";
 import { CirclePlus } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import Article from "./Article";
 
-export default function ListArticles() {
-  const [articles, setArticles] = useState<ArticleProps[]>([]);
+type ListArticlesProps = {
+  articles: ArticleProps[];
+  setArticles: React.Dispatch<React.SetStateAction<ArticleProps[]>>;
+};
 
-  useEffect(() => {
-    async function fetchAllArticles() {
-      try {
-        const fetchedArticles = await getAllArticles();
-        console.log("Articles fetched:", fetchedArticles);
-        setArticles(fetchedArticles as ArticleProps[]);
-      } catch (error) {
-        console.error("Error fetching articles:", error);
-      }
-    }
-    fetchAllArticles();
-  }, []);
+export default function ListArticles({
+  articles,
+  setArticles,
+}: ListArticlesProps) {
+  // useEffect(() => {
+  //   async function fetchAllArticles() {
+  //     try {
+  //       const fetchedArticles = await getAllArticles();
+  //       setArticles(fetchedArticles as ArticleProps[]);
+  //     } catch (error) {
+  //       console.error("Error fetching articles:", error);
+  //     }
+  //   }
+  //   fetchAllArticles();
+  // }, []);
 
   const handleDeleteArticle = async (id: string) => {
     try {
@@ -51,8 +55,6 @@ export default function ListArticles() {
     },
   };
 
-  const reversedArticles = [...articles].reverse();
-
   return (
     <div className="flex flex-col ">
       <div className="grid grid-cols-4 my-10 ">
@@ -60,16 +62,17 @@ export default function ListArticles() {
           <Link href="?modal=true">
             <Button
               type="button"
-              className=" gap-3 lg:gap-4 border border-gray-300  hover:bg-yellow/50  text-text_color text-md lg:text-md  "
+              className=" gap-3 lg:gap-4 border border-gray-300  hover:bg-yellow/50  hover:text-white text-text_color text-md lg:text-md  "
             >
-              <CirclePlus /> Ajouter une activité
+              <CirclePlus color="#bbbb57" />
+              Ajouter une activité
             </Button>
           </Link>
         </div>
       </div>
       <ul className="grid grid-cols-3 gap-4 place-items-center  gap-x-28  gap-y-12">
         <VisitContext.Provider value={visitContextValue}>
-          {reversedArticles.map((article) => (
+          {articles.map((article) => (
             <li key={article.id}>
               <Article
                 id={article.id}

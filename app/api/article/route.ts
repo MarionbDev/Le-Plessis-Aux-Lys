@@ -16,7 +16,7 @@ export const getAllArticles = async () => {
       .select("*");
 
     if (error) throw error;
-    console.log("article :", allArticles);
+    console.log("Fetched articles:", allArticles);
     return allArticles;
   } catch (error) {
     console.error("Error fetching all articles", error);
@@ -43,14 +43,19 @@ export const addArticle = async (articleData: ArticleProps) => {
 };
 
 // Gestion de la requête POST
-export const postArticle = async (articleData: ArticleData) => {
+export const postArticle = async (
+  articleData: ArticleData,
+): Promise<ArticleProps | null> => {
+  console.log("Posting article data:", articleData);
+
   const { data, error } = await supabase.from("article").insert([articleData]);
 
   if (error) {
+    console.error("Error posting article:", error);
     throw new Error(error.message);
   }
-
-  return data;
+  console.log("Article posted successfully:", data);
+  return data as ArticleProps | null;
 };
 
 export const deleteArticle = async (id: string): Promise<void> => {

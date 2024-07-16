@@ -24,7 +24,7 @@ const config = {
         black: "#1F1F29",
         bk_txt: "#1A1313",
         bg_menu: "#e0c133",
-        bg_white: "#F5F5FA",
+        bg_white: "#ffffff",
         subMenu: "#efefe3",
         gold: "#e0c133",
         text_color: "#59594b",

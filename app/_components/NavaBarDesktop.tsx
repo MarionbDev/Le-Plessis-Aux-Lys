@@ -115,7 +115,7 @@ export default function NavBarDesktop() {
           type="button"
           className=" flex items-center gap-2 text-xl lg:text-[1rem] opacity-50 hover:opacity-100 "
         >
-          <LogIn size={24} />
+          <LogIn size={24} color="#bbbb57" />
         </button>
       </div>
     </>

@@ -167,7 +167,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
         borderRadius: "50px",
       },
       reserved: {
-        backgroundColor: "#e22626",
+        backgroundColor: "#db3636",
         color: "#ffffff",
       },
       unavailable: {
@@ -231,7 +231,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
               <Button
                 className={`px-4 py-2 ${
                   reservationType === "reserve"
-                    ? "bg-[#e22626] text-white shadow-div font-text rounded-md text-sm"
+                    ? "bg-[#db3636] text-white shadow-div font-text rounded-md text-sm"
                     : "bg-gray-200 rounded-md font-text text-sm"
                 }`}
                 onClick={() => setReservationType("reserve")}
