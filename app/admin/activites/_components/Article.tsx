@@ -91,12 +91,12 @@ export default function Article({
                   />
                 )}
 
-                <CardTitle className="my-3 ">{title}</CardTitle>
+                <CardTitle className="mb-3 mt-5 ">{title}</CardTitle>
               </div>
             </CardHeader>
             <div className=" mx-9 ">
-              <div className="   mb-4 py-3 h-[18rem]  overflow-auto  mostly-customized-scrollbar">
-                <CardDescription className=" mb-4 ">
+              <div className="   mb-4 py-3 h-[17.5rem] px-3  overflow-auto  mostly-customized-scrollbar">
+                <CardDescription className=" mb-3 ">
                   {description}
                 </CardDescription>
                 <CardContent
@@ -106,8 +106,8 @@ export default function Article({
               </div>
             </div>
             {url_link ? (
-              <Link href={`/${url_link}`} className="text-center">
-                <p className="  font-semibold hover:text-gold">{url_link}</p>
+              <Link href={`/${url_link}`} className="text-center pb-4 ">
+                <p className="  font-semibold hover:text-gold ">{url_link}</p>
               </Link>
             ) : (
               <p></p>

@@ -3,11 +3,8 @@
 import { Variants, motion } from "framer-motion";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import Image from "next/image";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import gite from "../../public/gite/gite.jpg";
 import icon from "../../public/icon-marker.svg";
-import parc from "../../public/parc/parc1.jpg";
 
 const position: [number, number] = [46.6280278, -0.6603611];
 
@@ -68,7 +65,7 @@ export default function Map() {
                   <p>
                     Le Plessis Aux Lys <br /> Gîte et Chambres d'Hôtes
                   </p>
-                  <div className=" flex justify-center gap-2  contain-content">
+                  {/* <div className=" flex justify-center gap-2  contain-content">
                     <Image
                       src={parc}
                       alt="Photo du parc du gîte"
@@ -81,7 +78,7 @@ export default function Map() {
                       width={120}
                       height={200}
                     />
-                  </div>
+                  </div> */}
                 </Popup>
               </Marker>
             </MapContainer>

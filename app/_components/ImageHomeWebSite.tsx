@@ -40,7 +40,7 @@ export default function ImageHomeWebSite() {
             className="w-full lg:w-full lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem] object-cover object-center rounded-sm shadow-basic "
           />
           <div className="absolute flex justify-center items-center  bg-[#64641fd8]   w-[16rem] h-20 lg:w-[40rem] lg:h-[11rem] tracking-[6px] ">
-            <h2 className="font-prata text-[#e9e7e7]  uppercase font-extrabold text-xl lg:text-[2.2rem] flex flex-col justify-center items-center w-[15rem] h-16 m-2 lg:w-[34rem] lg:h-[14rem] border-[3px] border-gold md:gap-5 lg:gap-6  ">
+            <h2 className="font-prata text-[#e9e7e7]  uppercase font-extrabold text-xl lg:text-[2.2rem] flex flex-col justify-center items-center w-[15rem] h-16 m-2 lg:w-[34rem] lg:h-[14rem] border-[2px] border-white/80 md:gap-5 lg:gap-6  ">
               <p className=" ">Gîte</p>
               <p className=" ">&</p>
               <p className=" ">Chambres d'Hôtes</p>

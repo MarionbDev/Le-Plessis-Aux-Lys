@@ -42,11 +42,10 @@ export default function VisitArticle({
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="bg-yellow/10 shadow-div rounded-md  ">
+        <div className=" shadow-div rounded-md  ">
           <Card className=" font-text text-sm m  w-[23rem] h-[35rem] text-text_color   ">
             <CardHeader className=" pb-0 mx-2 ">
-              <div className="flex justify-between">
-                <CardTitle className=" font-bold mt-4">{title}</CardTitle>
+              <div className="flex justify-center">
                 <Image
                   src={image_path}
                   width={180}
@@ -55,9 +54,12 @@ export default function VisitArticle({
                   className=" max-w-[13rem] max-h-[8rem] object-contain "
                 />
               </div>
+              <CardTitle className=" font-bold mt-2 pb-3 mx-[1rem]">
+                {title}
+              </CardTitle>
             </CardHeader>
-            <div className="  mx-6 mb-4 py-3 h-[22rem]  overflow-auto  mostly-customized-scrollbar">
-              <CardDescription className=" mb-4 mx-6">
+            <div className="  mx-6   py-3 h-[20rem]  overflow-auto  mostly-customized-scrollbar">
+              <CardDescription className="mb-2 mx-6">
                 <p>{description}</p>
               </CardDescription>
               <CardContent className="   ">
@@ -66,8 +68,11 @@ export default function VisitArticle({
                 </div>
               </CardContent>
             </div>
-            <Link href={`/${url_link}`} className=" text-center ">
-              <p className="  font-semibold hover:text-gold">{url_link}</p>
+            <Link
+              href={`/${url_link}`}
+              className=" text-center flex items-center justify-center "
+            >
+              <p className="  font-semibold hover:text-gold py-2">{url_link}</p>
             </Link>{" "}
           </Card>
         </div>

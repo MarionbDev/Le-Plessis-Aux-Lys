@@ -2,12 +2,18 @@
 
 import { Variants, motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import chambre_1 from "../../public/chambres/ch-1.jpg";
 import chambre_2 from "../../public/chambres/ch-2.jpg";
 import chambre_3 from "../../public/chambres/ch-3.jpg";
 import gite from "../../public/gite/gite.jpg";
 import parc1 from "../../public/parc/parc1.jpg";
 import parc3 from "../../public/parc/parc3.jpg";
+import { getAllArticles } from "../api/article/route";
+import { ArticleProps, Slide } from "../types";
+import ActivityUserCarousel from "./ActivityUserCarousel";
 
 const sectionVariants: Variants = {
   hide: {
@@ -38,6 +44,29 @@ const imageVariants: Variants = {
 };
 
 export default function DescriptionWebSite() {
+  const [articles, setArticles] = useState<ArticleProps[]>([]);
+  const [slides, setSlides] = useState<Slide[]>([]);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    async function fetchAllArticles() {
+      try {
+        const fetchedArticles = await getAllArticles();
+        setArticles(fetchedArticles as ArticleProps[]);
+
+        const slides = (fetchedArticles as ArticleProps[]).map((article) => ({
+          image_path: article.image_path,
+          title: article.title,
+        }));
+        setSlides(slides);
+      } catch (error) {
+        console.error("Error fetching articles:", error);
+      }
+    }
+    fetchAllArticles();
+  }, []);
+
   return (
     <div className="font-text text-text_color pt-10 xl:pt-6 ">
       <motion.section
@@ -69,12 +98,12 @@ export default function DescriptionWebSite() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          <div className="mx-56 flex items-center gap-12 leading-loose  text-lg mt-20">
-            <p>
+          <div className="mx-56 flex items-center leading-loose  text-md lg:text-md  mt-20  bg-[#f8f8f9]">
+            <p className=" px-20">
               Demeure de caractère datant du XIXème siècle, située dans le
-              village de La chapelle aux Lys, cité au guide vert de 2023 comme
+              village de La Chapelle aux Lys, cité au Guide Vert de 2023 comme
               étant le plus petit village possédant son Planétarium que vous
-              pourrez découvrir à 2 minute à pieds.
+              pourrez découvrir à 2 minutes à pied.
             </p>
             <Image
               src={parc3}
@@ -99,12 +128,18 @@ export default function DescriptionWebSite() {
           transition={{ duration: 0.8 }}
         >
           <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-56 mt-28 text-justify  leading-loose">
-            <span className="flex justify-center w-2/4 border-t-2 py-10 border-separator"></span>
+            <div className="w-4/5 flex items-center justify-center gap-10 my-20">
+              <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
+              <p className=" font-semibold text-lg uppercase w-[27rem]  ">
+                DECOUVREZ SANS PLUS ATTENDRE
+              </p>
+              <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
+            </div>{" "}
             <p className="my-4 mx-2">
               3 chambres de charme possédant chacune leur salle d'eau et leurs
-              toilettes et un gite de 2 à 4 personnes, vous accueilleront au
-              sein d'un parc ou trônent des arbres séculaires qui vous
-              inviteront à la quiétude , la méditation et au repos après vous
+              toilettes et un gîte de 2 à 4 personnes, vous accueilleront au
+              sein d'un parc où trônent des arbres séculaires qui vous
+              inviteront à la quiétude, la méditation et au repos après vous
               être délassés dans la piscine chauffée mise à disposition de mai à
               septembre.
             </p>
@@ -124,24 +159,44 @@ export default function DescriptionWebSite() {
           transition={{ duration: 0.5 }}
           className="flex  justify-center"
         >
-          <ul className=" flex gap-6 flex-wrap justify-center mt-14 w-2/3">
-            <li>
-              <Image
-                src={gite}
-                width={400}
-                height={200}
-                alt="photo intérieur du gîte"
-                className=" rounded-sm shadow-basic"
-              />
+          <ul className=" flex gap-16 flex-wrap justify-center mt-14 w-2/3 cursor-pointer">
+            <li className="relative overflow-hidden group">
+              <Link
+                href={"/user/gite"}
+                onClick={() => router.push("/user/gite")}
+              >
+                <Image
+                  src={gite}
+                  width={400}
+                  height={200}
+                  alt="photo intérieur du gîte"
+                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125 duration-1000 "
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-1000 group-hover:bg-opacity-50 group-hover:opacity-100">
+                  <p className="text-lg font-semibold text-white opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                    Gîte
+                  </p>
+                </div>
+              </Link>
             </li>
-            <li>
-              <Image
-                src={chambre_1}
-                width={400}
-                height={200}
-                alt="photo de la chambre 1"
-                className=" rounded-sm shadow-basic"
-              />
+            <li className="relative overflow-hidden group">
+              <Link
+                href={"/user/cahmbre1"}
+                onClick={() => router.push("/user/chambre1")}
+              >
+                <Image
+                  src={chambre_1}
+                  width={400}
+                  height={200}
+                  alt="photo de la chambre 1"
+                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 "
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-1000 group-hover:bg-opacity-50 group-hover:opacity-100">
+                  <p className="text-lg font-semibold text-white opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                    Chambre 1
+                  </p>
+                </div>
+              </Link>
             </li>
           </ul>
         </motion.div>
@@ -158,24 +213,44 @@ export default function DescriptionWebSite() {
           transition={{ duration: 0.5 }}
           className="flex  justify-center"
         >
-          <ul className=" flex gap-6 flex-wrap justify-center mt-6 w-2/3">
-            <li>
-              <Image
-                src={chambre_2}
-                width={400}
-                height={200}
-                alt="photo de la chambre 2"
-                className=" rounded-sm shadow-basic"
-              />
+          <ul className=" flex gap-16 flex-wrap justify-center mt-16 w-2/3 cursor-pointer">
+            <li className="relative overflow-hidden group">
+              <Link
+                href={"/user/chambre2"}
+                onClick={() => router.push("/user/chambre2")}
+              >
+                <Image
+                  src={chambre_2}
+                  width={400}
+                  height={200}
+                  alt="photo de la chambre 2"
+                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-500 "
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-500 group-hover:bg-opacity-50 group-hover:opacity-100">
+                  <p className="text-lg font-semibold text-white opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                    Chambre 2
+                  </p>
+                </div>
+              </Link>
             </li>
-            <li>
-              <Image
-                src={chambre_3}
-                width={400}
-                height={200}
-                alt="photo de la chambre 3"
-                className=" rounded-sm shadow-basic"
-              />
+            <li className="relative overflow-hidden group">
+              <Link
+                href={"/user/chambre3"}
+                onClick={() => router.push("/user/chambre3")}
+              >
+                <Image
+                  src={chambre_3}
+                  width={400}
+                  height={200}
+                  alt="photo de la chambre 3"
+                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 "
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-500 group-hover:bg-opacity-50 group-hover:opacity-100">
+                  <p className="text-lg font-semibold text-white opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                    Chambre 3
+                  </p>
+                </div>
+              </Link>
             </li>
           </ul>
         </motion.div>
@@ -192,17 +267,23 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-36  mt-28 text-justify  leading-loose">
-            <span className="flex justify-center w-2/4 border-t-2 py-10 border-separator"></span>
-            <div className="flex justify-between items-center gap-36">
-              <p>
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-32  mt-28 text-justify  leading-loose">
+            <div className="w-4/5 flex items-center justify-center gap-12 my-20">
+              <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
+              <p className=" font-semibold text-lg uppercase ">
+                Vous Allez Adorer
+              </p>
+              <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
+            </div>
+            <div className="flex justify-between items-center bg-[#f8f8f9] p">
+              <p className="px-20">
                 Idéalement situé pour découvrir notre belle région de Vendée ,
                 Le Plessis aux Lys n'est qu'à 10mn d'un des plus beaux villages
-                de France: Vouvant et de la forêt de Mervent; à 20mn du marais
-                Poitevin et des Abbayes de Maillezais et de Nieul sur l'Autise ;
-                à 45 mn du Puy du Fou,45 mn du Mont aux Alouettes et de ses
+                de France : Vouvant et de la forêt de Mervent; à 20mn du marais
+                Poitevin et des Abbayes de Maillezais et de Nieul-sur-l'Autise ;
+                à 45 mn du Puy du Fou, 45 mn du Mont aux Alouettes et de ses
                 Moulins; à 1 heure des premières plages et de bien d'autres
-                curiosités comme La Rochelle ,les iles de Ré et D'Oléron.
+                curiosités telles que La Rochelle, les îles de Ré et D'Oléron.
               </p>
               <Image
                 src={parc1}
@@ -211,6 +292,32 @@ export default function DescriptionWebSite() {
                 alt="Photo du parc du gîte"
                 className=" rounded-sm shadow-basic border-2 p-1 bg-white"
               />
+            </div>
+          </div>
+        </motion.div>
+      </motion.section>
+
+      <motion.section
+        initial="hide"
+        whileInView="show"
+        exit="hide"
+        variants={imageVariants}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-32  mt-28 text-justify  leading-loose ">
+            <div className="w-4/5 flex items-center justify-center gap-12 mt-20 mb-10">
+              <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
+              <p className=" font-semibold text-lg uppercase ">
+                à voir et à faire
+              </p>
+              <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
+            </div>
+            <div className="w-[80rem]">
+              <ActivityUserCarousel slides={slides} />
             </div>
           </div>
         </motion.div>

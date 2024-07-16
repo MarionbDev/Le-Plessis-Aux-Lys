@@ -1,8 +1,11 @@
 "use client";
 
+import { getAllArticles } from "@/app/api/article/route";
+import { ArticleProps } from "@/app/types";
 import { X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import AddArticle from "../activites/_components/AddArticle";
 import ListArticles from "../activites/_components/ListArticles";
 
@@ -10,6 +13,24 @@ export default function ToVisitInTheRegion() {
   const searchParams = useSearchParams();
   const modal = searchParams.get("modal");
   const pathname = usePathname();
+  const [articles, setArticles] = useState<ArticleProps[]>([]);
+
+  const fetchArticles = async () => {
+    try {
+      const allArticles = await getAllArticles();
+      if (allArticles) {
+        setArticles(allArticles as ArticleProps[]);
+      }
+    } catch (error) {
+      console.error("Error fetching articles:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (!modal) {
+      fetchArticles();
+    }
+  }, [modal]);
 
   return (
     <div className="pb-20 flex flex-col items-center  ">
@@ -30,7 +51,7 @@ export default function ToVisitInTheRegion() {
           </div>
         </dialog>
       )}
-      <ListArticles />
+      <ListArticles articles={articles} setArticles={setArticles} />
     </div>
   );
 }

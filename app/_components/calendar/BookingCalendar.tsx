@@ -21,7 +21,7 @@ export default function BookingCalendar({
 
   const modifiersStyles = {
     reserved: {
-      backgroundColor: "#e22626",
+      backgroundColor: "#db3636",
       color: "#ffffff",
       borderRadius: "50px",
     },

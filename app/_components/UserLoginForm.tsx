@@ -18,7 +18,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { loginUser } from "@/services/auth.services";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CircleCheck, CircleX, Loader, LogIn } from "lucide-react";
+import {
+  CircleCheck,
+  CircleX,
+  KeyRound,
+  Loader,
+  LogIn,
+  Mail,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -75,11 +82,25 @@ export default function UserLoginForm() {
     try {
       setIsLoading(true);
       await loginUser(values);
-      toast.loading("Connexion en cours...");
+
+      const promise = () =>
+        new Promise((resolve) =>
+          setTimeout(() => {
+            resolve({ name: "Sonner" });
+          }, 2000),
+        );
+
+      toast.promise(promise, {
+        loading: "Connexion en-cours...",
+        success: (data) => {
+          return `Connexion réussie !`;
+        },
+        error: "Error",
+      });
       setTimeout(() => {
         router.push("/admin");
         setIsLoading(false);
-      }, 2000);
+      }, 4000);
     } catch (error) {
       toast.error(
         "Une erreur s'est produite lors de la connexion, veuillez réésayger !",
@@ -112,9 +133,9 @@ export default function UserLoginForm() {
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="flex items-center gap-2">
                         <FormLabel className=" text-md lg:text-lg  text-text_color ">
-                          Email
+                          <Mail size={24} color="#bbbb57" />
                         </FormLabel>
                         <FormControl>
                           <Input
@@ -134,81 +155,97 @@ export default function UserLoginForm() {
                     name="password"
                     render={({ field }) => (
                       <FormItem className=" mt-4">
-                        <FormLabel className="  text-md lg:text-lg text-text_color ">
-                          Mot de passe
-                        </FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="*********"
-                            type={showPassword ? "text" : "password"}
-                            autoComplete="current-password"
-                            className=" text-md md:text-md "
-                            onChange={(e) => {
-                              field.onChange(e);
-                              handlePasswordChange(e.target.value);
-                            }}
-                            value={field.value}
-                          />
-                        </FormControl>
-                        <div
-                          onClick={() => setShowPassword(!showPassword)}
-                          className=" cursor-pointer hover:underline"
-                        >
-                          <p className=" text-[13px] pl-2 mt-1 md:text-[0.8rem] underline  italic text-text_color ">
-                            Afficher le mot de passe
-                          </p>
-                        </div>
-                        <div className="flex items-center mt-1">
-                          {passwordValidations.minLength ? (
-                            <CircleCheck
-                              size={16}
-                              className="text-green-500 mr-2"
+                        <div className="flex items-center gap-2">
+                          <FormLabel className="  text-md lg:text-lg text-text_color ">
+                            <KeyRound size={25} color="#bbbb57" />
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="*********"
+                              type={showPassword ? "text" : "password"}
+                              autoComplete="current-password"
+                              className=" text-md md:text-md "
+                              onChange={(e) => {
+                                field.onChange(e);
+                                handlePasswordChange(e.target.value);
+                              }}
+                              value={field.value}
                             />
-                          ) : (
-                            <CircleX size={16} className="text-red-500 mr-2" />
-                          )}
-                          <p className="text-xs md:text-sm text-text_color">
-                            Minimum 8 caractères
-                          </p>
+                          </FormControl>
                         </div>
-                        <div className="flex items-center mt-1">
-                          {passwordValidations.hasNumber ? (
-                            <CircleCheck
-                              size={16}
-                              className="text-green-500 mr-2"
-                            />
-                          ) : (
-                            <CircleX size={16} className="text-red-500 mr-2" />
-                          )}
-                          <p className="text-xs md:text-sm text-text_color">
-                            Minimum un chiffre
-                          </p>
-                        </div>
-                        <div className="flex items-center mt-1">
-                          {passwordValidations.hasLowerCase ? (
-                            <CircleCheck
-                              size={16}
-                              className="text-green-500 mr-2"
-                            />
-                          ) : (
-                            <CircleX size={16} className="text-red-500 mr-2" />
-                          )}
-                          <p className="text-xs md:text-sm text-text_color">
-                            Minimum une minuscule
-                          </p>
-                        </div>
-                        <div className="flex items-center mt-1">
-                          {passwordValidations.hasUpperCase ? (
-                            <CircleCheck
-                              size={16}
-                              className="text-green-500 mr-2"
-                            />
-                          ) : (
-                            <CircleX size={16} className="text-red-500 mr-2" />
-                          )}
-                          <p className="text-xs md:text-sm text-text_color">
-                            Minimum une majuscule
-                          </p>
+                        <div className="ml-10">
+                          <div
+                            onClick={() => setShowPassword(!showPassword)}
+                            className=" cursor-pointer hover:underline"
+                          >
+                            <p className=" text-[13px] pl-2 mt-1 md:text-[0.8rem] underline  italic text-text_color ">
+                              Afficher le mot de passe
+                            </p>
+                          </div>
+                          <div className="flex items-center mt-1">
+                            {passwordValidations.minLength ? (
+                              <CircleCheck
+                                size={16}
+                                className="text-green-500 mr-2"
+                              />
+                            ) : (
+                              <CircleX
+                                size={16}
+                                className="text-red-500 mr-2"
+                              />
+                            )}
+                            <p className="text-xs md:text-sm text-text_color">
+                              Minimum 8 caractères
+                            </p>
+                          </div>
+                          <div className="flex items-center mt-1">
+                            {passwordValidations.hasNumber ? (
+                              <CircleCheck
+                                size={16}
+                                className="text-green-500 mr-2"
+                              />
+                            ) : (
+                              <CircleX
+                                size={16}
+                                className="text-red-500 mr-2"
+                              />
+                            )}
+                            <p className="text-xs md:text-sm text-text_color">
+                              Minimum un chiffre
+                            </p>
+                          </div>
+                          <div className="flex items-center mt-1">
+                            {passwordValidations.hasLowerCase ? (
+                              <CircleCheck
+                                size={16}
+                                className="text-green-500 mr-2"
+                              />
+                            ) : (
+                              <CircleX
+                                size={16}
+                                className="text-red-500 mr-2"
+                              />
+                            )}
+                            <p className="text-xs md:text-sm text-text_color">
+                              Minimum une minuscule
+                            </p>
+                          </div>
+                          <div className="flex items-center mt-1">
+                            {passwordValidations.hasUpperCase ? (
+                              <CircleCheck
+                                size={16}
+                                className="text-green-500 mr-2"
+                              />
+                            ) : (
+                              <CircleX
+                                size={16}
+                                className="text-red-500 mr-2"
+                              />
+                            )}
+                            <p className="text-xs md:text-sm text-text_color">
+                              Minimum une majuscule
+                            </p>
+                          </div>
                         </div>
 
                         <FormMessage className=" text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
