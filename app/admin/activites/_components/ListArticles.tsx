@@ -1,4 +1,9 @@
-import { deleteArticle, getAllArticles } from "@/app/api/article/route";
+import {
+  deleteArticle,
+  getAllArticles,
+  getArticleById,
+  updateArticle,
+} from "@/app/api/article/route";
 import { ArticleProps } from "@/app/types";
 import { Button } from "@/components/ui/button";
 import VisitContext from "@/hooks/VisitContext";
@@ -37,6 +42,22 @@ export default function ListArticles({
     } catch (error) {
       console.error("Error deleting calendar event:", error);
       toast.error("Erreur lors de la suppression de l'article !");
+    }
+  };
+
+  const handleUpdateArticle = async (id: string): Promise<void> => {
+    try {
+      const articleData = await getArticleById(id);
+      if (!articleData) {
+        throw new Error("Article not found");
+      }
+      await updateArticle(id, articleData);
+
+      const updatedArticles = await getAllArticles();
+      setArticles(updatedArticles as ArticleProps[]);
+    } catch (error) {
+      console.error("Error updating article:", error);
+      throw new Error("Failed to update article");
     }
   };
 
@@ -82,6 +103,7 @@ export default function ListArticles({
                 url_link={article.url_link}
                 image_path={article.image_path}
                 handleDelete={handleDeleteArticle}
+                handleUpdate={handleUpdateArticle}
               />
             </li>
           ))}

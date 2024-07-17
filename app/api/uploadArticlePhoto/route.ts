@@ -1,3 +1,4 @@
+import supabase from "@/lib/database";
 import fs from "fs";
 import { NextRequest, NextResponse } from "next/server";
 import path from "path";
@@ -35,6 +36,21 @@ export const POST = async (req: NextRequest) => {
       success: false,
       message: "Erreur lors de l'upload.",
     });
+  }
+};
+
+export const deleteUploadFile = async (filePath: string) => {
+  try {
+    const { error } = await supabase.storage
+      .from("uploadImageArticle")
+      .remove([filePath]);
+
+    if (error) {
+      throw error;
+    }
+  } catch (error: any) {
+    console.error("Error deleting file :", error.message);
+    throw error;
   }
 };
 

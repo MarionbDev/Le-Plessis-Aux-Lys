@@ -3,21 +3,32 @@ import { Trash2 } from "lucide-react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
+import { onUploadComplete } from "../types";
 import UploadFileAdmin from "./UploadFileAdmin";
 
 type PropType = {
   title: string;
-  slides?: { path: string; orientation: "horizontal" | "vertical" }[];
-  onUploadComplete: (uploadedFileData: {}) => void;
+  slides?: {
+    fileName: string;
+    path: string;
+    orientation: "horizontal" | "vertical";
+  }[];
+  onUploadComplete?: (uploadedFileData: onUploadComplete) => void;
   bucket: string;
+  onDelete: (fileName: string, bucket: string) => void;
 };
 
 export default function CardPhotosAdmin({
   title,
   slides = [],
-  onUploadComplete,
+  onUploadComplete = () => {},
   bucket,
+  onDelete,
 }: PropType) {
+  const handleDeleteClick = (fileName: string) => {
+    onDelete(fileName, bucket);
+  };
+
   return (
     <>
       <div className="flex justify-around">
@@ -32,7 +43,6 @@ export default function CardPhotosAdmin({
               />
             </div>
           </CardHeader>
-
           <CardContent>
             <div className="flex gap-4 h-[19rem]   overflow-x-auto overflow-y-hidden ">
               {slides.map((slide, index) => (
@@ -51,7 +61,10 @@ export default function CardPhotosAdmin({
                       className=" p-0"
                     />
                   </div>
-                  <Button className=" absolute  bg-white  p-1 rounded-tr-md border-l-2 border-b-2">
+                  <Button
+                    onClick={() => handleDeleteClick(slide.fileName)}
+                    className=" absolute  bg-white  p-1 rounded-tr-md border-l-2 border-b-2"
+                  >
                     <Trash2 size={20} className=" hover:scale-110" />
                   </Button>
                 </div>

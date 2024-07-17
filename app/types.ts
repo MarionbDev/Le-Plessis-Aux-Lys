@@ -76,11 +76,18 @@ export type ArticleProps = {
   url_link: string;
   image_path: string;
   onUploadComplete?: (uploadedFileData: onUploadComplete) => void;
-  handleDelete: (id: string) => void;
+  handleDelete?: (id: string) => void;
+  handleUpdate?: () => void;
 };
 
 export type Slide = {
   image_path: string;
   title: string;
+};
+
+export type ImageType = {
+  path: string;
+  orientation: "horizontal" | "vertical";
+  fileName: string;
 };
 
