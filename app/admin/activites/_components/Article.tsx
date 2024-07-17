@@ -27,6 +27,7 @@ type Props = {
   url_link: string;
   image_path: string;
   handleDelete: (id: string) => Promise<void>;
+  handleUpdate: (id: string) => void;
 };
 
 export default function Article({
@@ -37,6 +38,7 @@ export default function Article({
   url_link,
   image_path,
   handleDelete,
+  handleUpdate,
 }: Props) {
   const visitContext = useContext(VisitContext);
   const { framerMotionVariants } = visitContext;
@@ -59,9 +61,11 @@ export default function Article({
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button className=" p-0">
-                      <FilePen />
-                    </Button>
+                    <Link href={`?modal-edit=true&articleId=${id}`}>
+                      <Button onClick={() => handleUpdate(id)} className=" p-0">
+                        <FilePen />
+                      </Button>
+                    </Link>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>Modifier</p>

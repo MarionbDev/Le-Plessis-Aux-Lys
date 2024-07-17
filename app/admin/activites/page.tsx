@@ -6,7 +6,7 @@ export default function Activites() {
   return (
     <Suspense
       fallback={
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center h-screen">
           <Loader size={50} className=" animate-spin " />
         </div>
       }

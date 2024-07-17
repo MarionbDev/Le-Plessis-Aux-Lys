@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import "react-quill/dist/quill.snow.css";
 
@@ -19,7 +19,8 @@ import { Input } from "@/components/ui/input";
 // import { Loader2, LogIn } from "lucide-react";
 
 // import ReactQuill from "react-quill";
-import { postArticle } from "@/app/api/article/route";
+import { getArticleById, updateArticle } from "@/app/api/article/route";
+import { ArticleProps } from "@/app/types";
 import supabase from "@/lib/database";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -44,11 +45,7 @@ const formSchema = z.object({
 
 type FormSchemaType = z.infer<typeof formSchema>;
 
-// type AddArticleProps = {
-//   onAddArticle: (newArticle: ArticleProps) => void;
-// };
-
-export default function AddArticle() {
+export default function UpdateArticle({ articleId }: { articleId: string }) {
   const [isLoading, setIsLoading] = useState(false);
   const [uploadedFilePath, setUploadedFilePath] = useState<string>("");
 
@@ -65,11 +62,34 @@ export default function AddArticle() {
     },
   });
 
-  const handleAddArticleFormSubmit = async (values: FormSchemaType) => {
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        const articleData = await getArticleById(articleId);
+        if (articleData) {
+          form.reset({
+            title: articleData.title,
+            description: articleData.description,
+            content: articleData.content,
+            url_link: articleData.url_link,
+            image_path: articleData.image_path,
+          });
+          setUploadedFilePath(articleData.image_path);
+        }
+      } catch (error) {
+        console.error("Erreur lors de la récupération de l'article :", error);
+        toast.error("Erreur lors de la récupération de l'article.");
+      }
+    };
+
+    fetchArticle();
+  }, [articleId, form]);
+
+  const handleUpdateArticleFormSubmit = async (values: FormSchemaType) => {
     try {
       setIsLoading(true);
 
-      const articleData = {
+      const articleData: Omit<ArticleProps, "id"> = {
         title: values.title,
         description: values.description,
         content: values.content,
@@ -77,17 +97,17 @@ export default function AddArticle() {
         image_path: uploadedFilePath,
       };
 
-      await postArticle(articleData);
+      await updateArticle(articleId, articleData);
 
       form.reset();
       setUploadedFilePath("");
-      toast.success("Ajout de l'activité réussie !");
+      toast.success("Mise à jour de l'activité réussie !");
       setTimeout(() => {
         router.push("/admin/activites");
       }, 2000);
     } catch (error) {
       console.error("Erreur :", error);
-      toast.error("Erreur lors de l'ajout de l'activité.");
+      toast.error("Erreur lors de la mise à jour de l'activité.");
     } finally {
       setIsLoading(false);
     }
@@ -143,10 +163,10 @@ export default function AddArticle() {
   return (
     <div className=" w-[50vw] min-w-[200px]  h-[36rem]   ">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleAddArticleFormSubmit)}>
+        <form onSubmit={form.handleSubmit(handleUpdateArticleFormSubmit)}>
           <Card className=" h-[36rem] text-text_color   ">
             <CardHeader>
-              <CardTitle>Ajouter une activité</CardTitle>
+              <CardTitle>Modifier l'activité</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col justify-around p-4 h-[32rem] ">
               <div className="flex justify-between gap-10">
