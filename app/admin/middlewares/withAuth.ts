@@ -5,8 +5,8 @@ export const setIsAuthenticated = (value: boolean) => {
   isAuthenticated = value;
 };
 
-// Ajouté dans layout.jsx
 export const getIsAuthenticated = () => {
-  return isAuthenticated;
+  const token = localStorage.getItem("authToken");
+  return isAuthenticated && !!token;
 };
 

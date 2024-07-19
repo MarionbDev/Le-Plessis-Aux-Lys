@@ -88,14 +88,15 @@ export default function Article({
                 {image_path && (
                   <Image
                     src={image_path}
+                    layout="responsive"
                     width={200}
                     height={200}
                     alt={`Photo ${title}`}
-                    className=" max-w-[13rem] max-h-[8rem] object-contain mx-auto "
+                    className=" max-w-[13rem] max-h-[8rem] object-contain mx-auto  "
                   />
                 )}
 
-                <CardTitle className="mb-3 mt-5 ">{title}</CardTitle>
+                <CardTitle className="mb-3 mt-5 ml-3 ">{title}</CardTitle>
               </div>
             </CardHeader>
             <div className=" mx-9 ">

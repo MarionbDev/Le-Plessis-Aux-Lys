@@ -8,50 +8,64 @@ interface Props extends UploadFileAdminProps {
 }
 
 export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
-  const [file, setFile] = useState<File | null>(null);
-  const [uploadedFilePath, setUploadedFilePath] = useState<string | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
+  const [uploadedFilePaths, setUploadedFilePaths] = useState<string[]>([]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = event.target.files ? event.target.files[0] : null;
-    setFile(selectedFile);
+    const selectedFiles = event.target.files
+      ? Array.from(event.target.files)
+      : [];
+    setFiles(selectedFiles);
   };
 
   const getOrientation = (width: number, height: number) => {
     return width > height ? "horizontal" : "vertical";
   };
 
-  const uploadFileImage = async (
-    event: React.MouseEvent<HTMLButtonElement>,
-  ) => {
+  const uploadFiles = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    if (!file) {
-      console.error("No file selected!");
+    if (files.length === 0) {
+      console.error("No files selected!");
       return;
     }
 
-    const img = new Image();
-    img.onload = async () => {
-      const orientation = getOrientation(img.width, img.height);
+    for (const file of files) {
+      const img = new Image();
+      img.onload = async () => {
+        const orientation = getOrientation(img.width, img.height);
 
-      try {
-        const uploadedFileData = await uploadPhotos(file, orientation, bucket);
-        console.log("Uploaded file admin:", uploadedFileData);
-        const fileData: onUploadComplete = {
-          orientation: uploadedFileData.orientation,
-          id: uploadedFileData.id,
-          fullPath: uploadedFileData.fullPath,
-          image_path: uploadedFileData.image_path, // Ajoutez cette propriété
-        };
+        try {
+          if (!bucket) {
+            console.error("Bucket name is not specified!");
+            return;
+          }
 
-        setUploadedFilePath(uploadedFileData.fullPath);
-        onUploadComplete(fileData);
-      } catch (error) {
-        console.error("Error uploading file:", error);
-      }
-    };
+          const uploadedFileData = await uploadPhotos(
+            file,
+            orientation,
+            bucket,
+          );
+          console.log("Uploaded file admin:", uploadedFileData);
+          const fileData: onUploadComplete = {
+            orientation: uploadedFileData.orientation,
+            id: uploadedFileData.id,
+            fullPath: uploadedFileData.fullPath,
+            image_path: uploadedFileData.image_path,
+          };
 
-    img.src = URL.createObjectURL(file);
+          setUploadedFilePaths((prevPaths) => [
+            ...prevPaths,
+            uploadedFileData.fullPath,
+          ]);
+          onUploadComplete(fileData);
+        } catch (error) {
+          console.error("Error uploading file:", error);
+        }
+      };
+
+      img.src = URL.createObjectURL(file);
+    }
   };
 
   return (
@@ -61,9 +75,10 @@ export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
           type="file"
           id="upload"
           accept="image/*"
+          multiple
           onChange={handleFileChange}
         />
-        <button type="button" onClick={uploadFileImage}>
+        <button type="button" onClick={uploadFiles}>
           Télécharger
         </button>
       </div>

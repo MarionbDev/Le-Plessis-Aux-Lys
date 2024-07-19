@@ -18,6 +18,7 @@ export const POST = async (req: NextRequest) => {
 
   try {
     const buffer = Buffer.from(await file.arrayBuffer());
+
     if (!fs.existsSync(UPLOAD_DIR)) {
       fs.mkdirSync(UPLOAD_DIR, { recursive: true });
     }

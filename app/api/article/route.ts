@@ -45,7 +45,7 @@ export const getAllArticles = async () => {
   }
 };
 
-export const addArticle = async (articleData: ArticleProps) => {
+export const addArticle = async (articleData: ArticleData) => {
   try {
     const { data, error } = await supabase
       .from("article")
@@ -64,33 +64,21 @@ export const addArticle = async (articleData: ArticleProps) => {
   }
 };
 
-// Gestion de la requête POST
-export const postArticle = async (
-  articleData: ArticleData,
-): Promise<ArticleProps | null> => {
-  console.log("Posting article data:", articleData);
+// // Gestion de la requête POST
+// export const postArticle = async (
+//   articleData: ArticleData,
+// ): Promise<ArticleProps | null> => {
+//   console.log("Posting article data:", articleData);
 
-  const { data, error } = await supabase.from("article").insert([articleData]);
+//   const { data, error } = await supabase.from("article").insert([articleData]);
 
-  if (error) {
-    console.error("Error posting article:", error);
-    throw new Error(error.message);
-  }
-  console.log("Article posted successfully:", data);
-  return data as ArticleProps | null;
-};
-
-export const deleteArticle = async (id: string): Promise<void> => {
-  try {
-    const { error } = await supabase.from("article").delete().eq("id", id);
-    if (error) {
-      throw error;
-    }
-  } catch (error: any) {
-    console.error("Error deleting article :", error.message);
-    throw error;
-  }
-};
+//   if (error) {
+//     console.error("Error posting article:", error);
+//     throw new Error(error.message);
+//   }
+//   console.log("Article posted successfully:", data);
+//   return data as ArticleProps | null;
+// };
 
 export const updateArticle = async (
   id: string,
@@ -107,6 +95,36 @@ export const updateArticle = async (
     }
   } catch (error) {
     console.error("Erreur lors de la mise à jour de l'article :", error);
+    throw error;
+  }
+};
+
+export const deleteArticle = async (id: string): Promise<void> => {
+  try {
+    // Récupérer les détails de l'article pour obtenir le chemin de l'image
+    const { data: article, error: fetchError } = await supabase
+      .from("article")
+      .select("image_path")
+      .eq("id", id)
+      .single();
+
+    if (fetchError) {
+      console.error("Error fetching article for deletion:", fetchError);
+      throw fetchError;
+    }
+
+    // Supprimer l'image associée si elle existe
+    // if (article?.image_path) {
+    //   await deleteUploadFile(article.image_path);
+    // }
+
+    // Supprimer l'article de la base de données
+    const { error } = await supabase.from("article").delete().eq("id", id);
+    if (error) {
+      throw error;
+    }
+  } catch (error: any) {
+    console.error("Error deleting article:", error.message);
     throw error;
   }
 };

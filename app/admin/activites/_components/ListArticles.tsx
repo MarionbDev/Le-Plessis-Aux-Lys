@@ -39,6 +39,7 @@ export default function ListArticles({
       if (!articleData) {
         throw new Error("Article not found");
       }
+
       await updateArticle(id, articleData);
 
       const updatedArticles = await getAllArticles();

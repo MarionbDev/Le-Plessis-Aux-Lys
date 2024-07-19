@@ -170,7 +170,7 @@ export default function DescriptionWebSite() {
                   width={400}
                   height={200}
                   alt="photo intérieur du gîte"
-                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125 duration-1000 "
+                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125 duration-1000 h-auto "
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-1000 group-hover:bg-opacity-50 group-hover:opacity-100">
                   <p className="text-lg font-semibold text-white opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
@@ -189,7 +189,7 @@ export default function DescriptionWebSite() {
                   width={400}
                   height={200}
                   alt="photo de la chambre 1"
-                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 "
+                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 h-auto "
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-1000 group-hover:bg-opacity-50 group-hover:opacity-100">
                   <p className="text-lg font-semibold text-white opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
@@ -224,7 +224,7 @@ export default function DescriptionWebSite() {
                   width={400}
                   height={200}
                   alt="photo de la chambre 2"
-                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-500 "
+                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-500 h-auto"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-500 group-hover:bg-opacity-50 group-hover:opacity-100">
                   <p className="text-lg font-semibold text-white opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
@@ -243,7 +243,7 @@ export default function DescriptionWebSite() {
                   width={400}
                   height={200}
                   alt="photo de la chambre 3"
-                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 "
+                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 h-auto"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-500 group-hover:bg-opacity-50 group-hover:opacity-100">
                   <p className="text-lg font-semibold text-white opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
@@ -290,7 +290,7 @@ export default function DescriptionWebSite() {
                 width={500}
                 height={500}
                 alt="Photo du parc du gîte"
-                className=" rounded-sm shadow-basic border-2 p-1 bg-white"
+                className=" rounded-sm shadow-basic border-2 p-1 bg-white h-auto"
               />
             </div>
           </div>

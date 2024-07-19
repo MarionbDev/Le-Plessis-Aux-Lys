@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input";
 // import { Loader2, LogIn } from "lucide-react";
 
 // import ReactQuill from "react-quill";
-import { postArticle } from "@/app/api/article/route";
+import { addArticle } from "@/app/api/article/route";
 import supabase from "@/lib/database";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -43,10 +43,6 @@ const formSchema = z.object({
 });
 
 type FormSchemaType = z.infer<typeof formSchema>;
-
-// type AddArticleProps = {
-//   onAddArticle: (newArticle: ArticleProps) => void;
-// };
 
 export default function AddArticle() {
   const [isLoading, setIsLoading] = useState(false);
@@ -77,7 +73,7 @@ export default function AddArticle() {
         image_path: uploadedFilePath,
       };
 
-      await postArticle(articleData);
+      await addArticle(articleData);
 
       form.reset();
       setUploadedFilePath("");

@@ -1,13 +1,32 @@
 "use client";
 
 import RentalPage from "@/app/_components/RentalPage";
+import { getImagesFromBucket } from "@/app/api/uploadPhotos/route";
+import { ImageType } from "@/app/types";
 import { useRentalRates } from "@/hooks/useRentalRates";
 import { Loader } from "lucide-react";
-
-const imagesChambre1 = ["/chambres/ch-1.jpg", "/chambres/ch-1-1.jpg"];
+import { useEffect, useState } from "react";
 
 export default function RoomsOne() {
+  const [imagesChambre1, setImagesChambre1] = useState<ImageType[]>([]);
+
   const { rates, loading, error } = useRentalRates("chambre 1");
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const imagesChambre1 = await getImagesFromBucket("chambre 1");
+
+        setImagesChambre1(imagesChambre1);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  const imageUrls = imagesChambre1.map((image) => image.path);
 
   if (loading) {
     return (
@@ -30,7 +49,7 @@ export default function RoomsOne() {
           lowSeasonWeeklyRate={rates.price_low_season_week}
           highSeasonNightRate={rates.price_high_season_night}
           highSeasonWeeklyRate={rates.price_high_season_week}
-          imagesSlide={imagesChambre1}
+          imagesSlide={imageUrls}
           rentalType="chambre 1"
         />
       )}

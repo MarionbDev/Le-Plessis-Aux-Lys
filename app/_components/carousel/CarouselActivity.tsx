@@ -37,7 +37,7 @@ const CarouselActivity: React.FC<PropType> = ({ slides, options }) => {
                     width={256}
                     height={256}
                     alt={`Photo ${index + 1}`}
-                    className="object-scale-down h-[12rem]"
+                    className="object-scale-down h-[12rem] w-auto"
                   />
 
                   <p className=" text-lg font-semibold ">{slide.title}</p>

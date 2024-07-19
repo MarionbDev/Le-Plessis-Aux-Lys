@@ -18,10 +18,6 @@ export default function ToVisitInTheRegion() {
   const articleId = searchParams.get("articleId");
   const pathname = usePathname();
 
-  console.log("modal:", modal);
-  console.log("modalUpdate:", modalUpdate);
-  console.log("articleId:", articleId);
-
   const [articles, setArticles] = useState<ArticleProps[]>([]);
 
   const fetchArticles = async () => {
