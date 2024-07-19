@@ -3,36 +3,20 @@
 import useSession from "@/hooks/useSession";
 import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect } from "react";
 import NavbarDesktopAdmin from "./_components/NavBarDesktopAdmin";
-import { getIsAuthenticated } from "./middlewares/withAuth";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
-  const [loading, setLoading] = useState(true);
-
-  const { user, error, refreshSession } = useSession();
+  const { user, error, loading } = useSession();
+  const router = useRouter();
 
   // console.log("user :", user);
 
-  const router = useRouter();
-
   useEffect(() => {
-    const isAuthenticated = getIsAuthenticated();
-    // console.log(isAuthenticated);
-
-    if (!isAuthenticated) {
+    if (!loading && !user) {
       router.replace("/");
-    } else {
-      setLoading(false);
     }
-  }, []);
-
-  useEffect(() => {
-    if (getIsAuthenticated()) {
-      // console.log("Refreshing session...");
-      refreshSession();
-    }
-  }, []);
+  }, [user, loading, router]);
 
   if (loading) {
     return (

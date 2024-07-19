@@ -16,13 +16,6 @@ type PropType = {
 const EmblaCarousel: React.FC<PropType> = ({ slides = [], options }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
 
-  // const {
-  //   prevBtnDisabled,
-  //   nextBtnDisabled,
-  //   onPrevButtonClick,
-  //   onNextButtonClick,
-  // } = usePrevNextButtons(emblaApi);
-
   return (
     <section className={styles.embla}>
       <div className={styles.embla__viewport} ref={emblaRef}>
@@ -30,15 +23,15 @@ const EmblaCarousel: React.FC<PropType> = ({ slides = [], options }) => {
           {slides.map((slide, index) => (
             <div className={styles.embla__slide} key={index}>
               <div className={styles.embla__slide__image}>
-                <div className="relative overflow-hidden group cursor-pointer">
+                <div className="relative flex justify-center overflow-hidden group cursor-pointer">
                   <Image
                     src={slide}
                     width={600}
                     height={200}
                     alt={`Photo ${index + 1}`}
-                    className="  object-scale-down h-[33rem] group  "
+                    className="  object-scale-down h-[33rem] w-auto group  "
                   />
-                  <div className="absolute inset-0  flex items-center justify-center   ">
+                  <div className="absolute inset-0  flex justify-center items-center  ">
                     <p className="text-lg font-semibold  opacity-0 group-hover:opacity-100 transition duration-500 bg-white/70 rounded-full p-4 text-black/80 ">
                       <ArrowRightLeft size={20} />
                     </p>

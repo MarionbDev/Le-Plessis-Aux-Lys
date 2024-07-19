@@ -1,4 +1,4 @@
-import supabase from "@/lib/database";
+import supabase from "@/lib/database"; // Assurez-vous que ce chemin est correct
 import { User } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 
@@ -16,15 +16,25 @@ export default function useSession() {
     const fetchSession = async () => {
       setLoading(true);
       try {
-        const { data, error } = await supabase.auth.getSession();
+        // Récupérer la session actuelle
+        const { data: sessionData, error } = await supabase.auth.getSession();
         if (error) {
           throw error;
         }
-        setUser(data?.session?.user || null);
-        setAccessToken(data?.session?.access_token || null);
-        // console.log("data session ", data);
+        const { session } = sessionData;
+        setUser(session?.user || null);
+        const token = session?.access_token || null;
+        setAccessToken(token);
+
+        if (token) {
+          localStorage.setItem("authToken", token);
+          // console.log("Token saved to localStorage:", token);
+        } else {
+          localStorage.removeItem("authToken");
+          // console.log("Token removed from localStorage");
+        }
       } catch (error: any) {
-        console.error(error);
+        console.error("Error fetching session:", error);
         setError({ message: error.message });
       } finally {
         setLoading(false);
@@ -41,10 +51,25 @@ export default function useSession() {
       if (error) {
         throw error;
       }
-      setUser(data?.session?.user || null);
-      setAccessToken(data?.session?.access_token || null);
+      const { session } = data;
+      setUser(session?.user || null);
+      const token = session?.access_token || null;
+      setAccessToken(token);
+
+      if (token) {
+        localStorage.setItem("authToken", token);
+        // console.log("Token refreshed and saved to localStorage:", token);
+      } else {
+        localStorage.removeItem("authToken");
+        // console.log("Token removed from localStorage");
+      }
+
+      // console.log(
+      //   "Current localStorage after refresh:",
+      //   localStorage.getItem("authToken"),
+      // );
     } catch (error: any) {
-      console.error(error);
+      console.error("Error refreshing session:", error);
       setError({ message: error.message });
     } finally {
       setLoading(false);

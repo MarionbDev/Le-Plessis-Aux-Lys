@@ -7,22 +7,14 @@ import {
 } from "@/app/api/uploadPhotos/route";
 import { ImageType } from "@/app/types";
 import { useEffect, useState } from "react";
-
-// Fonction pour récupérer le nom du fichier depuis le chemin complet
-const extractFileName = (fullPath: string): string => {
-  return fullPath.split("/").pop() ?? "";
-};
+import { toast, Toaster } from "sonner";
 
 export default function GiteAndRooms() {
   const [gite, setGite] = useState<ImageType[]>([]);
   const [chambre1, setChambre1] = useState<ImageType[]>([]);
   const [chambre2, setChambre2] = useState<ImageType[]>([]);
   const [chambre3, setChambre3] = useState<ImageType[]>([]);
-
-  useEffect(() => {
-    console.log("useEffect in GiteAndRooms called");
-    // ...
-  }, []);
+  const [jardin, setJardin] = useState<ImageType[]>([]);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -31,17 +23,13 @@ export default function GiteAndRooms() {
         const chambre1Images = await getImagesFromBucket("chambre 1");
         const chambre2Images = await getImagesFromBucket("chambre 2");
         const chambre3Images = await getImagesFromBucket("chambre 3");
-        console.log("Gite images:", giteImages);
-        console.log("Chambre 1 images:", chambre1Images);
-        console.log("Chambre 2 images:", chambre2Images);
-        console.log("Chambre 3 images:", chambre3Images);
-        // Mettre à jour les états avec les nouvelles images
+        const jardinImages = await getImagesFromBucket("jardin");
 
-        // Mettre à jour les états avec les nouvelles images
         setGite(giteImages);
         setChambre1(chambre1Images);
         setChambre2(chambre2Images);
         setChambre3(chambre3Images);
+        setJardin(jardinImages);
       } catch (error) {
         console.error("Error fetching images:", error);
       }
@@ -65,51 +53,31 @@ export default function GiteAndRooms() {
     };
 
     if (uploadedFileData.fullPath.includes("gite")) {
-      console.log("Gite state before update:", gite);
       setGite((prevGite) => [...prevGite, newImage]);
-      console.log("Gite state after update:", gite);
     } else if (uploadedFileData.fullPath.includes("chambre 1")) {
       setChambre1((prevChambre1) => [...prevChambre1, newImage]);
     } else if (uploadedFileData.fullPath.includes("chambre 2")) {
       setChambre2((prevChambre2) => [...prevChambre2, newImage]);
     } else if (uploadedFileData.fullPath.includes("chambre 3")) {
       setChambre3((prevChambre3) => [...prevChambre3, newImage]);
+    } else if (uploadedFileData.fullPath.includes("garden")) {
+      setJardin((prevJardin) => [...prevJardin, newImage]);
     }
+
+    const promise = () =>
+      new Promise((resolve) =>
+        setTimeout(() => {
+          resolve({ name: "Sonner" });
+        }, 2000),
+      );
+    toast.promise(promise(), {
+      loading: "Téléchargement de l'image en-cours...",
+      success: (data) => {
+        return `Téléchargement de l'image réussi ! `;
+      },
+      error: "Error",
+    });
   };
-
-  // const handleDelete = async (fileName: string) => {
-  //   // Déterminer le bucket basé sur le nom du fichier
-  //   let bucket: string;
-  //   console.log(`File name received for deletion: ${fileName}`);
-
-  //   // Si le nom du fichier inclut un identifiant de bucket, le définir correctement
-  //   if (fileName.includes("gite")) {
-  //     bucket = "gite";
-  //   } else if (fileName.includes("chambre 1")) {
-  //     bucket = "chambre 1";
-  //   } else if (fileName.includes("chambre 2")) {
-  //     bucket = "chambre 2";
-  //   } else if (fileName.includes("chambre 3")) {
-  //     bucket = "chambre 3";
-  //   } else {
-  //     console.error(`Bucket not found for file: ${fileName}`);
-  //     return; // Arrêter l'exécution si le bucket n'est pas trouvé
-  //   }
-
-  //   try {
-  //     console.log(`Deleting file: ${fileName} from bucket: ${bucket}`);
-  //     // Appeler la fonction pour supprimer le fichier
-  //     await deleteUploadFile(fileName, bucket);
-
-  //     // Mettre à jour l'état après suppression
-  //     setGite((prev) => prev.filter((img) => img.fileName !== fileName));
-  //     setChambre1((prev) => prev.filter((img) => img.fileName !== fileName));
-  //     setChambre2((prev) => prev.filter((img) => img.fileName !== fileName));
-  //     setChambre3((prev) => prev.filter((img) => img.fileName !== fileName));
-  //   } catch (error) {
-  //     console.error("Error deleting image:", error);
-  //   }
-  // };
 
   const handleDelete = async (fileName: string, bucket: string) => {
     // Définir le bucket
@@ -130,15 +98,19 @@ export default function GiteAndRooms() {
         setChambre2((prev) => prev.filter((img) => img.fileName !== fileName));
       } else if (bucket === "chambre 3") {
         setChambre3((prev) => prev.filter((img) => img.fileName !== fileName));
+      } else if (bucket === "chambre 3") {
+        setJardin((prev) => prev.filter((img) => img.fileName !== fileName));
       } else {
         console.error(`Unknown bucket: ${bucket}`);
       }
+
+      await getImagesFromBucket("gite");
     } catch (error) {
       console.error("Error deleting image:", error);
     }
   };
   return (
-    <div className=" my-20 ">
+    <div className=" ">
       <div className="flex justify-around gap-y-20 flex-wrap mx-20 mt-10 ">
         <CardPhotosAdmin
           title="Gîte"
@@ -169,7 +141,16 @@ export default function GiteAndRooms() {
           onDelete={handleDelete}
           bucket="chambre 3"
         />
+
+        <CardPhotosAdmin
+          title="Jardin"
+          slides={jardin}
+          onUploadComplete={handleUploadComplete}
+          onDelete={handleDelete}
+          bucket="jardin"
+        />
       </div>
+      <Toaster />
     </div>
   );
 }

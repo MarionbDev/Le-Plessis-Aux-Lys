@@ -45,7 +45,22 @@ export default function ContactForm() {
       console.log("data client : ", data);
 
       if (data && data.message) {
-        toast.success("Email envoyé avec succès !");
+        // toast.success("Email envoyé avec succès !");
+        const promise = () =>
+          new Promise((resolve) =>
+            setTimeout(() => {
+              resolve({ name: "Sonner" });
+            }, 2000),
+          );
+
+        toast.promise(promise, {
+          loading: "Envoi du message en-cours...",
+          success: (data) => {
+            return `Votre message à bien été envoyé !`;
+          },
+          error: "Error",
+        });
+
         setLatsName("");
         setFirstname("");
         setEmail("");

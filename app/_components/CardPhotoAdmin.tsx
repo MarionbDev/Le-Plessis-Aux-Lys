@@ -58,7 +58,7 @@ export default function CardPhotosAdmin({
                       alt={`Photo ${index + 1}`}
                       style={{ objectFit: "cover", objectPosition: "center" }}
                       priority
-                      className=" p-0"
+                      className=" p-0 w-auto"
                     />
                   </div>
                   <Button
