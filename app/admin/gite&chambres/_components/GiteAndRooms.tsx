@@ -31,10 +31,10 @@ export default function GiteAndRooms() {
         const chambre1Images = await getImagesFromBucket("chambre 1");
         const chambre2Images = await getImagesFromBucket("chambre 2");
         const chambre3Images = await getImagesFromBucket("chambre 3");
-        console.log("Gite images:", giteImages);
-        console.log("Chambre 1 images:", chambre1Images);
-        console.log("Chambre 2 images:", chambre2Images);
-        console.log("Chambre 3 images:", chambre3Images);
+        // console.log("Gite images:", giteImages);
+        // console.log("Chambre 1 images:", chambre1Images);
+        // console.log("Chambre 2 images:", chambre2Images);
+        // console.log("Chambre 3 images:", chambre3Images);
         // Mettre à jour les états avec les nouvelles images
 
         // Mettre à jour les états avec les nouvelles images
@@ -65,9 +65,7 @@ export default function GiteAndRooms() {
     };
 
     if (uploadedFileData.fullPath.includes("gite")) {
-      console.log("Gite state before update:", gite);
       setGite((prevGite) => [...prevGite, newImage]);
-      console.log("Gite state after update:", gite);
     } else if (uploadedFileData.fullPath.includes("chambre 1")) {
       setChambre1((prevChambre1) => [...prevChambre1, newImage]);
     } else if (uploadedFileData.fullPath.includes("chambre 2")) {
@@ -76,40 +74,6 @@ export default function GiteAndRooms() {
       setChambre3((prevChambre3) => [...prevChambre3, newImage]);
     }
   };
-
-  // const handleDelete = async (fileName: string) => {
-  //   // Déterminer le bucket basé sur le nom du fichier
-  //   let bucket: string;
-  //   console.log(`File name received for deletion: ${fileName}`);
-
-  //   // Si le nom du fichier inclut un identifiant de bucket, le définir correctement
-  //   if (fileName.includes("gite")) {
-  //     bucket = "gite";
-  //   } else if (fileName.includes("chambre 1")) {
-  //     bucket = "chambre 1";
-  //   } else if (fileName.includes("chambre 2")) {
-  //     bucket = "chambre 2";
-  //   } else if (fileName.includes("chambre 3")) {
-  //     bucket = "chambre 3";
-  //   } else {
-  //     console.error(`Bucket not found for file: ${fileName}`);
-  //     return; // Arrêter l'exécution si le bucket n'est pas trouvé
-  //   }
-
-  //   try {
-  //     console.log(`Deleting file: ${fileName} from bucket: ${bucket}`);
-  //     // Appeler la fonction pour supprimer le fichier
-  //     await deleteUploadFile(fileName, bucket);
-
-  //     // Mettre à jour l'état après suppression
-  //     setGite((prev) => prev.filter((img) => img.fileName !== fileName));
-  //     setChambre1((prev) => prev.filter((img) => img.fileName !== fileName));
-  //     setChambre2((prev) => prev.filter((img) => img.fileName !== fileName));
-  //     setChambre3((prev) => prev.filter((img) => img.fileName !== fileName));
-  //   } catch (error) {
-  //     console.error("Error deleting image:", error);
-  //   }
-  // };
 
   const handleDelete = async (fileName: string, bucket: string) => {
     // Définir le bucket

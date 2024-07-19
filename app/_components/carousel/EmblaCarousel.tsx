@@ -38,7 +38,7 @@ const EmblaCarousel: React.FC<PropType> = ({ slides = [], options }) => {
                     alt={`Photo ${index + 1}`}
                     className="  object-scale-down h-[33rem] group  "
                   />
-                  <div className="absolute inset-0  flex items-center justify-center   ">
+                  <div className="absolute inset-0  flex items-center mx-[17.5rem]  ">
                     <p className="text-lg font-semibold  opacity-0 group-hover:opacity-100 transition duration-500 bg-white/70 rounded-full p-4 text-black/80 ">
                       <ArrowRightLeft size={20} />
                     </p>

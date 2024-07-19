@@ -21,18 +21,6 @@ export default function ListArticles({
   articles,
   setArticles,
 }: ListArticlesProps) {
-  // useEffect(() => {
-  //   async function fetchAllArticles() {
-  //     try {
-  //       const fetchedArticles = await getAllArticles();
-  //       setArticles(fetchedArticles as ArticleProps[]);
-  //     } catch (error) {
-  //       console.error("Error fetching articles:", error);
-  //     }
-  //   }
-  //   fetchAllArticles();
-  // }, []);
-
   const handleDeleteArticle = async (id: string) => {
     try {
       await deleteArticle(id);

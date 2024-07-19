@@ -1,13 +1,33 @@
 "use client";
 
 import RentalPage from "@/app/_components/RentalPage";
+import { getImagesFromBucket } from "@/app/api/uploadPhotos/route";
+import { ImageType } from "@/app/types";
 import { useRentalRates } from "@/hooks/useRentalRates";
 import { Loader } from "lucide-react";
-
-const imagesGite = ["/gite/gite.jpg", "/gite/gite2.jpg", "/gite/gite3.jpg"];
+import { useEffect, useState } from "react";
 
 export default function Gîte() {
+  const [imagesGite, setGite] = useState<ImageType[]>([]);
+
   const { rates, loading, error } = useRentalRates("gite");
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const imagesGite = await getImagesFromBucket("gite");
+
+        // Mettre à jour les états avec les nouvelles images
+        setGite(imagesGite);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  const imageUrls = imagesGite.map((image) => image.path);
 
   if (loading) {
     return (
@@ -26,7 +46,7 @@ export default function Gîte() {
           lowSeasonWeeklyRate={rates.price_low_season_week}
           highSeasonNightRate={rates.price_high_season_night}
           highSeasonWeeklyRate={rates.price_high_season_week}
-          imagesSlide={imagesGite}
+          imagesSlide={imageUrls}
           rentalType="gite"
         />
       )}
