@@ -17,12 +17,12 @@ const EmblaCarousel: React.FC<PropType> = ({ slides = [], options }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
 
   return (
-    <section className={styles.embla}>
-      <div className={styles.embla__viewport} ref={emblaRef}>
-        <div className={styles.embla__container}>
+    <section className={styles.embla_rental}>
+      <div className={styles.embla__viewport_rental} ref={emblaRef}>
+        <div className={styles.embla__container_rental}>
           {slides.map((slide, index) => (
-            <div className={styles.embla__slide} key={index}>
-              <div className={styles.embla__slide__image}>
+            <div className={styles.embla__slide_rental} key={index}>
+              <div className={styles.embla__slide__image_rental}>
                 <div className="relative flex justify-center overflow-hidden group cursor-pointer">
                   <Image
                     src={slide}

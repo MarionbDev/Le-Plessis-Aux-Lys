@@ -16,6 +16,7 @@ export default function Gîte() {
     const fetchImages = async () => {
       try {
         const imagesGite = await getImagesFromBucket("gite");
+        console.log("gite image", imagesGite);
 
         // Mettre à jour les états avec les nouvelles images
         setGite(imagesGite);

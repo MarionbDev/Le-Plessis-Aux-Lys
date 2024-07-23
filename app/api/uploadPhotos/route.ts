@@ -26,9 +26,14 @@ import supabase from "@/lib/database";
 
 // Fonction pour récupérer les images avec le nom du bucket inclus
 // Fonction pour construire l'URL de l'image
+// const construireUrlImage = (bucket: string, fileName: string): string => {
+//   // Assurez-vous que l'URL est correctement formatée
+//   return `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${bucket}/${fileName}`;
+// };
 const construireUrlImage = (bucket: string, fileName: string): string => {
-  // Assurez-vous que l'URL est correctement formatée
-  return `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${bucket}/${fileName}`;
+  const url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${bucket}/${fileName}`;
+  console.log(`URL construite: ${url}`);
+  return url;
 };
 
 export const getImagesFromBucket = async (
@@ -45,10 +50,10 @@ export const getImagesFromBucket = async (
   }
 
   return data
-    .filter((item) => !item.name.endsWith(".emptyFolderPlaceholder")) // Exclure les placeholders vides
+    .filter((item) => !item.name.endsWith(".emptyFolderPlaceholder"))
     .map((item) => ({
       path: construireUrlImage(bucketName, item.name),
-      orientation: "horizontal", // Ajustez selon vos besoins
+      orientation: "horizontal",
       fileName: item.name,
     }));
 };

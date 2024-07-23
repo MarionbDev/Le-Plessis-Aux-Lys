@@ -33,7 +33,7 @@ export default function NavbarUser() {
 
   return (
     <nav
-      className={` hidden z-[999] bg-[#fdfdfd]   sticky top-0 lg:flex items-center justify-between h-20 transform transition-transform duration-500 ${navClassList.join(
+      className={`hidden z-[999] bg-[#fdfdfd]   sticky top-0 lg:flex items-center justify-between h-20 transform transition-transform duration-500 ${navClassList.join(
         " ",
       )} `}
     >

@@ -18,7 +18,7 @@ export default function ActivityUserCarousel({
   return (
     <>
       {slides.length > 0 && (
-        <section className="flex w-[44rem] pt-[4.5rem] ">
+        <section className="flex w-[21rem] xl:w-[44rem] pt-[2rem] xl:pt-[4.5rem] ">
           <CarouselActivity slides={slides} options={OPTIONS} />
         </section>
       )}
