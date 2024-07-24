@@ -24,6 +24,7 @@ export default function GiteAndRooms() {
         const chambre2Images = await getImagesFromBucket("chambre 2");
         const chambre3Images = await getImagesFromBucket("chambre 3");
         const jardinImages = await getImagesFromBucket("jardin");
+        console.log("gite", giteImages);
 
         setGite(giteImages);
         setChambre1(chambre1Images);

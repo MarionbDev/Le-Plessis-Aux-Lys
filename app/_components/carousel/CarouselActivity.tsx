@@ -31,7 +31,7 @@ const CarouselActivity: React.FC<PropType> = ({ slides, options }) => {
                 href={"/user/activites"}
                 onClick={() => router.push("/user/activites")}
               >
-                <div className="cursor-pointer flex flex-col justify-center items-center ">
+                <div className="cursor-pointer  flex flex-col justify-center items-center ">
                   <Image
                     src={slide.image_path}
                     width={256}

@@ -32,7 +32,7 @@ const iconMarker = L.icon({
 
 export default function Map() {
   return (
-    <div className="flex justify-center mt-32">
+    <div className="flex justify-center mt-12 lg:mt-32">
       <motion.section
         initial="hide"
         whileInView="show"
@@ -45,15 +45,15 @@ export default function Map() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-12 lg:mx-56 mt-12 text-justify  leading-relaxed">
-            {/* <span className="flex justify-center my-20 w-2/4 border-t-2 border-separator"></span> */}
+          <div className="relative z-0 flex justify-center flex-col items-center text-md lg:text-md lg:mx-56 xl:mt-12 leading-relaxed">
+            <span className="flex justify-center my-16 xl:my-20 w-2/4 border-t-2 border-separator"></span>
             <MapContainer
               center={position}
               zoom={9}
               scrollWheelZoom={true}
               style={{
                 height: "50vh",
-                width: "50vw",
+                width: "70vw",
               }}
             >
               <TileLayer

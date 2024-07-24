@@ -18,12 +18,12 @@ export default function NavBarMobile() {
     router.push("/login");
   };
   return (
-    <>
+    <div className="navbar-mobile flex justify-end">
       <DropdownMenu>
-        <DropdownMenuTrigger className="mr-10">
-          <Menu className=" w-10 h-10 text-bk_txt/80" />
+        <DropdownMenuTrigger className="mr-10 mt-6">
+          <Menu className=" w-11 h-11 text-white p-2 rounded-full bg-[#64641fd8] " />
         </DropdownMenuTrigger>
-        <DropdownMenuContent className=" bg-[#fafafc] mr-1 ">
+        <DropdownMenuContent className=" bg-[#fafafc] mr-4 ">
           <DropdownMenuLabel className="flex justify-center my-2 text-md ">
             Bienvenue
           </DropdownMenuLabel>
@@ -39,7 +39,7 @@ export default function NavBarMobile() {
             </MenubarMenu>
             <MenubarMenu>
               <MenubarTrigger
-                onClick={() => router.push("/gîte")}
+                onClick={() => router.push("/user/gite")}
                 className="text-[0.9rem]"
               >
                 Gîte
@@ -48,7 +48,7 @@ export default function NavBarMobile() {
             <MenubarMenu>
               <MenubarTrigger>
                 <div
-                  onClick={() => router.push("/chambres")}
+                  onClick={() => router.push("/user/chambres")}
                   className="text-[0.9rem]"
                 >
                   Chambres
@@ -57,7 +57,7 @@ export default function NavBarMobile() {
             </MenubarMenu>
             <MenubarMenu>
               <MenubarTrigger
-                onClick={() => router.push("/a-visiter")}
+                onClick={() => router.push("/user/activites")}
                 className="text-[0.9rem]"
               >
                 A visiter
@@ -65,7 +65,7 @@ export default function NavBarMobile() {
             </MenubarMenu>
             <MenubarMenu>
               <MenubarTrigger
-                onClick={() => router.push("/nous-contacter")}
+                onClick={() => router.push("/user/nous-contacter")}
                 className="text-[0.9rem]"
               >
                 Nous contacter
@@ -83,6 +83,6 @@ export default function NavBarMobile() {
           </Menubar>
         </DropdownMenuContent>
       </DropdownMenu>
-    </>
+    </div>
   );
 }
