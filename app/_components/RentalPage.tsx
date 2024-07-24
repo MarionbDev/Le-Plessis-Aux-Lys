@@ -106,13 +106,13 @@ export default function RentalPage({
             </div>
           </section>
         </div>
-        {imagesSlide && imagesSlide.length > 0 ? (
-          <section className="flex w-[44rem] pt-[4.5rem]">
-            <EmblaCarousel slides={imagesSlide} options={OPTIONS} />
-          </section>
-        ) : (
+        {/* {imagesSlide && imagesSlide.length > 0 ? ( */}
+        <section className="flex w-[44rem] pt-[4.5rem]">
+          <EmblaCarousel slides={imagesSlide} options={OPTIONS} />
+        </section>
+        {/* ) : (
           <div>Pas d'images disponibles</div>
-        )}
+        )} */}
       </div>
     </div>
   );
