@@ -39,7 +39,7 @@ export default function RentalPage({
           rentalType,
           type: reservation.type,
         }));
-        console.log("Dates réservés:", reservedDates);
+        // console.log("Dates réservés:", reservedDates);
         setReservedDates(reservedDates);
       } catch (error) {
         console.error("Error fetching reserved dates:", error);
@@ -52,9 +52,9 @@ export default function RentalPage({
     rate !== undefined && rate !== null ? `${rate} €` : "-";
 
   return (
-    <div className="font-text text-text_color pt-[2rem] gap-16">
-      <div className="flex justify-around items-center ml-10">
-        <div className="flex flex-col items-center mx-8 px-10 py-4  mt-14 ">
+    <div className="font-text text-text_color pt-[2rem] xl:gap-16 xl:flex xl:justify-center">
+      <div className="flex flex-col lg:flex-row justify-around items-center ml-10">
+        <div className="flex flex-col items-center lg:mx-8 lg:px-10 py-4  mt-14 ">
           <h3 className="lg:text-lg mb-8  font-bold  ">{title}</h3>
           {(lowSeasonNightRate !== undefined ||
             lowSeasonWeeklyRate !== undefined ||
@@ -106,13 +106,13 @@ export default function RentalPage({
             </div>
           </section>
         </div>
-        {/* {imagesSlide && imagesSlide.length > 0 ? ( */}
-        <section className="flex w-[44rem] pt-[4.5rem]">
-          <EmblaCarousel slides={imagesSlide} options={OPTIONS} />
-        </section>
-        {/* ) : (
+        {imagesSlide && imagesSlide.length > 0 ? (
+          <section className="flex lg:w-[44rem] lg:pt-[4.5rem]">
+            <EmblaCarousel slides={imagesSlide} options={OPTIONS} />
+          </section>
+        ) : (
           <div>Pas d'images disponibles</div>
-        )} */}
+        )}
       </div>
     </div>
   );

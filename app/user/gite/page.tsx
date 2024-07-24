@@ -16,9 +16,7 @@ export default function Gîte() {
     const fetchImages = async () => {
       try {
         const imagesGite = await getImagesFromBucket("gite");
-        console.log("gite image", imagesGite);
 
-        // Mettre à jour les états avec les nouvelles images
         setGite(imagesGite);
       } catch (error) {
         console.error("Error fetching images:", error);
@@ -43,7 +41,7 @@ export default function Gîte() {
   }
 
   return (
-    <div className=" h-screen">
+    <div className=" ">
       {rates && (
         <RentalPage
           title="Gite de 2 à 4 personnes"
