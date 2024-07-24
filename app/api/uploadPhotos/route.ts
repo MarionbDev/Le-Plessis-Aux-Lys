@@ -32,7 +32,7 @@ import supabase from "@/lib/database";
 // };
 const construireUrlImage = (bucket: string, fileName: string): string => {
   const url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${bucket}/${fileName}`;
-  console.log(`URL construite: ${url}`);
+  // console.log(`URL construite: ${url}`);
   return url;
 };
 
@@ -86,8 +86,8 @@ export const uploadPhotos = async (
 };
 
 export const deleteUploadFile = async (fileName: string, bucket: string) => {
-  console.log("bucket:", bucket);
-  console.log("fileName:", fileName);
+  // console.log("bucket:", bucket);
+  // console.log("fileName:", fileName);
 
   try {
     console.log(
