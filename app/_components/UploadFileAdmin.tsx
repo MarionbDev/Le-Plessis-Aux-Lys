@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { uploadPhotos } from "../api/uploadPhotos/route";
 import { UploadFileAdminProps, onUploadComplete } from "../types";
@@ -70,17 +71,22 @@ export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
 
   return (
     <div>
-      <div className="flex flex-col">
+      <div className="flex flex-col  justify-center items-center">
         <input
           type="file"
           id="upload"
           accept="image/*"
           multiple
           onChange={handleFileChange}
+          className="  border cursor-pointer"
         />
-        <button type="button" onClick={uploadFiles}>
+        <Button
+          type="button"
+          onClick={uploadFiles}
+          className="  mt-4  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md  "
+        >
           Télécharger
-        </button>
+        </Button>
       </div>
     </div>
   );

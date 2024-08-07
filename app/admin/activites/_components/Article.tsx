@@ -56,7 +56,7 @@ export default function Article({
         transition={{ duration: 0.5 }}
       >
         <div className=" bg-white shadow-div rounded-md ">
-          <Card className="flex flex-col justify-betweenfont-text text-sm pb-2  w-[23rem] h-[35rem] text-text_color   ">
+          <Card className="flex flex-col justify-between font-text text-sm pb-2  w-[23rem] h-[35rem] text-text_color border-2 border-yellow/50  ">
             <div className="flex justify-end gap-4 pt-2 pr-4 ">
               <TooltipProvider>
                 <Tooltip>

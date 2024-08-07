@@ -85,7 +85,7 @@ export default function RentalPage({
           <section className="mt-10 p-4  shadow-div rounded-md border-2 border-yellow/50">
             <div className=" ">
               <BookingCalendar reservedDates={reservedDates} />
-            </div>
+            </div> 
             <div>
               <ul className="flex justify-end gap-10 italic text-[0.8rem]">
                 <li className="flex gap-2 items-center">

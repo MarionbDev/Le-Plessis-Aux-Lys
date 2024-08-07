@@ -1,4 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Trash2 } from "lucide-react";
 import Image from "next/image";
 
@@ -31,20 +37,15 @@ export default function CardPhotosAdmin({
 
   return (
     <>
-      <div className="flex justify-around">
-        <Card className=" w-[30rem] h-[28rem]">
+      <div className="flex justify-around shadow-div rounded-md ">
+        <Card className=" w-[30rem] h-[32rem] flex flex-col items-center border-2 border-yellow/50 ">
           <CardHeader>
-            <div className="flex flex-col  justify-between items-center">
+            <div className="flex flex-col gap-4 justify-between items-center">
               <CardTitle>{title}</CardTitle>
-
-              <UploadFileAdmin
-                onUploadComplete={onUploadComplete}
-                bucket={bucket}
-              />
             </div>
           </CardHeader>
           <CardContent>
-            <div className="flex gap-4 h-[19rem]   overflow-x-auto overflow-y-hidden ">
+            <div className="customized-scrollbar flex gap-4 h-[19rem] overflow-x-auto overflow-y-hidden  ">
               {slides.map((slide, index) => (
                 <div
                   key={index}
@@ -58,7 +59,7 @@ export default function CardPhotosAdmin({
                       alt={`Photo ${index + 1}`}
                       style={{ objectFit: "cover", objectPosition: "center" }}
                       priority
-                      className=" p-0 w-auto"
+                      className=" p-0  w-auto"
                     />
                   </div>
                   <Button
@@ -71,6 +72,12 @@ export default function CardPhotosAdmin({
               ))}{" "}
             </div>
           </CardContent>
+          <CardFooter className="mt-2">
+            <UploadFileAdmin
+              onUploadComplete={onUploadComplete}
+              bucket={bucket}
+            />
+          </CardFooter>
         </Card>
       </div>
     </>

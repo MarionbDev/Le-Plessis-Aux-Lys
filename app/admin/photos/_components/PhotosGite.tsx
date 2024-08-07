@@ -112,7 +112,7 @@ export default function GiteAndRooms() {
   };
   return (
     <div className=" ">
-      <div className="flex justify-around gap-y-20 flex-wrap mx-20 mt-10 ">
+      <div className="flex justify-around gap-y-20 flex-wrap mx-20  ">
         <CardPhotosAdmin
           title="Gîte"
           slides={gite}

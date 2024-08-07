@@ -40,9 +40,19 @@ html {
   height: 8px;
 }
 
+.customized-scrollbar::-webkit-scrollbar {
+  width: 3px;
+  height: 5px;
+}
+
 /* Add a thumb */
 .mostly-customized-scrollbar::-webkit-scrollbar-thumb {
   background: #ecde9d;
+}
+
+.customized-scrollbar::-webkit-scrollbar-thumb {
+  background: #ecde9d;
+  cursor: pointer;
 }
 
 /* RESPONSIVE */

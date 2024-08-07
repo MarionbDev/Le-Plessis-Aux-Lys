@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { logout } from "@/services/auth.services";
-import { LogOut } from "lucide-react";
+import { LogOut, Settings } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { toast, Toaster } from "sonner";
@@ -52,10 +52,17 @@ export default function NavbarDesktopAdmin() {
             <span className={styles.underline}></span>
           </Link>
           <Link
-            href={"/admin/gite&chambres"}
-            className={`flex flex-col ${currentRoute === "/admin/gite&chambres" ? styles.activeLink : styles.nonActiveLink}`}
+            href={"/admin/photos"}
+            className={`flex flex-col ${currentRoute === "/admin/photos" ? styles.activeLink : styles.nonActiveLink}`}
           >
             Photos
+            <span className={styles.underline}></span>
+          </Link>
+          <Link
+            href={"/admin/parametres"}
+            className={`flex flex-col ${currentRoute === "/admin/parametre" ? styles.activeLink : styles.nonActiveLink}`}
+          >
+            <Settings />
             <span className={styles.underline}></span>
           </Link>
         </div>
