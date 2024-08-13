@@ -273,6 +273,7 @@ export default function UserLoginForm() {
             </div>
           </form>
         </Form>
+        <Toaster richColors />
       </div>
     </div>
   );

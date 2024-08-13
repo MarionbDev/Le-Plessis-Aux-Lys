@@ -38,11 +38,18 @@ export default function BookingCalendar({
       <DayPicker
         mode="range"
         locale={fr}
+        numberOfMonths={1}
+        modifiers={modifiers}
+        modifiersStyles={modifiersStyles}
+        className="day-picker-mobile text-slate-600 h-[17rem] text-sm  "
+      />
+      <DayPicker
+        mode="range"
+        locale={fr}
         numberOfMonths={2}
         modifiers={modifiers}
         modifiersStyles={modifiersStyles}
-        // disabled={reservedDates}
-        className="text-slate-600 h-[17rem] text-sm  "
+        className="day-picker-desktop text-slate-600 h-[17rem] text-sm  "
       />
     </>
   );

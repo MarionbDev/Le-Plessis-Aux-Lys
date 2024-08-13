@@ -255,7 +255,7 @@ export default function AddArticle() {
           </Card>
         </form>
       </Form>
-      <Toaster />
+      <Toaster richColors />
     </div>
   );
 }
