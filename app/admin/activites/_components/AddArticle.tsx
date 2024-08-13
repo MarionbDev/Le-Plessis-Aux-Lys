@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import "react-quill/dist/quill.snow.css";
 
+import { addArticle } from "@/app/api/article/route";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -15,11 +16,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
-// import { Loader2, LogIn } from "lucide-react";
-
-// import ReactQuill from "react-quill";
-import { addArticle } from "@/app/api/article/route";
 import supabase from "@/lib/database";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -255,7 +251,7 @@ export default function AddArticle() {
           </Card>
         </form>
       </Form>
-      <Toaster />
+      <Toaster richColors />
     </div>
   );
 }

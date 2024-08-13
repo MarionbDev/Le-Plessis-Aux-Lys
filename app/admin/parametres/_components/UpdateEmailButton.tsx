@@ -24,10 +24,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Save } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast, Toaster } from "sonner";
 import { z } from "zod";
 
 const UpdateEmailFormSchema = z.object({
-  email: z.string().email(),
+  email: z.string().email({ message: "Vous devez renseigner un email" }),
   password: z
     .string({ message: "Vous devez renseigner un mot de passe" })
     .regex(/(?=.*\d)/)
@@ -51,7 +52,7 @@ export function UpdateEmailButton() {
     },
   });
 
-  console.log("data user:", user);
+  // console.log("data user:", user);
 
   const handleSubmit = async (values: FormSchemaType) => {
     if (!user?.email) {
@@ -64,9 +65,30 @@ export function UpdateEmailButton() {
         email: user.email,
         password: values.password,
       });
+      form.reset();
       setIsDialogOpen(false);
+      toast.success(
+        "Un email de confirmation a été envoyé à votre nouvelle adresse. Veuillez suivre les instructions dans cet email pour confirmer le changement.",
+        { duration: 6000 },
+      );
+      // const promise = () =>
+      //   new Promise((resolve) =>
+      //     setTimeout(() => {
+      //       resolve({ name: "Sonner" });
+      //     }, 2000),
+      //   );
+      // toast.promise(promise(), {
+      //   success: (data) => {
+      //     return "Vous allez recevoir un email de confirmation à valider avec votre nouvelle adresse email.";
+      //   },
+      //   error: "Error",
+      // });
     } catch (error) {
       console.error(error);
+      toast.error(
+        "Erreur lors du changement d'adresse email. Vous avez dépassé la limite autorisée de changements d'adresse email. Veuillez attendre un moment avant de réessayer. ",
+        { duration: 7000 },
+      );
     } finally {
       setIsLoading(false);
     }
@@ -106,7 +128,7 @@ export function UpdateEmailButton() {
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="italic text-sm text-black/80 " />
                   </FormItem>
                 )}
               />
@@ -138,19 +160,20 @@ export function UpdateEmailButton() {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="gap-2   hover:bg-[#baa8bbc0]  rounded-xl"
+                className="gap-2   bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md"
               >
                 {isLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
                   <Save size="16" />
                 )}
-                Sauvegarder
+                Enregistrer
               </Button>
             </DialogFooter>
           </form>
         </Form>
       </DialogContent>
+      <Toaster richColors />
     </Dialog>
   );
 }
