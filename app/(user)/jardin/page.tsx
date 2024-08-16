@@ -46,7 +46,7 @@ export default function Garden() {
           <div key={index} className="flex justify-center items-center ">
             <Image
               src={image.path}
-              width={image.orientation === "horizontal" ? 420 : 320}
+              width={image.orientation === "horizontal" ? 360 : 320}
               height={image.orientation === "horizontal" ? 300 : 200}
               priority
               alt={image.path}

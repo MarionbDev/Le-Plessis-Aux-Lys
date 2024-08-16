@@ -32,7 +32,7 @@ const iconMarker = L.icon({
 
 export default function Map() {
   return (
-    <div className="flex justify-center mt-12 lg:mt-32">
+    <div className="flex justify-center mt-12 lg:mt-32 mb-20">
       <motion.section
         initial="hide"
         whileInView="show"
