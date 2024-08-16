@@ -39,7 +39,7 @@ export default function NavBarMobile() {
             </MenubarMenu>
             <MenubarMenu>
               <MenubarTrigger
-                onClick={() => router.push("/user/gite")}
+                onClick={() => router.push("/gite")}
                 className="text-[0.9rem]"
               >
                 Gîte
@@ -48,7 +48,7 @@ export default function NavBarMobile() {
             <MenubarMenu>
               <MenubarTrigger>
                 <div
-                  onClick={() => router.push("/user/chambres")}
+                  onClick={() => router.push("/chambres")}
                   className="text-[0.9rem]"
                 >
                   Chambres
@@ -57,7 +57,7 @@ export default function NavBarMobile() {
             </MenubarMenu>
             <MenubarMenu>
               <MenubarTrigger
-                onClick={() => router.push("/user/activites")}
+                onClick={() => router.push("/activites")}
                 className="text-[0.9rem]"
               >
                 A visiter
@@ -65,7 +65,7 @@ export default function NavBarMobile() {
             </MenubarMenu>
             <MenubarMenu>
               <MenubarTrigger
-                onClick={() => router.push("/user/nous-contacter")}
+                onClick={() => router.push("/nous-contacter")}
                 className="text-[0.9rem]"
               >
                 Nous contacter

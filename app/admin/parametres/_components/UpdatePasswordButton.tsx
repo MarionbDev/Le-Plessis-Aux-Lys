@@ -109,7 +109,7 @@ export function UpdatePasswordButton() {
       setIsDialogOpen(false);
       toast.success("Mise à jour du mot de passe réussie.", { duration: 4000 });
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       toast.error(
         "Erreur lors du changement de mot de passe. Veuillez rééssayer ",
         { duration: 7000 },
@@ -136,7 +136,7 @@ export function UpdatePasswordButton() {
           <div>Mote de passe</div> <div>**********</div>
         </Button>
       </DialogTrigger>
-      <DialogContent className=" sm:max-w-[425px] lg:h-[40rem] bg-white backdrop-blur-3xl drop-shadow-lg ">
+      <DialogContent className=" sm:max-w-[425px] lg:h-[40rem] bg-white backdrop-blur-3xl drop-shadow-lg text-text_color ">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmitNewPassword)}
@@ -151,7 +151,9 @@ export function UpdatePasswordButton() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Mot de passe initial</FormLabel>
+                    <FormLabel className="text-text_color">
+                      Mot de passe initial
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="********"
@@ -171,7 +173,7 @@ export function UpdatePasswordButton() {
                 className=" cursor-pointer hover:underline"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                <p className=" text-sm italic mb-2 pt-2 pl-1">
+                <p className=" text-sm italic mb-2 pt-2 pl-1 underline">
                   Afficher mot de passe
                 </p>
               </div>
@@ -180,7 +182,9 @@ export function UpdatePasswordButton() {
                 name="newPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nouveau mot de passe</FormLabel>
+                    <FormLabel className="text-text_color">
+                      Nouveau mot de passe
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="********"
@@ -200,7 +204,7 @@ export function UpdatePasswordButton() {
                 className=" cursor-pointer hover:underline"
                 onClick={() => setShowNewPassword(!showNewPassword)}
               >
-                <p className=" text-sm italic mb-2 pt-2 pl-1">
+                <p className=" text-sm italic mb-2 pt-2 pl-1 underline">
                   Afficher le mot de passe
                 </p>
               </div>
@@ -209,7 +213,9 @@ export function UpdatePasswordButton() {
                 name="confirmNewPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Confirmer le nouveau le mot de passe</FormLabel>
+                    <FormLabel className="text-text_color">
+                      Confirmer le nouveau le mot de passe
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="********"
@@ -225,7 +231,7 @@ export function UpdatePasswordButton() {
                 className=" cursor-pointer hover:underline"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
               >
-                <p className=" text-sm italic mb-2 pt-2 pl-1">
+                <p className=" text-sm italic mb-2 pt-2 pl-1 underline">
                   Afficher le mot de passe
                 </p>
               </div>
@@ -273,17 +279,19 @@ export function UpdatePasswordButton() {
             </div>
 
             <DialogFooter>
-              <Button
-                type="submit"
-                className="gap-2  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md"
-              >
-                {isLoading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <Save size="16" />
-                )}
-                Enregistrer
-              </Button>
+              <div className="flex w-full justify-center">
+                <Button
+                  type="submit"
+                  className="gap-2  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md w-[12rem] "
+                >
+                  {isLoading ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Save size="16" />
+                  )}
+                  Enregistrer
+                </Button>
+              </div>
             </DialogFooter>
           </form>
         </Form>

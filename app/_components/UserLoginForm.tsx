@@ -26,6 +26,7 @@ import {
   LogIn,
   Mail,
 } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -103,7 +104,7 @@ export default function UserLoginForm() {
       }, 4000);
     } catch (error) {
       toast.error(
-        "Une erreur s'est produite lors de la connexion, veuillez réésayger !",
+        "Une erreur s'est produite lors de la connexion, veuillez rééssayer !",
       );
     } finally {
       setIsLoading(false);
@@ -178,7 +179,7 @@ export default function UserLoginForm() {
                             onClick={() => setShowPassword(!showPassword)}
                             className=" cursor-pointer hover:underline"
                           >
-                            <p className=" text-[13px] pl-2 mt-1 md:text-[0.8rem] underline  italic text-text_color ">
+                            <p className=" text-[13px] pl-2 md:pl-0 mt-1 md:text-[0.8rem] underline  italic text-text_color ">
                               Afficher le mot de passe
                             </p>
                           </div>
@@ -252,6 +253,11 @@ export default function UserLoginForm() {
                       </FormItem>
                     )}
                   />
+                  <div className="mt-6 italic lg:ml-9 text-[#bbbb57] ">
+                    <Link href={"/mot-de-passe-oublie"}>
+                      Mot de passe oublié ?
+                    </Link>
+                  </div>{" "}
                 </CardContent>
                 <CardFooter className="flex justify-center">
                   <Toaster richColors />
@@ -259,7 +265,7 @@ export default function UserLoginForm() {
                     role="button"
                     aria-label="se connecter"
                     disabled={isLoading}
-                    className="gap-3 lg:gap-4  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md "
+                    className="gap-3 lg:gap-4  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md w-[12rem] "
                   >
                     {isLoading ? (
                       <Loader className="animate-spin" size="16" />

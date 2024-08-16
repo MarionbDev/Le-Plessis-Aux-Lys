@@ -28,9 +28,12 @@ import { toast, Toaster } from "sonner";
 import { z } from "zod";
 
 const UpdateEmailFormSchema = z.object({
-  email: z.string().email({ message: "Vous devez renseigner un email" }),
+  email: z
+    .string({ message: "Vous devez renseigner un email" })
+    .email({ message: "Email non valide" }),
   password: z
-    .string({ message: "Vous devez renseigner un mot de passe" })
+    .string()
+    .min(8, { message: "Vous devez renseigner un mot de passe" })
     .regex(/(?=.*\d)/)
     .regex(/(?=.*[a-z])/)
     .regex(/(?=.*[A-Z])/),
@@ -112,15 +115,19 @@ export function UpdateEmailButton() {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSubmit)}>
             <DialogHeader>
-              <DialogTitle>Mise à jour de l'email</DialogTitle>
+              <DialogTitle className="md:text-[1.4rem] text-text_color font-semibold">
+                Mise à jour de l'email
+              </DialogTitle>
             </DialogHeader>
-            <div className="grid gap-4 py-4">
+            <div className="grid  py-4 ">
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
+                  <FormItem className="text-text_color mt-6 ">
+                    <FormLabel className="text-text_color text-md   ">
+                      Email
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="example@example.com"
@@ -128,7 +135,7 @@ export function UpdateEmailButton() {
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage className="italic text-sm text-black/80 " />
+                    <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
                   </FormItem>
                 )}
               />
@@ -136,8 +143,10 @@ export function UpdateEmailButton() {
                 control={form.control}
                 name="password"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Mot de passe</FormLabel>
+                  <FormItem className="text-text_color mt-6">
+                    <FormLabel className="text-text_color text-md   ">
+                      Mot de passe
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="********"
@@ -145,30 +154,34 @@ export function UpdateEmailButton() {
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic " />
                   </FormItem>
                 )}
               />
               <div
-                className=" cursor-pointer hover:underline"
+                className=" cursor-pointer underline"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                <p className=" text-sm italic">Afficher le mot de passe</p>
+                <p className=" text-text_color  text-sm italic mb-2 mt-1 pl-1 underline">
+                  Afficher le mot de passe
+                </p>
               </div>
             </div>
-            <DialogFooter>
-              <Button
-                type="submit"
-                disabled={isLoading}
-                className="gap-2   bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md"
-              >
-                {isLoading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <Save size="16" />
-                )}
-                Enregistrer
-              </Button>
+            <DialogFooter className="">
+              <div className="flex justify-center w-full mt-6">
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="gap-2   bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md w-[12rem] "
+                >
+                  {isLoading ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Save size="16" />
+                  )}
+                  Enregistrer
+                </Button>
+              </div>
             </DialogFooter>
           </form>
         </Form>
