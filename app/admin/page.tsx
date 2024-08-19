@@ -1,3 +1,9 @@
+import { Card } from "@/components/ui/card";
+import BookingToCome from "./_components/dashboard/BookingToCame";
+import EvolutionByYears from "./_components/dashboard/EvoluitionByYears";
+import EvolutionByYearInProgress from "./_components/dashboard/EvolutionByYearInProgress";
+import TotalReservations from "./_components/dashboard/TotalReservations";
+
 export default function DashboardAdmin() {
   return (
     <div className="flex flex-col  py-20 mx-10 gap-y-20 gap-x-36  w-[90rem]">
@@ -15,26 +21,27 @@ export default function DashboardAdmin() {
           <p className="text-center">Réservations du mois à venir </p>
         </Card>
       </div> */}
-      {/* <div className="flex  flex-wrap gap-20 mx-10">
+
+      <div className=" shadow-div rounded-md w-72 mx-10">
+        <Card className=" flex flex-col w-72 h-full  p-8  text-text_color border-2 border-yellow/50">
+          <p>Total réservations depuis le lancement du site</p>
+          <div className="flex flex-col items-center justify-center mt-6">
+            <p className=" text-[3rem] font-bold ">358</p>
+            <p>Jours de réservations</p>
+          </div>
+        </Card>
+      </div>
+      <BookingToCome />
+      <div className="flex  flex-wrap gap-20 mx-10">
         <TotalReservations title="Gîte" />
         <TotalReservations title="Chambre1" />
         <TotalReservations title="Chambre2" />
         <TotalReservations title="Chambre3" />
       </div>
       <div className="flex flex-wrap gap-20  ">
-        <div className=" shadow-div rounded-md ">
-          <Card className="flex flex-col w-96 h-full  p-8  text-text_color border-2 border-yellow/50">
-            <p>Total réservations depuis le lancement du site</p>
-            <div className="flex flex-col items-center justify-center mt-10">
-              <p className=" text-[5rem] font-bold ">358</p>
-              <p>Jours de réservations</p>
-            </div>
-          </Card>
-        </div>
-
         <EvolutionByYearInProgress />
         <EvolutionByYears />
-      </div> */}
+      </div>
     </div>
   );
 }

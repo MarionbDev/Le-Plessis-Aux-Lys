@@ -17,6 +17,8 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+
+// Exemple de données pour le graphique circulaire
 const chartData = [
   { mois: "janvier", reservations: 10, fill: "var(--color-janvier)" },
   { mois: "février", reservations: 5, fill: "var(--color-février)" },
@@ -32,58 +34,20 @@ const chartData = [
   { mois: "décembre", reservations: 6, fill: "var(--color-mai)" },
 ];
 
+// Configuration du graphique
 const chartConfig = {
-  reservations: {
-    label: "reservations",
-  },
-  janvier: {
-    label: "janvier",
-    color: "hsl(var(--chart-1))",
-  },
-  février: {
-    label: "février",
-    color: "hsl(var(--chart-2))",
-  },
-  mars: {
-    label: "mars",
-    color: "hsl(var(--chart-3))",
-  },
-  avril: {
-    label: "avril",
-    color: "hsl(var(--chart-4))",
-  },
-  mai: {
-    label: "mai",
-    color: "hsl(var(--chart-5))",
-  },
-  juin: {
-    label: "juin",
-    color: "hsl(var(--chart-6))",
-  },
-  juillet: {
-    label: "juillet",
-    color: "hsl(var(--chart-7))",
-  },
-  aout: {
-    label: "aout",
-    color: "hsl(var(--chart-8))",
-  },
-  septembre: {
-    label: "septembre",
-    color: "hsl(var(--chart-9))",
-  },
-  octobre: {
-    label: "octobre",
-    color: "hsl(var(--chart-10))",
-  },
-  novembre: {
-    label: "novembre",
-    color: "hsl(var(--chart-11))",
-  },
-  décembre: {
-    label: "décembre",
-    color: "hsl(var(--chart-12))",
-  },
+  janvier: { label: "janvier", color: "hsl(var(--chart-1))" },
+  février: { label: "février", color: "hsl(var(--chart-2))" },
+  mars: { label: "mars", color: "hsl(var(--chart-3))" },
+  avril: { label: "avril", color: "hsl(var(--chart-4))" },
+  mai: { label: "mai", color: "hsl(var(--chart-5))" },
+  juin: { label: "juin", color: "hsl(var(--chart-6))" },
+  juillet: { label: "juillet", color: "hsl(var(--chart-7))" },
+  aout: { label: "aout", color: "hsl(var(--chart-8))" },
+  septembre: { label: "septembre", color: "hsl(var(--chart-9))" },
+  octobre: { label: "octobre", color: "hsl(var(--chart-10))" },
+  novembre: { label: "novembre", color: "hsl(var(--chart-11))" },
+  décembre: { label: "décembre", color: "hsl(var(--chart-12))" },
 } satisfies ChartConfig;
 
 type Proptype = {
@@ -91,16 +55,17 @@ type Proptype = {
 };
 
 export default function TotalReservations({ title }: Proptype) {
-  const totalVisitors = React.useMemo(() => {
+  // Calcul du total des réservations
+  const totalReservations = React.useMemo(() => {
     return chartData.reduce((acc, curr) => acc + curr.reservations, 0);
   }, []);
 
   return (
     <div className="shadow-div rounded-md">
-      <Card className="flex flex-col w-96  text-text_color border-2 border-yellow/50  ">
+      <Card className="flex flex-col w-96 text-text_color border-2 border-yellow/50">
         <CardHeader className="items-center pb-0">
           <CardTitle>{title}</CardTitle>
-          <CardDescription className=" text-center">
+          <CardDescription className="text-center">
             Nombre de jours réservés de <br />
             {`Janvier - Décembre ${new Date().getFullYear()}`}
           </CardDescription>
@@ -120,6 +85,7 @@ export default function TotalReservations({ title }: Proptype) {
                 dataKey="reservations"
                 nameKey="mois"
                 innerRadius={60}
+                outerRadius={80}
                 strokeWidth={5}
               >
                 <Label
@@ -137,18 +103,19 @@ export default function TotalReservations({ title }: Proptype) {
                             y={viewBox.cy}
                             className="fill-foreground text-3xl font-bold"
                           >
-                            {totalVisitors.toLocaleString()}
+                            {totalReservations.toLocaleString()}
                           </tspan>
                           <tspan
                             x={viewBox.cx}
                             y={(viewBox.cy || 0) + 24}
                             className="fill-muted-foreground"
                           >
-                            {/* Jours de réservations */}
+                            Jours de réservations
                           </tspan>
                         </text>
                       );
                     }
+                    return null;
                   }}
                 />
               </Pie>
