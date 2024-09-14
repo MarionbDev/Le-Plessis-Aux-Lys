@@ -8,9 +8,21 @@ import { toast } from "sonner";
 import ReservationList from "./ReservationList";
 
 type AddReservationProps = {
-  rentalType: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
+  rentalType:
+    | "petiteOurse"
+    | "grandeOurse"
+    | "orion"
+    | "cassiopee"
+    | "andromede"
+    | "pegase";
   fetchReservedDates: (
-    rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3",
+    rental_type:
+      | "petiteOurse"
+      | "grandeOurse"
+      | "orion"
+      | "cassiopee"
+      | "andromede"
+      | "pegase",
   ) => Promise<ReservationInput[]>;
   addCalendarEvent: (event: CalendarEvent) => Promise<void>;
   deleteReservation: (id: string) => Promise<void>;

@@ -96,14 +96,27 @@ const BookingToCome: React.FC = () => {
   }, []);
 
   const sortRentalsCalendar = (rentals: RentalCalendar[]) => {
-    const order = ["gite", "chambre 1", "chambre 2", "chambre 3"];
+    const order = [
+      "petite-ourse",
+      "grande-ourse",
+      "orion",
+      "cassiopee",
+      "andromede",
+      "pegase",
+    ];
     return rentals.sort(
       (a, b) => order.indexOf(a.type) - order.indexOf(b.type),
     );
   };
 
   const fetchReservedDates = async (
-    rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3",
+    rental_type:
+      | "petiteOurse"
+      | "grandeOurse"
+      | "orion"
+      | "cassiopee"
+      | "andromede"
+      | "pegase",
   ): Promise<ReservationInput[]> => {
     try {
       const fetchedDates = await getAllCalendar(rental_type);

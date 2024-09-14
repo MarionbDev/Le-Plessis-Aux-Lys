@@ -7,17 +7,17 @@ import { useRentalRates } from "@/hooks/useRentalRates";
 import { Loader } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export default function Gîte() {
-  const [imagesGite, setGite] = useState<ImageType[]>([]);
+export default function Pegase() {
+  const [imagesPegase, setImagesPegase] = useState<ImageType[]>([]);
 
-  const { rates, loading, error } = useRentalRates("gite");
+  const { rates, loading, error } = useRentalRates("pegase");
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const imagesGite = await getImagesFromBucket("gite");
+        const imagesPegase = await getImagesFromBucket("pegase");
 
-        setGite(imagesGite);
+        setImagesPegase(imagesPegase);
       } catch (error) {
         console.error("Error fetching images:", error);
       }
@@ -26,7 +26,7 @@ export default function Gîte() {
     fetchImages();
   }, []);
 
-  const imageUrls = imagesGite.map((image) => image.path);
+  const imageUrls = imagesPegase.map((image) => image.path);
 
   if (loading) {
     return (
@@ -41,16 +41,18 @@ export default function Gîte() {
   }
 
   return (
-    <div className=" ">
+    <div className=" h-screen mb-52">
       {rates && (
         <RentalPage
-          title="Gite de 2 à 4 personnes"
+          title="Suite familiale Pégase"
+          subTitle=""
+          description="Une chambre avec un grand lit de 140 et un lit de 90 ainsi que la salle de bain. Une chambre avec un grand lit de 140."
           lowSeasonNightRate={rates.price_low_season_night}
           lowSeasonWeeklyRate={rates.price_low_season_week}
           highSeasonNightRate={rates.price_high_season_night}
           highSeasonWeeklyRate={rates.price_high_season_week}
           imagesSlide={imageUrls}
-          rentalType="gite"
+          rentalType="pegase"
         />
       )}
     </div>

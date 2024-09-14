@@ -22,7 +22,13 @@ import { useEffect, useState } from "react";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 // Types pour les types de location et les années
-type RentalType = "gite" | "chambre 1" | "chambre 2" | "chambre 3";
+type RentalType =
+  | "petiteOurse"
+  | "grandeOurse"
+  | "orion"
+  | "cassiopee"
+  | "andromede"
+  | "pegase";
 type Year = number;
 
 // Fonction pour convertir CalendarEvent en ReservationInput
@@ -45,10 +51,12 @@ const calculateDaysReserved = (reservations: ReservationInput[]) => {
   const daysReserved = Array(12)
     .fill(null)
     .map(() => ({
-      gite: 0,
-      "chambre 1": 0,
-      "chambre 2": 0,
-      "chambre 3": 0,
+      petiteOurse: 0,
+      grandeOurse: 0,
+      orion: 0,
+      cassiopee: 0,
+      andromede: 0,
+      pegase: 0,
     }));
 
   reservations.forEach((reservation) => {
@@ -94,7 +102,7 @@ export default function EvolutionByYears() {
     new Date().getFullYear(),
   );
   const [selectedRentalType, setSelectedRentalType] =
-    useState<RentalType>("gite");
+    useState<RentalType>("petiteOurse");
   const [chartConfig, setChartConfig] = useState<ChartConfig>({});
   // Liste des années allant de 2023 à l'année en cours
   const years = generateYearOptions(2024, new Date().getFullYear());
@@ -119,21 +127,29 @@ export default function EvolutionByYears() {
   useEffect(() => {
     // Update chart config when the rental type changes
     setChartConfig({
-      gite: {
-        label: "Gîte",
+      petiteOurse: {
+        label: "Logis de la petite Ourse",
         color: "hsl(var(--chart-1))",
       },
-      "chambre 1": {
-        label: "Chambre 1",
+      orion: {
+        label: "Orion",
         color: "hsl(var(--chart-2))",
       },
-      "chambre 2": {
-        label: "Chambre 2",
+      cassiopee: {
+        label: "Cassiopé",
         color: "hsl(var(--chart-3))",
       },
-      "chambre 3": {
-        label: "Chambre 3",
+      andromede: {
+        label: "Andromède",
         color: "hsl(var(--chart-4))",
+      },
+      grandeOurse: {
+        label: "Logis de la grande Ourse",
+        color: "hsl(var(--chart-5))",
+      },
+      pegase: {
+        label: "Pégase",
+        color: "hsl(var(--chart-1))",
       },
     });
   }, [selectedRentalType]);
@@ -177,10 +193,17 @@ export default function EvolutionByYears() {
                 setSelectedRentalType(e.target.value as RentalType)
               }
             >
-              <option value="gite">Gîte</option>
-              <option value="chambre 1">Chambre 1</option>
-              <option value="chambre 2">Chambre 2</option>
-              <option value="chambre 3">Chambre 3</option>
+              <option value="petiteOurse">Logis de la petite Ourse</option>
+              <option value="grandeOurse">Logis de la grande Ourse</option>
+              <option value="orion ">Orion</option>
+              <option value="cassiopee">Cassiopée</option>
+              <option value="andromede">Andromède</option>
+              <option
+                value="pegase
+              "
+              >
+                Pégase
+              </option>
             </select>
           </div>
         </div>

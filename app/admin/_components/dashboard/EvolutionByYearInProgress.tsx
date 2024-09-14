@@ -19,26 +19,40 @@ import { useEffect, useState } from "react";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
 // Définir un type pour les types de location
-type RentalType = "gite" | "chambre 1" | "chambre 2" | "chambre 3";
+type RentalType =
+  | "petiteOurse"
+  | "grandeOurse"
+  | "orion"
+  | "cassiopee"
+  | "andromede"
+  | "pegase";
 type Year = number;
 
 // Définir la configuration du graphique
 const chartConfig: Record<RentalType, { label: string; color: string }> = {
-  gite: {
-    label: "Gîte",
+  petiteOurse: {
+    label: "Logis de la petite Ourse",
     color: "hsl(var(--chart-1))",
   },
-  "chambre 1": {
-    label: "Chambre 1",
+  orion: {
+    label: "Orion",
     color: "hsl(var(--chart-2))",
   },
-  "chambre 2": {
-    label: "Chambre 2",
+  cassiopee: {
+    label: "Cassiopé",
     color: "hsl(var(--chart-3))",
   },
-  "chambre 3": {
-    label: "Chambre 3",
+  andromede: {
+    label: "Andromède",
     color: "hsl(var(--chart-4))",
+  },
+  grandeOurse: {
+    label: "Logis de la grande Ourse",
+    color: "hsl(var(--chart-5))",
+  },
+  pegase: {
+    label: "Pégase",
+    color: "hsl(var(--chart-1))",
   },
 };
 
@@ -84,10 +98,12 @@ const calculateDaysReserved = (
   const daysReserved = Array(12)
     .fill(null)
     .map(() => ({
-      gite: 0,
-      "chambre 1": 0,
-      "chambre 2": 0,
-      "chambre 3": 0,
+      petiteOurse: 0,
+      grandeOurse: 0,
+      orion: 0,
+      cassiopee: 0,
+      andromede: 0,
+      pegase: 0,
     }));
 
   reservations.forEach((reservation) => {
@@ -128,7 +144,7 @@ export default function EvolutionByYearInProgress() {
   const [chartData, setChartData] = useState<any[]>([]);
   const [year, setYear] = useState<Year>(new Date().getFullYear());
   const [selectedRentalType, setSelectedRentalType] =
-    useState<RentalType>("gite");
+    useState<RentalType>("petiteOurse");
 
   // Liste des années allant de 2023 à l'année en cours
   const years = generateYearOptions(2024, new Date().getFullYear());

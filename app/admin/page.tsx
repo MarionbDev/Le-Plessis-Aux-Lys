@@ -33,10 +33,12 @@ export default function DashboardAdmin() {
       </div>
       <BookingToCome />
       <div className="flex  flex-wrap gap-20 mx-10">
-        <TotalReservations title="Gîte" />
-        <TotalReservations title="Chambre1" />
-        <TotalReservations title="Chambre2" />
-        <TotalReservations title="Chambre3" />
+        <TotalReservations title="La petite Ourse" />
+        <TotalReservations title="La grande Ourse" />
+        <TotalReservations title="Orion" />
+        <TotalReservations title="Cassiopée" />
+        <TotalReservations title="Andromède" />
+        <TotalReservations title="Pégase" />
       </div>
       <div className="flex flex-wrap gap-20  ">
         <EvolutionByYearInProgress />
