@@ -41,10 +41,11 @@ export default function LaGrandeOurse() {
   }
 
   return (
-    <div className=" ">
+    <div className=" h-screen mb-52 ">
       {rates && (
         <RentalPage
           title="Le logis de la grande Ourse"
+          subTitle=""
           description=""
           lowSeasonNightRate={rates.price_low_season_night}
           lowSeasonWeeklyRate={rates.price_low_season_week}

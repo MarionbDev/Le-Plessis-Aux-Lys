@@ -46,7 +46,7 @@ export default function Pegase() {
         <RentalPage
           title="Suite familiale Pégase"
           subTitle=""
-          description="Une chambre avec un grand lit de 140 et un lit de 90 ainsi que la salle de bain. Une chambre avec un grand lit de 140."
+          description="Cette suite familial dispose de deux chambres. Une chambre avec un grand lit de 140 cm et d'un lit de 90 cm ainsi que la salle de bain. Une chambre avec un grand lit de 140 cm."
           lowSeasonNightRate={rates.price_low_season_night}
           lowSeasonWeeklyRate={rates.price_low_season_week}
           highSeasonNightRate={rates.price_high_season_night}

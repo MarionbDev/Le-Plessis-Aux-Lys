@@ -92,11 +92,13 @@ export default function RentalPage({
           </div>
           <div className="flex flex-col items-center gap-10   ">
             {imagesSlide && imagesSlide.length > 0 ? (
-              <section className="flex lg:w-[44rem]">
+              <section className="flex lg:w-[44rem] ">
                 <EmblaCarousel slides={imagesSlide} options={OPTIONS} />
               </section>
             ) : (
-              <div>Pas d'images disponibles</div>
+              <div className="flex  justify-center items-center lg:w-[44rem] lg:h-[30rem] ">
+                <p>Pas d'images disponibles</p>
+              </div>
             )}
           </div>
         </div>
@@ -128,7 +130,7 @@ export default function RentalPage({
             </section>
           )}
           <div className="  w-[38rem] mr-4 ">
-            <p className="lg:text-md mb-8  font-bold ">{description}</p>
+            <p className="lg:text-md mb-8  font-medium ">{description}</p>
           </div>
         </div>
       </div>

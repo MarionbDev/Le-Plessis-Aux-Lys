@@ -28,8 +28,8 @@ const ListRentalsCalendar: React.FC = () => {
 
   const sortRentalsCalendar = (rentals: RentalCalendar[]) => {
     const order = [
-      "Logis de la petite Ourse",
-      "Logis de la grande Ourse",
+      "Le Logis de la petite Ourse",
+      "Le Logis de la grande Ourse",
       "orion",
       "cassiopée",
       "andromède",

@@ -38,8 +38,8 @@ export default function ListRentalRates() {
   const sortRentals = (rentals: Rental[]) => {
     return rentals.sort((a, b) => {
       const order = [
-        "Logis de la petite Ourse",
-        "Logis de la grande Ourse",
+        "Le Logis de la petite Ourse",
+        "Le Logis de la grande Ourse",
         "orion",
         "cassiopée",
         "andromède",

@@ -1,9 +1,3 @@
-import { Card } from "@/components/ui/card";
-import BookingToCome from "./_components/dashboard/BookingToCame";
-import EvolutionByYears from "./_components/dashboard/EvoluitionByYears";
-import EvolutionByYearInProgress from "./_components/dashboard/EvolutionByYearInProgress";
-import TotalReservations from "./_components/dashboard/TotalReservations";
-
 export default function DashboardAdmin() {
   return (
     <div className="flex flex-col  py-20 mx-10 gap-y-20 gap-x-36  w-[90rem]">
@@ -22,7 +16,7 @@ export default function DashboardAdmin() {
         </Card>
       </div> */}
 
-      <div className=" shadow-div rounded-md w-72 mx-10">
+      {/* <div className=" shadow-div rounded-md w-72 mx-10">
         <Card className=" flex flex-col w-72 h-full  p-8  text-text_color border-2 border-yellow/50">
           <p>Total réservations depuis le lancement du site</p>
           <div className="flex flex-col items-center justify-center mt-6">
@@ -43,7 +37,7 @@ export default function DashboardAdmin() {
       <div className="flex flex-wrap gap-20  ">
         <EvolutionByYearInProgress />
         <EvolutionByYears />
-      </div>
+      </div> */}
     </div>
   );
 }
