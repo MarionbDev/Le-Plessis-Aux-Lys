@@ -1,4 +1,4 @@
-import GiteAndRooms from "./_components/PhotosGite";
+import GiteAndRooms from "./_components/PhotosGiteAndRooms";
 
 export default function Photos() {
   return (

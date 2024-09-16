@@ -5,12 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import chambre_1 from "../../public/chambres/ch-1.jpg";
-import chambre_2 from "../../public/chambres/ch-2.jpg";
-import chambre_3 from "../../public/chambres/ch-3.jpg";
-import gite from "../../public/gite/gite.jpg";
+import chambreAndromede from "../../public/chambres/andromede/ch-3-1.jpg";
+import chambreCassiopee from "../../public/chambres/cassiopee/ch-2.jpg";
+import chambreOrion from "../../public/chambres/orion/ch-1.jpg";
+import chambrePegase from "../../public/chambres/pegase/ch-2.jpg";
+
 import parc1 from "../../public/parc/parc1.jpg";
 import parc3 from "../../public/parc/parc3.jpg";
+import petiteOurse from "../../public/petite-ourse/gite.jpg";
+// import grandeOurse from "../../public/petite-ourse/gite.jpg";
+
 import { getAllArticles } from "../api/article/route";
 import { ArticleProps, Slide } from "../types";
 import ActivityUserCarousel from "./ActivityUserCarousel";
@@ -162,11 +166,11 @@ export default function DescriptionWebSite() {
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-14 w-2/3 cursor-pointer">
             <li className="relative overflow-hidden group">
               <Link
-                href={"/user/gite"}
-                onClick={() => router.push("/user/gite")}
+                href={"/gite/le-logis-de-la-petite-ourse"}
+                onClick={() => router.push("/gite/le-logis-de-la-petite-ourse")}
               >
                 <Image
-                  src={gite}
+                  src={petiteOurse}
                   width={400}
                   height={200}
                   alt="photo du gîte"
@@ -174,26 +178,26 @@ export default function DescriptionWebSite() {
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-1000 group-hover:bg-opacity-50 group-hover:opacity-100">
                   <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
-                    Gîte
+                    Le Logis de la petite Ourse
                   </p>
                 </div>
               </Link>
             </li>
             <li className="relative overflow-hidden group">
               <Link
-                href={"/user/cahmbre1"}
-                onClick={() => router.push("/user/chambre1")}
+                href={"/gite/le-logis-de-la-grande-ourse"}
+                onClick={() => router.push("/gite/le-logis-de-la-grande-ourse")}
               >
                 <Image
-                  src={chambre_1}
+                  src={petiteOurse}
                   width={400}
                   height={200}
-                  alt="photo de la chambre 1"
-                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 h-auto "
+                  alt="photo du gîte"
+                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125 duration-1000 h-auto "
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-1000 group-hover:bg-opacity-50 group-hover:opacity-100">
                   <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
-                    Chambre 1
+                    Le Logis de la grande Ourse
                   </p>
                 </div>
               </Link>
@@ -216,30 +220,50 @@ export default function DescriptionWebSite() {
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-2/3 cursor-pointer">
             <li className="relative overflow-hidden group">
               <Link
-                href={"/user/chambre2"}
-                onClick={() => router.push("/user/chambre2")}
+                href={"/chambre-orion"}
+                onClick={() => router.push("/chambre-orion")}
               >
                 <Image
-                  src={chambre_2}
+                  src={chambreOrion}
                   width={400}
                   height={200}
-                  alt="photo de la chambre 2"
+                  alt="photo de la chambre Orion"
+                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 h-auto "
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-1000 group-hover:bg-opacity-50 group-hover:opacity-100">
+                  <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                    Chambre Orion
+                  </p>
+                </div>
+              </Link>
+            </li>
+
+            <li className="relative overflow-hidden group">
+              <Link
+                href={"/chambre-cassiopee"}
+                onClick={() => router.push("/chambre-cassiopee")}
+              >
+                <Image
+                  src={chambreCassiopee}
+                  width={400}
+                  height={200}
+                  alt="photo de la chambre Cassiopee"
                   className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-500 h-auto"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-500 group-hover:bg-opacity-50 group-hover:opacity-100">
                   <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
-                    Chambre 2
+                    Chambre Cassiopée
                   </p>
                 </div>
               </Link>
             </li>
             <li className="relative overflow-hidden group">
               <Link
-                href={"/user/chambre3"}
-                onClick={() => router.push("/user/chambre3")}
+                href={"/chambre-andromede"}
+                onClick={() => router.push("/chambre-andromede")}
               >
                 <Image
-                  src={chambre_3}
+                  src={chambreAndromede}
                   width={400}
                   height={200}
                   alt="photo de la chambre 3"
@@ -247,7 +271,26 @@ export default function DescriptionWebSite() {
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-500 group-hover:bg-opacity-50 group-hover:opacity-100">
                   <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
-                    Chambre 3
+                    Chambre Andromède
+                  </p>
+                </div>
+              </Link>
+            </li>
+            <li className="relative overflow-hidden group">
+              <Link
+                href={"/suite-familiale-pegase"}
+                onClick={() => router.push("/suite-familiale-pegase")}
+              >
+                <Image
+                  src={chambrePegase}
+                  width={400}
+                  height={200}
+                  alt="photo de la suite familiale Pégase"
+                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-500 h-auto"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-500 group-hover:bg-opacity-50 group-hover:opacity-100">
+                  <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                    Suite familiale Pégase
                   </p>
                 </div>
               </Link>

@@ -8,6 +8,8 @@ import { CustomDateRange, RentalType } from "../types";
 
 type PropType = {
   title: string;
+  subTitle: string;
+  description: string;
   lowSeasonNightRate?: number;
   lowSeasonWeeklyRate?: number;
   highSeasonNightRate?: number;
@@ -20,6 +22,8 @@ const OPTIONS: EmblaOptionsType = { loop: true, dragFree: true };
 
 export default function RentalPage({
   title,
+  subTitle,
+  description,
   lowSeasonNightRate,
   lowSeasonWeeklyRate,
   highSeasonNightRate,
@@ -52,15 +56,58 @@ export default function RentalPage({
     rate !== undefined && rate !== null ? `${rate} €` : "-";
 
   return (
-    <div className="font-text text-text_color pt-[2rem] xl:gap-16 xl:flex xl:justify-center">
-      <div className="flex flex-col lg:flex-row justify-around items-center ml-10">
-        <div className="flex flex-col items-center lg:mx-8 lg:px-10 py-4  mt-14 ">
-          <h3 className="lg:text-lg mb-8  font-bold  ">{title}</h3>
+    <div className="font-text text-text_color  pt-[2rem]  mt-14 flex justify-around mx-20 ">
+      <div className="">
+        <div className="flex gap-20 py-4 mt-14 ">
+          <div className="flex  justify-between w-full ">
+            <div>
+              <div>
+                <h3 className="lg:text-xl mb-2  font-bold  ">{title}</h3>
+                <h3 className="lg:text-md mb-8 h-4  font-bold ">{subTitle}</h3>
+              </div>
+              <section className="p-4  shadow-div rounded-md border-2 border-yellow/50 ">
+                <div className=" ">
+                  <BookingCalendar reservedDates={reservedDates} />
+                </div>
+                <div>
+                  <ul className="flex justify-end gap-10 italic text-[0.8rem]">
+                    <li className="flex gap-2 items-center">
+                      <span className=" w-4 h-4 bg-white border-2 rounded-full"></span>
+                      <p>Disponible</p>
+                    </li>
+                    <li className="flex gap-2 items-center">
+                      <span className=" w-4 h-4 bg-[#db3636] border-2 rounded-full"></span>
+                      <p>Réservé</p>
+                    </li>
+                    <li className="flex gap-2 items-center">
+                      <span className=" w-4 h-4 bg-white border-2 rounded-full relative flex items-center">
+                        <div className="absolute h-px w-3 bg-[#a2a3a5] "></div>
+                      </span>
+                      <p>Indisponible</p>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-10   ">
+            {imagesSlide && imagesSlide.length > 0 ? (
+              <section className="flex lg:w-[44rem] ">
+                <EmblaCarousel slides={imagesSlide} options={OPTIONS} />
+              </section>
+            ) : (
+              <div className="flex  justify-center items-center lg:w-[44rem] lg:h-[30rem] ">
+                <p>Pas d'images disponibles</p>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="flex justify-center w-full gap-24 mt-10">
           {(lowSeasonNightRate !== undefined ||
             lowSeasonWeeklyRate !== undefined ||
             highSeasonNightRate !== undefined ||
             highSeasonWeeklyRate !== undefined) && (
-            <section className="flex justify-center gap-14   w-4/5 py-2 bg-[#b7ae47]/10 shadow-basic ">
+            <section className="flex justify-center gap-20 w-2/5 py-2 shadow-div rounded-md border-2 border-yellow/50   -ml-10 ">
               <div>
                 <p className=" font-semibold">Tarifs</p>
                 <p>La nuit </p>
@@ -82,37 +129,10 @@ export default function RentalPage({
               </div>
             </section>
           )}
-          <section className="mt-10 p-4  shadow-div rounded-md border-2 border-yellow/50">
-            <div className=" ">
-              <BookingCalendar reservedDates={reservedDates} />
-            </div> 
-            <div>
-              <ul className="flex justify-end gap-10 italic text-[0.8rem]">
-                <li className="flex gap-2 items-center">
-                  <span className=" w-4 h-4 bg-white border-2 rounded-full"></span>
-                  <p>Disponible</p>
-                </li>
-                <li className="flex gap-2 items-center">
-                  <span className=" w-4 h-4 bg-[#db3636] border-2 rounded-full"></span>
-                  <p>Réservé</p>
-                </li>
-                <li className="flex gap-2 items-center">
-                  <span className=" w-4 h-4 bg-white border-2 rounded-full relative flex items-center">
-                    <div className="absolute h-px w-3 bg-[#a2a3a5] "></div>
-                  </span>
-                  <p>Indisponible</p>
-                </li>
-              </ul>
-            </div>
-          </section>
+          <div className="  w-[38rem] mr-4 ">
+            <p className="lg:text-md mb-8  font-medium ">{description}</p>
+          </div>
         </div>
-        {imagesSlide && imagesSlide.length > 0 ? (
-          <section className="flex lg:w-[44rem] lg:pt-[4.5rem]">
-            <EmblaCarousel slides={imagesSlide} options={OPTIONS} />
-          </section>
-        ) : (
-          <div>Pas d'images disponibles</div>
-        )}
       </div>
     </div>
   );

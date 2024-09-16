@@ -35,17 +35,41 @@ export default function NavBarDesktop() {
           <span className={styles.underline}></span>
         </Link>
 
-        <Link
-          href={"/gite"}
-          // onClick={() => router.push("/gite")}
-          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/gite" ? styles.activeLink : styles.nonActiveLink}`}
-        >
-          Gîte
-          <span className={styles.underline}></span>
-        </Link>
-
         <div
           onMouseEnter={() => handleMouseEnter(0)}
+          onMouseLeave={handleMouseLeave}
+          className={`flex flex-col  ${currentRoute === "/gites" ? styles.activeLink : styles.nonActiveLink}`}
+        >
+          <div className="text-xl relative z-50 lg:text-[1rem]">Gîtes</div>
+          <span className={styles.underline}></span>
+
+          <div
+            className={`${activeIndex === 0 ? "block" : "hidden"} text-start h-[15rem] w-24  flex flex-col absolute top-[5px] z-0 pt-16 rounded-sm`}
+          >
+            <div className="flex flex-col bg-[#fafafc]  w-72  ">
+              <div className="px-2 text-xl lg:text-[0.9rem]">
+                Tous les gîtes
+              </div>
+              <Link
+                href={"/le-logis-de-la-petite-ourse"}
+                // onClick={() => router.push("/gite")}
+                className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
+              >
+                Le Logis de la petite Ourse
+              </Link>
+              <Link
+                href={"/le-logis-de-la-grande-ourse"}
+                // onClick={() => router.push("/gite")}
+                className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
+              >
+                Le Logis de la grande Ourse
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div
+          onMouseEnter={() => handleMouseEnter(1)}
           onMouseLeave={handleMouseLeave}
           className={`flex flex-col  ${currentRoute === "/chambres" ? styles.activeLink : styles.nonActiveLink}`}
         >
@@ -53,32 +77,39 @@ export default function NavBarDesktop() {
           <span className={styles.underline}></span>
 
           <div
-            className={`${activeIndex === 0 ? "block" : "hidden"} text-start h-[15rem] w-24  flex flex-col absolute top-[5px] z-0 pt-16 rounded-sm`}
+            className={`${activeIndex === 1 ? "block" : "hidden"} text-start h-[15rem] w-24  flex flex-col absolute top-[5px] z-0 pt-16 rounded-sm`}
           >
-            <div className="flex flex-col bg-[#fafafc]  w-52  ">
+            <div className="flex flex-col bg-[#fafafc] w-60  ">
               <div className="px-2 text-xl lg:text-[0.9rem]">
                 Toutes les chambres
               </div>
               <Link
-                href={"/chambre-1"}
+                href={"/chambre-orion"}
                 // onClick={() => router.push("/chambre-1")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
               >
-                Chambre 1
+                Chambre Orion
               </Link>
               <Link
-                href={"/chambre-2"}
+                href={"/chambre-cassiopee"}
                 // onClick={() => router.push("/chambre-2")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem]"
               >
-                Chambre 2
+                Chambre Cassiopée
               </Link>
               <Link
-                href={"/chambre-3"}
+                href={"/chambre-andromede"}
                 // onClick={() => router.push("/chambre-3")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] rounded-sm"
               >
-                Chambre 3
+                Chambre Andromède
+              </Link>
+              <Link
+                href={"/suite-familiale-pegase"}
+                // onClick={() => router.push("/chambre-3")}
+                className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] rounded-sm"
+              >
+                Suite familiale Pégase
               </Link>
             </div>
           </div>

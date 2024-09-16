@@ -4,7 +4,14 @@ import { useEffect, useState } from "react";
 type Rates = {
   id: string;
   nameRental: string;
-  type: "gite" | "chambre 1" | "chambre 2" | "chambre 3" | "jardin";
+  type:
+    | "petiteOurse"
+    | "grandeOurse"
+    | "orion"
+    | "cassiopee"
+    | "andromede"
+    | "pegase"
+    | "jardin";
   price_low_season_night: number;
   price_high_season_night: number;
   price_low_season_week: number;

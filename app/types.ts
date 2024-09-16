@@ -1,7 +1,13 @@
 export type RentalCalendar = {
   id: string;
   name: string;
-  type: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
+  type:
+    | "petiteOurse"
+    | "grandeOurse"
+    | "orion"
+    | "cassiopee"
+    | "andromede"
+    | "pegase";
 };
 
 export type CustomDateRange = {
@@ -11,7 +17,13 @@ export type CustomDateRange = {
   type: "indisponible" | "reserve";
 };
 
-export type RentalType = "gite" | "chambre 1" | "chambre 2" | "chambre 3";
+export type RentalType =
+  | "petiteOurse"
+  | "grandeOurse"
+  | "orion"
+  | "cassiopee"
+  | "andromede"
+  | "pegase";
 
 export type Reservation = {
   id: string;
@@ -22,7 +34,13 @@ export type Reservation = {
 
 export type CalendarEvent = {
   id?: string;
-  rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
+  rental_type:
+    | "petiteOurse"
+    | "grandeOurse"
+    | "orion"
+    | "cassiopee"
+    | "andromede"
+    | "pegase";
   start_date: string;
   end_date: string;
   type: "indisponible" | "reserve";
@@ -30,7 +48,13 @@ export type CalendarEvent = {
 
 export type ReservationInput = {
   id: string;
-  rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3";
+  rental_type:
+    | "petiteOurse"
+    | "grandeOurse"
+    | "orion"
+    | "cassiopee"
+    | "andromede"
+    | "pegase";
   start_date: string;
   end_date: string;
   type: "indisponible" | "reserve";

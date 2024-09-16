@@ -27,18 +27,31 @@ const ListRentalsCalendar: React.FC = () => {
   }, []);
 
   const sortRentalsCalendar = (rentals: RentalCalendar[]) => {
-    const order = ["gite", "chambre 1", "chambre 2", "chambre 3"];
+    const order = [
+      "Le Logis de la petite Ourse",
+      "Le Logis de la grande Ourse",
+      "orion",
+      "cassiopée",
+      "andromède",
+      "pégase",
+    ];
     return rentals.sort(
       (a, b) => order.indexOf(a.type) - order.indexOf(b.type),
     );
   };
 
   const fetchReservedDates = async (
-    rental_type: "gite" | "chambre 1" | "chambre 2" | "chambre 3",
+    rental_type:
+      | "petiteOurse"
+      | "grandeOurse"
+      | "orion"
+      | "cassiopee"
+      | "andromede"
+      | "pegase",
   ): Promise<ReservationInput[]> => {
     try {
       const fetchedDates = await getAllCalendar(rental_type);
-      // Transformez les dates récupérées si nécessaire
+      // Transforme les dates récupérées si nécessaire
       const transformedDates: ReservationInput[] = fetchedDates
         .filter((date) => typeof date.id === "string") // Filtre pour s'assurer que id est une chaîne valide
         .map((date) => ({
@@ -74,16 +87,6 @@ const ListRentalsCalendar: React.FC = () => {
       toast.error("Erreur lors de la suppression de la réservation !");
     }
   };
-
-  // const handleUpdateReservation = async (id: string, event: CalendarEvent) => {
-  //   try {
-  //     await updateCalendar(id, event);
-  //     toast.success("Réservation mise à jour avec succès !");
-  //   } catch (error) {
-  //     console.error("Error updating calendar event:", error);
-  //     toast.error("Erreur lors de la mise à jour de la réservation !");
-  //   }
-  // };
 
   return (
     <div className=" ">

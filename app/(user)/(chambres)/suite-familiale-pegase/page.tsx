@@ -7,20 +7,17 @@ import { useRentalRates } from "@/hooks/useRentalRates";
 import { Loader } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const imagesChambre3 = ["/chambres/ch-3.jpg", "/chambres/ch-3-1.jpg"];
+export default function Pegase() {
+  const [imagesPegase, setImagesPegase] = useState<ImageType[]>([]);
 
-export default function RoomThree() {
-  const [imagesChambre3, setImagesChambre3] = useState<ImageType[]>([]);
-
-  const { rates, loading, error } = useRentalRates("chambre 3");
+  const { rates, loading, error } = useRentalRates("pegase");
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const imagesChambre3 = await getImagesFromBucket("chambre 3");
+        const imagesPegase = await getImagesFromBucket("pegase");
 
-        // Mettre à jour les états avec les nouvelles images
-        setImagesChambre3(imagesChambre3);
+        setImagesPegase(imagesPegase);
       } catch (error) {
         console.error("Error fetching images:", error);
       }
@@ -29,7 +26,7 @@ export default function RoomThree() {
     fetchImages();
   }, []);
 
-  const imageUrls = imagesChambre3.map((image) => image.path);
+  const imageUrls = imagesPegase.map((image) => image.path);
 
   if (loading) {
     return (
@@ -44,16 +41,18 @@ export default function RoomThree() {
   }
 
   return (
-    <div className=" h-screen">
+    <div className=" h-screen mb-52">
       {rates && (
         <RentalPage
-          title="Chambre 3"
+          title="Suite familiale Pégase"
+          subTitle=""
+          description="Cette suite familial dispose de deux chambres. Une chambre avec un grand lit de 140 cm et d'un lit de 90 cm ainsi que la salle de bain. Une chambre avec un grand lit de 140 cm."
           lowSeasonNightRate={rates.price_low_season_night}
           lowSeasonWeeklyRate={rates.price_low_season_week}
           highSeasonNightRate={rates.price_high_season_night}
           highSeasonWeeklyRate={rates.price_high_season_week}
           imagesSlide={imageUrls}
-          rentalType="chambre 3"
+          rentalType="pegase"
         />
       )}
     </div>

@@ -114,18 +114,24 @@ export const resetPassword = async (email: string) => {
 };
 
 export const updatePasswordWithToken = async (
-  token: string,
+  // token: string,
   newPassword: string,
 ) => {
   try {
-    const { data, error } = await supabase.auth.updateUser({
-      password: newPassword,
-    });
+    // console.log("Token utilisé pour la réinitialisation :", token);
+    console.log("Nouveau mot de passe :", newPassword);
 
-    if (error) throw error;
+    // Vous devez d'abord confirmer le token, puis mettre à jour le mot de passe
+    const { error } = await supabase.auth.updateUser({ password: newPassword });
 
-    return data;
+    if (error) {
+      console.error("Erreur lors de la mise à jour du mot de passe :", error);
+      throw error;
+    }
+
+    console.log("Mot de passe mis à jour avec succès.");
   } catch (error) {
+    console.error("Erreur dans `updatePasswordWithToken` :", error);
     throw error;
   }
 };
