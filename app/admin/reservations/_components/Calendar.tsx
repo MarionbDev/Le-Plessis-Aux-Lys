@@ -28,6 +28,24 @@ type AddReservationProps = {
   deleteReservation: (id: string) => Promise<void>;
 };
 
+// Mappage des types de location aux noms conviviaux
+const rentalNames: Record<
+  | "petiteOurse"
+  | "grandeOurse"
+  | "orion"
+  | "cassiopee"
+  | "andromede"
+  | "pegase",
+  string
+> = {
+  petiteOurse: "Le Logis de la petite Ourse",
+  grandeOurse: "Le Logis de la grande Ourse",
+  orion: "Orion",
+  cassiopee: "Cassiopée",
+  andromede: "Andromède",
+  pegase: "Suite familiale Pégase",
+};
+
 const AddReservation: React.FC<AddReservationProps> = ({
   rentalType,
   fetchReservedDates,
@@ -220,7 +238,8 @@ const AddReservation: React.FC<AddReservationProps> = ({
   return (
     <div className="font-text md:gap-10 shadow-div rounded-md border-2 border-yellow/50 py-4 mx-6 ">
       <p className="font-semibold text-center text-[1.2rem] mb-2">
-        {rentalType.charAt(0).toUpperCase() + rentalType.slice(1)}{" "}
+        {rentalNames[rentalType].charAt(0).toUpperCase() +
+          rentalNames[rentalType].slice(1)}{" "}
       </p>
       <div className="flex flex-col md:flex-row md:justify-around">
         <div className="flex flex-col items-center">
