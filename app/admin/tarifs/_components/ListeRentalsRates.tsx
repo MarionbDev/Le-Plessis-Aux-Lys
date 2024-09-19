@@ -21,6 +21,16 @@ type Rental = {
 export default function ListRentalRates() {
   const [rentals, setRentals] = useState<Rental[]>([]);
 
+  // Mappage entre types et noms personnalisés
+  const rentalNames: Record<Rental["type"], string> = {
+    petiteOurse: "Le Logis de la petite Ourse",
+    grandeOurse: "Le Logis de la grande Ourse",
+    orion: "Orion",
+    cassiopee: "Cassiopée",
+    andromede: "Andromède",
+    pegase: "Suite familiale Pégase",
+  };
+
   useEffect(() => {
     const fetchRentals = async () => {
       try {
@@ -38,12 +48,12 @@ export default function ListRentalRates() {
   const sortRentals = (rentals: Rental[]) => {
     return rentals.sort((a, b) => {
       const order = [
-        "Le Logis de la petite Ourse",
-        "Le Logis de la grande Ourse",
+        "petiteOurse",
+        "grandeOurse",
         "orion",
-        "cassiopée",
-        "andromède",
-        "pégase",
+        "cassiopee",
+        "andromede",
+        "pegase",
       ];
       return order.indexOf(a.type) - order.indexOf(b.type);
     });
@@ -57,7 +67,7 @@ export default function ListRentalRates() {
             <RateRentalCardAdmin
               key={rental.id}
               id={rental.id}
-              nameRental={rental.type}
+              nameRental={rentalNames[rental.type]}
               lowSeasonRateNight={rental.price_low_season_night}
               highSeasonRateNight={rental.price_high_season_night}
               lowSeasonRateWeek={rental.price_low_season_week}

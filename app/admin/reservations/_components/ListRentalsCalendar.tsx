@@ -28,12 +28,12 @@ const ListRentalsCalendar: React.FC = () => {
 
   const sortRentalsCalendar = (rentals: RentalCalendar[]) => {
     const order = [
-      "Le Logis de la petite Ourse",
-      "Le Logis de la grande Ourse",
+      "petiteOurse",
+      "grandeOurse",
       "orion",
-      "cassiopée",
-      "andromède",
-      "pégase",
+      "cassiopee",
+      "andromede",
+      "pegase",
     ];
     return rentals.sort(
       (a, b) => order.indexOf(a.type) - order.indexOf(b.type),
