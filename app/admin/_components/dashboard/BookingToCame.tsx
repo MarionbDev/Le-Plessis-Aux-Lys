@@ -6,6 +6,17 @@ import { RentalCalendar, ReservationInput } from "@/app/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useEffect, useState } from "react";
 
+type Rental = {
+  id: string;
+  type:
+    | "petiteOurse"
+    | "grandeOurse"
+    | "orion"
+    | "cassiopee"
+    | "andromede"
+    | "pegase";
+};
+
 const BookingToCome: React.FC = () => {
   const [rentalsCalendar, setRentalsCalendar] = useState<RentalCalendar[]>([]);
   const [reservationsByType, setReservationsByType] = useState<{
@@ -16,6 +27,16 @@ const BookingToCome: React.FC = () => {
       upcoming: ReservationInput[];
     };
   }>({});
+
+  // Mappage entre types et noms personnalisés
+  const rentalNames: Record<Rental["type"], string> = {
+    petiteOurse: "Le Logis de la petite Ourse",
+    grandeOurse: "Le Logis de la grande Ourse",
+    orion: "Orion",
+    cassiopee: "Cassiopée",
+    andromede: "Andromède",
+    pegase: "Suite familiale Pégase",
+  };
 
   useEffect(() => {
     const fetchRentals = async () => {
@@ -136,14 +157,17 @@ const BookingToCome: React.FC = () => {
   };
 
   return (
-    <div className=" ">
-      <div className="flex flex-wrap gap-6 mx-10 ">
+    <div className=" text-text_color ">
+      <div className=" mx-10 mb-6">
+        <h2 className=" text-lg ">Suivi des réservations :</h2>
+      </div>
+      <div className="flex flex-wrap gap-y-10 gap-x-20  justify-center mx-10 ">
         {rentalsCalendar.map((rental) => (
           <div className="shadow-div rounded-md " key={rental.id}>
-            <Card className="mb-8 w-[20rem] h-full text-text_color border-2 border-yellow/50">
+            <Card className="mb-8 w-[22rem] h-full border-2 text-text_color  border-yellow/50">
               <CardHeader>
                 <CardTitle className="text-lg font-bold uppercase text-center mb-2 ">
-                  {rental.type}
+                  {rentalNames[rental.type]}
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col gap-4 h-[18rem] overflow-auto  mostly-customized-scrollbar mx-1 ">

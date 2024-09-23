@@ -1,3 +1,5 @@
+import BookingToCome from "./_components/dashboard/BookingToCame";
+
 export default function DashboardAdmin() {
   return (
     <div className="flex flex-col  py-20 mx-10 gap-y-20 gap-x-36  w-[90rem]">
@@ -24,9 +26,10 @@ export default function DashboardAdmin() {
             <p>Jours de réservations</p>
           </div>
         </Card>
-      </div>
+      </div> */}
+
       <BookingToCome />
-      <div className="flex  flex-wrap gap-20 mx-10">
+      {/* <div className="flex  flex-wrap gap-20 mx-10">
         <TotalReservations title="La petite Ourse" />
         <TotalReservations title="La grande Ourse" />
         <TotalReservations title="Orion" />

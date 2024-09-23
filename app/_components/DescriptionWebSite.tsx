@@ -10,10 +10,10 @@ import chambreCassiopee from "../../public/chambres/cassiopee/ch-2.jpg";
 import chambreOrion from "../../public/chambres/orion/ch-1.jpg";
 import chambrePegase from "../../public/chambres/pegase/ch-2.jpg";
 
+// import grandeOurse from "../../public/image.png";
 import parc1 from "../../public/parc/parc1.jpg";
 import parc3 from "../../public/parc/parc3.jpg";
 import petiteOurse from "../../public/petite-ourse/gite.jpg";
-// import grandeOurse from "../../public/petite-ourse/gite.jpg";
 
 import { getAllArticles } from "../api/article/route";
 import { ArticleProps, Slide } from "../types";
@@ -166,8 +166,10 @@ export default function DescriptionWebSite() {
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-14 w-2/3 cursor-pointer">
             <li className="relative overflow-hidden group">
               <Link
-                href={"/gite/le-logis-de-la-petite-ourse"}
-                onClick={() => router.push("/gite/le-logis-de-la-petite-ourse")}
+                href={"/gites/le-logis-de-la-petite-ourse"}
+                onClick={() =>
+                  router.push("/gites/le-logis-de-la-petite-ourse")
+                }
               >
                 <Image
                   src={petiteOurse}
@@ -183,18 +185,21 @@ export default function DescriptionWebSite() {
                 </div>
               </Link>
             </li>
-            <li className="relative overflow-hidden group">
+            <li className="relative overflow-hidden group w-96 flex justify-center items-center bg-slate-400 ">
               <Link
-                href={"/gite/le-logis-de-la-grande-ourse"}
-                onClick={() => router.push("/gite/le-logis-de-la-grande-ourse")}
+                href={"/gites/le-logis-de-la-grande-ourse"}
+                onClick={() =>
+                  router.push("/gites/le-logis-de-la-grande-ourse")
+                }
               >
-                <Image
-                  src={petiteOurse}
+                {/* <Image
+                  src={grandeOurse}
                   width={400}
                   height={200}
                   alt="photo du gîte"
                   className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125 duration-1000 h-auto "
-                />
+                /> */}
+                <div className="">photo </div>
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-1000 group-hover:bg-opacity-50 group-hover:opacity-100">
                   <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
                     Le Logis de la grande Ourse
@@ -220,8 +225,8 @@ export default function DescriptionWebSite() {
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-2/3 cursor-pointer">
             <li className="relative overflow-hidden group">
               <Link
-                href={"/chambre-orion"}
-                onClick={() => router.push("/chambre-orion")}
+                href={"/chambres/orion"}
+                onClick={() => router.push("/chambres/orion")}
               >
                 <Image
                   src={chambreOrion}
@@ -240,8 +245,8 @@ export default function DescriptionWebSite() {
 
             <li className="relative overflow-hidden group">
               <Link
-                href={"/chambre-cassiopee"}
-                onClick={() => router.push("/chambre-cassiopee")}
+                href={"/chambres/cassiopee"}
+                onClick={() => router.push("/chambres/cassiopee")}
               >
                 <Image
                   src={chambreCassiopee}
@@ -257,10 +262,27 @@ export default function DescriptionWebSite() {
                 </div>
               </Link>
             </li>
+          </ul>
+        </motion.div>
+      </motion.section>
+
+      <motion.section
+        initial="hide"
+        whileInView="show"
+        exit="hide"
+        variants={imageVariants}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex  justify-center"
+        >
+          <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-2/3 cursor-pointer">
             <li className="relative overflow-hidden group">
               <Link
-                href={"/chambre-andromede"}
-                onClick={() => router.push("/chambre-andromede")}
+                href={"/chambres/andromede"}
+                onClick={() => router.push("/chambres/andromede")}
               >
                 <Image
                   src={chambreAndromede}
@@ -278,8 +300,8 @@ export default function DescriptionWebSite() {
             </li>
             <li className="relative overflow-hidden group">
               <Link
-                href={"/suite-familiale-pegase"}
-                onClick={() => router.push("/suite-familiale-pegase")}
+                href={"/chambres/suite-familiale-pegase"}
+                onClick={() => router.push("/chambres/suite-familiale-pegase")}
               >
                 <Image
                   src={chambrePegase}

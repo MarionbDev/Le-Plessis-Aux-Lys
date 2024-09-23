@@ -7,17 +7,17 @@ import { useRentalRates } from "@/hooks/useRentalRates";
 import { Loader } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export default function LaPetiteOurse() {
-  const [imagesPetiteOurse, setImagesPetiteOurse] = useState<ImageType[]>([]);
+export default function Pegase() {
+  const [imagesPegase, setImagesPegase] = useState<ImageType[]>([]);
 
-  const { rates, loading, error } = useRentalRates("petiteOurse");
+  const { rates, loading, error } = useRentalRates("pegase");
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const imagesPetiteOurse = await getImagesFromBucket("petiteOurse");
+        const imagesPegase = await getImagesFromBucket("pegase");
 
-        setImagesPetiteOurse(imagesPetiteOurse);
+        setImagesPegase(imagesPegase);
       } catch (error) {
         console.error("Error fetching images:", error);
       }
@@ -26,7 +26,7 @@ export default function LaPetiteOurse() {
     fetchImages();
   }, []);
 
-  const imageUrls = imagesPetiteOurse.map((image) => image.path);
+  const imageUrls = imagesPegase.map((image) => image.path);
 
   if (loading) {
     return (
@@ -41,18 +41,18 @@ export default function LaPetiteOurse() {
   }
 
   return (
-    <div className=" h-screen mb-52 ">
+    <div className=" h-screen mb-96">
       {rates && (
         <RentalPage
-          title="Le logis de la petite Ourse"
-          subTitle="Pour 2 à 4 personnes"
-          description=""
+          title="Suite familiale Pégase"
+          subTitle=""
+          description="Cette suite familial dispose de deux chambres. Une chambre avec un grand lit de 140 cm et d'un lit de 90 cm ainsi que la salle de bain. Une chambre avec un grand lit de 140 cm."
           lowSeasonNightRate={rates.price_low_season_night}
           lowSeasonWeeklyRate={rates.price_low_season_week}
           highSeasonNightRate={rates.price_high_season_night}
           highSeasonWeeklyRate={rates.price_high_season_week}
           imagesSlide={imageUrls}
-          rentalType="petiteOurse"
+          rentalType="pegase"
         />
       )}
     </div>
