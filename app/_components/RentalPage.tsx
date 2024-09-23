@@ -1,4 +1,5 @@
 "use client";
+import { Loader } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import BookingCalendar from "../_components/calendar/BookingCalendar";
@@ -31,7 +32,8 @@ export default function RentalPage({
   rentalType,
 }: PropType) {
   const [reservedDates, setReservedDates] = useState<CustomDateRange[]>([]);
-  const [mainImage, setMainImage] = useState<string>(imagesSlide[0] || "");
+  const [mainImage, setMainImage] = useState<string>(imagesSlide[0]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchReservedDates() {
@@ -132,11 +134,18 @@ export default function RentalPage({
               <section className="flex flex-col justify-center items-center lg:w-[44rem] mt-6 ">
                 {/* <EmblaCarousel slides={imagesSlide} options={OPTIONS} /> */}
                 {/* Image principale */}
-                <div className="flex justify-center lg:w-[40rem] lg:h-auto mb-2 ">
+                <div className="flex justify-center lg:w-[40rem] lg:h-auto mb-2">
+                  {loading && (
+                    <div className="flex justify-center items-center h-[30rem]">
+                      <Loader size={50} className="animate-spin" />
+                    </div>
+                  )}
                   <img
                     src={mainImage}
                     alt="Image principale"
                     className="object-scale-down h-[20rem] lg:h-[30rem] w-auto"
+                    onLoad={() => setLoading(false)} // Mettre à jour l'état de chargement
+                    style={{ display: loading ? "none" : "block" }} // Masquer l'image jusqu'à son chargement
                   />
                 </div>
 
