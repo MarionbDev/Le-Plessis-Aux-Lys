@@ -51,14 +51,14 @@ export default function NavBarDesktop() {
                 Tous les gîtes
               </div>
               <Link
-                href={"/le-logis-de-la-petite-ourse"}
+                href={"/gites/le-logis-de-la-petite-ourse"}
                 // onClick={() => router.push("/gite")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
               >
                 Le Logis de la petite Ourse
               </Link>
               <Link
-                href={"/le-logis-de-la-grande-ourse"}
+                href={"/gites/le-logis-de-la-grande-ourse"}
                 // onClick={() => router.push("/gite")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
               >
@@ -84,29 +84,29 @@ export default function NavBarDesktop() {
                 Toutes les chambres
               </div>
               <Link
-                href={"/chambre-orion"}
-                // onClick={() => router.push("/chambre-1")}
+                href={"/chambres/orion"}
+                // onClick={() => router.push("/chambres/1")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
               >
                 Chambre Orion
               </Link>
               <Link
-                href={"/chambre-cassiopee"}
-                // onClick={() => router.push("/chambre-2")}
+                href={"/chambres/cassiopee"}
+                // onClick={() => router.push("/chambres/2")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem]"
               >
                 Chambre Cassiopée
               </Link>
               <Link
-                href={"/chambre-andromede"}
-                // onClick={() => router.push("/chambre-3")}
+                href={"/chambres/andromede"}
+                // onClick={() => router.push("/chambres/3")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] rounded-sm"
               >
                 Chambre Andromède
               </Link>
               <Link
-                href={"/suite-familiale-pegase"}
-                // onClick={() => router.push("/chambre-3")}
+                href={"/chambres/suite-familiale-pegase"}
+                // onClick={() => router.push("/chambres/3")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] rounded-sm"
               >
                 Suite familiale Pégase

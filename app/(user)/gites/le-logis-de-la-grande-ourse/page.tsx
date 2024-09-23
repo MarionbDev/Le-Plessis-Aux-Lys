@@ -7,18 +7,17 @@ import { useRentalRates } from "@/hooks/useRentalRates";
 import { Loader } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export default function RoomThree() {
-  const [imagesAndromede, setImagesAndromede] = useState<ImageType[]>([]);
+export default function LaGrandeOurse() {
+  const [imagesGrandeOurse, setGrandeOurse] = useState<ImageType[]>([]);
 
-  const { rates, loading, error } = useRentalRates("andromede");
+  const { rates, loading, error } = useRentalRates("grandeOurse");
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const imagesAndromede = await getImagesFromBucket("andromede");
+        const imagesGrandeOurse = await getImagesFromBucket("grandeOurse");
 
-        // Mettre à jour les états avec les nouvelles images
-        setImagesAndromede(imagesAndromede);
+        setGrandeOurse(imagesGrandeOurse);
       } catch (error) {
         console.error("Error fetching images:", error);
       }
@@ -27,7 +26,7 @@ export default function RoomThree() {
     fetchImages();
   }, []);
 
-  const imageUrls = imagesAndromede.map((image) => image.path);
+  const imageUrls = imagesGrandeOurse.map((image) => image.path);
 
   if (loading) {
     return (
@@ -42,10 +41,10 @@ export default function RoomThree() {
   }
 
   return (
-    <div className=" h-screen mb-52">
+    <div className=" h-screen mb-96 ">
       {rates && (
         <RentalPage
-          title="Chambre Andromède"
+          title="Le logis de la grande Ourse"
           subTitle=""
           description=""
           lowSeasonNightRate={rates.price_low_season_night}
@@ -53,7 +52,7 @@ export default function RoomThree() {
           highSeasonNightRate={rates.price_high_season_night}
           highSeasonWeeklyRate={rates.price_high_season_week}
           imagesSlide={imageUrls}
-          rentalType="andromede"
+          rentalType="grandeOurse"
         />
       )}
     </div>
