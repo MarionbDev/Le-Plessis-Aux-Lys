@@ -102,22 +102,24 @@ export default function DescriptionWebSite() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          <div className="mx-6 p-4 lg:mx-56 flex flex-col lg:flex-row items-center leading-loose lg:mt-20  bg-[#f5f7dc]/50 ">
+          <div className="mx-6 p-4 lg:mx-56 leading-loose lg:mt-20  bg-[#f5f7dc]/50 ">
             {/*style de base: bg-[#f5f7dc]
                style 1er choix : bg-[#f5f7dc]/50  */}
-            <p className="  mb-6 xl:mb-0 lg:px-20 text-[1rem] lg:text-md">
-              Demeure de caractère datant du XIXème siècle, située dans le
-              village de La Chapelle aux Lys, cité au Guide Vert de 2023 comme
-              étant le plus petit village possédant son Planétarium que vous
-              pourrez découvrir à 2 minutes à pied.
-            </p>
-            <Image
-              src={parc6}
-              width={400}
-              height={200}
-              alt="photo intérieur du gîte"
-              className=" rounded-sm shadow-basic border-2 p-1  "
-            />
+            <div className="flex flex-col lg:flex-row items-center  border-l-4 border-t-4 border-white">
+              <p className="  mb-6 xl:mb-0 lg:px-16 text-[1rem] lg:text-md">
+                Demeure de caractère datant du XIXème siècle, située dans le
+                village de La Chapelle aux Lys, cité au Guide Vert de 2023 comme
+                étant le plus petit village possédant son Planétarium que vous
+                pourrez découvrir à 2 minutes à pied.
+              </p>
+              <Image
+                src={parc6}
+                width={400}
+                height={200}
+                alt="photo intérieur du gîte"
+                className=" rounded-sm shadow-basic m-2 mt-4  "
+              />
+            </div>
           </div>
         </motion.div>
       </motion.section>
@@ -343,23 +345,28 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <div className="flex flex-col lg:flex-row  justify-between items-center bg-[#f5f7dc]/50 mx-4">
-              <p className=" my-4 p-4 lg:px-20">
-                Idéalement situé pour découvrir notre belle région de Vendée ,
-                Le Plessis aux Lys n'est qu'à 10mn d'un des plus beaux villages
-                de France : Vouvant et de la forêt de Mervent; à 20mn du marais
-                Poitevin et des Abbayes de Maillezais et de Nieul-sur-l'Autise ;
-                à 45 mn du Puy du Fou, 45 mn du Mont aux Alouettes et de ses
-                Moulins; à 1 heure des premières plages et de bien d'autres
-                curiosités telles que La Rochelle, les îles de Ré et D'Oléron.
-              </p>
-              <Image
-                src={parc1}
-                width={500}
-                height={500}
-                alt="Photo du parc du gîte"
-                className=" rounded-sm shadow-basic border-2 p-1 bg-white h-auto"
-              />
+            <div className="mx-6 p-4 lg:mx-[6rem] leading-loose lg:mt-20  bg-[#f5f7dc]/50 ">
+              {/*style de base: bg-[#f5f7dc]
+               style 1er choix : bg-[#f5f7dc]/50  */}
+              <div className="flex flex-col lg:flex-row items-center  border-r-4 border-b-4 border-white">
+                <Image
+                  src={parc1}
+                  width={500}
+                  height={500}
+                  alt="Photo du parc du gîte"
+                  className=" rounded-sm shadow-basic m-2 mb-4 h-auto"
+                />
+                <p className="  mb-6 xl:mb-0 lg:px-16 text-[1rem] lg:text-md">
+                  Idéalement situé pour découvrir notre belle région de Vendée ,
+                  Le Plessis aux Lys n'est qu'à 10mn d'un des plus beaux
+                  villages de France : Vouvant et de la forêt de Mervent; à 20mn
+                  du marais Poitevin et des Abbayes de Maillezais et de
+                  Nieul-sur-l'Autise ; à 45 mn du Puy du Fou, 45 mn du Mont aux
+                  Alouettes et de ses Moulins; à 1 heure des premières plages et
+                  de bien d'autres curiosités telles que La Rochelle, les îles
+                  de Ré et D'Oléron.
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -384,6 +391,28 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
+            <p className=" xl:w-[70rem] mt-12 text-center ">
+              "Entre balades bucoliques, découvertes historiques et paysages
+              grandioses, La Chapelle aux Lys est le point de départ idéal pour
+              explorer la région. Plongez dans les merveilles locales, à la
+              rencontre d'une Vendée authentique et préservée !"
+            </p>
+          </div>
+        </motion.div>
+      </motion.section>
+
+      <motion.section
+        initial="hide"
+        whileInView="show"
+        exit="hide"
+        variants={imageVariants}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex justify-center flex-col items-center  mx-4 xl:mx-12 lg:mx-32  xl:mt-10 ">
             <div className=" lg:w-[80rem]">
               <ActivityUserCarousel slides={slides} />
             </div>
@@ -393,4 +422,5 @@ export default function DescriptionWebSite() {
     </div>
   );
 }
+
 
