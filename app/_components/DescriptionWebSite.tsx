@@ -12,7 +12,7 @@ import chambrePegase from "../../public/chambres/pegase/ch-2.jpg";
 
 // import grandeOurse from "../../public/image.png";
 import parc1 from "../../public/parc/parc1.jpg";
-import parc3 from "../../public/parc/parc3.jpg";
+import parc6 from "../../public/parc/parc6.jpg";
 import petiteOurse from "../../public/petite-ourse/gite.jpg";
 
 import { getAllArticles } from "../api/article/route";
@@ -102,7 +102,9 @@ export default function DescriptionWebSite() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          <div className="mx-6 p-4 lg:mx-56 flex flex-col lg:flex-row items-center leading-loose lg:mt-20 bg-[#f8f8f9]">
+          <div className="mx-6 p-4 lg:mx-56 flex flex-col lg:flex-row items-center leading-loose lg:mt-20  bg-[#f5f7dc]/50 ">
+            {/*style de base: bg-[#f5f7dc]
+               style 1er choix : bg-[#f5f7dc]/50  */}
             <p className="  mb-6 xl:mb-0 lg:px-20 text-[1rem] lg:text-md">
               Demeure de caractère datant du XIXème siècle, située dans le
               village de La Chapelle aux Lys, cité au Guide Vert de 2023 comme
@@ -110,7 +112,7 @@ export default function DescriptionWebSite() {
               pourrez découvrir à 2 minutes à pied.
             </p>
             <Image
-              src={parc3}
+              src={parc6}
               width={400}
               height={200}
               alt="photo intérieur du gîte"
@@ -140,12 +142,13 @@ export default function DescriptionWebSite() {
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>{" "}
             <p className="my-4 mx-4">
-              3 chambres de charme possédant chacune leur salle d'eau et leurs
-              toilettes et un gîte de 2 à 4 personnes, vous accueilleront au
-              sein d'un parc où trônent des arbres séculaires qui vous
-              inviteront à la quiétude, la méditation et au repos après vous
-              être délassés dans la piscine chauffée mise à disposition de mai à
-              septembre.
+              Trois chambres de charme, une suite familiale pour 5 personnes,
+              possédant chacune leur salle d'eau et leurs toilettes, ainsi que
+              deux gîtes — l'un pour 2 à 4 personnes et l'autre pour 8 à 10
+              personnes — vous accueilleront au sein d'un parc où trônent des
+              arbres séculaires qui vous inviteront à la quiétude, la méditation
+              et au repos après vous être délassés dans la piscine chauffée mise
+              à disposition de mai à septembre.
             </p>
           </div>
         </motion.div>
@@ -185,7 +188,7 @@ export default function DescriptionWebSite() {
                 </div>
               </Link>
             </li>
-            <li className="relative overflow-hidden group w-96 flex justify-center items-center bg-slate-400 ">
+            <li className="relative overflow-hidden group w-96 flex justify-center items-center bg-[#f5f7dc] ">
               <Link
                 href={"/gites/le-logis-de-la-grande-ourse"}
                 onClick={() =>
@@ -340,7 +343,7 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <div className="flex flex-col lg:flex-row  justify-between items-center bg-[#f8f8f9] mx-4">
+            <div className="flex flex-col lg:flex-row  justify-between items-center bg-[#f5f7dc]/50 mx-4">
               <p className=" my-4 p-4 lg:px-20">
                 Idéalement situé pour découvrir notre belle région de Vendée ,
                 Le Plessis aux Lys n'est qu'à 10mn d'un des plus beaux villages

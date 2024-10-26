@@ -6,7 +6,11 @@ type ActivityUserCarouselProps = {
   slides: Slide[];
 };
 
-const OPTIONS: EmblaOptionsType = { loop: true, dragFree: true };
+const OPTIONS: EmblaOptionsType = {
+  loop: true,
+  skipSnaps: false,
+  align: "start",
+};
 
 export default function ActivityUserCarousel({
   slides,
