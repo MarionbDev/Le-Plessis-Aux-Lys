@@ -84,7 +84,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="mx-4 lg:mx-56 text-center leading-loose  text-base xl:text-2xl">
+          <div className="mx-10 md:mx-4 lg:mx-56 text-center leading-loose  text-base xl:text-2xl">
             <p className=" xl:font-prata mb-6 ">
               Céline et Thierry sont heureux de vous accueillir au Plessis aux
               Lys.
@@ -102,11 +102,11 @@ export default function DescriptionWebSite() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          <div className="mx-6 p-4 lg:mx-56 leading-loose lg:mt-20  bg-[#f5f7dc]/50 ">
+          <div className="mx-6 p-4 lg:mx-56 leading-loose md:mt-32 lg:mt-44  bg-[#f5f7dc]/50 ">
             {/*style de base: bg-[#f5f7dc]
                style 1er choix : bg-[#f5f7dc]/50  */}
-            <div className="flex flex-col lg:flex-row items-center  border-l-4 border-t-4 border-white">
-              <p className="  mb-6 xl:mb-0 lg:px-16 text-[1rem] lg:text-md">
+            <div className="flex flex-col md:flex-row items-center  border-l-4 border-t-4 border-white">
+              <p className=" px-4 py-2 mb-6 xl:mb-0 lg:px-16 text-[1rem] lg:text-md">
                 Demeure de caractère datant du XIXème siècle, située dans le
                 village de La Chapelle aux Lys, cité au Guide Vert de 2023 comme
                 étant le plus petit village possédant son Planétarium que vous
@@ -114,10 +114,10 @@ export default function DescriptionWebSite() {
               </p>
               <Image
                 src={parc6}
-                width={400}
+                width={320}
                 height={200}
                 alt="photo intérieur du gîte"
-                className=" rounded-sm shadow-basic m-2 mt-4  "
+                className="w-[17rem] lg:w-[25rem] rounded-sm shadow-basic md:m-2 md:mt-4   "
               />
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4 xl:mx-12 lg:mx-56 xl:mt-28  leading-loose">
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4 xl:mx-12 lg:mx-56 md:mt-20 xl:mt-44  leading-loose">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mt-16 lg:mt-0 gap-4 lg:gap-12 lg:my-20">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
               <p className=" font-semibold text-center lg:text-lg uppercase lg:w-[27rem]  ">
@@ -143,7 +143,7 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>{" "}
-            <p className="my-4 mx-4">
+            <p className="my-8 mx-6 md:my-12 lg:my-4 md:mx-12">
               Trois chambres de charme, une suite familiale pour 5 personnes,
               possédant chacune leur salle d'eau et leurs toilettes, ainsi que
               deux gîtes — l'un pour 2 à 4 personnes et l'autre pour 8 à 10
@@ -337,34 +337,32 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4 xl:mx-12 lg:mx-32  lg:mt-28  leading-loose">
-            <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mt-24 lg:mt-0 gap-4  lg:gap-10 lg:my-20">
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4 xl:mx-12 lg:mx-32 md:mt-20  lg:mt-48  leading-loose">
+            <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mb-10 md:mb-0 mt-24 lg:mt-0 gap-4  lg:gap-10 lg:my-8">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
               <p className=" font-semibold lg:text-lg uppercase ">
                 Vous Allez Adorer
               </p>
               <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <div className="mx-6 p-4 lg:mx-[6rem] leading-loose lg:mt-20  bg-[#f5f7dc]/50 ">
-              {/*style de base: bg-[#f5f7dc]
-               style 1er choix : bg-[#f5f7dc]/50  */}
-              <div className="flex flex-col lg:flex-row items-center  border-r-4 border-b-4 border-white">
+            <div className="mx-6 p-4 lg:mx-[10rem] leading-loose md:mt-20 bg-[#f5f7dc]/50">
+              <div className=" border-r-4 border-b-4 border-white p-4 lg:p-8 lg:h-[18rem]">
                 <Image
                   src={parc1}
-                  width={500}
-                  height={500}
+                  width={200}
+                  height={200}
                   alt="Photo du parc du gîte"
-                  className=" rounded-sm shadow-basic m-2 mb-4 h-auto"
+                  className="float-left w-[20rem] lg:w-[25rem] mr-4 lg:mr-10 mb-4 sm:mb-0 lg:mb-4 rounded-sm shadow-basic"
                 />
-                <p className="  mb-6 xl:mb-0 lg:px-16 text-[1rem] lg:text-md">
-                  Idéalement situé pour découvrir notre belle région de Vendée ,
+                <p className="text-[1rem] lg:text-md ">
+                  Idéalement situé pour découvrir notre belle région de Vendée,
                   Le Plessis aux Lys n'est qu'à 10mn d'un des plus beaux
                   villages de France : Vouvant et de la forêt de Mervent; à 20mn
                   du marais Poitevin et des Abbayes de Maillezais et de
                   Nieul-sur-l'Autise ; à 45 mn du Puy du Fou, 45 mn du Mont aux
                   Alouettes et de ses Moulins; à 1 heure des premières plages et
                   de bien d'autres curiosités telles que La Rochelle, les îles
-                  de Ré et D'Oléron.
+                  de Ré et d'Oléron.
                 </p>
               </div>
             </div>
@@ -391,7 +389,7 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <p className=" xl:w-[70rem] mt-12 text-center ">
+            <p className="px-6 xl:w-[70rem] mt-12 text-center ">
               "Entre balades bucoliques, découvertes historiques et paysages
               grandioses, La Chapelle aux Lys est le point de départ idéal pour
               explorer la région. Plongez dans les merveilles locales, à la
@@ -412,7 +410,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex justify-center flex-col items-center  mx-4 xl:mx-12 lg:mx-32  xl:mt-10 ">
+          <div className="flex justify-center flex-col items-center    xl:mt-10 ">
             <div className=" lg:w-[80rem]">
               <ActivityUserCarousel slides={slides} />
             </div>
@@ -422,5 +420,4 @@ export default function DescriptionWebSite() {
     </div>
   );
 }
-
 

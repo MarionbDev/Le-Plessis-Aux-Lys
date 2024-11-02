@@ -24,7 +24,7 @@ export default function NavBarDesktop() {
     router.push("/login");
   };
   return (
-    <>
+    <div className="">
       <div className=" font-text text-text_color flex gap-6 px-10  border-none ">
         <Link
           href={"/"}
@@ -149,7 +149,7 @@ export default function NavBarDesktop() {
           <LogIn size={24} color="#bbbb57" />
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

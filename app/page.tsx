@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <UserLayout>
       <div className="  ">
-        <div className="fixed w-screen top-0 z-50 bg-none bg-transparent">
+        <div className="fixed w-full top-0 z-50 bg-none bg-transparent">
           <NavbarUser />
           <NavBarMobile />
         </div>

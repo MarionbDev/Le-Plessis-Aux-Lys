@@ -37,11 +37,11 @@
 
 .embla__container_activity {
   display: flex;
-  gap: 1rem; /* Espace constant entre les slides */
+  gap: 1rem;
   touch-action: pan-y pinch-zoom;
-  justify-content: start; /* Alignement des slides au début */
+  justify-content: start;
 
-  width: 100%; /* Largeur adaptée pour les différentes tailles d’écran */
+  width: 100%;
 }
 
 .embla__slide_activity {
@@ -58,7 +58,7 @@
 
 @media (min-width: 1024px) {
   .embla__container_activity {
-    width: 60rem; /* Largeur plus large pour écrans larges */
+    width: 60rem;
   }
   .embla_activity {
     width: 60rem;

@@ -45,7 +45,7 @@ export default function Map() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="relative z-0 flex justify-center flex-col items-center text-md lg:text-md lg:mx-56 xl:mt-12 leading-relaxed">
+          <div className="relative z-0 flex justify-center flex-col items-center text-md lg:text-md lg:mx-56 leading-relaxed">
             <span className="flex justify-center my-16 xl:my-20 w-2/4 border-t-2 border-separator"></span>
             <MapContainer
               center={position}
