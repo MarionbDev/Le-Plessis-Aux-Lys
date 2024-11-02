@@ -23,6 +23,7 @@ html {
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 .font-title-home {
@@ -57,12 +58,17 @@ html {
 
 /* RESPONSIVE */
 
-@media only screen and (min-width: 1024px) {
-  .navbar-mobile {
+@media only screen and (max-width: 767px) {
+  .image-home-desk {
     display: none;
   }
+  .image-home {
+    display: flex;
+  }
+}
 
-  .day-picker-mobile {
+@media only screen and (min-width: 768px) {
+  .image-home {
     display: none;
   }
 }
@@ -74,9 +80,21 @@ html {
   .navbar-desktop-admin {
     display: none;
   }
-
   .day-picker-desktop {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .navbar-mobile {
+    display: none;
+  }
+
+  .day-picker-mobile {
+    display: none;
+  }
+  .image-home-desk {
+    display: flex;
   }
 }
 
