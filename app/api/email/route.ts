@@ -76,7 +76,3 @@ export const POST = async (request: NextRequest) => {
   }
 };
 
-export const config = {
-  matcher: "/api/email", // Indiquer quelles routes le middleware doit appliquer
-};
-
