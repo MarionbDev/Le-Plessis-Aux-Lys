@@ -15,6 +15,9 @@ const nextConfig = {
   images: {
     domains: ["zsycdbufjrptszftdbdg.supabase.co"],
   },
+  experimental: {
+    middleware: true, // active l'utilisation du middleware
+  },
 };
 
 export default nextConfig;
