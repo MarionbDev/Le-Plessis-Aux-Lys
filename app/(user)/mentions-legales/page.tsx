@@ -62,9 +62,7 @@ export default function LegalNoticePage() {
               <a
                 className="text-blue-500 hover:underline"
                 // href="mailto:contact@marionbaston.fr "
-              >
-                contact@marionbaston.fr
-              </a>
+              ></a>
             </p>
 
             <p>

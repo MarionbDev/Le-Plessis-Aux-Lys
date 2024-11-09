@@ -65,17 +65,20 @@ export default function RentalPage({
     rate !== undefined && rate !== null ? `${rate} €` : "-";
 
   return (
-    <div className="font-text text-text_color  md:pt-[2rem] flex md:justify-around md:mx-14 ">
+    <div className="font-text text-text_color mt-10 md:pt-[4rem] flex md:justify-around md:mx-14 ">
       <div className="flex flex-col  md:flex-row gap-20 md:py-4 md:mt-14">
         <div className="flex flex-col justify-between md:w-full  ">
           <div className="flex flex-col justify-center ">
             <div className="flex justify-center text-center">
-              <div className="flex flex-col md:w-full lg:flex-row items-center justify-center mt-16 mb-10 md:mb-0 lg:mt-0 gap-4 lg:gap-12 lg:my-20">
-                <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
-                <p className=" font-semibold text-center lg:text-xl uppercase lg:w-[27rem]  ">
-                  {title}
-                </p>
-                <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
+              <div className="flex flex-col mb-20">
+                <div className="flex flex-col md:w-full lg:flex-row items-center justify-center mt-16 md:mb-0 lg:mt-0 gap-4 lg:gap-12 lg:my-8">
+                  <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
+
+                  <h2 className=" font-semibold text-center lg:text-xl uppercase lg:w-[27rem]  ">
+                    {title}
+                  </h2>
+                  <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
+                </div>
                 <h3 className="lg:text-md mb-8 h-4  font-bold ">{subTitle}</h3>
               </div>{" "}
             </div>
