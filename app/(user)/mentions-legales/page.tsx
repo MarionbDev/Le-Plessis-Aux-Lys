@@ -58,7 +58,13 @@ export default function LegalNoticePage() {
               <span className="font-semibold text-text_color ">
                 Propriétaire du site:
               </span>{" "}
-              Céline et Thierry Gros - Contact :
+              Céline et Thierry Gros - Contact :{" "}
+              <a
+                className="text-blue-500 hover:underline"
+                // href="mailto:contact@marionbaston.fr "
+              >
+                contact@marionbaston.fr
+              </a>
             </p>
 
             <p>

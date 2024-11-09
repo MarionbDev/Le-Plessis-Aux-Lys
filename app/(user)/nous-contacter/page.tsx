@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Loader, Send } from "lucide-react";
 import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { toast, Toaster } from "sonner";
@@ -19,12 +20,15 @@ export default function ContactForm() {
   const [lastname, setLatsName] = useState("");
   const [firstname, setFirstname] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmitFormContact = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
+      setIsLoading(true);
       console.log("Submitting form...");
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/email/`,
@@ -33,7 +37,7 @@ export default function ContactForm() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ lastname, firstname, email, message }),
+          body: JSON.stringify({ lastname, firstname, email, phone, message }),
         },
       );
       console.log("Received response :", response);
@@ -45,16 +49,14 @@ export default function ContactForm() {
       console.log("data client : ", data);
 
       if (data && data.message) {
-        // toast.success("Email envoyé avec succès !");
         const promise = () =>
           new Promise((resolve) =>
             setTimeout(() => {
               resolve({ name: "Sonner" });
-            }, 2000),
+            }, 800),
           );
 
         toast.promise(promise, {
-          loading: "Envoi du message en-cours...",
           success: (data) => {
             return `Votre message à bien été envoyé !`;
           },
@@ -64,17 +66,24 @@ export default function ContactForm() {
         setLatsName("");
         setFirstname("");
         setEmail("");
+        setPhone("");
         setMessage("");
       } else {
         toast.error("Une erreur s'est produite ! Veuillez réessayer !");
       }
     } catch (error) {
       console.error("Error :", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
+  const capitalizeFirstLetter = (value: string): string => {
+    return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+  };
+
   return (
-    <div className=" font-text flex justify-around items-center w-full mt-28  ">
+    <div className=" font-text md:flex justify-around items-center  w-full my-10 md:my-28   ">
       <Image
         src="/parc/parc1.jpg"
         width={600}
@@ -82,17 +91,16 @@ export default function ContactForm() {
         alt="image"
         className=" shadow-basic"
       />
-      <div className=" shadow-div rounded-md border-2 border-yellow/50 ">
+      <div className=" shadow-div rounded-md border-2 border-yellow/50 mx-4 md:mx-0 mt-10 md:mt-0 ">
         <Card className=" max-w-xl text-text_color ">
           <form onSubmit={handleSubmitFormContact} className="space-y-4 ">
             <CardHeader>
-              {/* <CardTitle>Contactez nous</CardTitle> */}
               <CardDescription className=" text-md font-medium ">
                 Remplissez le formulaire ci-dessous et nous vous répondrons dans
                 les plus brefs délais.
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex  flex-col gap-3">
               <div className="grid grid-cols-2 gap-4 ">
                 <div className="space-y-2 ">
                   <Label htmlFor="first-name" className="text-text_color">
@@ -100,10 +108,12 @@ export default function ContactForm() {
                   </Label>
                   <Input
                     id="first-name"
-                    placeholder="John"
+                    placeholder="Votre nom"
                     required
                     value={lastname}
-                    onChange={(e) => setLatsName(e.target.value)}
+                    onChange={(e) =>
+                      setLatsName(capitalizeFirstLetter(e.target.value))
+                    }
                   />
                 </div>
                 <div className="space-y-2">
@@ -112,25 +122,44 @@ export default function ContactForm() {
                   </Label>
                   <Input
                     id="last-name"
-                    placeholder="Doe"
+                    placeholder="Votre prénom"
                     required
                     value={firstname}
-                    onChange={(e) => setFirstname(e.target.value)}
+                    onChange={(e) =>
+                      setFirstname(capitalizeFirstLetter(e.target.value))
+                    }
                   />
                 </div>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-text_color">
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="john@example.com"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+              <div className="grid grid-cols-2 gap-4 ">
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-text_color">
+                    E-mail
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="Votre e-mail"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone" className="text-text_color">
+                    Téléphone
+                  </Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="Votre numéro de téléphone"
+                    pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  className="custom-placeholder"
+                  />
+                </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="message" className="text-text_color">
@@ -138,19 +167,27 @@ export default function ContactForm() {
                 </Label>
                 <Textarea
                   id="message"
-                  placeholder="..."
+                  placeholder="Votre message"
                   className="min-h-[120px] "
                   required
                   value={message}
-                  onChange={(e) => setMessage(e.target.value)}
+                  onChange={(e) =>
+                    setMessage(capitalizeFirstLetter(e.target.value))
+                  }
                 />
               </div>
             </CardContent>
             <CardFooter>
               <Button
                 type="submit"
-                className="ml-auto hover:text-white hover:bg-gold bg-gold/30 "
+                disabled={isLoading}
+                className="ml-auto hover:text-white hover:bg-gold bg-gold/30 gap-2 "
               >
+                {isLoading ? (
+                  <Loader className="animate-spin" size="16" />
+                ) : (
+                  <Send size={16} />
+                )}
                 Envoyer
               </Button>
             </CardFooter>{" "}

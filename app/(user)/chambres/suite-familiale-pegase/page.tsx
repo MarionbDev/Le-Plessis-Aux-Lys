@@ -41,7 +41,7 @@ export default function Pegase() {
   }
 
   return (
-    <div className=" h-screen mb-96">
+    <div className="">
       {rates && (
         <RentalPage
           title="Suite familiale Pégase"

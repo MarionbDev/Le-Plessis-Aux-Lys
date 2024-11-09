@@ -9,8 +9,8 @@ export default function UserLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <div className="fixed w-screen top-0 z-50 bg-none bg-transparent">
+    <div className=" ">
+      <div className="w-screen top-0 z-50 bg-none bg-transparent">
         <NavbarUser />
         <NavBarMobile />
       </div>
@@ -18,7 +18,7 @@ export default function UserLayout({
       <footer>
         <Footer />
       </footer>
-    </>
+    </div>
   );
 }
 

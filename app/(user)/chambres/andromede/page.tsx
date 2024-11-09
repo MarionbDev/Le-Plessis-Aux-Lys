@@ -42,7 +42,7 @@ export default function RoomThree() {
   }
 
   return (
-    <div className=" h-screen mb-96">
+    <div className="">
       {rates && (
         <RentalPage
           title="Chambre Andromède"

@@ -43,6 +43,8 @@ export default function ImageHomeWebSite() {
             src={"/parc/parc2.jpg"}
             width={950}
             height={300}
+            priority={true}
+            loading="eager"
             alt="photo du parc"
             className=" w-[20rem] md:w-4/6 lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem] object-cover object-center rounded-sm shadow-basic  "
           />

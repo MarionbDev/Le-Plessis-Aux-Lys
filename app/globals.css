@@ -30,9 +30,20 @@ html {
   font-family: "Montserrat";
 }
 
+.custom-placeholder {
+  font-size: 10px;
+}
+
 /* CALENDAR */
 .pointer {
   pointer-events: none;
+}
+/* 
+/* global.css ou votre fichier CSS principal */
+.rdp-root {
+  --rdp-day-width: 10rem; /* Réduit la largeur des cellules de jour */
+  --rdp-day-button-width: 2.5rem; /* Réduit la largeur des boutons des jours */
+  --rdp-day-height: 10rem; /* Réduit la hauteur des cellules de jour */
 }
 
 /* SCROLLBAR */
@@ -65,10 +76,17 @@ html {
   .image-home {
     display: flex;
   }
+
+  .prices-section {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   .image-home {
+    display: none;
+  }
+  .prices-section-mobile {
     display: none;
   }
 }

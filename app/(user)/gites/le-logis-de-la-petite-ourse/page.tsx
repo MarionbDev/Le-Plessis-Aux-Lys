@@ -41,7 +41,7 @@ export default function LaPetiteOurse() {
   }
 
   return (
-    <div className=" h-screen mb-96 ">
+    <div className=" ">
       {rates && (
         <RentalPage
           title="Le logis de la petite Ourse"

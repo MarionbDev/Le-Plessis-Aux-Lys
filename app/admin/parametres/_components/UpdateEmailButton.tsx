@@ -89,7 +89,7 @@ export function UpdateEmailButton() {
     } catch (error) {
       console.error(error);
       toast.error(
-        "Erreur lors du changement d'adresse email. Vous avez dépassé la limite autorisée de changements d'adresse email. Veuillez attendre un moment avant de réessayer. ",
+        "Erreur lors du changement d'adresse email. Vous avez dépassé la limite autorisée des changements de paramètres. Veuillez attendre un moment avant de réessayer. ",
         { duration: 7000 },
       );
     } finally {
