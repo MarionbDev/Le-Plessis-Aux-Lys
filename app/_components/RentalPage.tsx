@@ -86,7 +86,7 @@ export default function RentalPage({
               <div className=" ">
                 <div className="flex flex-col-reverse md:flex-col items-center gap-12 md:gap-20">
                   <section className="p-4  w-[22rem] md:w-full shadow-div rounded-md border-2 border-yellow/50 ">
-                    <div className=" pb-4 md:pb-0">
+                    <div className=" pb-4 md:pb-4">
                       <BookingCalendar reservedDates={reservedDates} />
                     </div>
                     <div>
