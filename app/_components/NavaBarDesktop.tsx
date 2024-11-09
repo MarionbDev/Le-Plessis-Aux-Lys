@@ -119,7 +119,7 @@ export default function NavBarDesktop() {
           // onClick={() => router.push("/jardin")}
           className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/jardin" ? styles.activeLink : styles.nonActiveLink}`}
         >
-          Jardin
+          Parc & Jardin
           <span className={styles.underline}></span>
         </Link>
 

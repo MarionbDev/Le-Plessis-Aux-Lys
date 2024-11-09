@@ -68,57 +68,59 @@ export default function ForgetPassword() {
   };
 
   return (
-    <div className=" w-[40rem] shadow-div rounded-md">
-      <Toaster richColors />
-      <Card className="rounded-md border-2 border-yellow/50 ">
-        <CardHeader>
-          <CardTitle className=" md:text-[1.4rem] text-text_color font-semibold">
-            Mot de passe oublié
-          </CardTitle>
-        </CardHeader>
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(handleResetPasswordSubmit)}
-            className=""
-          >
-            {" "}
-            <CardContent className="">
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col  gap-2">
-                    <div className="flex items-center gap-2">
-                      <FormLabel className=" text-md lg:text-lg  text-text_color ">
-                        <Mail size={24} color="#bbbb57" />
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="example@example.com"
-                          type="email"
-                          className=" text-md md:text-md w-[25rem] "
-                          {...field}
-                        />
-                      </FormControl>
-                    </div>
-                    <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
-                  </FormItem>
-                )}
-              />
-            </CardContent>
-            <CardFooter>
-              <Button
-                type="submit"
-                role="button"
-                aria-label="envoi de l'email"
-                className="gap-3 lg:gap-4  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-sm "
-              >
-                Envoyer un mail permettant de changer le mot de passe
-              </Button>
-            </CardFooter>
-          </form>
-        </Form>
-      </Card>
+    <div className="min-h-screen w-4/5 md:w-[40rem] ">
+      <div className=" shadow-div rounded-md">
+        <Toaster richColors />
+        <Card className="rounded-md border-2 border-yellow/50  ">
+          <CardHeader>
+            <CardTitle className=" md:text-[1.4rem] text-text_color font-semibold">
+              Mot de passe oublié
+            </CardTitle>
+          </CardHeader>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(handleResetPasswordSubmit)}
+              className=""
+            >
+              {" "}
+              <CardContent className="">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col  gap-2">
+                      <div className="flex items-center gap-2">
+                        <FormLabel className=" text-md lg:text-lg  text-text_color ">
+                          <Mail size={24} color="#bbbb57" />
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Votre e-mail"
+                            type="email"
+                            className=" text-md md:text-md md:w-[25rem] "
+                            {...field}
+                          />
+                        </FormControl>
+                      </div>
+                      <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                    </FormItem>
+                  )}
+                />
+              </CardContent>
+              <CardFooter>
+                <Button
+                  type="submit"
+                  role="button"
+                  aria-label="envoi de l'email"
+                  className="gap-3 lg:gap-4  bg-yellow/50 hover:bg-yellow hover:text-white text-wrap h-20  text-text_color text-md lg:text-sm "
+                >
+                  Envoyer un mail permettant de changer le mot de passe
+                </Button>
+              </CardFooter>
+            </form>
+          </Form>
+        </Card>
+      </div>
     </div>
   );
 }

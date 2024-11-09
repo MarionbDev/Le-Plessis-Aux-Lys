@@ -48,17 +48,18 @@ export const POST = async (request: NextRequest) => {
 
     // Parse le corps de la requête (le formulaire)
     const body = await request.json();
-    const { firstname, lastname, email, message } = body;
+    const { firstname, lastname, email, phone, message } = body;
 
     // Affiche les données pour débogage
     console.log("Body server:", body);
 
     // Envoi de l'email via Resend
     const emailResult = await resend.emails.send({
-      from: `${firstname} ${lastname} <leplessis@resend.dev>`, // Ton email d'envoi
-      to: ["marionbaston84@gmail.com"], // Email destinataire
+      from: "contact@le-plessis-aux-lys.fr",
+      // `${firstname} ${lastname} <leplessis@resend.dev>`,
+      to: process.env.TO_EMAIL ?? "marionbaston84@gmail.com", // Email destinataire
       subject: "Message envoyé depuis Le Plessis Aux Lys", // Sujet de l'email
-      react: EmailTemplate({ firstname, lastname, email, message }), // Contenu HTML généré
+      react: EmailTemplate({ firstname, lastname, email, phone, message }), // Contenu HTML généré
     });
 
     // Affiche le résultat de l'envoi d'email

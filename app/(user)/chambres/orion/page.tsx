@@ -41,7 +41,7 @@ export default function Orion() {
   }
 
   return (
-    <div className=" h-screen mb-96">
+    <div className="">
       {rates && (
         <RentalPage
           title="Chambre Orion"

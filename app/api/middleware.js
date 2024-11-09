@@ -21,3 +21,7 @@ export function middleware(request) {
   return response;
 }
 
+export const config = {
+  matcher: ["/api/:path*"], // Le middleware sera exécuté uniquement pour les routes qui commencent par /api/
+};
+

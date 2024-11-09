@@ -41,7 +41,7 @@ export default function Cassiopee() {
   }
 
   return (
-    <div className=" h-screen mb-96">
+    <div className=" ">
       {rates && (
         <RentalPage
           title="Chambre Cassiopée"

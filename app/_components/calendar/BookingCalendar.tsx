@@ -34,14 +34,17 @@ export default function BookingCalendar({
   };
 
   return (
-    <>
+    <div className=" ">
       <DayPicker
         mode="range"
         locale={fr}
         numberOfMonths={1}
         modifiers={modifiers}
         modifiersStyles={modifiersStyles}
-        className="day-picker-mobile text-slate-600 h-[17rem] text-sm  "
+        className="day-picker-mobile  text-slate-600 text-md md:text-sm  "
+        style={{
+          width: "200px",
+        }}
       />
       <DayPicker
         mode="range"
@@ -51,7 +54,7 @@ export default function BookingCalendar({
         modifiersStyles={modifiersStyles}
         className="day-picker-desktop text-slate-600 h-[17rem] text-sm  "
       />
-    </>
+    </div>
   );
 }
 

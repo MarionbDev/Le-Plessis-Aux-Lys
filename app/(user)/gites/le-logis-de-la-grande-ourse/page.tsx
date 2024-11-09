@@ -41,7 +41,7 @@ export default function LaGrandeOurse() {
   }
 
   return (
-    <div className=" h-screen mb-96 ">
+    <div className=" ">
       {rates && (
         <RentalPage
           title="Le logis de la grande Ourse"
