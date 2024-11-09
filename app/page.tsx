@@ -5,8 +5,6 @@ import { useEffect } from "react";
 import UserLayout from "./(user)/layout";
 import DescriptionWebSite from "./_components/DescriptionWebSite";
 import ImageHomeWebSite from "./_components/ImageHomeWebSite";
-import NavBarMobile from "./_components/NavbarMobile";
-import NavbarUser from "./_components/NavbarUserDesktop";
 
 const DynamicMap = dynamic(() => import("./_components/Map"), {
   ssr: false,
@@ -23,8 +21,8 @@ export default function Home() {
     <UserLayout>
       <div className="min-h-screen">
         <div className="fixed w-full top-0 z-50 bg-none bg-transparent">
-          <NavbarUser />
-          <NavBarMobile />
+          {/* <NavbarUser />
+          <NavBarMobile /> */}
         </div>
         <main className=" ">
           <ImageHomeWebSite />

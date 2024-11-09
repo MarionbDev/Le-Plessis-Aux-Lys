@@ -83,7 +83,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className=" font-text md:flex justify-around items-center  w-full my-10 md:my-28   ">
+    <div className=" font-text md:flex justify-around items-center  w-full my-10 md:my-28 pt-10   ">
       <Image
         src="/parc/parc1.jpg"
         width={600}
@@ -157,7 +157,7 @@ export default function ContactForm() {
                     required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                  className="custom-placeholder"
+                    className="custom-placeholder"
                   />
                 </div>
               </div>

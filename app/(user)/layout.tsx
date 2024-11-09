@@ -10,7 +10,7 @@ export default function UserLayout({
 }>) {
   return (
     <div className=" ">
-      <div className="w-screen top-0 z-50 bg-none bg-transparent">
+      <div className=" fixed top-0 z-50 bg-none bg-transparent">
         <NavbarUser />
         <NavBarMobile />
       </div>

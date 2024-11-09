@@ -46,7 +46,7 @@ export default function ToVisited() {
   };
 
   return (
-    <div className="md:pt-20 xl:pt-40 px-6 xl:px-20 flex flex-col items-center my-10   ">
+    <div className="pt-12 md:pt-20 xl:pt-40 px-6 xl:px-20 flex flex-col items-center my-10   ">
       <h3 className="font-prata text-2xl xl:w-[50rem] text-center mb-16 text-text_color ">
         "Explorez la Vendée : entre océan et campagne, laissez-vous charmer par
         ses sites emblématiques et sa douceur de vivre."{" "}
