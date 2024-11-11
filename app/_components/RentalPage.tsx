@@ -79,14 +79,16 @@ export default function RentalPage({
                   </h2>
                   <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
                 </div>
-                <h3 className="lg:text-md mb-8 h-4  font-bold ">{subTitle}</h3>
+                <h3 className="lg:text-md mb-8 h-4 mt-6 md:mt-1 font-bold ">
+                  {subTitle}
+                </h3>
               </div>{" "}
             </div>
             <div className=" flex flex-col-reverse md:flex-row gap-16 md:gap-6">
               <div className=" ">
                 <div className="flex flex-col-reverse md:flex-col items-center gap-12 md:gap-20">
                   <section className="p-4  w-[22rem] md:w-full shadow-div rounded-md border-2 border-yellow/50 ">
-                    <div className=" pb-4 md:pb-0">
+                    <div className=" pb-4 md:pb-4">
                       <BookingCalendar reservedDates={reservedDates} />
                     </div>
                     <div>
