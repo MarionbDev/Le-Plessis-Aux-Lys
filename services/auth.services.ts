@@ -69,18 +69,84 @@ export const logout = async () => {
   }
 };
 
+// export const updateEmail = async (
+//   newEmail: string,
+//   { email, password }: PropType,
+// ) => {
+//   try {
+//     const loginData = await loginUser({ email, password });
+//     console.log("login data:", email);
+//     const { data, error } = await supabase.auth.updateUser({
+//       email: newEmail,
+//     });
+//     console.log("new email :", data);
+
+//     if (!loginData) {
+//       throw new Error(
+//         "Impossible de se connecter. Vérifiez vos informations d'identification.",
+//       );
+//     }
+
+//     // Vérifie les erreurs
+//     if (error) {
+//       console.error("Erreur lors de la mise à jour de l'email:", error.message);
+//       throw new AuthError(error.message); // Lève une erreur explicite si la mise à jour échoue
+//     }
+
+//     console.log("Nouvel email mis à jour avec succès :", data);
+
+//     return data;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
+
 export const updateEmail = async (
   newEmail: string,
-  { email, password }: PropType,
+  { email, password }: { email: string; password: string },
 ) => {
   try {
-    await loginUser({ email, password });
-    const { data, error } = await supabase.auth.updateUser({
-      email: newEmail,
+    // Authentifie l'utilisateur avec ses identifiants
+    const { data, error: loginError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
     });
-    if (error) throw error;
-    return data;
+
+    if (loginError) {
+      console.error(
+        "Erreur lors de la connexion de l'utilisateur :",
+        loginError.message,
+      );
+      throw loginError;
+    }
+
+    console.log(
+      "Utilisateur connecté avec succès pour mise à jour de l'email :",
+      email,
+    );
+
+    // Mise à jour de l'email avec confirmation
+    const { data: updateData, error: updateError } =
+      await supabase.auth.updateUser({
+        email: newEmail,
+      });
+    console.log("new email :", data);
+
+    if (updateError) {
+      console.error("Erreur de mise à jour de l'email :", updateError.message);
+      throw updateError;
+    }
+
+    console.log("Mise à jour réussie, confirmation envoyée :", updateData);
+
+    // Vérification du processus de confirmation (si nécessaire)
+    if (updateData?.user?.email) {
+      console.log(`Un email de confirmation a été envoyé à ${newEmail}`);
+    }
+
+    return updateData;
   } catch (error) {
+    console.error("Erreur globale lors de la mise à jour de l'email :", error);
     throw error;
   }
 };

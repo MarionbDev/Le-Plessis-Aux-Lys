@@ -89,6 +89,9 @@ html {
   .prices-section-mobile {
     display: none;
   }
+  .custom-placeholder {
+    font-size: 14px;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -113,6 +116,9 @@ html {
   }
   .image-home-desk {
     display: flex;
+  }
+  .home-title {
+    display: none;
   }
 }
 

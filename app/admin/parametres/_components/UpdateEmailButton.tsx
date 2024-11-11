@@ -47,6 +47,9 @@ export function UpdateEmailButton() {
   const [showPassword, setShowPassword] = useState(false);
   const { user, loading, refreshSession } = useSession();
 
+  // const isAdmin = user?.aud === "authenticated";
+  // console.log("user:", user);
+
   const form = useForm<z.infer<typeof UpdateEmailFormSchema>>({
     resolver: zodResolver(UpdateEmailFormSchema),
     defaultValues: {
@@ -58,6 +61,11 @@ export function UpdateEmailButton() {
   // console.log("data user:", user);
 
   const handleSubmit = async (values: FormSchemaType) => {
+    // if (!isAdmin) {
+    //   toast.error("Seul un administrateur peut changer son email.");
+    //   return;
+    // }
+
     if (!user?.email) {
       console.error("L'email de l'utilisateur est manquant");
       return;
