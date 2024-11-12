@@ -5,15 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import chambreAndromede from "../../public/chambres/andromede/ch-3-1.jpg";
-import chambreCassiopee from "../../public/chambres/cassiopee/ch-2.jpg";
-import chambreOrion from "../../public/chambres/orion/ch-1.jpg";
-import chambrePegase from "../../public/chambres/pegase/ch-2.jpg";
+import chambreAndromede from "../../public/chambres/andromede/ch-3-1.webp";
+import chambreCassiopee from "../../public/chambres/cassiopee/ch-2.webp";
+import chambreOrion from "../../public/chambres/orion/ch-1.webp";
+import chambrePegase from "../../public/chambres/pegase/pegase2.webp";
 
 // import grandeOurse from "../../public/image.png";
-import parc1 from "../../public/parc/parc1.jpg";
-import parc6 from "../../public/parc/parc6.jpg";
-import petiteOurse from "../../public/petite-ourse/gite.jpg";
+import parc1 from "../../public/parc/Parc-1.webp";
+import parc6 from "../../public/parc/parc-6.webp";
+import petiteOurse from "../../public/petite-ourse/Gite-1.webp";
 
 import { getAllArticles } from "../api/article/route";
 import { ArticleProps, Slide } from "../types";
@@ -184,13 +184,13 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125 duration-1000 h-auto "
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-1000 group-hover:bg-opacity-50 group-hover:opacity-100">
-                  <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                  <p className="text-lg text-center  font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 mx-4 md:mx-0 px-5 py-2 bg-black/50 rounded-md">
                     Le Logis de la petite Ourse
                   </p>
                 </div>
               </Link>
             </li>
-            <li className="relative overflow-hidden group w-96 flex justify-center items-center bg-[#f5f7dc] ">
+            <li className="h-[180px] relative overflow-hidden group w-96 flex justify-center items-center bg-[#f5f7dc] ">
               <Link
                 href={"/gites/le-logis-de-la-grande-ourse"}
                 onClick={() =>
@@ -204,9 +204,9 @@ export default function DescriptionWebSite() {
                   alt="photo du gîte"
                   className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125 duration-1000 h-auto "
                 /> */}
-                <div className="">photo </div>
+
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-1000 group-hover:bg-opacity-50 group-hover:opacity-100">
-                  <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                  <p className="text-lg text-center font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 mx-4 md:mx-0 px-5 py-2 bg-black/50 rounded-md">
                     Le Logis de la grande Ourse
                   </p>
                 </div>
@@ -241,7 +241,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 h-auto "
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-1000 group-hover:bg-opacity-50 group-hover:opacity-100">
-                  <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                  <p className="text-lg text-center font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
                     Chambre Orion
                   </p>
                 </div>
@@ -261,7 +261,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-500 h-auto"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-500 group-hover:bg-opacity-50 group-hover:opacity-100">
-                  <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                  <p className="text-lg text-center font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
                     Chambre Cassiopée
                   </p>
                 </div>
@@ -297,7 +297,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 h-auto"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-500 group-hover:bg-opacity-50 group-hover:opacity-100">
-                  <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                  <p className="text-lg text-center font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
                     Chambre Andromède
                   </p>
                 </div>
@@ -316,7 +316,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-500 h-auto"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center transition duration-500 group-hover:bg-opacity-50 group-hover:opacity-100">
-                  <p className="text-lg font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
+                  <p className="text-lg text-center font-semibold text-white xl:opacity-0 group-hover:opacity-100 transition duration-700 border border-white/50 px-5 py-2 bg-black/50 rounded-md">
                     Suite familiale Pégase
                   </p>
                 </div>
