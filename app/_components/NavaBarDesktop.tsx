@@ -144,6 +144,7 @@ export default function NavBarDesktop() {
 
         <Link
           href={"/login"}
+          aria-label="Lien vers l'espace de connexion administrateur "
           className=" flex items-center text-xl lg:text-[1rem] opacity-50 hover:opacity-100 "
         >
           <LogIn size={24} color="#bbbb57" />
