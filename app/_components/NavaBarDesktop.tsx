@@ -20,9 +20,10 @@ export default function NavBarDesktop() {
     setActiveIndex(null);
   };
 
-  const handleButtonClick = () => {
-    router.push("/login");
-  };
+  // const handleButtonClick = () => {
+  //   router.push("/login");
+  // };
+
   return (
     <div className="">
       <div className=" font-text text-text_color flex gap-6 px-10  border-none ">
@@ -141,13 +142,12 @@ export default function NavBarDesktop() {
           <span className={styles.underline}></span>
         </Link>
 
-        <button
-          onClick={handleButtonClick}
-          type="button"
-          className=" flex items-center gap-2 text-xl lg:text-[1rem] opacity-50 hover:opacity-100 "
+        <Link
+          href={"/login"}
+          className=" flex items-center text-xl lg:text-[1rem] opacity-50 hover:opacity-100 "
         >
           <LogIn size={24} color="#bbbb57" />
-        </button>
+        </Link>
       </div>
     </div>
   );

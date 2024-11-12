@@ -1,8 +1,8 @@
 "use client";
 
+import parc2 from "@/public/parc/Parc-2.webp";
 import { Variants, motion } from "framer-motion";
 import Image from "next/image";
-//optimisation des images
 
 const sectionVariants: Variants = {
   hide: {
@@ -46,7 +46,7 @@ export default function ImageHomeWebSite() {
             </h2>
           </div>
           <Image
-            src={"/parc/parc2.jpg"}
+            src={parc2}
             width={950}
             height={300}
             priority={true}

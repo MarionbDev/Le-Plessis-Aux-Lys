@@ -15,6 +15,7 @@ import { Loader, Send } from "lucide-react";
 import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { toast, Toaster } from "sonner";
+import parc1 from "../../../public/parc/Parc-1.webp";
 
 export default function ContactForm() {
   const [lastname, setLatsName] = useState("");
@@ -83,13 +84,13 @@ export default function ContactForm() {
   };
 
   return (
-    <div className=" font-text md:flex justify-around items-center  w-full my-10 md:my-28 pt-10   ">
+    <div className=" font-text flex flex-col lg:flex-row md:gap-10 justify-around items-center  w-full my-10 md:my-28 pt-12 md:pt-6   ">
       <Image
-        src="/parc/parc1.jpg"
-        width={600}
-        height={900}
+        src={parc1}
+        width={390}
+        height={200}
         alt="image"
-        className=" shadow-basic"
+        className=" shadow-basic lg:w-[30rem] xl:w-[38rem] "
       />
       <div className=" shadow-div rounded-md border-2 border-yellow/50 mx-4 md:mx-0 mt-10 md:mt-0 ">
         <Card className=" max-w-xl text-text_color ">

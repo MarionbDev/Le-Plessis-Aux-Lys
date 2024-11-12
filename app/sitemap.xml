@@ -1,0 +1,52 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>https://le-plessis-aux-lys.fr/</loc>
+        <priority>1</priority>
+    </url>
+    <url>
+        <loc>https://le-plessis-aux-lys.fr/gites/le-logis-de-la-petite-ourse</loc>
+        <priority>0.8</priority>
+
+    </url>
+    <url>
+        <loc>https://le-plessis-aux-lys.fr/gites/le-logis-de-la-grande-ourse</loc>
+        <priority>0.8</priority>
+
+    </url> 
+    <url>
+        <loc>https://le-plessis-aux-lys.fr/chambres/orion</loc>
+        <priority>0.8</priority>
+
+    </url> 
+    <url>
+        <loc>https://le-plessis-aux-lys.fr/chambres/cassiopee</loc>
+        <priority>0.8</priority>
+
+    </url>  
+    <url>
+        <loc>https://le-plessis-aux-lys.fr/chambres/andromede</loc>
+        <priority>0.8</priority>
+
+    </url>
+    <url>
+        <loc>https://le-plessis-aux-lys.fr/chambres/suite-familiale-pegase</loc>
+        <priority>0.8</priority>
+
+    </url>
+    <url>
+        <loc>https://le-plessis-aux-lys.fr/jardin</loc>
+        <priority>0.8</priority>
+
+    </url>
+    <url>
+        <loc>https://le-plessis-aux-lys.fr/activites</loc>
+        <priority>0.8</priority>
+
+    </url>
+      <url>
+    <loc>https://le-plessis-aux-lys.fr/nous-contacter</loc>
+        <priority>0.8</priority>
+
+    </url>
+   
+</urlset>
