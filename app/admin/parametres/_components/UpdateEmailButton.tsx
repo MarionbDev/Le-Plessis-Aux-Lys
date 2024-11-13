@@ -53,7 +53,7 @@ export function UpdateEmailButton() {
   const form = useForm<z.infer<typeof UpdateEmailFormSchema>>({
     resolver: zodResolver(UpdateEmailFormSchema),
     defaultValues: {
-      email: user?.email,
+      email: user?.email ?? "",
       password: "",
     },
   });
@@ -61,11 +61,6 @@ export function UpdateEmailButton() {
   // console.log("data user:", user);
 
   const handleSubmit = async (values: FormSchemaType) => {
-    // if (!isAdmin) {
-    //   toast.error("Seul un administrateur peut changer son email.");
-    //   return;
-    // }
-
     if (!user?.email) {
       console.error("L'email de l'utilisateur est manquant");
       return;
@@ -82,18 +77,6 @@ export function UpdateEmailButton() {
         "Un email de confirmation a été envoyé à votre nouvelle adresse. Veuillez suivre les instructions dans cet email pour confirmer le changement.",
         { duration: 6000 },
       );
-      // const promise = () =>
-      //   new Promise((resolve) =>
-      //     setTimeout(() => {
-      //       resolve({ name: "Sonner" });
-      //     }, 2000),
-      //   );
-      // toast.promise(promise(), {
-      //   success: (data) => {
-      //     return "Vous allez recevoir un email de confirmation à valider avec votre nouvelle adresse email.";
-      //   },
-      //   error: "Error",
-      // });
     } catch (error) {
       console.error(error);
       toast.error(
@@ -127,12 +110,12 @@ export function UpdateEmailButton() {
                 Mise à jour de l'email
               </DialogTitle>
             </DialogHeader>
-            <div className="grid  py-4 ">
+            <div className=" py-4 ">
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem className="text-text_color mt-6 ">
+                  <FormItem className="text-text_color mt-6 h-[6rem]   ">
                     <FormLabel className="text-text_color text-md   ">
                       Email
                     </FormLabel>
@@ -140,18 +123,20 @@ export function UpdateEmailButton() {
                       <Input
                         placeholder="example@example.com"
                         type="email"
-                        {...field}
+                        value={field.value}
+                        // {...field}
                       />
                     </FormControl>
                     <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={form.control}
                 name="password"
                 render={({ field }) => (
-                  <FormItem className="text-text_color mt-6">
+                  <FormItem className="text-text_color mt-4 h-[6rem] ">
                     <FormLabel className="text-text_color text-md   ">
                       Mot de passe
                     </FormLabel>
@@ -159,7 +144,8 @@ export function UpdateEmailButton() {
                       <Input
                         placeholder="********"
                         type={showPassword ? "text" : "password"}
-                        {...field}
+                        value={field.value}
+                        // {...field}
                       />
                     </FormControl>
                     <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic " />

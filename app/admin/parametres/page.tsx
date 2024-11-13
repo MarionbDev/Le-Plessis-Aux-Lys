@@ -11,8 +11,8 @@ import { UpdatePasswordButton } from "./_components/UpdatePasswordButton";
 export default function Settings() {
   return (
     <>
-      <div className="container mx-auto px-96  py-20 flex flex-col space-y-8   ">
-        <div className="shadow-div rounded-md">
+      <div className="flex justify-center mt-32 ">
+        <div className="lg:w-2/5  shadow-div rounded-md">
           <Card className=" text-text_color border-2 border-yellow/50  ">
             <CardHeader>
               <CardTitle>Informations personnelles</CardTitle>

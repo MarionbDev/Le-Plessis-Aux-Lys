@@ -52,21 +52,21 @@ export default function ListArticles({
 
   const visitContextValue = {
     framerMotionVariants: {
-      hide: {
-        opacity: 0,
-      },
-      show: {
-        opacity: 1,
-        transition: {
-          duration: 1,
-          delay: 0.6,
-        },
-      },
+      // hide: {
+      //   opacity: 0,
+      // },
+      // show: {
+      //   opacity: 1,
+      //   transition: {
+      //     duration: 1,
+      //     delay: 0.6,
+      //   },
+      // },
     },
   };
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col md:mx-20 ">
       <div className="grid grid-cols-4 my-10 ">
         <div className=" grid col-start-4 place-items-end">
           <Link href="?modal=true">
@@ -80,7 +80,9 @@ export default function ListArticles({
           </Link>
         </div>
       </div>
-      <ul className="grid grid-cols-3 gap-4 place-items-center  gap-x-28  gap-y-12">
+      {/* <ul className="grid grid-cols-3 gap-4 place-items-center  gap-x-28  gap-y-12"> */}
+
+      <ul className="flex flex-wrap  gap-x-28  gap-y-12 ">
         <VisitContext.Provider value={visitContextValue}>
           {articles.map((article) => (
             <li key={article.id}>

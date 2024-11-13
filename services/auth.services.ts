@@ -139,6 +139,31 @@ export const updateEmail = async (
 
     console.log("Mise à jour réussie, confirmation envoyée :", updateData);
 
+    // Mettre à jour l'email dans la table 'admin'
+    const { data: adminUpdateData, error: adminUpdateError } = await supabase
+      .from("admin")
+      .update(
+        { email: newEmail }, // Passez un tableau d'objets
+      )
+      .eq("email", email);
+
+    console.log("nouvel email :", newEmail); // Vérifiez le format de l'email avant l'upsert
+
+    console.log("adminUpdateData:", adminUpdateData);
+
+    if (adminUpdateError) {
+      console.error(
+        "Erreur de mise à jour de l'email dans la table 'admin' :",
+        adminUpdateError.message,
+      );
+      throw adminUpdateError;
+    }
+
+    console.log(
+      "Mise à jour de l'email dans la table 'admin' réussie :",
+      adminUpdateData,
+    );
+
     // Vérification du processus de confirmation (si nécessaire)
     if (updateData?.user?.email) {
       console.log(`Un email de confirmation a été envoyé à ${newEmail}`);
