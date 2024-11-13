@@ -157,14 +157,15 @@ const BookingToCome: React.FC = () => {
   };
 
   return (
-    <div className=" text-text_color ">
+    <div className=" text-text_color  flex flex-col py-20 ">
       <div className=" mx-10 mb-6">
         <h2 className=" text-lg ">Suivi des réservations :</h2>
       </div>
-      <div className="flex flex-wrap gap-y-10 gap-x-20  justify-center mx-10 ">
+
+      <div className="flex flex-wrap justify-center gap-y-10 gap-x-20">
         {rentalsCalendar.map((rental) => (
-          <div className="shadow-div rounded-md " key={rental.id}>
-            <Card className="mb-8 w-[22rem] h-full border-2 text-text_color  border-yellow/50">
+          <div className="shadow-div rounded-md w-[22rem] " key={rental.id}>
+            <Card className="mb-8 w-[22rem] h-full border-2 text-text_color  border-yellow/50 rounded-md">
               <CardHeader>
                 <CardTitle className="text-lg font-bold uppercase text-center mb-2 ">
                   {rentalNames[rental.type]}

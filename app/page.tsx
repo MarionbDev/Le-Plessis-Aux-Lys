@@ -27,6 +27,7 @@ export default function Home() {
         <main className=" ">
           <ImageHomeWebSite />
           <DescriptionWebSite />
+
           <DynamicMap />
         </main>
       </div>
