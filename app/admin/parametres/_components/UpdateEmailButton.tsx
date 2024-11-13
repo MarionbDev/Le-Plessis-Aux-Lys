@@ -102,11 +102,18 @@ export function UpdateEmailButton() {
           <div>Email</div> <div>{`${user?.email}`}</div>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] bg-white dark:shadow-inner  shadow-md border-none  backdrop-blur-3xl drop-shadow-lg ">
+      <DialogContent
+        // aria-labelledby="dialog-title"
+        // aria-describedby="dialog-description"
+        className="sm:max-w-[425px] bg-white dark:shadow-inner  shadow-md border-none  backdrop-blur-3xl drop-shadow-lg "
+      >
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSubmit)}>
             <DialogHeader>
-              <DialogTitle className="md:text-[1.4rem] text-text_color font-semibold">
+              <DialogTitle
+                // id="dialog-title"
+                className="visually-hidden md:text-[1.4rem] text-text_color font-semibold"
+              >
                 Mise à jour de l'email
               </DialogTitle>
             </DialogHeader>
@@ -123,8 +130,8 @@ export function UpdateEmailButton() {
                       <Input
                         placeholder="example@example.com"
                         type="email"
-                        value={field.value}
-                        // {...field}
+                        // value={field.value}
+                        {...field}
                       />
                     </FormControl>
                     <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
@@ -144,8 +151,8 @@ export function UpdateEmailButton() {
                       <Input
                         placeholder="********"
                         type={showPassword ? "text" : "password"}
-                        value={field.value}
-                        // {...field}
+                        // value={field.value}
+                        {...field}
                       />
                     </FormControl>
                     <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic " />
@@ -179,6 +186,11 @@ export function UpdateEmailButton() {
             </DialogFooter>
           </form>
         </Form>
+        {/* <div id="dialog-description" className="hidden">
+          Ce formulaire vous permet de mettre à jour votre adresse email.
+          Veuillez fournir votre nouveau email ainsi que votre mot de passe
+          actuel pour confirmer cette modification
+        </div> */}
       </DialogContent>
       <Toaster richColors />
     </Dialog>

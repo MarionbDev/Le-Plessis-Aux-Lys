@@ -67,6 +67,19 @@ html {
   cursor: pointer;
 }
 
+/* ACCESSIBILITY */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
 /* RESPONSIVE */
 
 @media only screen and (max-width: 767px) {
