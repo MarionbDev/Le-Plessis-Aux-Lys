@@ -136,16 +136,18 @@ export function UpdatePasswordButton() {
           <div>Mote de passe</div> <div>**********</div>
         </Button>
       </DialogTrigger>
-      <DialogContent className=" sm:max-w-[425px] lg:h-[40rem] bg-white backdrop-blur-3xl drop-shadow-lg text-text_color ">
+      <DialogContent className="w-[320px] sm:min-w-[360px]  bg-white backdrop-blur-3xl drop-shadow-lg text-text_color ">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmitNewPassword)}
             className="flex flex-col justify-between"
           >
             <DialogHeader>
-              <DialogTitle>Mise à jour du mot de passe</DialogTitle>
+              <DialogTitle className=" text-left">
+                Mise à jour du mot de passe
+              </DialogTitle>
             </DialogHeader>
-            <div className="grid  py-4">
+            <div className="py-4">
               <FormField
                 control={form.control}
                 name="password"
@@ -173,7 +175,7 @@ export function UpdatePasswordButton() {
                 className=" cursor-pointer hover:underline"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                <p className=" text-sm italic mb-2 pt-2 pl-1 underline">
+                <p className=" text-sm italic mb-2  pl-1 underline">
                   Afficher mot de passe
                 </p>
               </div>
@@ -204,7 +206,7 @@ export function UpdatePasswordButton() {
                 className=" cursor-pointer hover:underline"
                 onClick={() => setShowNewPassword(!showNewPassword)}
               >
-                <p className=" text-sm italic mb-2 pt-2 pl-1 underline">
+                <p className=" text-sm italic mb-2  pl-1 underline">
                   Afficher le mot de passe
                 </p>
               </div>
@@ -231,7 +233,7 @@ export function UpdatePasswordButton() {
                 className=" cursor-pointer hover:underline"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
               >
-                <p className=" text-sm italic mb-2 pt-2 pl-1 underline">
+                <p className=" text-sm italic mb-2  pl-1 underline">
                   Afficher le mot de passe
                 </p>
               </div>

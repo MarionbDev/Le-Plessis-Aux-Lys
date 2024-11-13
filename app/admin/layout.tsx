@@ -5,6 +5,7 @@ import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { ReactNode, useEffect } from "react";
 import NavbarDesktopAdmin from "./_components/NavBarDesktopAdmin";
+import NavBarMobileAdmin from "./_components/NavBarMobileAdmin";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   const { user, error, loading } = useSession();
@@ -33,6 +34,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
     <section className=" h-screen font-text">
       <NavbarDesktopAdmin />
+      <NavBarMobileAdmin />
 
       {children}
     </section>

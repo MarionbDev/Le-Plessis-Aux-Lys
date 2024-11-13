@@ -52,7 +52,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
   addCalendarEvent,
   deleteReservation,
 }) => {
-  console.log("AddReservation component re-rendered");
+  // console.log("AddReservation component re-rendered");
   const [selectedDates, setSelectedDates] = useState<DateRange | undefined>({
     from: undefined,
     to: undefined,
@@ -65,7 +65,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
   const [filteredDates, setFilteredDates] = useState<ReservationInput[]>([]);
 
   useEffect(() => {
-    console.log("Effect triggered for fetchReservedDates");
+    // console.log("Effect triggered for fetchReservedDates");
     const fetchReservedDatesForRentalType = async () => {
       try {
         const fetchedDates = await fetchReservedDates(rentalType);
@@ -83,14 +83,14 @@ const AddReservation: React.FC<AddReservationProps> = ({
   }, [rentalType, fetchReservedDates]);
 
   const handleSelect = useCallback((range: DateRange | undefined) => {
-    console.log("handleSelect function created");
+    // console.log("handleSelect function created");
 
     setSelectedDates(range);
     // console.log("Selected dates:", range);
   }, []);
 
   const handleSubmit = useCallback(async () => {
-    console.log("handleSubmit function created");
+    // console.log("handleSubmit function created");
 
     if (!selectedDates?.from || !selectedDates?.to) {
       toast.warning("Veuillez sélectionner une ou plusieurs dates");
@@ -118,7 +118,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
         type: reservationType,
       });
 
-      console.log("Setting state after successful submission");
+      // console.log("Setting state after successful submission");
 
       setSelectedDates({ from: undefined, to: undefined });
       setReservationType(undefined);
@@ -138,7 +138,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
 
   const handleDelete = useCallback(
     async (id: string) => {
-      console.log("handleDelete function created");
+      // console.log("handleDelete function created");
       try {
         await deleteReservation(id);
         setReservedDates(
@@ -153,7 +153,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
   );
 
   useEffect(() => {
-    console.log("Effect triggered for filteredReservations");
+    // console.log("Effect triggered for filteredReservations");
     // Filtrer les réservations en fonction de searchTerm
     const filteredReservations = reservedDates.filter(
       (reservation) =>
@@ -187,7 +187,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
     [selectedDates, reservedDates],
   );
 
-  console.log("Modifiers updated:", modifiers);
+  // console.log("Modifiers updated:", modifiers);
 
   const modifiersStyles = useMemo(
     () => ({

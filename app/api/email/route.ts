@@ -1,45 +1,23 @@
-// import EmailTemplate from "@/app/_components/contact/EmailTemplate";
-// import type { NextRequest } from "next/server";
-// import { NextResponse } from "next/server";
-// import { resend } from "../../../lib/resend";
-
-// // Send email
-// export const POST = async (request: NextRequest) => {
-//   try {
-//     console.log("Received a POST request");
-
-//     const body = await request.json();
-
-//     const { firstname, lastname, email, message } = body;
-
-//     console.log("body server", body);
-
-//     // const toEmail = process.env.TO_EMAIL;
-
-//     resend.emails.send({
-//       from: `${firstname} ${lastname} <leplessis@resend.dev>`,
-//       to: ["marionbaston84@gmail.com"],
-//       // changer avec les données avec celles du client dans la database
-//       subject: "Message envoyé depuis Le Plessis Aux Lys ",
-//       react: EmailTemplate({ firstname, lastname, email, message }),
-//     });
-
-//     // console.log("Email send result:", emailResult);
-
-//     return NextResponse.json({ message: "email successfull sent!" });
-//   } catch (error) {
-//     console.log("error", error);
-//     return NextResponse.json(
-//       { error: "Internal Server Error" },
-//       { status: 500 },
-//     );
-//   }
-// };
-
 import EmailTemplate from "@/app/_components/contact/EmailTemplate";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { resend } from "../../../lib/resend";
+
+// Fonction pour récupérer l'email de l'admin depuis l'API
+const getAdminEmail = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getAdmin`);
+    const data = await res.json();
+    if (res.ok && data.admin) {
+      return data.admin;
+    } else {
+      throw new Error("Unable to fetch admin email");
+    }
+  } catch (error) {
+    console.error("Error fetching admin email:", error);
+    throw new Error("Error fetching admin email");
+  }
+};
 
 // Fonction POST pour gérer l'envoi d'email
 export const POST = async (request: NextRequest) => {
@@ -53,22 +31,23 @@ export const POST = async (request: NextRequest) => {
     // Affiche les données pour débogage
     console.log("Body server:", body);
 
+    // Récupérer l'email de l'admin depuis l'API
+    const adminEmail = await getAdminEmail();
+
     // Envoi de l'email via Resend
     const emailResult = await resend.emails.send({
       from: "contact@le-plessis-aux-lys.fr",
       // `${firstname} ${lastname} <leplessis@resend.dev>`,
-      to: process.env.TO_EMAIL ?? "marionbaston84@gmail.com", // Email destinataire
-      subject: "Message envoyé depuis Le Plessis Aux Lys", // Sujet de l'email
-      react: EmailTemplate({ firstname, lastname, email, phone, message }), // Contenu HTML généré
+      // to: process.env.TO_EMAIL ?? "marionbaston84@gmail.com",
+      to: adminEmail,
+      subject: "Message envoyé depuis Le Plessis Aux Lys",
+      react: EmailTemplate({ firstname, lastname, email, phone, message }),
     });
 
-    // Affiche le résultat de l'envoi d'email
     console.log("Email sent result:", emailResult);
 
-    // Réponse indiquant que l'email a été envoyé avec succès
     return NextResponse.json({ message: "Email successfully sent!" });
   } catch (error) {
-    // Gère les erreurs et les logue
     console.error("Error sending email:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
