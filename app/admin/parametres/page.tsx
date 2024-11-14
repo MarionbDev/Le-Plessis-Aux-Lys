@@ -1,3 +1,4 @@
+import EmailTemplate from "@/app/_components/contact/EmailTemplate";
 import {
   Card,
   CardContent,
@@ -26,6 +27,13 @@ export default function Settings() {
             </CardContent>
           </Card>
         </div>
+        <EmailTemplate
+          firstname="marion"
+          lastname="baston"
+          email="marion@gmail.com"
+          message="fsdfsdfgs dfhsdjkfh hfgjkdfs sdfhfgsd fhgsdfdshf dfhds fsdhfk sdh jdfghjsdk  hjdk fghdffg h fhgkdfg hgkghfdkj hj"
+          phone="0520448565"
+        />
       </div>
     </>
   );

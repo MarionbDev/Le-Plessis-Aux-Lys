@@ -3,17 +3,26 @@ import { Heading } from "@react-email/heading";
 import { Html } from "@react-email/html";
 import { Tailwind } from "@react-email/tailwind";
 import { Text } from "@react-email/text";
+import styles from "./emailTemplate.module.css";
 
 type PropType = {
   firstname: string;
   lastname: string;
   email: string;
-  phone: number;
+  phone: string;
   message: string;
 };
 
 const capitalizeFirstLetter = (value: string): string =>
   value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+
+const formatPhoneNumber = (phone: string): string => {
+  return phone.replace(/(\d{2})(?=\d)/g, "$1 "); // Adds a space after every two digits
+};
+
+const baseUrl = process.env.NEXT_PUBLIC_API_URL
+  ? `${process.env.NEXT_PUBLIC_API_URL}`
+  : "https://le-plessis-aux-lys.fr";
 
 const EmailTemplate = ({
   firstname,
@@ -24,27 +33,36 @@ const EmailTemplate = ({
 }: PropType) => (
   <Tailwind>
     <Html>
-      <Container
-        style={{
-          padding: "1rem",
-          backgroundColor: "rgb(255, 252, 252)",
-          borderRadius: "8px",
-          maxWidth: "560px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Heading as="h3">
-          Message de {capitalizeFirstLetter(firstname)}{" "}
-          {capitalizeFirstLetter(lastname)}
+      <Container className={styles.container}>
+        <img
+          src={`${baseUrl}/title.png`}
+          alt="nom du site"
+          className="-ml-6 mb-2"
+        />
+
+        <Heading as="h3" className=" font-medium">
+          Vous avez reçu un nouveau message,
         </Heading>
-
-        <Text style={{ marginRight: "0.5rem" }}>Email : {email}</Text>
-
-        <Text style={{ marginRight: "0.5rem" }}>Téléphone : {phone}</Text>
-
-        <Text style={{ marginBottom: "0.5rem" }}>Message :</Text>
-        <Text>{capitalizeFirstLetter(message)}</Text>
+        <section>
+          <Text className="text-[14px]">
+            {capitalizeFirstLetter(firstname)} {capitalizeFirstLetter(lastname)}
+          </Text>
+          <Text className="text-[14px]">
+            {" "}
+            Email :{" "}
+            <a href={`mailto:${email}`} className="text-blue-500">
+              {email}
+            </a>
+          </Text>
+          <Text className="text-[14px]">
+            Téléphone : {formatPhoneNumber(phone)}
+          </Text>
+        </section>
+        <section>
+          <Text className=" leading-7 text-[14px]">
+            {capitalizeFirstLetter(message)}
+          </Text>
+        </section>
       </Container>
     </Html>
   </Tailwind>
