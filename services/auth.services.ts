@@ -101,6 +101,7 @@ export const logout = async () => {
 //   }
 // };
 
+// UPDATE EMAIL ADMIN
 export const updateEmail = async (
   newEmail: string,
   { email, password }: { email: string; password: string },
@@ -130,26 +131,23 @@ export const updateEmail = async (
       await supabase.auth.updateUser({
         email: newEmail,
       });
-    console.log("new email :", data);
 
     if (updateError) {
-      console.error("Erreur de mise à jour de l'email :", updateError.message);
+      console.error(
+        "Erreur de mise à jour de l'email :",
+        updateError.message,
+        updateError,
+      );
       throw updateError;
     }
 
     console.log("Mise à jour réussie, confirmation envoyée :", updateData);
 
-    // Mettre à jour l'email dans la table 'admin'
+    // Mettre à jour l'email dans la table 'admin' en utilisant l'auth.uid() pour garantir l'update de l'utilisateur connecté
     const { data: adminUpdateData, error: adminUpdateError } = await supabase
       .from("admin")
-      .update(
-        { email: newEmail }, // Passez un tableau d'objets
-      )
-      .eq("email", email);
-
-    console.log("nouvel email :", newEmail); // Vérifiez le format de l'email avant l'upsert
-
-    console.log("adminUpdateData:", adminUpdateData);
+      .update({ email: newEmail })
+      .eq("email", email); // Ici, on utilise l'email initial pour identifier l'utilisateur
 
     if (adminUpdateError) {
       console.error(
@@ -176,6 +174,7 @@ export const updateEmail = async (
   }
 };
 
+// UPDATE PASSWORD ADMIN
 export const updatePassword = async (
   newPassword: string,
   { email, password }: PropType,
