@@ -54,7 +54,7 @@ export default function ContactForm() {
           new Promise((resolve) =>
             setTimeout(() => {
               resolve({ name: "Sonner" });
-            }, 800),
+            }, 400),
           );
 
         toast.promise(promise, {
@@ -81,6 +81,10 @@ export default function ContactForm() {
 
   const capitalizeFirstLetter = (value: string): string => {
     return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+  };
+
+  const formatPhoneNumber = (phone: string): string => {
+    return phone.replace(/(\d{2})(?=\d)/g, "$1 ");
   };
 
   return (
@@ -154,10 +158,11 @@ export default function ContactForm() {
                     id="phone"
                     type="tel"
                     placeholder="Votre numéro de téléphone"
-                    pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"
-                    required
+                    pattern="([0-9]{2}[\s]?)?[0-9]{2}[\s]?[0-9]{2}[\s]?[0-9]{2}[\s]?[0-9]{2}"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) =>
+                      setPhone(formatPhoneNumber(e.target.value))
+                    }
                     className="custom-placeholder"
                   />
                 </div>
