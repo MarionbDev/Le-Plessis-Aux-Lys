@@ -102,18 +102,11 @@ export function UpdateEmailButton() {
           <div>Email</div> <div>{`${user?.email}`}</div>
         </Button>
       </DialogTrigger>
-      <DialogContent
-        // aria-labelledby="dialog-title"
-        // aria-describedby="dialog-description"
-        className="sm:max-w-[425px] bg-white dark:shadow-inner  shadow-md border-none  backdrop-blur-3xl drop-shadow-lg "
-      >
+      <DialogContent className="sm:max-w-[425px] bg-white dark:shadow-inner  shadow-md border-none  backdrop-blur-3xl drop-shadow-lg ">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSubmit)}>
             <DialogHeader>
-              <DialogTitle
-                // id="dialog-title"
-                className="visually-hidden md:text-[1.4rem] text-text_color font-semibold"
-              >
+              <DialogTitle className="md:text-[1.4rem] text-text_color font-semibold">
                 Mise à jour de l'email
               </DialogTitle>
             </DialogHeader>
@@ -130,7 +123,6 @@ export function UpdateEmailButton() {
                       <Input
                         placeholder="example@example.com"
                         type="email"
-                        // value={field.value}
                         {...field}
                       />
                     </FormControl>
@@ -151,7 +143,6 @@ export function UpdateEmailButton() {
                       <Input
                         placeholder="********"
                         type={showPassword ? "text" : "password"}
-                        // value={field.value}
                         {...field}
                       />
                     </FormControl>
@@ -186,11 +177,6 @@ export function UpdateEmailButton() {
             </DialogFooter>
           </form>
         </Form>
-        {/* <div id="dialog-description" className="hidden">
-          Ce formulaire vous permet de mettre à jour votre adresse email.
-          Veuillez fournir votre nouveau email ainsi que votre mot de passe
-          actuel pour confirmer cette modification
-        </div> */}
       </DialogContent>
       <Toaster richColors />
     </Dialog>
