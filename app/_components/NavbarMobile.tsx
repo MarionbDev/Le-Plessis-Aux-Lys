@@ -44,29 +44,29 @@ export default function NavBarMobile() {
           <Menu className="w-11 h-11 text-white p-2 rounded-full bg-[#64641fd8]" />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="bg-[#fafafc] ml-4 w-64">
-          <DropdownMenuLabel className="flex justify-center my-2 text-xl">
+          <DropdownMenuLabel className="flex justify-center my-2 text-lg">
             Bienvenue
           </DropdownMenuLabel>
           <DropdownMenuSeparator className="border-b-[1px]" />
           <Menubar className="flex flex-col items-start h-82 gap-6 px-6 border-none">
             <MenubarMenu>
               <MenubarTrigger
-                onClick={() => handleNavigation("/")} // Fermer le menu après la navigation
-                className="text-[1.2rem]"
+                onClick={() => handleNavigation("/")}
+                className="text-[1rem]"
               >
                 Accueil
               </MenubarTrigger>
             </MenubarMenu>
 
             <DropdownMenuSub>
-              <DropdownMenuSubTrigger className="text-[1.2rem]">
+              <DropdownMenuSubTrigger className="text-[1rem]">
                 Gites
               </DropdownMenuSubTrigger>
               <DropdownMenuSubContent className="bg-[#fafafc]">
                 <DropdownMenuItem className="text-md">
                   <Link
                     href="/gites/le-logis-de-la-petite-ourse"
-                    className="text-[1.2rem]"
+                    className="text-[1rem]"
                     onClick={() =>
                       handleNavigation("/gites/le-logis-de-la-petite-ourse")
                     } // Fermer le menu
@@ -77,7 +77,7 @@ export default function NavBarMobile() {
                 <DropdownMenuItem className="text-md">
                   <Link
                     href="/gites/le-logis-de-la-grande-ourse"
-                    className="text-[1.2rem]"
+                    className="text-[1rem]"
                     onClick={() =>
                       handleNavigation("/gites/le-logis-de-la-grande-ourse")
                     } // Fermer le menu
@@ -89,14 +89,14 @@ export default function NavBarMobile() {
             </DropdownMenuSub>
 
             <DropdownMenuSub>
-              <DropdownMenuSubTrigger className="text-[1.2rem]">
+              <DropdownMenuSubTrigger className="text-[1rem]">
                 Chambres
               </DropdownMenuSubTrigger>
               <DropdownMenuSubContent className="bg-[#fafafc]">
                 <DropdownMenuItem className="text-md">
                   <Link
                     href="/chambres/orion"
-                    className="text-[1.2rem]"
+                    className="text-[1rem]"
                     onClick={() => handleNavigation("/chambres/orion")}
                   >
                     Chambre Orion
@@ -105,7 +105,7 @@ export default function NavBarMobile() {
                 <DropdownMenuItem className="text-md">
                   <Link
                     href="/chambres/cassiopee"
-                    className="text-[1.2rem]"
+                    className="text-[1rem]"
                     onClick={() => handleNavigation("/chambres/cassiopee")}
                   >
                     Chambre Cassiopée
@@ -114,7 +114,7 @@ export default function NavBarMobile() {
                 <DropdownMenuItem className="text-md">
                   <Link
                     href="/chambres/andromede"
-                    className="text-[1.2rem]"
+                    className="text-[1rem]"
                     onClick={() => handleNavigation("/chambres/andromede")}
                   >
                     Chambre Andromède
@@ -123,7 +123,7 @@ export default function NavBarMobile() {
                 <DropdownMenuItem className="text-md">
                   <Link
                     href="/chambres/suite-familiale-pegase"
-                    className="text-[1.2rem]"
+                    className="text-[1rem]"
                     onClick={() =>
                       handleNavigation("/chambres/suite-familiale-pegase")
                     }
@@ -137,7 +137,7 @@ export default function NavBarMobile() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/jardin")}
-                className="text-[1.2rem]"
+                className="text-[1rem]"
               >
                 Parc & Jardin
               </MenubarTrigger>
@@ -146,7 +146,7 @@ export default function NavBarMobile() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/activites")}
-                className="text-[1.2rem]"
+                className="text-[1rem]"
               >
                 Activités
               </MenubarTrigger>
@@ -155,7 +155,7 @@ export default function NavBarMobile() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/nous-contacter")}
-                className="text-[1.2rem]"
+                className="text-[1rem]"
               >
                 Nous contacter
               </MenubarTrigger>
@@ -165,7 +165,7 @@ export default function NavBarMobile() {
               <MenubarTrigger
                 onClick={handleButtonClick} // Fermer le menu et naviguer vers la page de connexion
                 type="button"
-                className="flex gap-2 text-[1.2rem] italic opacity-50 hover:opacity-100"
+                className="flex gap-2 text-[1rem] italic opacity-50 hover:opacity-100"
               >
                 <LogIn className="text-slate-800/90" /> Se connecter
               </MenubarTrigger>

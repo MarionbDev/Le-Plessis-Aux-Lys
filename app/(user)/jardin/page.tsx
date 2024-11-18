@@ -28,7 +28,7 @@ export default function Garden() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen ">
         <Loader size={50} className="animate-spin" />
       </div>
     );
@@ -39,7 +39,7 @@ export default function Garden() {
   }
 
   return (
-    <div className="my-10 pt-12 md:pt-32 px-6 md:mx-20 flex flex-col items-center md:mb-96">
+    <div className="my-10 pt-12 md:pt-32 px-6 md:mx-20 flex flex-col items-center md:mb-96 min-h-screen">
       <h3 className="font-prata text-2xl xl:w-[50rem] text-center mb-16 text-text_color ">
         "Entre le calme et la beauté de nos jardins, laissez-vous charmer par la
         nature environnante"
