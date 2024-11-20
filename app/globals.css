@@ -93,17 +93,23 @@ html {
   .prices-section {
     display: none;
   }
+  .day-picker-mobile {
+    display: flex;
+  }
+  .day-picker-desktop {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 768px) {
-  .image-home {
-    display: none;
-  }
   .prices-section-mobile {
     display: none;
   }
   .custom-placeholder {
     font-size: 14px;
+  }
+  .day-picker-mobile {
+    display: none;
   }
 }
 
@@ -114,7 +120,8 @@ html {
   .navbar-desktop-admin {
     display: none;
   }
-  .day-picker-desktop {
+
+  .image-home-desk {
     display: none;
   }
 }
@@ -124,13 +131,13 @@ html {
     display: none;
   }
 
-  .day-picker-mobile {
-    display: none;
-  }
   .image-home-desk {
     display: flex;
   }
   .home-title {
+    display: none;
+  }
+  .image-home {
     display: none;
   }
 }

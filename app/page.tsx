@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import UserLayout from "./(user)/layout";
@@ -20,7 +21,7 @@ export default function Home() {
   return (
     <UserLayout>
       <div className="min-h-screen">
-        <div className="fixed w-full top-0 z-50 bg-none bg-transparent">
+        <div className="fixed  top-0 z-50 bg-none bg-transparent">
           {/* <NavbarUser />
           <NavBarMobile /> */}
         </div>

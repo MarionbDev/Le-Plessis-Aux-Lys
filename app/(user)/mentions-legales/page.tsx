@@ -16,11 +16,11 @@ export default function LegalNoticePage() {
   return (
     <>
       <div className="font-text">
-        <div className=" mx-10 py-8 flex flex-col gap-8 mb-8 mt-20 ">
+        <div className=" mx-10 py-8 flex flex-col gap-8 mb-8 mt-8 md:mt-20 ">
           <Button
             type="button"
             onClick={handleClickHome}
-            className=" border w-[14rem] mt-10 rounded-full gap-2  bg-slate-100 hover:bg-slate-200 text-text_color text-md lg:text-md"
+            className=" border  w-[14rem] mx-auto md:mx-0 mt-10 rounded-full gap-2  bg-slate-100 hover:bg-slate-200 text-text_color text-md lg:text-md"
           >
             <Milestone
               size={20}
@@ -58,7 +58,7 @@ export default function LegalNoticePage() {
               <span className="font-semibold text-text_color ">
                 Propriétaire du site:
               </span>{" "}
-              Céline et Thierry Gros - Contact :{" "}
+              Céline et Thierry Gros - Contact : grost@wanadoo.fr
               <a
                 className="text-blue-500 hover:underline"
                 // href="mailto:contact@marionbaston.fr "

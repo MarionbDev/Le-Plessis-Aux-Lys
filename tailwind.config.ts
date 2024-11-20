@@ -14,6 +14,11 @@ const config = {
       screens: {
         "3xl": "1600px",
       },
+      backdropBlur: {
+        sm: "4px",
+        md: "8px",
+        lg: "16px",
+      },
       boxShadow: {
         basic: "-6px 8px 18px 0px rgba(0, 0, 0, 0.40);",
         div: "-6px 8px 18px 0px rgba(0, 0, 0, 0.20);",
