@@ -93,6 +93,12 @@ html {
   .prices-section {
     display: none;
   }
+  .day-picker-mobile {
+    display: flex;
+  }
+  .day-picker-desktop {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -101,6 +107,9 @@ html {
   }
   .custom-placeholder {
     font-size: 14px;
+  }
+  .day-picker-mobile {
+    display: none;
   }
 }
 
@@ -111,9 +120,7 @@ html {
   .navbar-desktop-admin {
     display: none;
   }
-  .day-picker-desktop {
-    display: none;
-  }
+
   .image-home-desk {
     display: none;
   }
@@ -124,9 +131,6 @@ html {
     display: none;
   }
 
-  .day-picker-mobile {
-    display: none;
-  }
   .image-home-desk {
     display: flex;
   }

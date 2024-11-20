@@ -65,13 +65,13 @@ export default function RentalPage({
     rate !== undefined && rate !== null ? `${rate} €` : "-";
 
   return (
-    <div className="font-text text-text_color mt-10 md:pt-[4rem] flex md:justify-around md:mx-14 ">
+    <div className="font-text text-text_color mt-10 md:pt-[2rem] flex justify-center md:justify-around  min-h-screen ">
       <div className="flex flex-col  md:flex-row gap-20 md:py-4 md:mt-14">
-        <div className="flex flex-col justify-between md:w-full  ">
+        <div className="flex flex-col justify-between xl:w-full  ">
           <div className="flex flex-col justify-center ">
             <div className="flex justify-center text-center">
               <div className="flex flex-col mb-20">
-                <div className="flex flex-col md:w-full lg:flex-row items-center justify-center mt-16 md:mb-0 lg:mt-0 gap-4 lg:gap-12 lg:my-8">
+                <div className="flex flex-col xl:w-full lg:flex-row items-center justify-center  mt-16  md:mb-0 sm:mt-0 gap-4 xl:gap-12 lg:my-8">
                   <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
 
                   <h2 className=" font-semibold text-center lg:text-xl uppercase lg:w-[27rem]  ">
@@ -84,11 +84,11 @@ export default function RentalPage({
                 </h3>
               </div>{" "}
             </div>
-            <div className=" flex flex-col-reverse md:flex-row gap-16 md:gap-6">
+            <div className=" flex flex-col-reverse 2xl:flex-row gap-16 md:gap-8 md:mx-20 ">
               <div className=" ">
                 <div className="flex flex-col-reverse md:flex-col items-center gap-12 md:gap-20">
-                  <section className="p-4  w-[22rem] md:w-full shadow-div rounded-md border-2 border-yellow/50 ">
-                    <div className=" pb-4 md:pb-4">
+                  <section className="p-4  w-[22rem] md:w-[40rem] 2xl:w-full shadow-div rounded-md border-2 border-yellow/50  ">
+                    <div className=" pb-4 md:pb-4 h-[20rem] ">
                       <BookingCalendar reservedDates={reservedDates} />
                     </div>
                     <div>
@@ -110,12 +110,11 @@ export default function RentalPage({
                       </ul>
                     </div>
                   </section>
-
                   {/* Section tarifs mobile*/}
-                  <section className="prices-section-mobile flex justify-center w-4/5 shadow-div rounded-md border-2 border-yellow/50 py-4 ">
+                  <section className="prices-section-mobile flex flex-col items-center justify-center w-4/5  shadow-div rounded-md border-2 border-yellow/50 py-4 ">
                     <div className="flex flex-col-reverse gap-12">
                       <div className=" text-center">
-                        <p className="font-semibold">Tarifs Haute Saison</p>
+                        <p className="font-semibold">Tarifs Haute Saison*</p>
                         <div className="flex gap-20 mt-4">
                           <div>
                             <p>La nuit </p>
@@ -131,7 +130,7 @@ export default function RentalPage({
                         </div>
                       </div>
                       <div className=" text-center">
-                        <p className="font-semibold">Tarifs Basse Saison</p>
+                        <p className="font-semibold">Tarifs Basse Saison*</p>
                         <div className="flex gap-20 mt-4">
                           <div>
                             <p>La nuit </p>
@@ -147,10 +146,17 @@ export default function RentalPage({
                         </div>
                       </div>
                     </div>
+                    <div className="w-full mt-2">
+                      <p className=" mt-2 italic text-left text-sm  px-5">
+                        * Basse saison : de Septembre à Mai
+                      </p>
+                      <p className="italic text-left text-sm ml-3  px-5">
+                        Haute saison : de Juin à Août
+                      </p>
+                    </div>
                   </section>
-
                   {/* Section tarifs desktop*/}
-                  <section className="prices-section flex justify-center w-4/5 md:w-full  ">
+                  <section className="prices-section flex flex-col items-center justify-center w-5/6 lg:w-2/3 2xl:w-full  ">
                     {(lowSeasonNightRate !== undefined ||
                       lowSeasonWeeklyRate !== undefined ||
                       highSeasonNightRate !== undefined ||
@@ -164,7 +170,7 @@ export default function RentalPage({
                         <div className="flex gap-8  md:gap-14">
                           <div className="flex flex-col items-center justify-center ">
                             <p className="font-semibold text-center">
-                              Basse Saison
+                              Basse Saison*
                             </p>
                             <p>
                               <p>{displayRate(lowSeasonNightRate)}</p>
@@ -173,7 +179,7 @@ export default function RentalPage({
                           </div>
                           <div className="flex flex-col items-center ">
                             <p className="font-semibold text-center">
-                              Haute Saison
+                              Haute Saison*
                             </p>
                             <p>{displayRate(highSeasonNightRate)}</p>
                             <p>{displayRate(highSeasonWeeklyRate)}</p>
@@ -181,12 +187,17 @@ export default function RentalPage({
                         </div>
                       </section>
                     )}
-                  </section>
+                    <p className="ml-10 mt-2 italic text-left w-full text-sm - Haute saison : de Juin à Août">
+                      * Basse saison : de Septembre à Mai - Haute saison : de
+                      Juin à Août
+                    </p>
+                  </section>{" "}
                 </div>
               </div>
               {imagesSlide && imagesSlide.length > 0 ? (
-                <section className="flex flex-col justify-center items-center  lg:w-[44rem] -mt-14 ">
-                  <div className="flex justify-center  lg:w-[40rem] lg:h-auto mb-2">
+                // <section className="flex flex-col justify-center items-center  lg:w-[44rem]  mx-auto -mt-20 ">
+                <section className="">
+                  <div className="flex justify-center   lg:h-auto mb-2 md:-mt-3">
                     {loading && (
                       <div className="flex justify-center items-center h-[30rem]">
                         <Loader size={50} className="animate-spin" />
@@ -195,14 +206,14 @@ export default function RentalPage({
                     <img
                       src={mainImage}
                       alt="Image principale"
-                      className="object-scale-down h-[20rem] lg:h-[30rem] w-auto"
+                      className="object-scale-down h-[20rem] md:h-[26rem] w-auto"
                       onLoad={() => setLoading(false)} // Mettre à jour l'état de chargement
                       style={{ display: loading ? "none" : "block" }} // Masquer l'image jusqu'à son chargement
                     />
                   </div>
 
                   {/* Vignettes */}
-                  <div className="flex flex-wrap px-6 md:justify-start w-[25rem] md:w-full md:ml-12 gap-2 overflow-x-auto ">
+                  <div className="flex flex-wrap justify-center  px-4 sm:px-12 xl:px-12 2xl:px-8 3xl:px-16 gap-2 overflow-x-auto ">
                     {imagesSlide.map((image, index) => (
                       <div
                         key={index}
@@ -229,8 +240,8 @@ export default function RentalPage({
               )}
             </div>
           </div>
-          <div className=" w-full  mt-10">
-            <div className="  px-10 ">
+          <div className="   mt-20">
+            <div className="  px-32 ">
               <p className="lg:text-md mb-8  font-medium ">{description}</p>
             </div>
           </div>{" "}

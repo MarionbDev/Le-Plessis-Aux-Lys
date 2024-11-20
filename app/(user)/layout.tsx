@@ -1,4 +1,5 @@
 // app/layout.tsx
+import ButtonScrollTop from "../_components/ButtonScrollTop";
 import Footer from "../_components/Footer";
 import NavBarMobile from "../_components/NavbarMobile";
 import NavbarUser from "../_components/NavbarUserDesktop";
@@ -14,6 +15,7 @@ export default function UserLayout({
         <NavbarUser />
         <NavBarMobile />
       </div>
+      <ButtonScrollTop />
       <main> {children}</main>
       <footer className="">
         <Footer />

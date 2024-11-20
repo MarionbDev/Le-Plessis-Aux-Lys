@@ -100,7 +100,7 @@ export default function DescriptionWebSite() {
           animate="show"
         >
           <div className="mx-10 md:mx-4 lg:mx-56 text-center leading-loose  text-base xl:text-2xl">
-            <h3 className=" text-center xl:font-prata mb-6 ">
+            <h3 className=" text-center xl:font-prata mb-6 md:mb-56 ">
               Céline et Thierry sont heureux de vous accueillir au Plessis aux
               Lys.
             </h3>
@@ -111,30 +111,34 @@ export default function DescriptionWebSite() {
         initial="hide"
         whileInView="show"
         exit="hide"
-        variants={sectionVariants}
+        variants={imageVariants}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="mx-6 p-4 lg:mx-[20rem] xl:mx-[16rem] 2xl:mx-[30rem]  leading-loose md:mt-20 bg-[#f5f7dc]/50 ">
-            <div className=" border-r-4 border-b-4 border-white p-4 xl:p-8  ">
-              <Image
-                src={parc6}
-                width={200}
-                height={200}
-                alt="Photo du parc du gîte"
-                className="float-right w-[20rem] ml-4 lg:ml-10 mb-4 sm:mb-0 lg:mb-4 rounded-sm shadow-basic"
-              />
-              <p className="text-[1rem] lg:text-md ">
-                Idéalement situé pour découvrir notre belle région de Vendée, Le
-                Plessis aux Lys n'est qu'à 10mn d'un des plus beaux villages de
-                France : Vouvant et de la forêt de Mervent; à 20mn du marais
-                Poitevin et des Abbayes de Maillezais et de Nieul-sur-l'Autise ;
-                à 45 mn du Puy du Fou, 45 mn du Mont aux Alouettes et de ses
-                Moulins; à 1 heure des premières plages et de bien d'autres
-                curiosités telles que La Rochelle, les îles de Ré et d'Oléron.
-              </p>
+          <div className="w-full flex justify-center">
+            <div className="mx-[4rem] p-4 lg:mx-[8rem] xl:mx-[12rem] 2xl:mx-[16rem] xl:max-w-[90rem] xl:max-h-[23rem]  leading-loose  bg-[#f5f7dc]/50 ">
+              <div className=" border-l-4 border-t-4 border-white p-4 xl:p-8 xl:min-h-[19rem] 3xl:max-h-[19rem]   ">
+                <Image
+                  src={parc6}
+                  width={200}
+                  height={200}
+                  alt="Photo du parc du gîte"
+                  className="float-right w-[20rem] ml-4 lg:ml-10 mb-4 sm:mb-0 lg:mb-4 rounded-sm shadow-basic"
+                />
+                <p className="text-[1rem] lg:text-md ">
+                  Idéalement situé pour découvrir notre belle région de Vendée,
+                  Le Plessis aux Lys n'est qu'à 10mn d'un des plus beaux
+                  villages de France : Vouvant et de la forêt de Mervent; à 20mn
+                  du marais Poitevin et des Abbayes de Maillezais et de
+                  Nieul-sur-l'Autise ; à 45 mn du Puy du Fou, 45 mn du Mont aux
+                  Alouettes et de ses Moulins; à 1 heure des premières plages et
+                  de bien d'autres curiosités telles que La Rochelle, les îles
+                  de Ré et d'Oléron.
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -357,7 +361,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4 xl:mx-12 lg:mx-32 md:mt-20  lg:mt-48  leading-loose">
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4 xl:mx-0 lg:mx-32 md:mt-20  lg:mt-48  leading-loose">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mb-10 md:mb-0 mt-24 lg:mt-0 gap-4  lg:gap-10 lg:my-8">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
               <p className=" font-semibold text-center lg:text-lg uppercase ">
@@ -365,9 +369,9 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <div className="mx-6 p-4 lg:mx-[4rem] xl:mx-[8rem] 2xl:mx-[20rem]  leading-loose md:mt-20 bg-[#f5f7dc]/50 ">
+            <div className="p-4 :mx-[6rem] xl:mx-[8rem] 2xl:mx-[16rem] xl:max-w-[90rem] xl:max-h-[23rem]  leading-loose md:mt-20 bg-[#f5f7dc]/50 ">
               {" "}
-              <div className=" border-r-4 border-b-4 border-white p-4 xl:p-8 ">
+              <div className=" border-r-4 border-b-4 border-white p-4 xl:p-8 3xl:max-h-[16rem] 3xl:min-h-[16rem]">
                 <Image
                   src={parc1}
                   width={200}
