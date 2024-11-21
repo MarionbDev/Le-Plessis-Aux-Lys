@@ -1,6 +1,10 @@
 "use client";
 
+import beach from "@/public/home/beach.webp";
+import marais from "@/public/home/marais.webp";
+import moulins from "@/public/home/moulins.webp";
 import parc6 from "@/public/parc/parc-6.webp";
+
 import { Variants, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +16,6 @@ import chambreOrion from "../../public/chambres/orion/ch-1.webp";
 import chambrePegase from "../../public/chambres/pegase/pegase2.webp";
 
 // import grandeOurse from "../../public/image.png";
-import parc1 from "../../public/parc/Parc-1.webp";
 import petiteOurse from "../../public/petite-ourse/Gite-1.webp";
 
 import { getAllArticles } from "../api/article/route";
@@ -62,6 +65,21 @@ const imageVariants: Variants = {
   },
 };
 
+const imageVariantsLateral: Variants = {
+  hide: {
+    opacity: 0,
+    x: 100,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      delay: 0.2,
+    },
+  },
+};
+
 export default function DescriptionWebSite() {
   const [articles, setArticles] = useState<ArticleProps[]>([]);
   const [slides, setSlides] = useState<Slide[]>([]);
@@ -87,22 +105,19 @@ export default function DescriptionWebSite() {
   }, []);
 
   return (
-    <div className="font-text text-text_color pt-10 xl:pt-6 ">
+    <div className="font-text text-text_color xl:mt-40 pt-10 xl:pt-6 ">
       <motion.section
         initial="hide"
         whileInView="show"
         exit="hide"
         variants={sectionVariants}
       >
-        <motion.div
-          variants={textVariants} // Ajout des variantes ici
-          initial="hide"
-          animate="show"
-        >
-          <div className="mx-10 md:mx-4 lg:mx-56 text-center leading-loose  text-base xl:text-2xl">
-            <h3 className=" text-center xl:font-prata mb-6 md:mb-56 ">
+        <motion.div variants={textVariants} initial="hide" animate="show">
+          <div className="mx-10 md:mx-4 lg:mx-56 text-center leading-loose  text-base xl:text-lg">
+            <h3 className="flex flex-col items-center text-center xl:font-prata mb-6 lg:mb-20 ">
               Céline et Thierry sont heureux de vous accueillir au Plessis aux
               Lys.
+              <span className="flex justify-center w-2/6 mt-10 border-t-2  border-separator"></span>
             </h3>
           </div>
         </motion.div>
@@ -118,26 +133,73 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="w-full flex justify-center">
-            <div className="mx-[4rem] p-4 lg:mx-[8rem] xl:mx-[12rem] 2xl:mx-[16rem] xl:max-w-[90rem] xl:max-h-[23rem]  leading-loose  bg-[#f5f7dc]/50 ">
-              <div className=" border-l-4 border-t-4 border-white p-4 xl:p-8 xl:min-h-[19rem] 3xl:max-h-[19rem]   ">
-                <Image
-                  src={parc6}
-                  width={200}
-                  height={200}
-                  alt="Photo du parc du gîte"
-                  className="float-right w-[20rem] ml-4 lg:ml-10 mb-4 sm:mb-0 lg:mb-4 rounded-sm shadow-basic"
-                />
-                <p className="text-[1rem] lg:text-md ">
-                  Idéalement situé pour découvrir notre belle région de Vendée,
-                  Le Plessis aux Lys n'est qu'à 10mn d'un des plus beaux
-                  villages de France : Vouvant et de la forêt de Mervent; à 20mn
-                  du marais Poitevin et des Abbayes de Maillezais et de
-                  Nieul-sur-l'Autise ; à 45 mn du Puy du Fou, 45 mn du Mont aux
-                  Alouettes et de ses Moulins; à 1 heure des premières plages et
-                  de bien d'autres curiosités telles que La Rochelle, les îles
-                  de Ré et d'Oléron.
-                </p>
+          <div className="w-full flex justify-center bg-[#f5f7dc]/50 mt-20 rounded-t-[4rem] ">
+            <div className="mx-[2rem] md:mx-10 lg:mx-10 xl:mx-32  p-4  my-6 md:my-14 xl:max-w-[100rem]  leading-loose   ">
+              <div className="flex flex-col lg:flex-row md:items-center  gap-8      ">
+                <motion.section
+                  initial="hide"
+                  whileInView="show"
+                  exit="hide"
+                  variants={imageVariants}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <p className="text-[0.9rem] max-w-[50rem] ">
+                      Demeure de caractère datant du XIXème siècle, située dans
+                      le village de La chapelle aux Lys, cité au Guide Vert de
+                      2023 comme étant le plus petit village possédant son
+                      planétarium que vous pourrez découvrir à 2 minutes à
+                      pieds. <br /> 4 chambres de charme, dont une suite
+                      familiale pouvant accueillir jusqu'à 5 personnes, chacune
+                      équipée de sa salle d'eau et ses toilettes, ainsi que 2
+                      gites - l'un pour 2 à 4 personnes et l'autre pour 8 à 10
+                      personnes - vous accueilleront au sein d'un parc où
+                      trônent des arbres séculaires. Ceux-ci vous inviteront à
+                      la quiétude , à la méditation et au repos, après vous être
+                      délassés dans la piscine chauffée mise à disposition de
+                      mai à septembre.
+                    </p>
+                  </motion.div>
+                </motion.section>
+                <motion.section
+                  initial="hide"
+                  whileInView="show"
+                  exit="hide"
+                  variants={imageVariantsLateral}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div className="flex flex-col items-center md:flex-row  gap-6     ">
+                      <Image
+                        src={parc6}
+                        width={300}
+                        height={100}
+                        alt="Photo du parc du gîte"
+                        className=" object-contain w-[20rem]  rounded-sm     "
+                      />
+                      {/* <Image
+                        src={moulins}
+                        width={300}
+                        height={100}
+                        alt="Photo du parc du gîte"
+                        className=" object-contain w-[20rem]   rounded-sm     "
+                      />
+                      <Image
+                        src={marais}
+                        width={300}
+                        height={200}
+                        alt="Photo du parc du gîte"
+                        className=" object-contain w-[14rem]  rounded-sm    "
+                      /> */}
+                    </div>
+                  </motion.div>
+                </motion.section>
               </div>
             </div>
           </div>
@@ -155,15 +217,15 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4 xl:mx-12 lg:mx-56 md:mt-20 xl:mt-44  leading-loose">
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4 mt-20 xl:mt-44  leading-loose">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mt-16 lg:mt-0 gap-4 lg:gap-12 lg:my-20">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
               <p className=" font-semibold text-center lg:text-lg uppercase lg:w-[27rem]  ">
                 DECOUVREZ SANS PLUS ATTENDRE
               </p>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
-            </div>{" "}
-            <p className="my-8 mx-6 md:my-12 lg:my-4 md:mx-12">
+            </div>
+            <p className="my-8 md:my-12 lg:my-4 mx-6 sm:mx-10 md:mx-20 lg:mx-44">
               Trois chambres de charme, une suite familiale pour 5 personnes,
               possédant chacune leur salle d'eau et leurs toilettes, ainsi que
               deux gîtes — l'un pour 2 à 4 personnes et l'autre pour 8 à 10
@@ -361,7 +423,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4 xl:mx-0 lg:mx-32 md:mt-20  lg:mt-48  leading-loose">
+          <div className="flex justify-center flex-col items-center  text-md lg:text-md  md:mt-20  lg:mt-48  leading-loose">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mb-10 md:mb-0 mt-24 lg:mt-0 gap-4  lg:gap-10 lg:my-8">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
               <p className=" font-semibold text-center lg:text-lg uppercase ">
@@ -369,26 +431,70 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <div className="p-4 :mx-[6rem] xl:mx-[8rem] 2xl:mx-[16rem] xl:max-w-[90rem] xl:max-h-[23rem]  leading-loose md:mt-20 bg-[#f5f7dc]/50 ">
-              {" "}
-              <div className=" border-r-4 border-b-4 border-white p-4 xl:p-8 3xl:max-h-[16rem] 3xl:min-h-[16rem]">
-                <Image
-                  src={parc1}
-                  width={200}
-                  height={200}
-                  alt="Photo du parc du gîte"
-                  className="float-left w-[20rem] mr-4 lg:mr-10 mb-4 sm:mb-0 lg:mb-4 rounded-sm shadow-basic"
-                />
-                <p className="text-[1rem] lg:text-md ">
-                  Idéalement situé pour découvrir notre belle région de Vendée,
-                  Le Plessis aux Lys n'est qu'à 10mn d'un des plus beaux
-                  villages de France : Vouvant et de la forêt de Mervent; à 20mn
-                  du marais Poitevin et des Abbayes de Maillezais et de
-                  Nieul-sur-l'Autise ; à 45 mn du Puy du Fou, 45 mn du Mont aux
-                  Alouettes et de ses Moulins; à 1 heure des premières plages et
-                  de bien d'autres curiosités telles que La Rochelle, les îles
-                  de Ré et d'Oléron.
-                </p>
+            <div className="w-full flex justify-center bg-[#f5f7dc]/50 mt-20 rounded-t-[4rem] ">
+              <div className="mx-[2rem] md:mx-10 lg:mx-10 xl:mx-32  p-4  my-6 md:my-14 xl:max-w-[100rem]  leading-loose   ">
+                <div className="flex flex-col items-center gap-8      ">
+                  <motion.section
+                    initial="hide"
+                    whileInView="show"
+                    exit="hide"
+                    variants={imageVariants}
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <p className="text-[0.9rem] mb-10  ">
+                        Idéalement situé pour découvrir notre belle région de
+                        Vendée, Le Plessis aux Lys n'est qu'à 10mn d'un des plus
+                        beaux villages de France : Vouvant et de la forêt de
+                        Mervent; à 20mn du marais Poitevin et des Abbayes de
+                        Maillezais et de Nieul-sur-l'Autise ; à 45 mn du Puy du
+                        Fou, 45 mn du Mont aux Alouettes et de ses Moulins; à 1
+                        heure des premières plages et de bien d'autres
+                        curiosités telles que La Rochelle, les îles de Ré et
+                        d'Oléron.
+                      </p>
+                    </motion.div>
+                  </motion.section>
+                  <motion.section
+                    initial="hide"
+                    whileInView="show"
+                    exit="hide"
+                    variants={imageVariants}
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <div className="flex flex-col items-center xl:flex-row  gap-6     ">
+                        <Image
+                          src={beach}
+                          width={300}
+                          height={100}
+                          alt="Photo du parc du gîte"
+                          className=" object-contain w-[20rem]  rounded-sm     "
+                        />
+                        <Image
+                          src={moulins}
+                          width={300}
+                          height={100}
+                          alt="Photo du parc du gîte"
+                          className=" object-contain w-[18rem]   rounded-sm     "
+                        />
+                        <Image
+                          src={marais}
+                          width={300}
+                          height={200}
+                          alt="Photo du parc du gîte"
+                          className=" object-contain w-[14rem]  rounded-sm    "
+                        />
+                      </div>
+                    </motion.div>
+                  </motion.section>
+                </div>
               </div>
             </div>
           </div>
@@ -406,7 +512,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4 xl:mx-12 lg:mx-32 mt-44 md:mt-20 lg:mt-72  xl:mt-28 leading-loose ">
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4 xl:mx-12 lg:mx-32 mt-20 md:mt-20 lg:mt-72  xl:mt-28 leading-loose ">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-12 mt-24 lg:mt-20 lg:mb-10">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
               <p className=" font-semibold text-center lg:text-lg uppercase ">
@@ -438,6 +544,42 @@ export default function DescriptionWebSite() {
           <div className="flex justify-center flex-col items-center    xl:mt-10 ">
             <div className=" xl:w-[80rem]">
               <ActivityUserCarousel slides={slides} />
+            </div>
+          </div>
+        </motion.div>
+      </motion.section>
+
+      <motion.section
+        initial="hide"
+        whileInView="show"
+        exit="hide"
+        variants={imageVariants}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4  mt-20 xl:mt-44  leading-loose">
+            <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mt-16 lg:mt-0 gap-4 lg:gap-12 lg:my-20">
+              <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
+              <p className=" font-semibold text-center lg:text-lg uppercase lg:w-[27rem]  ">
+                Réservez votre gîte ou chambre d'hôtes au Plessis aux Lys
+              </p>
+              <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
+            </div>
+            <div className="my-8 md:my-12 lg:my-4 mx-6 sm:mx-10 md:mx-20 lg:mx-44">
+              <p className=" ">
+                Nous vous invitons à réserver votre séjour dans l'un de nos
+                gîtes ou chambres d'hôtes au cœur de la Vendée. Contactez-nous
+                dès maintenant via notre{" "}
+                <Link href={"/nous-contacter"} className=" text-[#bbbb57]">
+                  formulaire de contact
+                </Link>{" "}
+                et réserver votre séjour unique dans notre cadre exceptionnel.
+                Nous serons ravis de vous accueillir pour une expérience
+                insolite et inoubliable dans l'une de nos maisons d'hôtes.
+              </p>
             </div>
           </div>
         </motion.div>
