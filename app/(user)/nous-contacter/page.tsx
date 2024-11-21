@@ -88,7 +88,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className=" font-text flex flex-col lg:flex-row md:gap-10 justify-around items-center  w-full my-10 md:my-28 pt-12 md:pt-6   ">
+    <div className=" min-h-screen font-text flex flex-col lg:flex-row md:gap-10 justify-around items-center  w-full my-10  pt-12 md:pt-0   ">
       <Image
         src={parc1}
         width={390}
