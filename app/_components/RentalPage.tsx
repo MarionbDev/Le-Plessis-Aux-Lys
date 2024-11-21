@@ -34,6 +34,9 @@ export default function RentalPage({
   const [reservedDates, setReservedDates] = useState<CustomDateRange[]>([]);
   const [mainImage, setMainImage] = useState<string>(imagesSlide[0]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [loaded, setLoaded] = useState(false);
+
+  console.log("rental page");
 
   useEffect(() => {
     async function fetchReservedDates() {
@@ -64,27 +67,34 @@ export default function RentalPage({
   const displayRate = (rate?: number) =>
     rate !== undefined && rate !== null ? `${rate} €` : "-";
 
+  useEffect(() => {
+    console.time("RentalPage Render Time");
+    return () => {
+      console.timeEnd("RentalPage Render Time");
+    };
+  }, []);
+
   return (
     <div className="font-text text-text_color mt-10 md:pt-[2rem] flex justify-center md:justify-around  min-h-screen ">
       <div className="flex flex-col  md:flex-row gap-20 md:py-4 md:mt-14">
         <div className="flex flex-col justify-between xl:w-full  ">
           <div className="flex flex-col justify-center ">
             <div className="flex justify-center text-center">
-              <div className="flex flex-col mb-20">
+              <div className="flex flex-col lg:mb-20">
                 <div className="flex flex-col xl:w-full lg:flex-row items-center justify-center  mt-16  md:mb-0 sm:mt-0 gap-4 xl:gap-12 lg:my-8">
                   <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
 
-                  <h2 className=" font-semibold text-center lg:text-xl uppercase lg:w-[27rem]  ">
+                  <h2 className=" font-prata font-semibold text-center lg:text-2xl uppercase lg:w-[27rem]  ">
                     {title}
                   </h2>
                   <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
                 </div>
-                <h3 className="lg:text-md mb-8 h-4 mt-6 md:mt-1 font-bold ">
+                <h3 className="lg:text-md mb-8 h-4 mt-4 lg:mt-2 md:mt-1 mx-10  font-bold ">
                   {subTitle}
                 </h3>
               </div>{" "}
             </div>
-            <div className=" flex flex-col-reverse 2xl:flex-row gap-16 md:gap-8 md:mx-20 ">
+            <div className=" flex flex-col-reverse 2xl:flex-row-reverse gap-16 md:gap-8 md:mx-20  ">
               <div className=" ">
                 <div className="flex flex-col-reverse md:flex-col items-center gap-12 md:gap-20">
                   <section className="p-4  w-[22rem] md:w-[40rem] 2xl:w-full shadow-div rounded-md border-2 border-yellow/50  ">
@@ -156,7 +166,7 @@ export default function RentalPage({
                     </div>
                   </section>
                   {/* Section tarifs desktop*/}
-                  <section className="prices-section flex flex-col items-center justify-center w-5/6 lg:w-2/3 2xl:w-full  ">
+                  <section className="prices-section flex flex-col items-center justify-center w-[22rem] md:w-[40rem] 2xl:w-full  ">
                     {(lowSeasonNightRate !== undefined ||
                       lowSeasonWeeklyRate !== undefined ||
                       highSeasonNightRate !== undefined ||
@@ -197,16 +207,16 @@ export default function RentalPage({
               {imagesSlide && imagesSlide.length > 0 ? (
                 // <section className="flex flex-col justify-center items-center  lg:w-[44rem]  mx-auto -mt-20 ">
                 <section className="">
-                  <div className="flex justify-center   lg:h-auto mb-2 md:-mt-3">
+                  <div className="flex justify-center w-full   lg:h-auto mb-2 md:-mt-3  ">
                     {loading && (
-                      <div className="flex justify-center items-center h-[30rem]">
+                      <div className="flex justify-center items-center h-[20rem] md:h-[26rem] w-[42rem] ">
                         <Loader size={50} className="animate-spin" />
                       </div>
                     )}
                     <img
                       src={mainImage}
-                      alt="Image principale"
-                      className="object-scale-down h-[20rem] md:h-[26rem] w-auto"
+                      alt={`Photo de  ${title}`}
+                      className="object-scale-down h-[20rem] md:h-[26rem] w-[40rem]"
                       onLoad={() => setLoading(false)} // Mettre à jour l'état de chargement
                       style={{ display: loading ? "none" : "block" }} // Masquer l'image jusqu'à son chargement
                     />
@@ -234,16 +244,14 @@ export default function RentalPage({
                   </div>
                 </section>
               ) : (
-                <div className="flex  justify-center items-center w-[25rem] lg:w-[44rem] lg:h-[30rem] ">
+                <div className="flex  justify-center items-center h-[20rem] md:h-[24rem] w-[42rem]  ">
                   <p>Pas d'images disponibles</p>
                 </div>
               )}
             </div>
           </div>
-          <div className="   mt-20">
-            <div className="  px-32 ">
-              <p className="lg:text-md mb-8  font-medium ">{description}</p>
-            </div>
+          <div className=" mt-20">
+            <p className=" lg:text-md mb-8  font-medium ">{description}</p>
           </div>{" "}
         </div>
       </div>
