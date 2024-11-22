@@ -741,10 +741,25 @@ const imageVariants: Variants = {
   },
 };
 
-const imageVariantsLateral: Variants = {
+const imageVariantsRight: Variants = {
   hide: {
     opacity: 0,
     x: 100,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      delay: 0.2,
+    },
+  },
+};
+
+const imageVariantsLeft: Variants = {
+  hide: {
+    opacity: 0,
+    x: -100,
   },
   show: {
     opacity: 1,
@@ -844,7 +859,7 @@ export default function DescriptionWebSite() {
                   initial="hide"
                   whileInView="show"
                   exit="hide"
-                  variants={imageVariantsLateral}
+                  variants={imageVariantsRight}
                 >
                   <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}
@@ -1134,18 +1149,20 @@ export default function DescriptionWebSite() {
                       </p>
                     </motion.div>
                   </motion.section>
-                  <motion.section
-                    initial="hide"
-                    whileInView="show"
-                    exit="hide"
-                    variants={imageVariants}
-                  >
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.5 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.6 }}
+
+                  <div className="flex flex-col items-center md:flex-row md:flex-wrap  gap-6     ">
+                    {" "}
+                    <motion.section
+                      initial="hide"
+                      whileInView="show"
+                      exit="hide"
+                      variants={imageVariantsLeft}
                     >
-                      <div className="flex flex-col items-center md:flex-row md:flex-wrap  gap-6     ">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6 }}
+                      >
                         <Image
                           src={beach}
                           width={300}
@@ -1153,13 +1170,20 @@ export default function DescriptionWebSite() {
                           alt="Photo du parc du gîte"
                           className=" object-contain w-[20rem]   rounded-sm     "
                         />
-                        <Image
-                          src={moulins}
-                          width={300}
-                          height={100}
-                          alt="Photo du parc du gîte"
-                          className=" object-contain w-[18rem] lg:object-scale-down  rounded-sm     "
-                        />
+                      </motion.div>
+                    </motion.section>{" "}
+                    <motion.section
+                      initial="hide"
+                      whileInView="show"
+                      exit="hide"
+                      variants={imageVariants}
+                    >
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        {" "}
                         <Image
                           src={marais}
                           width={300}
@@ -1167,9 +1191,30 @@ export default function DescriptionWebSite() {
                           alt="Photo du parc du gîte"
                           className=" object-contain w-[14rem]  rounded-sm    "
                         />
-                      </div>
-                    </motion.div>
-                  </motion.section>
+                      </motion.div>
+                    </motion.section>{" "}
+                    <motion.section
+                      initial="hide"
+                      whileInView="show"
+                      exit="hide"
+                      variants={imageVariantsRight}
+                    >
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        {" "}
+                        <Image
+                          src={moulins}
+                          width={300}
+                          height={100}
+                          alt="Photo du parc du gîte"
+                          className=" object-contain w-[20rem] lg:object-scale-down  rounded-sm     "
+                        />
+                      </motion.div>
+                    </motion.section>
+                  </div>
                 </div>
               </div>
             </div>
