@@ -50,7 +50,7 @@ export default function Map() {
               <span className="flex justify-center my-16 xl:my-20 w-2/4 border-t-2 border-separator"></span>
               <MapContainer
                 center={position}
-                zoom={9}
+                zoom={12}
                 scrollWheelZoom={true}
                 style={{
                   height: "50vh",
@@ -64,7 +64,7 @@ export default function Map() {
                 <Marker position={position} icon={iconMarker}>
                   <Popup>
                     <p>
-                      Le Plessis Aux Lys <br /> Gîte et Chambres d'Hôtes
+                      Le Plessis Aux Lys <br /> Gîtes et Chambres d'Hôtes
                     </p>
                     {/* <div className=" flex justify-center gap-2  contain-content">
                     <Image
