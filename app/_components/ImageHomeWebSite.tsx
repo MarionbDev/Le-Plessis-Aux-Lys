@@ -1,7 +1,7 @@
 "use client";
 
 import parc2 from "@/public/parc/Parc-2.webp";
-import { Variants, motion } from "framer-motion";
+import { Variants } from "framer-motion";
 import Image from "next/image";
 
 const sectionVariants: Variants = {
@@ -20,51 +20,51 @@ const sectionVariants: Variants = {
 export default function ImageHomeWebSite() {
   return (
     <div className=" lg:mt-28">
-      <motion.section
+      {/* <motion.section
         initial="hide"
         whileInView="show"
         exit="hide"
         variants={sectionVariants}
+      > */}
+      <div
+        // initial={{ opacity: 0, scale: 0.5 }}
+        // animate={{ opacity: 1, scale: 1 }}
+        // transition={{ duration: 0.5 }}
+        className="flex flex-col items-center md:justify-center md:mt-20 lg:mt-36   "
       >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col items-center md:justify-center md:mt-20 lg:mt-36   "
-        >
-          <div className="home-title flex flex-col justify-center gap-4 md:mb-10  ">
-            <h1 className="font-title-home text-title_color italic font-extralight  ml-4 md:ml-10 mt-20 md:mt-0  text-4xl md:text-[3rem] tracking-[3px]  ">
-              Le Plessis Aux Lys
-            </h1>
-            <span className=" w-[7rem] md:ml-10  border-t-2  border-separator"></span>
-          </div>
-          <div className="image-home">
-            <h2 className="flex flex-col justify-center items-center mt-12  mb-10 md:mb-20 font-prata  text-[#a18527] uppercase mx-2  text-2xl md:text-4xl  lg:text-3xl xl:text-4xl max-[390px]:tracking-[1px] max-[461px]:tracking-[2px] min-[462px]:tracking-[6px]  ">
-              <p className="">Gîte</p>
-              <p className=" ">&</p>
-              <p className=" text-center ">Chambres d'Hôtes</p>
-            </h2>
-          </div>
-          <Image
-            src={parc2}
-            width={950}
-            height={300}
-            priority={true}
-            loading="eager"
-            alt="photo du parc"
-            className=" w-[20rem] sm:w-4/6  lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem] object-cover object-center rounded-sm shadow-basic  "
-          />
+        <div className="home-title flex flex-col justify-center gap-4 md:mb-10  ">
+          <h1 className="font-title-home text-title_color italic font-extralight  ml-4 md:ml-10 mt-20 md:mt-0  text-4xl md:text-[3rem] tracking-[3px]  ">
+            Le Plessis Aux Lys
+          </h1>
+          <span className=" w-[7rem] md:ml-10  border-t-2  border-separator"></span>
+        </div>
+        <div className="image-home">
+          <h2 className="flex flex-col justify-center items-center mt-12  mb-10 md:mb-20 font-prata  text-[#a18527] uppercase mx-2  text-2xl md:text-4xl  lg:text-3xl xl:text-4xl max-[390px]:tracking-[1px] max-[461px]:tracking-[2px] min-[462px]:tracking-[6px]  ">
+            <p className="">Gîte</p>
+            <p className=" ">&</p>
+            <p className=" text-center ">Chambres d'Hôtes</p>
+          </h2>
+        </div>
+        <Image
+          src={parc2}
+          width={950}
+          height={300}
+          priority={true}
+          loading="eager"
+          alt="photo du parc"
+          className=" w-[20rem] sm:w-4/6  lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem] object-cover object-center rounded-sm shadow-basic  "
+        />
 
-          <div className="image-home-desk absolute flex justify-center items-center bg-[#fdfdfd]/85  rounded-sm w-[22rem] h-[6.5rem] md:w-[25rem] md:h-[7rem]  lg:w-[36rem] lg:h-[11rem] tracking-[6px] ">
-            {/* <div className=" w-full h-full absolute" /> */}
-            <h2 className="flex flex-col justify-center items-center w-[20rem] h-[8rem] md:w-[23rem] md:h-[10rem] lg:w-[32rem] lg:h-[14rem] border-[2.3px] border-[#ffffff] font-prata  text-[#a18527] uppercase  text-2xl lg:text-3xl xl:text-4xl max-[390px]:tracking-[1px] max-[461px]:tracking-[2px] min-[462px]:tracking-[6px]  ">
-              <p className=" ">Gîte</p>
-              <p className=" ">&</p>
-              <p className=" text-center">Chambres d'Hôtes</p>
-            </h2>
-          </div>
-        </motion.div>
-      </motion.section>
+        <div className="image-home-desk absolute flex justify-center items-center bg-[#fdfdfd]/85  rounded-sm w-[22rem] h-[6.5rem] md:w-[25rem] md:h-[7rem]  lg:w-[36rem] lg:h-[11rem] tracking-[6px] ">
+          {/* <div className=" w-full h-full absolute" /> */}
+          <h2 className="flex flex-col justify-center items-center w-[20rem] h-[8rem] md:w-[23rem] md:h-[10rem] lg:w-[32rem] lg:h-[14rem] border-[2.3px] border-[#ffffff] font-prata  text-[#a18527] uppercase  text-2xl lg:text-3xl xl:text-4xl max-[390px]:tracking-[1px] max-[461px]:tracking-[2px] min-[462px]:tracking-[6px]  ">
+            <p className=" ">Gîte</p>
+            <p className=" ">&</p>
+            <p className=" text-center">Chambres d'Hôtes</p>
+          </h2>
+        </div>
+      </div>
+      {/* </motion.section> */}
     </div>
   );
 }
