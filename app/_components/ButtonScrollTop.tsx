@@ -10,7 +10,12 @@ export default function ButtonScrollTop() {
     }
   };
   return (
-    <Button onClick={ScrollTop} className=" fixed bottom-4 right-4">
+    <Button
+      onClick={ScrollTop}
+      id="buttonScroll"
+      aria-label="Scroll vers le haut"
+      className=" fixed bottom-4 right-4"
+    >
       <CircleChevronUp
         size={38}
         color="#bbbb57"
