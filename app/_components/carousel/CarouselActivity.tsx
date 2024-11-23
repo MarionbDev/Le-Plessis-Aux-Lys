@@ -21,32 +21,34 @@ const CarouselActivity: React.FC<PropType> = ({ slides, options }) => {
   const router = useRouter();
 
   return (
-    <section className={`bg-[#f5f7dc]/50 ${styles.embla_activity}`}>
-      <div className={styles.embla__viewport} ref={emblaRef}>
-        <div className={styles.embla__container_activity}>
-          {slides.map((slide, index) => (
-            <div className={styles.embla__slide_activity} key={index}>
-              {/* <Link
+    <>
+      <section className={styles.embla_activity}>
+        <div className={styles.embla__viewport} ref={emblaRef}>
+          <div className={styles.embla__container_activity}>
+            {slides.map((slide, index) => (
+              <div className={styles.embla__slide_activity} key={index}>
+                {/* <Link
                 href={"/user/activites"}
                 onClick={() => router.push("/user/activites")}
               > */}
-              <div className="cursor-pointer  flex flex-col justify-center items-center ">
-                <Image
-                  src={slide.image_path}
-                  width={256}
-                  height={256}
-                  alt={`Photo ${index + 1}`}
-                  className="object-scale-down h-[12rem] w-auto "
-                />
+                <div className="cursor-pointer  flex flex-col justify-center items-center ">
+                  <Image
+                    src={slide.image_path}
+                    width={256}
+                    height={256}
+                    alt={`Photo ${index + 1}`}
+                    className="object-scale-down h-[8rem] md:h-[12rem] w-auto "
+                  />
 
-                <p className=" text-lg font-semibold ">{slide.title}</p>
+                  <p className="mt-2 text-sm font-semibold ">{slide.title}</p>
+                </div>
+                {/* </Link> */}
               </div>
-              {/* </Link> */}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
