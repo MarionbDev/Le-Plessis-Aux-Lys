@@ -41,9 +41,9 @@ html {
 /* 
 /* global.css ou votre fichier CSS principal */
 .rdp-root {
-  --rdp-day-width: 10rem; /* Réduit la largeur des cellules de jour */
-  --rdp-day-button-width: 2.5rem; /* Réduit la largeur des boutons des jours */
-  --rdp-day-height: 10rem; /* Réduit la hauteur des cellules de jour */
+  --rdp-day-width: 5rem; /* Réduit la largeur des cellules de jour */
+  --rdp-day-button-width: 2rem; /* Réduit la largeur des boutons des jours */
+  --rdp-day-height: 5rem; /* Réduit la hauteur des cellules de jour */
 }
 
 /* SCROLLBAR */
@@ -67,19 +67,6 @@ html {
   cursor: pointer;
 }
 
-/* ACCESSIBILITY */
-
-/* .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  overflow: hidden;
-} */
-
 /* RESPONSIVE */
 
 @media only screen and (max-width: 767px) {
@@ -102,9 +89,9 @@ html {
 }
 
 @media only screen and (min-width: 768px) {
-  .prices-section-mobile {
+  /* .prices-section-mobile {
     display: none;
-  }
+  } */
   .custom-placeholder {
     font-size: 14px;
   }

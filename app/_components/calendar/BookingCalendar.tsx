@@ -2,6 +2,7 @@ import { CustomDateRange } from "@/app/types";
 import { fr } from "date-fns/locale";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+// import classNames from "react-day-picker/style.module.css";
 
 type BookingCalendarProps = {
   reservedDates: CustomDateRange[];
@@ -23,7 +24,7 @@ export default function BookingCalendar({
     reserved: {
       backgroundColor: "#db3636",
       color: "#ffffff",
-      borderRadius: "50px",
+      borderRadius: "15px",
     },
     unavailable: {
       // backgroundColor: "#e5e7eb",
@@ -52,7 +53,8 @@ export default function BookingCalendar({
         numberOfMonths={2}
         modifiers={modifiers}
         modifiersStyles={modifiersStyles}
-        className="day-picker-desktop text-slate-600 h-[17rem] text-sm  "
+        className="day-picker-desktop text-slate-600 h-[17rem] text-sm   "
+        // classNames={classNames}
       />
     </div>
   );

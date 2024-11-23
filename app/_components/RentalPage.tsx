@@ -80,7 +80,7 @@ export default function RentalPage({
         <div className="flex flex-col justify-between xl:w-full  ">
           <div className="flex flex-col justify-center ">
             <div className="flex justify-center text-center">
-              <div className="flex flex-col lg:mb-20">
+              <div className="flex flex-col lg:mb-10">
                 <div className="flex flex-col xl:w-full lg:flex-row items-center justify-center  mt-16  md:mb-0 sm:mt-0 gap-4 xl:gap-12 lg:my-8">
                   <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
 
@@ -94,16 +94,71 @@ export default function RentalPage({
                 </h3>
               </div>{" "}
             </div>
-            <div className=" flex flex-col-reverse 2xl:flex-row-reverse gap-16 md:gap-8 md:mx-20  ">
-              <div className=" ">
-                <div className="flex flex-col-reverse md:flex-col items-center gap-12 md:gap-20">
-                  <section className="p-4  w-[22rem] md:w-[40rem] 2xl:w-full shadow-div rounded-md border-2 border-yellow/50  ">
-                    <div className=" pb-4 md:pb-4 h-[20rem] ">
+            <div className="flex flex-col md:mt-10 lg:mt-0">
+              {imagesSlide && imagesSlide.length > 0 ? (
+                // <section className="flex flex-col justify-center items-center  lg:w-[44rem]  mx-auto -mt-20 ">
+                <section className="flex flex-col lg:flex-row lg:gap-8 sm:px-8 xl:mx-0">
+                  <div className="flex justify-center items-center   mb-2 md:-mt-3  ">
+                    {loading && (
+                      <div className="flex justify-center items-center h-[20rem] md:h-[26rem] w-[42rem] ">
+                        <Loader size={50} className="animate-spin" />
+                      </div>
+                    )}
+                    <img
+                      src={mainImage}
+                      alt={`Photo de  ${title}`}
+                      className="object-scale-down  max-h-[14rem] md:max-h-[22rem]  md:w-[40rem]  rounded-md"
+                      onLoad={() => setLoading(false)} // Mettre à jour l'état de chargement
+                      style={{ display: loading ? "none" : "block" }} // Masquer l'image jusqu'à son chargement
+                    />
+                  </div>
+
+                  {/* Vignettes */}
+                  {/* <div className="flex flex-wrap justify-center md:justify-start  px-4 sm:px-12  gap-2 overflow-x-auto "> */}
+                  {/* <div className="flex flex-wrap  justify-center md:justify-start overflow-x-auto px-4 md:px-0"> */}
+                  <div className=" flex flex-wrap justify-center md:justify-start md:h-0 max-w-[30rem]">
+                    {imagesSlide.map((image, index) => (
+                      <div
+                        key={index}
+                        className={`w-28 h-28 md:w-24 md:h-24 border-2 cursor-pointer rounded-lg overflow-hidden  ${
+                          mainImage === image ? "border-yellow-500" : ""
+                        }`}
+                        onClick={() => setMainImage(image)}
+                      >
+                        <Image
+                          width={400}
+                          height={200}
+                          src={image}
+                          alt={`Vignette ${index}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  {/* </div> */}
+                </section>
+              ) : (
+                <div className="flex  justify-center items-center h-[20rem] md:h-[24rem] w-[42rem]  ">
+                  <p>Pas d'images disponibles</p>
+                </div>
+              )}
+              <section>
+                <div className=" mt-20">
+                  <p className=" text-[0.9rem] px-6 font-medium ">
+                    {description}
+                  </p>
+                </div>
+              </section>
+
+              <div className=" flex flex-col  gap-16 my-20 ">
+                <div className="flex flex-col-reverse xl:flex-row md:gap-18 items-center gap-12  ">
+                  <section className=" md:p-2  w-[22rem] md:w-[40rem]  shadow-div rounded-md ">
+                    <div className="min-h-[21rem] px-5 ">
                       <BookingCalendar reservedDates={reservedDates} />
                     </div>
                     <div>
-                      <ul className="flex flex-col md:flex-row justify-end gap-2 md:gap-10 italic text-[0.8rem]">
-                        <li className="flex gap-2 items-center">
+                      <ul className="flex flex-col md:flex-row justify-start  gap-4 italic pl-4 pb-4 text-[0.8rem]">
+                        <li className="flex gap-2 items-center ">
                           <span className=" w-4 h-4 bg-white border-2 rounded-full"></span>
                           <p>Disponible</p>
                         </li>
@@ -113,15 +168,16 @@ export default function RentalPage({
                         </li>
                         <li className="flex gap-2 items-center">
                           <span className=" w-4 h-4 bg-white border-2 rounded-full relative flex items-center">
-                            <div className="absolute h-px w-3 bg-[#a2a3a5] "></div>
+                            <div className="absolute h-px w-3 bg-[#a2a3a5] opacity-50 "></div>
                           </span>
                           <p>Indisponible</p>
                         </li>
                       </ul>
                     </div>
                   </section>
-                  {/* Section tarifs mobile*/}
-                  <section className="prices-section-mobile flex flex-col items-center justify-center w-4/5  shadow-div rounded-md border-2 border-yellow/50 py-4 ">
+
+                  {/* Section tarifs*/}
+                  <section className=" flex flex-col items-center justify-center w-4/5 xl:min-w-[30rem] max-w-[40rem]  shadow-div rounded-md  py-10   xl:mt-0">
                     <div className="flex flex-col-reverse gap-12">
                       <div className=" text-center">
                         <p className="font-semibold">Tarifs Haute Saison*</p>
@@ -165,94 +221,10 @@ export default function RentalPage({
                       </p>
                     </div>
                   </section>
-                  {/* Section tarifs desktop*/}
-                  <section className="prices-section flex flex-col items-center justify-center w-[22rem] md:w-[40rem] 2xl:w-full  ">
-                    {(lowSeasonNightRate !== undefined ||
-                      lowSeasonWeeklyRate !== undefined ||
-                      highSeasonNightRate !== undefined ||
-                      highSeasonWeeklyRate !== undefined) && (
-                      <section className="flex justify-center md:gap-20 w-full  shadow-div rounded-md border-2 border-yellow/50 px-4 py-2  ">
-                        <div className="">
-                          <p className="font-semibold">Tarifs</p>
-                          <p>La nuit </p>
-                          <p>La semaine</p>
-                        </div>
-                        <div className="flex gap-8  md:gap-14">
-                          <div className="flex flex-col items-center justify-center ">
-                            <p className="font-semibold text-center">
-                              Basse Saison*
-                            </p>
-                            <p>
-                              <p>{displayRate(lowSeasonNightRate)}</p>
-                              <p>{displayRate(lowSeasonWeeklyRate)}</p>
-                            </p>
-                          </div>
-                          <div className="flex flex-col items-center ">
-                            <p className="font-semibold text-center">
-                              Haute Saison*
-                            </p>
-                            <p>{displayRate(highSeasonNightRate)}</p>
-                            <p>{displayRate(highSeasonWeeklyRate)}</p>
-                          </div>
-                        </div>
-                      </section>
-                    )}
-                    <p className="ml-10 mt-2 italic text-left w-full text-sm - Haute saison : de Juin à Août">
-                      * Basse saison : de Septembre à Mai - Haute saison : de
-                      Juin à Août
-                    </p>
-                  </section>{" "}
                 </div>
               </div>
-              {imagesSlide && imagesSlide.length > 0 ? (
-                // <section className="flex flex-col justify-center items-center  lg:w-[44rem]  mx-auto -mt-20 ">
-                <section className="">
-                  <div className="flex justify-center w-full   lg:h-auto mb-2 md:-mt-3  ">
-                    {loading && (
-                      <div className="flex justify-center items-center h-[20rem] md:h-[26rem] w-[42rem] ">
-                        <Loader size={50} className="animate-spin" />
-                      </div>
-                    )}
-                    <img
-                      src={mainImage}
-                      alt={`Photo de  ${title}`}
-                      className="object-scale-down h-[20rem] md:h-[26rem] w-[40rem]"
-                      onLoad={() => setLoading(false)} // Mettre à jour l'état de chargement
-                      style={{ display: loading ? "none" : "block" }} // Masquer l'image jusqu'à son chargement
-                    />
-                  </div>
-
-                  {/* Vignettes */}
-                  <div className="flex flex-wrap justify-center  px-4 sm:px-12 xl:px-12 2xl:px-8 3xl:px-16 gap-2 overflow-x-auto ">
-                    {imagesSlide.map((image, index) => (
-                      <div
-                        key={index}
-                        className={`w-28 h-28 md:w-24 md:h-24 border-2 cursor-pointer rounded-lg overflow-hidden  ${
-                          mainImage === image ? "border-yellow-500" : ""
-                        }`}
-                        onClick={() => setMainImage(image)}
-                      >
-                        <Image
-                          width={400}
-                          height={200}
-                          src={image}
-                          alt={`Vignette ${index}`}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </section>
-              ) : (
-                <div className="flex  justify-center items-center h-[20rem] md:h-[24rem] w-[42rem]  ">
-                  <p>Pas d'images disponibles</p>
-                </div>
-              )}
             </div>
           </div>
-          <div className=" mt-20">
-            <p className=" lg:text-md mb-8  font-medium ">{description}</p>
-          </div>{" "}
         </div>
       </div>
     </div>

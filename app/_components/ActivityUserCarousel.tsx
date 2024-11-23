@@ -22,10 +22,7 @@ export default function ActivityUserCarousel({
   return (
     <>
       {slides.length > 0 && (
-        // <section className="flex w-[21rem] xl:w-[rem] pt-[2rem] xl:pt-[4.5rem] ">
-        <section className=" mt-20  ">
-          <CarouselActivity slides={slides} options={OPTIONS} />
-        </section>
+        <CarouselActivity slides={slides} options={OPTIONS} />
       )}
     </>
   );

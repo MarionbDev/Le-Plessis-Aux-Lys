@@ -32,7 +32,7 @@
 /*CAROUSEL ACTIVITIES*/
 .embla_activity {
   width: 12rem;
-  padding: 30px 0px;
+  /* padding: 30px 0px; */
 }
 
 .embla__container_activity {
@@ -59,7 +59,7 @@
 @media (min-width: 640px) {
   .embla_activity {
     width: 34rem;
-    padding: 30px 10px;
+    /* padding: 30px 10px; */
   }
   /* .embla__viewport {
     width: 100%;
@@ -69,7 +69,7 @@
 @media (min-width: 768px) {
   .embla_activity {
     width: 40rem;
-    padding: 30px 10px;
+    /* padding: 30px 10px; */
   }
 }
 
