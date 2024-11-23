@@ -3,8 +3,6 @@
 import { Variants, motion } from "framer-motion";
 import "leaflet/dist/leaflet.css";
 
-// const position: [number, number] = [46.6280278, -0.6603611];
-
 const imageVariants: Variants = {
   hide: {
     opacity: 0,
@@ -33,13 +31,6 @@ const sectionVariants: Variants = {
   },
 };
 
-// const iconMarker = L.icon({
-//   iconUrl: icon.src,
-//   iconSize: [41, 41], // Taille de l'icône
-//   iconAnchor: [12, 41], // Point de l'icône correspondant à la position du marqueur
-//   popupAnchor: [1, -36], // Point où la popup devrait s'ouvrir par rapport à l'icône
-// });
-
 export default function Map() {
   return (
     <div className="flex justify-center font-text text-text_color  ">
@@ -63,7 +54,6 @@ export default function Map() {
                   nous trouver
                 </p>
                 <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
-                {/* <span className="flex justify-center my-16 xl:my-20 w-2/4 border-t-2 border-separator"></span> */}
               </div>
 
               <motion.section
@@ -78,44 +68,10 @@ export default function Map() {
                   transition={{ duration: 0.5 }}
                   className=""
                 >
-                  {/* <MapContainer
-                    center={position}
-                    zoom={12}
-                    scrollWheelZoom={true}
-                    style={{
-                      height: "50vh",
-                      width: "50vw",
-                    }}
-                  >
-                    <TileLayer
-                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    <Marker position={position} icon={iconMarker}>
-                      <Popup>
-                        <p>
-                          Le Plessis Aux Lys <br /> Gîtes et Chambres d'Hôtes
-                        </p> */}
-                  {/* <div className=" flex justify-center gap-2  contain-content">
-                      <Image
-                        src={parc}
-                        alt="Photo du parc du gîte"
-                        width={120}
-                        height={200}
-                      />
-                      <Image
-                        src={gite}
-                        alt="Photo du parc du gîte"
-                        width={120}
-                        height={200}
-                      />
-                    </div> */}
-                  {/* </Popup>
-                    </Marker> */}
-                  {/* </MapContainer> */}
                   <div className=" my-8  md:my-12 lg:my-4">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15498.99660188144!2d-0.67319274140706!3d46.62950023714675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4806e38cb2745943%3A0xacf713e592e80e95!2sLe%20Plessis%20aux%20Lys!5e0!3m2!1sfr!2sfr!4v1732388930331!5m2!1sfr!2sfr"
+                      title="Carte Google Maps : Le Plessis aux Lys"
                       width="600"
                       height="450"
                       style={{
