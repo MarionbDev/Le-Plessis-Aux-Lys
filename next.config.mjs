@@ -14,7 +14,6 @@ const nextConfig = {
   },
   images: {
     domains: ["zsycdbufjrptszftdbdg.supabase.co"],
-    formats: ["image/webp"],
   },
 };
 
