@@ -47,12 +47,12 @@ export default function ImageHomeWebSite() {
         </div>
         <Image
           src={parc2}
-          width={950}
-          height={300}
+          width={3264}
+          height={1836}
           priority={true}
           loading="eager"
           alt="photo du parc"
-          className=" w-[20rem] sm:w-4/6  lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem] object-cover object-center rounded-sm shadow-basic  "
+          className=" w-[21rem] sm:w-4/6  lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem] object-cover object-center rounded-sm shadow-basic  "
         />
 
         <div className="image-home-desk absolute flex justify-center items-center bg-[#fdfdfd]/85  rounded-sm w-[22rem] h-[6.5rem] md:w-[25rem] md:h-[7rem]  lg:w-[36rem] lg:h-[11rem] tracking-[6px] ">

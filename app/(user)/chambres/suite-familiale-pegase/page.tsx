@@ -45,7 +45,7 @@ export default function Pegase() {
       {rates && (
         <RentalPage
           title="Suite familiale Pégase"
-          subTitle=""
+          subTitle="Pour 5 personnes"
           description="Cette suite familial dispose de deux chambres. Une chambre avec un grand lit de 140 cm et d'un lit de 90 cm ainsi que la salle de bain. Une chambre avec un grand lit de 140 cm."
           lowSeasonNightRate={rates.price_low_season_night}
           lowSeasonWeeklyRate={rates.price_low_season_week}
