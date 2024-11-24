@@ -38,27 +38,15 @@ export default function ImageHomeWebSite() {
           </h2>
         </div>
 
-        {/* Conteneur de l'image avec fond flou */}
-        <div
-          className={`relative w-[21rem] sm:w-4/6 lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem] ${isImageLoaded ? "" : "bg-[#f5f5f5]"}`}
-          style={{
-            backgroundImage: `url(${parc2.src})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backdropFilter: "blur(8px)",
-          }}
-        >
-          <Image
-            src={parc2}
-            width={3264}
-            height={1836}
-            priority={true}
-            loading="eager"
-            alt="photo du parc"
-            className="object-cover object-center w-full h-full transition-opacity duration-500"
-            onLoadingComplete={() => setIsImageLoaded(true)}
-          />
-        </div>
+        <Image
+          src={parc2}
+          width={3264}
+          height={1836}
+          priority={true}
+          loading="eager"
+          alt="photo du parc"
+          className="object-cover object-center h-full w-[21rem] sm:w-4/6 lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem]"
+        />
 
         <div className="image-home-desk absolute flex justify-center items-center bg-[#fdfdfd]/85 rounded-sm w-[22rem] h-[6.5rem] md:w-[25rem] md:h-[7rem] lg:w-[36rem] lg:h-[11rem] tracking-[6px]">
           <h2 className="flex flex-col justify-center items-center w-[20rem] h-[8rem] md:w-[23rem] md:h-[10rem] lg:w-[32rem] lg:h-[14rem] border-[2.3px] border-[#ffffff] font-prata text-[#a18527] uppercase text-2xl lg:text-3xl xl:text-4xl max-[390px]:tracking-[1px] max-[461px]:tracking-[2px] min-[462px]:tracking-[6px]">
