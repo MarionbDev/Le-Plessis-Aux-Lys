@@ -40,12 +40,15 @@ export default function ImageHomeWebSite() {
 
         <Image
           src={parc2}
-          width={3264}
-          height={1836}
+          width={900}
+          height={506}
+          sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 900px"
           priority={true}
           loading="eager"
           alt="photo du parc"
-          className="object-cover object-center h-full w-[21rem] sm:w-4/6 lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem]"
+          // onLoadingComplete={() => setIsImageLoaded(true)}
+          className="object-cover object-center w-3/4 max-w-[900px]"
+          // className="object-cover object-center h-full w-[21rem] sm:w-4/6 lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem]"
         />
 
         <div className="image-home-desk absolute flex justify-center items-center bg-[#fdfdfd]/85 rounded-sm w-[22rem] h-[6.5rem] md:w-[25rem] md:h-[7rem] lg:w-[36rem] lg:h-[11rem] tracking-[6px]">

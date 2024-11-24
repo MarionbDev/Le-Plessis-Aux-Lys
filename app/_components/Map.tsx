@@ -77,7 +77,7 @@ export default function Map() {
                       style={{
                         border: "0",
                       }}
-                      className="w-[19rem] h-[12rem] sm:w-[30rem] sm:h-[22rem] md:w-[35rem] "
+                      className="w-[20rem] h-[20rem] sm:w-[30rem] sm:h-[22rem] md:w-[35rem] "
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>

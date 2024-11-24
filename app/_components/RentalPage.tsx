@@ -137,9 +137,7 @@ export default function RentalPage({
 
               <section className=" flex justify-center  ">
                 <div className="max-w-[60rem] px-4 sm:mx-8 md:mx-14 mt-12">
-                  <p className=" text-[0.9rem] px-6 font-medium ">
-                    {description}
-                  </p>
+                  <p className=" text-[0.9rem] px-6  ">{description}</p>
                 </div>
               </section>
 
@@ -181,7 +179,7 @@ export default function RentalPage({
                       <div className=" text-center">
                         <p className="font-semibold ">Haute Saison</p>
                         <p className="italic text-center text-sm  px-5">
-                          Haute saison : de Juin à Août
+                          de Juin à Août
                         </p>
 
                         <div className="flex justify-center gap-20 mt-4 text-[0.9rem]">
@@ -201,7 +199,7 @@ export default function RentalPage({
                       <div className=" text-center">
                         <p className="font-semibold">Basse Saison</p>
                         <p className=" mt-2 italic text-center text-sm  px-5">
-                          Basse saison : de Septembre à Mai
+                          de Septembre à Mai
                         </p>
                         <div className="flex gap-20 justify-center mt-4 text-[0.9rem]">
                           <div>

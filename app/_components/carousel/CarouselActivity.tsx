@@ -35,9 +35,10 @@ const CarouselActivity: React.FC<PropType> = ({ slides, options }) => {
                   <Image
                     src={slide.image_path}
                     width={256}
-                    height={256}
+                    height={144}
+                    sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 256px"
                     alt={`Photo ${index + 1}`}
-                    className="object-scale-down h-[8rem] md:h-[12rem] w-auto "
+                    className="object-scale-down  "
                   />
 
                   <p className="mt-2 text-sm font-semibold ">{slide.title}</p>

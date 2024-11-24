@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import VisitContext from "@/hooks/VisitContext";
 import { CirclePlus } from "lucide-react";
 import Link from "next/link";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 import Article from "./Article";
 
 type ListArticlesProps = {
@@ -99,6 +99,13 @@ export default function ListArticles({
             </li>
           ))}
         </VisitContext.Provider>
+        <Toaster
+          toastOptions={{
+            style: {
+              background: "#f5f7dc ",
+            },
+          }}
+        />
       </ul>
     </div>
   );
