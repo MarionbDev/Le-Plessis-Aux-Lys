@@ -1,0 +1,7 @@
+/* global.css ou votre fichier CSS principal */
+
+.rdp-root {
+  --rdp-day-width: 5rem; /* Réduit la largeur des cellules de jour */
+  --rdp-day-button-width: 2rem; /* Réduit la largeur des boutons des jours */
+  --rdp-day-height: 5rem; /* Réduit la hauteur des cellules de jour */
+}

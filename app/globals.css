@@ -34,6 +34,17 @@ html {
   font-size: 10px;
 }
 
+/* Flouter l'image */
+.img-blur {
+  filter: blur(8px); /* Ajustez la valeur pour plus ou moins de flou */
+  transition: filter 0.3s ease-in-out; /* Pour un effet de transition fluide */
+}
+
+.img-blur:hover {
+  filter: blur(0); /* Effet de déflouage au survol */
+}
+
+
 /* CALENDAR */
 .pointer {
   pointer-events: none;
