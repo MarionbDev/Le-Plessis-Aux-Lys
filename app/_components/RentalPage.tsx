@@ -1,5 +1,4 @@
 "use client";
-import { Loader } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import BookingCalendar from "../_components/calendar/BookingCalendar";
@@ -89,21 +88,15 @@ export default function RentalPage({
                   </h2>
                   <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
                 </div>
-                <h3 className="lg:text-md mb-8 h-4 mt-4 lg:mt-2 md:mt-1 mx-10  font-bold ">
+                <h3 className="lg:text-md mb-8 h-4 mt-4 lg:mt-2  mx-10  font-bold ">
                   {subTitle}
                 </h3>
               </div>{" "}
             </div>
-            <div className="flex flex-col md:mt-10 lg:mt-0">
-              {imagesSlide && imagesSlide.length > 0 ? (
-                // <section className="flex flex-col justify-center items-center  lg:w-[44rem]  mx-auto -mt-20 ">
-                <section className="flex flex-col lg:flex-row lg:gap-8 sm:px-8 xl:mx-0">
-                  <div className="flex justify-center items-center   mb-2 md:-mt-3  ">
-                    {loading && (
-                      <div className="flex justify-center items-center h-[20rem] md:h-[26rem] w-[42rem] ">
-                        <Loader size={50} className="animate-spin" />
-                      </div>
-                    )}
+            <div className="flex flex-col md:mt-10 lg:mt-0 ">
+              {mainImage && imagesSlide?.length > 0 ? (
+                <section className="flex flex-col lg:flex-row lg:gap-8 sm:px-8 xl:mx-0  md:min-h-[24rem]  ">
+                  <div className="flex justify-center items-center w-full   mb-2 md:-mt-3 min-h-[14rem]  ">
                     <img
                       src={mainImage}
                       alt={`Photo de  ${title}`}
@@ -114,14 +107,14 @@ export default function RentalPage({
                   </div>
 
                   {/* Vignettes */}
-                  {/* <div className="flex flex-wrap justify-center md:justify-start  px-4 sm:px-12  gap-2 overflow-x-auto "> */}
-                  {/* <div className="flex flex-wrap  justify-center md:justify-start overflow-x-auto px-4 md:px-0"> */}
-                  <div className=" flex flex-wrap justify-center md:justify-start md:h-0 max-w-[30rem]">
+                  <div className=" flex flex-wrap justify-center gap-2 lg:justify-start lg:h-0 mx-4 max-w-[25rem] md:max-w-[35rem] lg:max-w-[30rem]">
                     {imagesSlide.map((image, index) => (
                       <div
                         key={index}
                         className={`w-28 h-28 md:w-24 md:h-24 border-2 cursor-pointer rounded-lg overflow-hidden  ${
-                          mainImage === image ? "border-yellow-500" : ""
+                          mainImage === image
+                            ? " border-4 border-[#bbbb57]"
+                            : ""
                         }`}
                         onClick={() => setMainImage(image)}
                       >
@@ -135,23 +128,23 @@ export default function RentalPage({
                       </div>
                     ))}
                   </div>
-                  {/* </div> */}
                 </section>
               ) : (
-                <div className="flex  justify-center items-center h-[20rem] md:h-[24rem] w-[42rem]  ">
-                  <p>Pas d'images disponibles</p>
-                </div>
+                <p className=" text-center text-[0.9rem] italic text-gray-500">
+                  Aucune photo disponible
+                </p>
               )}
-              <section>
-                <div className=" mt-20">
+
+              <section className=" flex justify-center  ">
+                <div className="max-w-[60rem] px-4 sm:mx-8 md:mx-14 mt-12">
                   <p className=" text-[0.9rem] px-6 font-medium ">
                     {description}
                   </p>
                 </div>
               </section>
 
-              <div className=" flex flex-col  gap-16 my-20 ">
-                <div className="flex flex-col-reverse xl:flex-row md:gap-18 items-center gap-12  ">
+              <div className=" flex flex-col  gap-16 my-32 ">
+                <div className="flex flex-col-reverse xl:flex-row md:gap-18 items-center gap-20 xl:gap-32  ">
                   <section className=" md:p-2  w-[22rem] md:w-[40rem]  shadow-div rounded-md ">
                     <div className="min-h-[21rem] px-5 ">
                       <BookingCalendar reservedDates={reservedDates} />
@@ -177,11 +170,21 @@ export default function RentalPage({
                   </section>
 
                   {/* Section tarifs*/}
-                  <section className=" flex flex-col items-center justify-center w-4/5 xl:min-w-[30rem] max-w-[40rem]  shadow-div rounded-md  py-10   xl:mt-0">
-                    <div className="flex flex-col-reverse gap-12">
+                  <section className=" flex flex-col items-center justify-center w-4/5 xl:border-l-2  xl:min-w-[30rem] max-w-[40rem]  lg:py-10   xl:mt-0">
+                    <div className="flex flex-col gap-10  items-center">
+                      <div>
+                        <h2 className=" font-prata font-semibold text-center lg:text-2xl uppercase lg:w-[27rem]   ">
+                          Les Tarifs
+                          <span className="flex justify-center w-[8rem] mx-auto border-t-2  border-separator"></span>
+                        </h2>
+                      </div>
                       <div className=" text-center">
-                        <p className="font-semibold">Tarifs Haute Saison*</p>
-                        <div className="flex gap-20 mt-4">
+                        <p className="font-semibold ">Haute Saison</p>
+                        <p className="italic text-center text-sm  px-5">
+                          Haute saison : de Juin à Août
+                        </p>
+
+                        <div className="flex justify-center gap-20 mt-4 text-[0.9rem]">
                           <div>
                             <p>La nuit </p>
                             <p>{displayRate(highSeasonNightRate)}</p>
@@ -196,8 +199,11 @@ export default function RentalPage({
                         </div>
                       </div>
                       <div className=" text-center">
-                        <p className="font-semibold">Tarifs Basse Saison*</p>
-                        <div className="flex gap-20 mt-4">
+                        <p className="font-semibold">Basse Saison</p>
+                        <p className=" mt-2 italic text-center text-sm  px-5">
+                          Basse saison : de Septembre à Mai
+                        </p>
+                        <div className="flex gap-20 justify-center mt-4 text-[0.9rem]">
                           <div>
                             <p>La nuit </p>
                             <p>{displayRate(lowSeasonNightRate)}</p>
@@ -211,14 +217,6 @@ export default function RentalPage({
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="w-full mt-2">
-                      <p className=" mt-2 italic text-left text-sm  px-5">
-                        * Basse saison : de Septembre à Mai
-                      </p>
-                      <p className="italic text-left text-sm ml-3  px-5">
-                        Haute saison : de Juin à Août
-                      </p>
                     </div>
                   </section>
                 </div>

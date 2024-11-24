@@ -198,20 +198,6 @@ export default function DescriptionWebSite() {
                         alt="Photo du parc du gîte"
                         className=" object-contain  w-[20rem] lg:w-[30rem] rounded-sm     "
                       />
-                      {/* <Image
-                        src={moulins}
-                        width={300}
-                        height={100}
-                        alt="Photo du parc du gîte"
-                        className=" object-contain w-[20rem]   rounded-sm     "
-                      />
-                      <Image
-                        src={marais}
-                        width={300}
-                        height={200}
-                        alt="Photo du parc du gîte"
-                        className=" object-contain w-[14rem]  rounded-sm    "
-                      /> */}
                     </div>
                   </motion.div>
                 </motion.section>
@@ -289,10 +275,10 @@ export default function DescriptionWebSite() {
               >
                 <Image
                   src={petiteOurse}
-                  width={400}
-                  height={200}
+                  width={3264}
+                  height={1836}
                   alt="photo du gîte"
-                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125 duration-1000 h-auto  "
+                  className=" rounded-sm shadow-basic w-[24rem] transition-transform transform group-hover:scale-125 duration-1000 h-auto  "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-lg font-semibold text-white py-2">
@@ -310,10 +296,10 @@ export default function DescriptionWebSite() {
               >
                 {/* <Image
                   src={grandeOurse}
-                  width={400}
-                  height={200}
+                  width={3264}
+                  height={1836}
                   alt="photo du gîte"
-                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125 duration-1000 h-auto "
+                  className=" rounded-sm shadow-basic  w-[24rem]   transition-transform transform group-hover:scale-125 duration-1000 h-auto "
                 /> */}
 
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
@@ -346,10 +332,10 @@ export default function DescriptionWebSite() {
               >
                 <Image
                   src={chambreOrion}
-                  width={400}
-                  height={200}
+                  width={3264}
+                  height={1836}
                   alt="photo de la chambre Orion"
-                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 h-auto "
+                  className=" rounded-sm shadow-basic w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-lg font-semibold text-white py-2">
@@ -366,10 +352,10 @@ export default function DescriptionWebSite() {
               >
                 <Image
                   src={chambreCassiopee}
-                  width={400}
-                  height={200}
+                  width={3264}
+                  height={1836}
                   alt="photo de la chambre Cassiopee"
-                  className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-500 h-auto"
+                  className="rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125 duration-500 h-auto"
                 />
 
                 {/* <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-0 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 group-hover:bg-opacity-50 transition-all duration-500"> */}
@@ -406,10 +392,10 @@ export default function DescriptionWebSite() {
               >
                 <Image
                   src={chambreAndromede}
-                  width={400}
-                  height={200}
+                  width={3264}
+                  height={1836}
                   alt="photo de la chambre 3"
-                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-1000 h-auto"
+                  className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-lg font-semibold text-white py-2">
@@ -425,10 +411,10 @@ export default function DescriptionWebSite() {
               >
                 <Image
                   src={chambrePegase}
-                  width={400}
-                  height={200}
+                  width={3264}
+                  height={1836}
                   alt="photo de la suite familiale Pégase"
-                  className=" rounded-sm shadow-basic  transition-transform transform group-hover:scale-125  duration-500 h-auto"
+                  className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-500 h-auto"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-lg font-semibold text-white py-2">
@@ -679,7 +665,10 @@ export default function DescriptionWebSite() {
                   Nous vous invitons à réserver votre séjour dans l'un de nos
                   gîtes ou chambres d'hôtes au cœur de la Vendée. Contactez-nous
                   dès maintenant via notre{" "}
-                  <Link href={"/nous-contacter"} className=" text-[#bbbb57]">
+                  <Link
+                    href={"/nous-contacter"}
+                    className=" text-[#bbbb57] font-semibold"
+                  >
                     formulaire de contact
                   </Link>{" "}
                   et réserver votre séjour unique dans notre cadre exceptionnel.
