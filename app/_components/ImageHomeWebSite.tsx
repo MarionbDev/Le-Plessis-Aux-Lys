@@ -32,7 +32,7 @@ export default function ImageHomeWebSite() {
         </div>
         <div className="image-home">
           <h2 className="flex flex-col justify-center items-center mt-12 mb-10 md:mb-20 font-prata text-[#a18527] uppercase mx-2 text-2xl md:text-4xl lg:text-3xl xl:text-4xl max-[390px]:tracking-[1px] max-[461px]:tracking-[2px] min-[462px]:tracking-[6px]">
-            <p className="">Gîte</p>
+            <p className="">Gîtes</p>
             <p className=" ">&</p>
             <p className="text-center">Chambres d'Hôtes</p>
           </h2>
@@ -62,7 +62,7 @@ export default function ImageHomeWebSite() {
 
         <div className="image-home-desk absolute flex justify-center items-center bg-[#fdfdfd]/85 rounded-sm w-[22rem] h-[6.5rem] md:w-[25rem] md:h-[7rem] lg:w-[36rem] lg:h-[11rem] tracking-[6px]">
           <h2 className="flex flex-col justify-center items-center w-[20rem] h-[8rem] md:w-[23rem] md:h-[10rem] lg:w-[32rem] lg:h-[14rem] border-[2.3px] border-[#ffffff] font-prata text-[#a18527] uppercase text-2xl lg:text-3xl xl:text-4xl max-[390px]:tracking-[1px] max-[461px]:tracking-[2px] min-[462px]:tracking-[6px]">
-            <p className=" ">Gîte</p>
+            <p className=" ">Gîtes</p>
             <p className=" ">&</p>
             <p className="text-center">Chambres d'Hôtes</p>
           </h2>
