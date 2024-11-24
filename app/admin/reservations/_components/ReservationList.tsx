@@ -31,7 +31,7 @@ const ReservationList: React.FC<ReservationListProps> = ({
               <div className=" ">
                 <button
                   onClick={() => handleDelete(reservation.id)}
-                  className=" text-text_color hover:underline rounded-full p-2 hover:duration-300  hover:bg-slate-200 hover:text-red-600  "
+                  className=" text-text_color hover:underline rounded-full p-2 hover:duration-300   hover:text-red-600  "
                 >
                   <Trash2 size={18} />
                 </button>

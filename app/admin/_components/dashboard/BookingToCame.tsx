@@ -162,10 +162,10 @@ const BookingToCome: React.FC = () => {
         <h2 className=" text-lg ">Suivi des réservations :</h2>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-y-10 gap-x-20">
+      <div className="flex flex-wrap justify-center gap-y-10 gap-x-20 text-[0.9rem]">
         {rentalsCalendar.map((rental) => (
-          <div className="shadow-div rounded-md w-[22rem] " key={rental.id}>
-            <Card className="mb-8 w-[22rem] h-full border-2 text-text_color  border-yellow/50 rounded-md">
+          <div className="shadow-md rounded-md w-[22rem] " key={rental.id}>
+            <Card className="mb-8 w-[22rem] h-full border-2 text-text_color   rounded-md">
               <CardHeader>
                 <CardTitle className="text-lg font-bold uppercase text-center mb-2 ">
                   {rentalNames[rental.type]}

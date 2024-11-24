@@ -43,7 +43,7 @@ export default function VisitArticle({
         transition={{ duration: 0.5 }}
       >
         <div className=" shadow-div rounded-md  ">
-          <Card className=" font-text text-sm m  w-[23rem] h-[35rem] text-text_color   ">
+          <Card className=" font-text  text-[0.9rem]  m  w-[23rem] h-[35rem] text-text_color   ">
             <CardHeader className=" pb-0 mx-2 ">
               <div className="flex justify-center">
                 <Image
@@ -54,7 +54,7 @@ export default function VisitArticle({
                   className=" max-w-[13rem] max-h-[8rem] object-contain "
                 />
               </div>
-              <CardTitle className=" font-bold mt-2 pb-3 mx-[1rem]">
+              <CardTitle className="  text-[1.2rem]  mt-2 pb-3 mx-[1rem]">
                 {title}
               </CardTitle>
             </CardHeader>

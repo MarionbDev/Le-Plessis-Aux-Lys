@@ -89,8 +89,8 @@ export default function RateRentalCardAdmin({
   };
 
   return (
-    <div className="flex flex-col shadow-div rounded-md border-2 border-yellow/50 pb-2 md:p-4  ">
-      <Table className="w-[20rem] md:w-[30rem] font-text text-gray-800">
+    <div className=" flex flex-col shadow-md rounded-md border-2  pb-2 md:p-4  ">
+      <Table className="text-text_color  w-[20rem] md:w-[30rem] font-text ">
         <TableHeader>
           <TableRow>
             <TableHead className="w-[40px] md:w-[150px] text-center  font-semibold md:text-[1.1rem]">
@@ -157,7 +157,7 @@ export default function RateRentalCardAdmin({
         <Toaster richColors />
         <Button
           onClick={handleSave}
-          className=" font-text hover:text-white hover:bg-gold/80 bg-gold/30 mt-4"
+          className=" font-text text-text_color  hover:text-white hover:bg-gold/80 bg-gold/30 mt-4"
         >
           Enregistrer
         </Button>

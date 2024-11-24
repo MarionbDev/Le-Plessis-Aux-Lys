@@ -193,10 +193,12 @@ export default function DescriptionWebSite() {
                     <div className="flex flex-col items-center md:flex-row   gap-6 lg:gap-10     ">
                       <Image
                         src={parc6}
-                        width={300}
-                        height={100}
+                        width={400}
+                        height={225}
+                        sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                         alt="Photo du parc du gîte"
-                        className=" object-contain  w-[20rem] lg:w-[30rem] rounded-sm     "
+                        className=" object-contain   rounded-sm     "
+                        // className=" object-contain  w-[20rem] lg:w-[30rem] rounded-sm     "
                       />
                     </div>
                   </motion.div>
@@ -266,7 +268,7 @@ export default function DescriptionWebSite() {
           className="flex  justify-center"
         >
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-14 w-2/3 md:w-full cursor-pointer">
-            <li className="relative overflow-hidden group ">
+            <li className="relative overflow-hidden group  ">
               <Link
                 href={"/gites/le-logis-de-la-petite-ourse"}
                 onClick={() =>
@@ -275,10 +277,13 @@ export default function DescriptionWebSite() {
               >
                 <Image
                   src={petiteOurse}
-                  width={3264}
-                  height={1836}
+                  width={380}
+                  height={214}
+                  sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt="photo du gîte"
-                  className=" rounded-sm shadow-basic w-[24rem] transition-transform transform group-hover:scale-125 duration-1000 h-auto  "
+                  // className="rounded-sm shadow-basic w-[24rem] transition-transform transform group-hover:scale-125 duration-1000 h-auto  "
+
+                  className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-1000 h-auto  "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-lg font-semibold text-white py-2">
@@ -296,8 +301,10 @@ export default function DescriptionWebSite() {
               >
                 {/* <Image
                   src={grandeOurse}
-                  width={3264}
-                  height={1836}
+                  width={380}
+                  height={214}
+                                    sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
+
                   alt="photo du gîte"
                   className=" rounded-sm shadow-basic  w-[24rem]   transition-transform transform group-hover:scale-125 duration-1000 h-auto "
                 /> */}
@@ -332,8 +339,9 @@ export default function DescriptionWebSite() {
               >
                 <Image
                   src={chambreOrion}
-                  width={3264}
-                  height={1836}
+                  width={380}
+                  height={214}
+                  sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt="photo de la chambre Orion"
                   className=" rounded-sm shadow-basic w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto "
                 />
@@ -352,8 +360,9 @@ export default function DescriptionWebSite() {
               >
                 <Image
                   src={chambreCassiopee}
-                  width={3264}
-                  height={1836}
+                  width={380}
+                  height={214}
+                  sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt="photo de la chambre Cassiopee"
                   className="rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125 duration-500 h-auto"
                 />
@@ -392,8 +401,9 @@ export default function DescriptionWebSite() {
               >
                 <Image
                   src={chambreAndromede}
-                  width={3264}
-                  height={1836}
+                  width={380}
+                  height={214}
+                  sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt="photo de la chambre 3"
                   className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto"
                 />
@@ -411,8 +421,9 @@ export default function DescriptionWebSite() {
               >
                 <Image
                   src={chambrePegase}
-                  width={3264}
-                  height={1836}
+                  width={380}
+                  height={214}
+                  sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt="photo de la suite familiale Pégase"
                   className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-500 h-auto"
                 />
@@ -490,10 +501,11 @@ export default function DescriptionWebSite() {
                         <figure>
                           <Image
                             src={beach}
-                            width={300}
-                            height={100}
+                            width={320}
+                            height={180}
+                            sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                             alt="Plage des Sables d'Olonne"
-                            className=" object-contain w-[20rem]   rounded-sm     "
+                            className=" object-contain  rounded-sm     "
                           />
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Plage des Sables d'Olonne
@@ -515,10 +527,11 @@ export default function DescriptionWebSite() {
                         <figure>
                           <Image
                             src={marais}
-                            width={300}
-                            height={200}
+                            width={230}
+                            height={129}
+                            sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 230px"
                             alt="Les marais Poitevin"
-                            className=" object-contain w-[14rem]  rounded-sm    "
+                            className=" object-contain rounded-sm    "
                           />{" "}
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Les Marais poitevin
@@ -540,10 +553,11 @@ export default function DescriptionWebSite() {
                         <figure>
                           <Image
                             src={moulins}
-                            width={300}
-                            height={100}
+                            width={320}
+                            height={180}
+                            sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                             alt="Moulins du Mont-des-Alouettes"
-                            className=" object-contain w-[20rem] lg:object-scale-down  rounded-sm     "
+                            className=" object-contain  lg:object-scale-down  rounded-sm     "
                           />{" "}
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Moulins du Mont-des-Alouettes
@@ -570,7 +584,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md mt-8 lg:text-md md:mt-20 lg:mt-72  xl:mt-28 leading-loose ">
+          <div className="flex justify-center flex-col  items-center text-md mt-8 lg:text-md md:mt-20 lg:mt-72  xl:mt-28 leading-loose ">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center gap-4 my-8 lg:gap-12 lg:mt-20 lg:mb-10">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
               <p className=" font-semibold text-center lg:text-lg uppercase ">
@@ -578,7 +592,7 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <div className="bg-[#f5f7dc]/50 w-full my-8 rounded-t-[4rem] mx-4 md:mx-10 lg:mx-10 xl:mx-32  p-4  md:my-14 xl:max-w-[100rem]">
+            <div className="bg-[#f5f7dc]/50 w-full my-8 rounded-t-[4rem] mx-4 md:mx-10 lg:mx-10 xl:mx-32  p-4  md:my-14 ">
               <motion.section
                 initial="hide"
                 whileInView="show"
@@ -644,9 +658,12 @@ export default function DescriptionWebSite() {
           <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4  mt-8 xl:mt-44  leading-loose">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mt-16 lg:mt-0 gap-4 lg:gap-12 lg:my-20">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
-              <p className=" font-semibold text-center lg:text-lg uppercase lg:w-[27rem]  ">
-                Réservez votre gîte ou chambre d'hôtes au Plessis aux Lys
-              </p>
+              <div>
+                <p className=" font-semibold text-center lg:text-lg uppercase lg:w-[30rem]  ">
+                  Réservez votre gîte ou chambre d'hôtes
+                  <p>au Plessis aux Lys</p>
+                </p>
+              </div>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
 

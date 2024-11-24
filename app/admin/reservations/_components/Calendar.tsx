@@ -4,7 +4,7 @@ import { fr } from "date-fns/locale";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { DateRange, DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 import ReservationList from "./ReservationList";
 
 type AddReservationProps = {
@@ -194,11 +194,12 @@ const AddReservation: React.FC<AddReservationProps> = ({
       selected: {
         backgroundColor: "#1976D2",
         color: "white",
-        borderRadius: "50px",
+        borderRadius: "15px",
       },
       reserved: {
         backgroundColor: "#db3636",
         color: "#ffffff",
+        borderRadius: "15px",
       },
       unavailable: {
         color: "#c3c5c9",
@@ -236,12 +237,12 @@ const AddReservation: React.FC<AddReservationProps> = ({
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="font-text md:gap-10 shadow-div rounded-md border-2 border-yellow/50 py-4 mx-6 ">
-      <p className="font-semibold text-center text-[1.2rem] mb-2">
+    <div className="font-text md:gap-10 shadow-md rounded-md border-2 py-4 mx-6 ">
+      <p className="font-semibold text-text_color text-center text-[1.2rem] mb-2">
         {rentalNames[rentalType].charAt(0).toUpperCase() +
           rentalNames[rentalType].slice(1)}{" "}
       </p>
-      <div className="flex flex-col md:flex-row md:justify-around">
+      <div className="text-text_color text-[0.9rem]   flex flex-col md:flex-row md:justify-around">
         <div className="flex flex-col items-center">
           <DayPicker
             mode="range"
@@ -309,6 +310,13 @@ const AddReservation: React.FC<AddReservationProps> = ({
           handleDelete={handleDelete}
         />
       </div>
+      <Toaster
+        toastOptions={{
+          style: {
+            background: "#f5f7dc ",
+          },
+        }}
+      />
     </div>
   );
 };

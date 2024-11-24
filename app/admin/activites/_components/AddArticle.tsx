@@ -25,7 +25,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 import { z } from "zod";
 
 const ReactQuill = dynamic(() => import("react-quill"), {
@@ -255,7 +255,6 @@ export default function AddArticle() {
           </Card>
         </form>
       </Form>
-      <Toaster richColors />
     </div>
   );
 }
