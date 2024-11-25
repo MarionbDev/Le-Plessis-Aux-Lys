@@ -3,7 +3,6 @@
 import parc2 from "@/public/parc/Parc-2.webp";
 import { Variants } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
 
 const sectionVariants: Variants = {
   hide: {
@@ -19,8 +18,6 @@ const sectionVariants: Variants = {
 };
 
 export default function ImageHomeWebSite() {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-
   return (
     <div className="lg:mt-28">
       <div className="flex flex-col items-center md:justify-center md:mt-20 lg:mt-36">
@@ -37,7 +34,6 @@ export default function ImageHomeWebSite() {
             <p className="text-center">Chambres d'Hôtes</p>
           </h2>
         </div>
-
         <Image
           src={parc2}
           width={900}
@@ -46,11 +42,8 @@ export default function ImageHomeWebSite() {
           priority={true}
           loading="eager"
           alt="photo du parc"
-          // onLoadingComplete={() => setIsImageLoaded(true)}
           className="object-cover object-center w-3/4 max-w-[900px]"
-          // className="object-cover object-center h-full w-[21rem] sm:w-4/6 lg:h-[29rem] 2xl:h-[30rem] 3xl:h-[40rem]"
         />
-
         <div className="image-home-desk absolute flex justify-center items-center bg-[#fdfdfd]/85 rounded-sm w-[22rem] h-[6.5rem] md:w-[25rem] md:h-[7rem] lg:w-[36rem] lg:h-[11rem] tracking-[6px]">
           <h2 className="flex flex-col justify-center items-center w-[20rem] h-[8rem] md:w-[23rem] md:h-[10rem] lg:w-[32rem] lg:h-[14rem] border-[2.3px] border-[#ffffff] font-prata text-[#a18527] uppercase text-2xl lg:text-3xl xl:text-4xl max-[390px]:tracking-[1px] max-[461px]:tracking-[2px] min-[462px]:tracking-[6px]">
             <p className=" ">Gîtes</p>

@@ -178,7 +178,13 @@ export function UpdateEmailButton() {
           </form>
         </Form>
       </DialogContent>
-      <Toaster richColors />
+      <Toaster
+        toastOptions={{
+          style: {
+            background: "#f5f7dc ",
+          },
+        }}
+      />
     </Dialog>
   );
 }

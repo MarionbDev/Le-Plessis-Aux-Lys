@@ -95,8 +95,8 @@ export default function RentalPage({
             </div>
             <div className="flex flex-col md:mt-10 lg:mt-0 ">
               {mainImage && imagesSlide?.length > 0 ? (
-                <section className="flex flex-col lg:flex-row lg:gap-8 sm:px-8 xl:mx-0  md:min-h-[24rem]  ">
-                  <div className="flex justify-center items-center w-full   mb-2 md:-mt-3 min-h-[14rem]  ">
+                <section className="flex flex-col lg:flex-row lg:justify-center lg:gap-8 sm:px-8 xl:mx-0  md:min-h-[24rem]  ">
+                  <div className="flex justify-center items-center md:items-start   mb-2 md:-mt-3 min-h-[14rem]  ">
                     <img
                       src={mainImage}
                       alt={`Photo de  ${title}`}
@@ -107,7 +107,7 @@ export default function RentalPage({
                   </div>
 
                   {/* Vignettes */}
-                  <div className=" flex flex-wrap justify-center gap-2 lg:justify-start lg:h-0 mx-4 max-w-[25rem] md:max-w-[35rem] lg:max-w-[30rem]">
+                  <div className=" flex flex-wrap justify-center gap-2 lg:justify-start lg:h-0 md:pt-2 mx-4 max-w-[25rem] md:max-w-[35rem] lg:max-w-[30rem]">
                     {imagesSlide.map((image, index) => (
                       <div
                         key={index}
@@ -119,10 +119,19 @@ export default function RentalPage({
                         onClick={() => setMainImage(image)}
                       >
                         <Image
-                          width={400}
-                          height={200}
+                          width={236}
+                          height={134}
                           src={image}
                           alt={`Vignette ${index}`}
+                          tabIndex={0}
+                          onKeyDown={(e) => {
+                            // Gérer la sélection au clavier (touche "Entrée" ou "Espace")
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault(); // Empêche le défilement de la page sur "Espace"
+                              setMainImage(image);
+                            }
+                          }}
+                          aria-label={`Sélectionner la photo ${index + 1}`}
                           className="w-full h-full object-cover"
                         />
                       </div>
