@@ -267,26 +267,19 @@ export default function DescriptionWebSite() {
           transition={{ duration: 0.9 }}
           className="flex  justify-center"
         >
-          <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-14 w-2/3 md:w-full cursor-pointer">
-            <li className="relative overflow-hidden group  ">
-              <Link
-                href={"/gites/le-logis-de-la-petite-ourse"}
-                onClick={() =>
-                  router.push("/gites/le-logis-de-la-petite-ourse")
-                }
-              >
+          <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-14 w-2/3 md:w-full ">
+            <li className="relative overflow-hidden group ">
+              <Link href={"/gites/le-logis-de-la-petite-ourse"}>
                 <Image
                   src={petiteOurse}
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt="photo du gîte"
-                  // className="rounded-sm shadow-basic w-[24rem] transition-transform transform group-hover:scale-125 duration-1000 h-auto  "
-
+                  alt="Le logis de la petite Ourse"
                   className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-1000 h-auto  "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-lg font-semibold text-white py-2">
+                  <p className="pl-4 text-md font-semibold text-white py-2">
                     Le logis de la Petite Ourse
                   </p>
                 </div>
@@ -295,22 +288,21 @@ export default function DescriptionWebSite() {
             <li className=" h-[220px]  relative overflow-hidden group w-96 flex justify-center items-center bg-[#f5f7dc] ">
               <Link
                 href={"/gites/le-logis-de-la-grande-ourse"}
-                onClick={() =>
-                  router.push("/gites/le-logis-de-la-grande-ourse")
-                }
+                className="block relative w-full h-full"
               >
                 {/* <Image
                   src={grandeOurse}
                   width={380}
                   height={214}
-                                    sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-
+                  sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt="photo du gîte"
-                  className=" rounded-sm shadow-basic  w-[24rem]   transition-transform transform group-hover:scale-125 duration-1000 h-auto "
+                  className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-1000 h-auto  "
                 /> */}
-
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-lg font-semibold text-white py-2">
+                  <p
+                    className="pl-4 text-md font-semibold text-white py-2"
+                    aria-label="Accéder au Logis de la Grande Ourse"
+                  >
                     Le Logis de la Grande Ourse
                   </p>
                 </div>
@@ -333,10 +325,7 @@ export default function DescriptionWebSite() {
         >
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-2/3  md:w-full  cursor-pointer">
             <li className="relative overflow-hidden group">
-              <Link
-                href={"/chambres/orion"}
-                onClick={() => router.push("/chambres/orion")}
-              >
+              <Link href={"/chambres/orion"}>
                 <Image
                   src={chambreOrion}
                   width={380}
@@ -346,7 +335,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-lg font-semibold text-white py-2">
+                  <p className="pl-4 text-md font-semibold text-white py-2">
                     Chambre Orion
                   </p>
                 </div>
@@ -370,8 +359,8 @@ export default function DescriptionWebSite() {
                 {/* <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-0 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 group-hover:bg-opacity-50 transition-all duration-500"> */}
 
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  {/* <p className="text-lg text-center font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 border border-white/50 px-5 py-2 bg-black/50 rounded-md"> */}
-                  <p className="pl-4 text-lg font-semibold text-white py-2">
+                  {/* <p className="text-md text-center font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 border border-white/50 px-5 py-2 bg-black/50 rounded-md"> */}
+                  <p className="pl-4 text-md font-semibold text-white py-2">
                     Chambre Cassiopée
                   </p>
                 </div>
@@ -408,7 +397,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-lg font-semibold text-white py-2">
+                  <p className="pl-4 text-md font-semibold text-white py-2">
                     Chambre Andromède
                   </p>
                 </div>
@@ -428,7 +417,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-500 h-auto"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-lg font-semibold text-white py-2">
+                  <p className="pl-4 text-md font-semibold text-white py-2">
                     Suite familiale Pégase
                   </p>
                 </div>

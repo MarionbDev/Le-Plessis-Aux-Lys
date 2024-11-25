@@ -5,7 +5,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
@@ -31,53 +30,87 @@ export default function VisitArticle({
   const { framerMotionVariants } = visitContext;
 
   return (
-    <motion.section
-      initial="hide"
-      whileInView="show"
-      exit="hide"
-      variants={framerMotionVariants}
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className=" shadow-div rounded-md  ">
-          <Card className=" font-text  text-[0.9rem]  m  w-[23rem] h-[35rem] text-text_color   ">
-            <CardHeader className=" pb-0 mx-2 ">
-              <div className="flex justify-center">
-                <Image
-                  src={image_path}
-                  width={180}
-                  height={180}
-                  alt={`Photo de l'article ${title}`}
-                  className=" max-w-[13rem] max-h-[8rem] object-contain "
-                />
-              </div>
-              <CardTitle className="  text-[1.2rem]  mt-2 pb-3 mx-[1rem]">
-                {title}
-              </CardTitle>
-            </CardHeader>
-            <div className="  mx-6   py-3 h-[20rem]  overflow-auto  mostly-customized-scrollbar">
-              <CardDescription className="mb-2 mx-6">
-                <p>{description}</p>
-              </CardDescription>
-              <CardContent className="   ">
-                <div className="  ">
-                  <p dangerouslySetInnerHTML={{ __html: content }} />
-                </div>
-              </CardContent>
+    // <motion.section
+    //   initial="hide"
+    //   whileInView="show"
+    //   exit="hide"
+    //   variants={framerMotionVariants}
+    // >
+    //   <motion.div
+    //     initial={{ opacity: 0, scale: 0.5 }}
+    //     animate={{ opacity: 1, scale: 1 }}
+    //     transition={{ duration: 0.5 }}
+    //   >
+    //     <div className=" shadow-div rounded-md  ">
+    //       <Card className=" font-text  text-[0.9rem]  m  w-[23rem] h-[35rem] text-text_color   ">
+    //         <CardHeader className=" pb-0 mx-2 ">
+    //           <div className="flex justify-center">
+    //             <Image
+    //               src={image_path}
+    //               width={180}
+    //               height={180}
+    //               alt={`Photo de l'article ${title}`}
+    //               className=" max-w-[13rem] max-h-[8rem] object-contain "
+    //             />
+    //           </div>
+    //           <CardTitle className="  text-[1.2rem]  mt-2 pb-3 mx-[1rem]">
+    //             {title}
+    //           </CardTitle>
+    //         </CardHeader>
+    //         <div className="  mx-6   py-3 h-[20rem]  overflow-auto  mostly-customized-scrollbar">
+    //           <CardDescription className="mb-2 mx-6">
+    //             <p>{description}</p>
+    //           </CardDescription>
+    //           <CardContent className="   ">
+    //             <div className="  ">
+    //               <p dangerouslySetInnerHTML={{ __html: content }} />
+    //             </div>
+    //           </CardContent>
+    //         </div>
+    //         <Link
+    //           href={`/${url_link}`}
+    //           className=" text-center flex items-center justify-center "
+    //         >
+    //           <p className="  font-semibold hover:text-gold py-2">{url_link}</p>
+    //         </Link>{" "}
+    //       </Card>
+    //     </div>
+    //   </motion.div>
+    // </motion.section>
+    <div className="  max-w-[1050px]">
+      <Card className=" font-text  text-[0.9rem] text-text_color flex border-none shadow-none ">
+        <CardHeader className=" pb-0 mx-2 flex flex-col  ">
+          <div className="flex justify-center">
+            <Image
+              src={image_path}
+              width={180}
+              height={180}
+              alt={`Photo de l'article ${title}`}
+              className=" max-w-[13rem] max-h-[8rem] object-contain "
+            />
+          </div>
+          <CardTitle className="  text-[1.1rem]  mt-2 pb-3 mx-[1rem]">
+            {title}
+          </CardTitle>
+        </CardHeader>
+        <div className="  mx-6   py-3  ">
+          <CardDescription className="mb-2 mx-6">
+            <p>{description}</p>
+          </CardDescription>
+          <CardContent className="   ">
+            <div className="  ">
+              <p dangerouslySetInnerHTML={{ __html: content }} />
             </div>
-            <Link
-              href={`/${url_link}`}
-              className=" text-center flex items-center justify-center "
-            >
-              <p className="  font-semibold hover:text-gold py-2">{url_link}</p>
-            </Link>{" "}
-          </Card>
+          </CardContent>
+          <Link
+            href={`/${url_link}`}
+            className=" text-center flex items-center justify-center "
+          >
+            <p className="  font-semibold hover:text-gold py-2">{url_link}</p>
+          </Link>{" "}
         </div>
-      </motion.div>
-    </motion.section>
+      </Card>
+    </div>
   );
 }
 

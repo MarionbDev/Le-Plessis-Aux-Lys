@@ -44,7 +44,6 @@ html {
   filter: blur(0); /* Effet de déflouage au survol */
 }
 
-
 /* CALENDAR */
 .pointer {
   pointer-events: none;
@@ -59,8 +58,7 @@ html {
 
 /* SCROLLBAR */
 .mostly-customized-scrollbar::-webkit-scrollbar {
-  width: 3px;
-  height: 8px;
+  width: 4px;
 }
 
 .customized-scrollbar::-webkit-scrollbar {
@@ -76,6 +74,7 @@ html {
 .customized-scrollbar::-webkit-scrollbar-thumb {
   background: #ecde9d;
   cursor: pointer;
+  background-color: rgb(28, 105, 105);
 }
 
 /* RESPONSIVE */

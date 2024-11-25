@@ -53,7 +53,8 @@ export default function ToVisited() {
       </h3>
       <span className="flex justify-center w-2/4 border-t-2 py-6 md:py-10 border-separator"></span>
 
-      <ul className="grid grid-cols-1 xl:grid-cols-3 gap-4 place-items-center gap-x-28 gap-y-12 mt-2">
+      {/* <ul className="grid grid-cols-1 xl:grid-cols-3 gap-4 place-items-center gap-x-28 gap-y-12 mt-2"> */}
+      <ul className="flex flex-col gap-6">
         <VisitContext.Provider value={visitContextValue}>
           {activities.map((activity) => (
             <li key={activity.id}>
