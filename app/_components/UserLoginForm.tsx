@@ -40,10 +40,10 @@ const formSchema = z.object({
     .email({ message: "Adresse email invalide" }),
   password: z
     .string()
-    .min(8)
-    .regex(/(?=.*\d)/)
-    .regex(/(?=.*[a-z])/)
-    .regex(/(?=.*[A-Z])/),
+    .min(8, { message: "Mot de passe non valide" })
+    .regex(/(?=.*\d)/, { message: "Mot de passe non valide" })
+    .regex(/(?=.*[a-z])/, { message: "Mot de passe non valide" })
+    .regex(/(?=.*[A-Z])/, { message: "Mot de passe non valide" }),
 });
 
 type FormSchemaType = z.infer<typeof formSchema>;
@@ -104,7 +104,7 @@ export default function UserLoginForm() {
       }, 4000);
     } catch (error) {
       toast.error(
-        "Une erreur s'est produite lors de la connexion, veuillez rééssayer !",
+        "Une erreur s'est produite lors de la connexion. Vérifiez vos identifiants et réessayez.!",
       );
     } finally {
       setIsLoading(false);
@@ -119,7 +119,7 @@ export default function UserLoginForm() {
             onSubmit={form.handleSubmit(handleLoginFormSubmit)}
             className="space-y-8 flex justify-center items-center   "
           >
-            <div className=" shadow-div rounded-md border-2 border-yellow/50  w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] ">
+            <div className=" rounded-md border-2  w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] ">
               <Card className=" ">
                 <CardHeader>
                   <CardTitle className=" md:text-[1.4rem] text-text_color font-semibold">
@@ -134,20 +134,21 @@ export default function UserLoginForm() {
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem className="flex items-center gap-2">
-                        <FormLabel className=" text-md lg:text-lg  text-text_color ">
+                      <FormItem className="flex  gap-2">
+                        <FormLabel className="flex pt-4 text-md lg:text-lg  text-text_color ">
                           <Mail size={24} color="#bbbb57" />
                         </FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="example@example.com"
-                            type="email"
-                            className=" text-md md:text-md "
-                            {...field}
-                          />
-                        </FormControl>
-
-                        <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                        <div className="flex flex-col w-full h-20 ">
+                          <FormControl>
+                            <Input
+                              placeholder="example@example.com"
+                              type="email"
+                              className=" text-[0.9rem]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage className="text-[0.85rem] pt-1 pl-2 text-red-500 italic" />{" "}
+                        </div>
                       </FormItem>
                     )}
                   />
@@ -165,7 +166,7 @@ export default function UserLoginForm() {
                               placeholder="*********"
                               type={showPassword ? "text" : "password"}
                               autoComplete="current-password"
-                              className=" text-md md:text-md "
+                              className=" text-[0.9rem] "
                               onChange={(e) => {
                                 field.onChange(e);
                                 handlePasswordChange(e.target.value);
@@ -183,7 +184,7 @@ export default function UserLoginForm() {
                               Afficher le mot de passe
                             </p>
                           </div>
-                          <div className="flex items-center mt-1">
+                          <div className="flex items-center mt-1 ">
                             {passwordValidations.minLength ? (
                               <CircleCheck
                                 size={16}
@@ -249,23 +250,22 @@ export default function UserLoginForm() {
                           </div>
                         </div>
 
-                        <FormMessage className=" text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                        <FormMessage className=" text-[0.85rem] md:text-md pl-10 text-red-500 italic" />
                       </FormItem>
                     )}
                   />
-                  <div className="mt-6 italic lg:ml-9 text-[#bbbb57] ">
+                  <div className="mt-6 italic lg:ml-9 text-[#bbbb57] text-[0.9rem] ">
                     <Link href={"/mot-de-passe-oublie"}>
                       Mot de passe oublié ?
                     </Link>
                   </div>{" "}
                 </CardContent>
                 <CardFooter className="flex justify-center">
-                  <Toaster richColors />
                   <Button
                     role="button"
                     aria-label="se connecter"
                     disabled={isLoading}
-                    className="gap-3 lg:gap-4  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md w-[12rem] "
+                    className="gap-3 lg:gap-4  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-[0.9rem] w-[12rem] "
                   >
                     {isLoading ? (
                       <Loader className="animate-spin" size="16" />
@@ -279,7 +279,13 @@ export default function UserLoginForm() {
             </div>
           </form>
         </Form>
-        <Toaster richColors />
+        <Toaster
+          toastOptions={{
+            style: {
+              background: "#f5f7dc ",
+            },
+          }}
+        />
       </div>
     </div>
   );

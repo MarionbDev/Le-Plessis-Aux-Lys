@@ -122,21 +122,13 @@ export default function DescriptionWebSite() {
 
   return (
     <div className="font-text text-text_color mt-20  sm:mt-32 ">
-      {/* <motion.section
-        initial="hide"
-        whileInView="show"
-        exit="hide"
-        variants={sectionVariants}
-      > */}
-      {/* <motion.div variants={textVariants} initial="hide" animate="show"> */}
       <div className="  text-center leading-loose  text-base xl:text-lg">
         <h3 className="sm:text-[1.2rem] flex flex-col items-center text-center mb-6 lg:mb-20 mx-10 sm:mx-24 md:mx-32 ">
           Céline et Thierry sont heureux de vous accueillir au Plessis aux Lys.
           <span className="flex justify-center w-2/6 mt-10 border-t-2  border-separator"></span>
         </h3>
       </div>
-      {/* </motion.div>
-      </motion.section> */}
+
       <motion.section
         initial="hide"
         whileInView="show"
@@ -198,7 +190,6 @@ export default function DescriptionWebSite() {
                         sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                         alt="Photo du parc du gîte"
                         className=" object-contain   rounded-sm     "
-                        // className=" object-contain  w-[20rem] lg:w-[30rem] rounded-sm     "
                       />
                     </div>
                   </motion.div>
@@ -268,7 +259,7 @@ export default function DescriptionWebSite() {
           className="flex  justify-center"
         >
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-14 w-2/3 md:w-full ">
-            <li className="relative overflow-hidden group ">
+            <li className="relative overflow-hidden  group  ">
               <Link href={"/gites/le-logis-de-la-petite-ourse"}>
                 <Image
                   src={petiteOurse}
@@ -276,8 +267,10 @@ export default function DescriptionWebSite() {
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt="Le logis de la petite Ourse"
-                  className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-1000 h-auto  "
+                  aria-label="Accéder à la page du gîte Le Logis de la Petite Ourse"
+                  className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-1000 h-auto pointer-events-none  "
                 />
+
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-md font-semibold text-white py-2">
                     Le logis de la Petite Ourse
@@ -286,17 +279,15 @@ export default function DescriptionWebSite() {
               </Link>
             </li>
             <li className=" h-[220px]  relative overflow-hidden group w-96 flex justify-center items-center bg-[#f5f7dc] ">
-              <Link
-                href={"/gites/le-logis-de-la-grande-ourse"}
-                className="block relative w-full h-full"
-              >
+              <Link href={"/gites/le-logis-de-la-grande-ourse"}>
                 {/* <Image
                   src={grandeOurse}
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt="photo du gîte"
-                  className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-1000 h-auto  "
+             
+                  className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-1000 h-auto pointer-events-none pointer-events-non  "
                 /> */}
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p
@@ -331,8 +322,8 @@ export default function DescriptionWebSite() {
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt="photo de la chambre Orion"
-                  className=" rounded-sm shadow-basic w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto "
+                  alt="Chambre Orion"
+                  className=" rounded-sm shadow-basic w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-md font-semibold text-white py-2">
@@ -352,14 +343,10 @@ export default function DescriptionWebSite() {
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt="photo de la chambre Cassiopee"
-                  className="rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125 duration-500 h-auto"
+                  alt="Chambre Cassiopee"
+                  className="rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125 duration-500 h-auto pointer-events-none"
                 />
-
-                {/* <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-0 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 group-hover:bg-opacity-50 transition-all duration-500"> */}
-
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  {/* <p className="text-md text-center font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 border border-white/50 px-5 py-2 bg-black/50 rounded-md"> */}
                   <p className="pl-4 text-md font-semibold text-white py-2">
                     Chambre Cassiopée
                   </p>
@@ -393,8 +380,8 @@ export default function DescriptionWebSite() {
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt="photo de la chambre 3"
-                  className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto"
+                  alt="Chambre Andromède"
+                  className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-md font-semibold text-white py-2">
@@ -413,8 +400,8 @@ export default function DescriptionWebSite() {
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt="photo de la suite familiale Pégase"
-                  className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-500 h-auto"
+                  alt="Suite familiale Pégase"
+                  className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-500 h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-md font-semibold text-white py-2">
@@ -613,8 +600,8 @@ export default function DescriptionWebSite() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.9 }}
                 >
-                  <div className="flex justify-center flex-col items-center  mt-10  ">
-                    <div className=" xl:w-[80rem] flex  gap-4 items-center  my-10 ">
+                  <div className="flex justify-center flex-col items-center  mt-10   ">
+                    <div className=" xl:w-[80rem] flex  gap-4 items-center  my-10 cursor-grabbing ">
                       <ArrowLeftFromLine
                         color="#bbbb57"
                         className="sm:hidden opacity-60"

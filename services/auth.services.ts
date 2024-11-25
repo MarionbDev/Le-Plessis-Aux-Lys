@@ -1,34 +1,3 @@
-// import { setIsAuthenticated } from "@/app/admin/middlewares/withAuth";
-// import supabase from "@/lib/database";
-
-// type PropType = {
-//   email: string;
-//   password: string;
-// };
-
-// export const loginUser = async ({ email, password }: PropType) => {
-//   try {
-//     const { data, error } = await supabase.auth.signInWithPassword({
-//       email,
-//       password,
-//     });
-//     if (error) throw error;
-//     setIsAuthenticated(true);
-//     return data;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
-
-// export const logout = async () => {
-//   try {
-//     let { error } = await supabase.auth.signOut();
-//     if (error) throw error;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
-
 import { setIsAuthenticated } from "@/app/admin/middlewares/withAuth";
 import supabase from "@/lib/database";
 
@@ -68,38 +37,6 @@ export const logout = async () => {
     throw error;
   }
 };
-
-// export const updateEmail = async (
-//   newEmail: string,
-//   { email, password }: PropType,
-// ) => {
-//   try {
-//     const loginData = await loginUser({ email, password });
-//     console.log("login data:", email);
-//     const { data, error } = await supabase.auth.updateUser({
-//       email: newEmail,
-//     });
-//     console.log("new email :", data);
-
-//     if (!loginData) {
-//       throw new Error(
-//         "Impossible de se connecter. Vérifiez vos informations d'identification.",
-//       );
-//     }
-
-//     // Vérifie les erreurs
-//     if (error) {
-//       console.error("Erreur lors de la mise à jour de l'email:", error.message);
-//       throw new AuthError(error.message); // Lève une erreur explicite si la mise à jour échoue
-//     }
-
-//     console.log("Nouvel email mis à jour avec succès :", data);
-
-//     return data;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
 
 // UPDATE EMAIL ADMIN
 export const updateEmail = async (
@@ -193,6 +130,18 @@ export const updatePassword = async (
 
 export const resetPassword = async (email: string) => {
   try {
+    // Vérifie si l'email existe dans la base
+    const { data: user, error: userError } = await supabase
+      .from("admin")
+      .select("*")
+      .eq("email", email)
+      .single();
+
+    if (userError || !user) {
+      throw new Error("Email non enregistré.");
+    }
+
+    // Si l'utilisateur existe, initie la réinitialisation
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: "http://localhost:3000/reinitialisation-mot-de-passe",
     });
@@ -211,7 +160,7 @@ export const updatePasswordWithToken = async (
     // console.log("Token utilisé pour la réinitialisation :", token);
     console.log("Nouveau mot de passe :", newPassword);
 
-    // Vous devez d'abord confirmer le token, puis mettre à jour le mot de passe
+    // Confirmer le token, puis mettre à jour le mot de passe
     const { error } = await supabase.auth.updateUser({ password: newPassword });
 
     if (error) {

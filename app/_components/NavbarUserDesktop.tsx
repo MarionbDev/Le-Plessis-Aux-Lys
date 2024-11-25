@@ -13,10 +13,10 @@ export default function NavbarUser() {
     const _classList = [];
 
     if (scroll.y > 300 && scroll.y - scroll.lastY > 0) {
-      _classList.push(" translate-y-[-100%] "); // cache la barre de navigation avec transition
+      _classList.push(" translate-y-[-100%] ");
     }
 
-    // la classe de box-shadow uniquement lorsque vous n'êtes pas tout en haut de la page
+    // la classe de box-shadow
     if (scroll.y > 0) {
       _classList.push("shadow-navbar");
     }
@@ -24,10 +24,9 @@ export default function NavbarUser() {
     setNavClassList(_classList);
   }, [scroll.y, scroll.lastY]);
 
-  // useEffect pour gérer le cas où vous êtes trop bas dans la page
   useEffect(() => {
     if (scroll.y === 0) {
-      setNavClassList([""]); // Réinitialise les styles lorsque haut de la page
+      setNavClassList([""]);
     }
   }, [scroll.y]);
 
@@ -38,7 +37,7 @@ export default function NavbarUser() {
       )} `}
     >
       <div className="flex flex-col justify-center gap-4 pt-6">
-        <h1 className="font-title-home text-title_color italic font-extralight  ml-2 md:ml-10   text-3xl sm:text-2xl xl:text-[3rem] tracking-[3px]  ">
+        <h1 className="font-title-home text-title_color italic font-extralight  ml-2 md:ml-10   text-3xl sm:text-2xl xl:text-[2.6rem] tracking-[3px]  ">
           Le Plessis Aux Lys
         </h1>
         <span className="flex justify-center w-[7rem] md:ml-10  border-t-2  border-separator"></span>

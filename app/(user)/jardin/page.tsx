@@ -46,20 +46,11 @@ export default function Garden() {
       </h3>
       <span className="flex justify-center w-2/4 border-t-2 py-6 md:py-10 border-separator"></span>
 
-      {/* <div  className="md:mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-       */}
       <div className="flex flex-wrap gap-[.5rem] ">
         {imagesJardin.map((image, index) => (
           <motion.div
             key={index}
             className="relative flex justify-center items-center overflow-hidden rounded-sm  "
-            // initial={{ opacity: 0, y: 20 }} // Début en bas
-            // animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
-            // whileHover={{
-            //   scale: 1.05,
-            //   x: index % 2 === 0 ? -10 : 10, // Déplacement diagonal selon l'index
-            //   y: -5,
-            // }}
           >
             <Image
               src={image.path}

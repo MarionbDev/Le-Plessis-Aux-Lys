@@ -96,7 +96,7 @@ export default function RentalPage({
             <div className="flex flex-col md:mt-10 lg:mt-0 ">
               {mainImage && imagesSlide?.length > 0 ? (
                 <section className="flex flex-col lg:flex-row lg:justify-center lg:gap-8 sm:px-8 xl:mx-0  md:min-h-[24rem]  ">
-                  <div className="flex justify-center items-center    mb-2 md:-mt-3 min-h-[14rem]  ">
+                  <div className="flex justify-center items-center md:items-start   mb-2 md:-mt-3 min-h-[14rem]  ">
                     <img
                       src={mainImage}
                       alt={`Photo de  ${title}`}
