@@ -61,7 +61,6 @@ export const getImagesFromBucket = async (
 export const uploadPhotos = async (
   file: File,
   orientation: "horizontal" | "vertical",
-
   bucket: string,
 ) => {
   try {
@@ -76,7 +75,7 @@ export const uploadPhotos = async (
     return {
       orientation,
       id: data.id,
-      fullPath: data.path,
+      fullPath: construireUrlImage(bucket, data.path),
       image_path: data.path,
     };
   } catch (error: any) {

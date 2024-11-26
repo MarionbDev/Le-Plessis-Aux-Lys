@@ -157,9 +157,16 @@ const BookingToCome: React.FC = () => {
   };
 
   return (
-    <div className=" text-text_color  flex flex-col py-20 ">
-      <div className=" mx-10 mb-6">
-        <h2 className=" text-lg ">Suivi des réservations :</h2>
+    <div className=" text-text_color  flex flex-col py-10 w-full ">
+      <div className=" mx-10 mb-6 mt-6">
+        <div className=" flex flex-col lg:flex-row items-center justify-center my-4  lg:mt-0 gap-4  lg:gap-10 lg:my-8">
+          <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
+          <h1 className=" font-semibold text-center lg:text-lg uppercase ">
+            Suivi des réservations
+          </h1>
+          <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
+        </div>
+        {/* <h2 className=" text-lg ">Suivi des réservations :</h2> */}
       </div>
 
       <div className="flex flex-wrap justify-center gap-y-10 gap-x-20 text-[0.9rem]">
@@ -167,15 +174,13 @@ const BookingToCome: React.FC = () => {
           <div className="shadow-md rounded-md w-[22rem] " key={rental.id}>
             <Card className="mb-8 w-[22rem] h-full border-2 text-text_color   rounded-md">
               <CardHeader>
-                <CardTitle className="text-lg font-bold uppercase text-center mb-2 ">
+                <CardTitle className="text-[1rem] font-bold uppercase text-center mb-2 ">
                   {rentalNames[rental.type]}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex flex-col gap-4 h-[18rem] overflow-auto  mostly-customized-scrollbar mx-1 ">
+              <CardContent className="flex flex-col text-[0.9rem] gap-4 h-[18rem] overflow-auto  mostly-customized-scrollbar mx-1 ">
                 <div>
-                  <h3 className="text-md font-semibold">
-                    Réservations en cours
-                  </h3>
+                  <h3 className="font-semibold">Réservations en cours</h3>
                   <ul className="list-disc pl-5">
                     {reservationsByType[rental.type]?.ongoing.length ? (
                       reservationsByType[rental.type].ongoing.map(

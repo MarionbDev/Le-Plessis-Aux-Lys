@@ -154,7 +154,7 @@ export function UpdateEmailButton() {
                 className=" cursor-pointer underline"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                <p className=" text-text_color  text-sm italic mb-2 mt-1 pl-1 underline">
+                <p className=" text-text_color text-[0.80rem] italic mb-2 mt-1 pl-1 underline">
                   Afficher le mot de passe
                 </p>
               </div>

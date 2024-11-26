@@ -53,13 +53,15 @@ export default function GiteAndRooms() {
     image_path: string;
     fullPath: string;
   }) => {
-    console.log("Upload complete data:", uploadedFileData);
+    // console.log("Upload complete data:", uploadedFileData);
 
     const newImage: ImageType = {
       path: uploadedFileData.fullPath,
       orientation: uploadedFileData.orientation,
       fileName: uploadedFileData.fullPath.split("/").pop() ?? "",
     };
+
+    // console.log("Uploaded file data fullPath:", uploadedFileData.fullPath);
 
     if (uploadedFileData.fullPath.includes("petiteOurse")) {
       setPetiteOurse((prevPetiteOurse) => [...prevPetiteOurse, newImage]);
@@ -90,14 +92,19 @@ export default function GiteAndRooms() {
       },
       error: "Error",
     });
+    // toast.success("Téléchargement de l'image réussi !");
   };
+
+  useEffect(() => {
+    console.log("État mis à jour pour grandeOurse:", grandeOurse);
+  }, [grandeOurse]);
 
   const handleDelete = async (fileName: string, bucket: string) => {
     // Définir le bucket
     try {
-      console.log(
-        `Attempting to delete file: ${fileName} from bucket: ${bucket}`,
-      );
+      // console.log(
+      //   `Attempting to delete file: ${fileName} from bucket: ${bucket}`,
+      // );
 
       // Appeler la fonction pour supprimer le fichier
       await deleteUploadFile(fileName, bucket);
@@ -131,8 +138,8 @@ export default function GiteAndRooms() {
     }
   };
   return (
-    <div className=" ">
-      <div className="flex justify-around gap-y-20 flex-wrap mx-20  ">
+    <div className="py-20 mx-4  flex justify-center">
+      <div className="flex justify-center lg:justify-start  gap-x-10 gap-y-20 flex-wrap lg:pl-28 ">
         <CardPhotosAdmin
           title="Le logis de la petite Ourse"
           slides={petiteOurse}
@@ -141,6 +148,7 @@ export default function GiteAndRooms() {
           bucket="petiteOurse"
         />
         <CardPhotosAdmin
+          key={JSON.stringify(grandeOurse)}
           title="Le logis de la grande Ourse"
           slides={grandeOurse}
           onUploadComplete={handleUploadComplete}
@@ -185,7 +193,13 @@ export default function GiteAndRooms() {
           bucket="jardin"
         />
       </div>
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          style: {
+            background: "#f5f7dc ",
+          },
+        }}
+      />
     </div>
   );
 }

@@ -66,7 +66,7 @@ export default function NavbarDesktopAdmin() {
             <span className={styles.underline}></span>
           </Link>
         </div>
-        <Toaster richColors />
+
         <Button
           onClick={handleLogOut}
           role="button"
@@ -76,6 +76,13 @@ export default function NavbarDesktopAdmin() {
           <LogOut />
         </Button>
       </div>
+      <Toaster
+        toastOptions={{
+          style: {
+            background: "#f5f7dc ",
+          },
+        }}
+      />
     </div>
   );
 }

@@ -237,8 +237,8 @@ const AddReservation: React.FC<AddReservationProps> = ({
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="font-text md:gap-10 shadow-md rounded-md border-2 py-4 mx-6 ">
-      <p className="font-semibold text-text_color text-center text-[1.2rem] mb-2">
+    <div className="font-text md:gap-10 shadow-md rounded-md border-2 py-2 mx-4 ">
+      <p className="font-semibold text-text_color text-center text-[1.1rem] mb-2">
         {rentalNames[rentalType].charAt(0).toUpperCase() +
           rentalNames[rentalType].slice(1)}{" "}
       </p>
@@ -255,7 +255,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
             captionLayout="dropdown"
             fromYear={2024}
             toYear={currentYear + 3}
-            className=""
+            className=" h-[23rem] calendar-size  "
           />
 
           <div className="flex flex-col">

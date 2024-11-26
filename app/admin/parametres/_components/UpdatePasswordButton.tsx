@@ -175,7 +175,7 @@ export function UpdatePasswordButton() {
                 className=" cursor-pointer hover:underline"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                <p className=" text-sm italic mb-2  pl-1 underline">
+                <p className="  text-[0.80rem]  italic mb-2  pl-1 underline">
                   Afficher mot de passe
                 </p>
               </div>
@@ -206,7 +206,7 @@ export function UpdatePasswordButton() {
                 className=" cursor-pointer hover:underline"
                 onClick={() => setShowNewPassword(!showNewPassword)}
               >
-                <p className=" text-sm italic mb-2  pl-1 underline">
+                <p className=" text-[0.80rem]  italic mb-2  pl-1 underline">
                   Afficher le mot de passe
                 </p>
               </div>
@@ -233,7 +233,7 @@ export function UpdatePasswordButton() {
                 className=" cursor-pointer hover:underline"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
               >
-                <p className=" text-sm italic mb-2  pl-1 underline">
+                <p className=" text-[0.80rem]  italic mb-2  pl-1 underline">
                   Afficher le mot de passe
                 </p>
               </div>

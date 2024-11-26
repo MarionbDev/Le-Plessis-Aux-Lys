@@ -11,6 +11,11 @@ interface Props extends UploadFileAdminProps {
 export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
   const [files, setFiles] = useState<File[]>([]);
   const [uploadedFilePaths, setUploadedFilePaths] = useState<string[]>([]);
+  console.log("UploadFileAdmin initialized with bucket:", bucket);
+  console.log(
+    "onUploadComplete provided:",
+    typeof onUploadComplete === "function",
+  );
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = event.target.files
@@ -59,12 +64,13 @@ export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
             ...prevPaths,
             uploadedFileData.fullPath,
           ]);
+          console.log("Calling onUploadComplete with:", fileData);
           onUploadComplete(fileData);
         } catch (error) {
           console.error("Error uploading file:", error);
         }
       };
-
+      console.log("Setting image src for preview.");
       img.src = URL.createObjectURL(file);
     }
   };
@@ -78,12 +84,12 @@ export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
           accept="image/*"
           multiple
           onChange={handleFileChange}
-          className="  border cursor-pointer"
+          className="  border cursor-pointer text-[0.9rem]"
         />
         <Button
           type="button"
           onClick={uploadFiles}
-          className="  mt-4  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md  "
+          className="  mt-4  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-[0.9rem] "
         >
           Télécharger
         </Button>

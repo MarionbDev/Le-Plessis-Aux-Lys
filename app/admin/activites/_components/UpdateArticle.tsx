@@ -23,7 +23,7 @@ import { getArticleById, updateArticle } from "@/app/api/article/route";
 import { ArticleProps } from "@/app/types";
 import supabase from "@/lib/database";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
+import { Loader2, Save } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { toast, Toaster } from "sonner";
@@ -267,11 +267,13 @@ export default function UpdateArticle({ articleId }: { articleId: string }) {
                   role="button"
                   aria-label="ajouter l'article"
                   disabled={isLoading}
-                  className=" mt-9 w-40  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md  "
+                  className=" mt-9 w-40 gap-2 bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md  "
                 >
                   {isLoading ? (
                     <Loader2 className="animate-spin" size="16" />
-                  ) : null}
+                  ) : (
+                    <Save size="16" />
+                  )}
                   Enregistrer
                 </Button>
               </div>
