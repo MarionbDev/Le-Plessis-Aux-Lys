@@ -122,10 +122,10 @@ export default function UserLoginForm() {
             <div className=" rounded-md border-2  w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] ">
               <Card className=" ">
                 <CardHeader>
-                  <CardTitle className=" md:text-[1.4rem] text-text_color font-semibold">
+                  <CardTitle className=" md:text-[1.2rem] text-text_color font-semibold">
                     Espace réservé
                   </CardTitle>
-                  <CardDescription className="italic text-[0.9rem] md:text-md lg:text-[1rem] text-text_color ">
+                  <CardDescription className="italic text-[0.9rem]  text-text_color ">
                     Se connecter à l'espace d'administration
                   </CardDescription>
                 </CardHeader>

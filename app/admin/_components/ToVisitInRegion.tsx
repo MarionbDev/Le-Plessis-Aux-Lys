@@ -74,7 +74,9 @@ export default function ToVisitInTheRegion() {
           </div>
         </dialog>
       )}
-      <ListArticles articles={articles} setArticles={setArticles} />
+      <div className=" flex justify-center w-full">
+        <ListArticles articles={articles} setArticles={setArticles} />
+      </div>
     </div>
   );
 }

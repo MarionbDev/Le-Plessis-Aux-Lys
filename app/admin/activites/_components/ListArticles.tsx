@@ -66,47 +66,48 @@ export default function ListArticles({
   };
 
   return (
-    <div className="flex flex-col md:mx-20 ">
-      <div className="grid grid-cols-4 my-10 ">
-        <div className=" grid col-start-4 place-items-end">
-          <Link href="?modal=true">
-            <Button
-              type="button"
-              className=" gap-3 lg:gap-4 border border-gray-300  hover:bg-yellow/50  hover:text-white text-text_color text-md lg:text-md  "
-            >
-              <CirclePlus color="#bbbb57" />
-              Ajouter une activité
-            </Button>
-          </Link>
+    <div className="flex flex-col  ">
+      <div className="px-4">
+        <div className="lg:grid grid-cols-4 my-10 flex justify-center sm:justify-end sm:pr-4 md:pr-0   ">
+          <div className=" grid col-start-4 place-items-end ">
+            <Link href="?modal=true">
+              <Button
+                type="button"
+                className=" gap-3 lg:gap-4 border border-gray-300  hover:bg-yellow/50  hover:text-white text-text_color text-md lg:text-md  "
+              >
+                <CirclePlus color="#bbbb57" />
+                Ajouter une activité
+              </Button>
+            </Link>
+          </div>
         </div>
-      </div>
-      {/* <ul className="grid grid-cols-3 gap-4 place-items-center  gap-x-28  gap-y-12"> */}
 
-      <ul className="flex flex-wrap  gap-x-28  gap-y-12 ">
-        <VisitContext.Provider value={visitContextValue}>
-          {articles.map((article) => (
-            <li key={article.id}>
-              <Article
-                id={article.id}
-                title={article.title}
-                description={article.description}
-                content={article.content}
-                url_link={article.url_link}
-                image_path={article.image_path}
-                handleDelete={handleDeleteArticle}
-                handleUpdate={handleUpdateArticle}
-              />
-            </li>
-          ))}
-        </VisitContext.Provider>
-        <Toaster
-          toastOptions={{
-            style: {
-              background: "#f5f7dc ",
-            },
-          }}
-        />
-      </ul>
+        <ul className="flex flex-col items-center gap-12 xl:gap-14  ">
+          <VisitContext.Provider value={visitContextValue}>
+            {articles.map((article) => (
+              <li key={article.id}>
+                <Article
+                  id={article.id}
+                  title={article.title}
+                  description={article.description}
+                  content={article.content}
+                  url_link={article.url_link}
+                  image_path={article.image_path}
+                  handleDelete={handleDeleteArticle}
+                  handleUpdate={handleUpdateArticle}
+                />
+              </li>
+            ))}
+          </VisitContext.Provider>
+          <Toaster
+            toastOptions={{
+              style: {
+                background: "#f5f7dc ",
+              },
+            }}
+          />
+        </ul>
+      </div>
     </div>
   );
 }

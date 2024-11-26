@@ -44,7 +44,7 @@ export default function NavBarMobileAdmin() {
           <Menu className="w-11 h-11 text-white p-2 rounded-full bg-[#64641fd8]" />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="bg-[#fafafc] ml-4 w-64">
-          <DropdownMenuLabel className="flex justify-center my-2 text-xl">
+          <DropdownMenuLabel className="flex justify-center my-2 text-lg">
             Bienvenue
           </DropdownMenuLabel>
           <DropdownMenuSeparator className="border-b-[1px]" />
@@ -52,7 +52,7 @@ export default function NavBarMobileAdmin() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin")} // Fermer le menu après la navigation
-                className="text-[1.2rem]"
+                className="text-[1rem]"
               >
                 Tableau de bord
               </MenubarTrigger>
@@ -61,7 +61,7 @@ export default function NavBarMobileAdmin() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin/tarifs")}
-                className="text-[1.2rem]"
+                className="text-[1rem]"
               >
                 Tarifs
               </MenubarTrigger>
@@ -70,7 +70,7 @@ export default function NavBarMobileAdmin() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin/reservations")}
-                className="text-[1.2rem]"
+                className="text-[1rem]"
               >
                 Réservations
               </MenubarTrigger>
@@ -79,7 +79,7 @@ export default function NavBarMobileAdmin() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin/activites")}
-                className="text-[1.2rem]"
+                className="text-[1rem]"
               >
                 Activités
               </MenubarTrigger>
@@ -88,7 +88,7 @@ export default function NavBarMobileAdmin() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin/photos")}
-                className="text-[1.2rem]"
+                className="text-[1rem]"
               >
                 Photos
               </MenubarTrigger>
@@ -96,7 +96,7 @@ export default function NavBarMobileAdmin() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin/parametres")}
-                className="text-[1.2rem]"
+                className="text-[1rem]"
               >
                 Paramètres
               </MenubarTrigger>
@@ -106,7 +106,7 @@ export default function NavBarMobileAdmin() {
               <MenubarTrigger
                 onClick={handleLogOut} // Fermer le menu et naviguer vers la page de connexion
                 type="button"
-                className="flex gap-2 text-[1.2rem] italic opacity-50 hover:opacity-100"
+                className="flex gap-2 text-[1rem] italic opacity-50 hover:opacity-100"
               >
                 <LogIn className="text-slate-800/90" /> Déconnexion
               </MenubarTrigger>

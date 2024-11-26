@@ -18,7 +18,7 @@ export default function LoginPage() {
       <Button
         type="button"
         onClick={handleClickHome}
-        className=" border w-[12rem] mt-10 rounded-full ml-6 gap-2  bg-slate-100 hover:bg-slate-200 text-text_color text-md lg:text-md"
+        className=" border w-[12rem] mt-10 rounded-full ml-6 gap-2   hover:border-2 hover:border-yellow/50 text-text_color text-[0.9rem]"
       >
         <Milestone
           size={20}

@@ -9,6 +9,12 @@ import { Trash2 } from "lucide-react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { onUploadComplete } from "../types";
 import UploadFileAdmin from "./UploadFileAdmin";
 
@@ -37,37 +43,45 @@ export default function CardPhotosAdmin({
 
   return (
     <>
-      <div className="flex justify-around shadow-div rounded-md ">
-        <Card className=" w-[30rem] h-[32rem] flex flex-col items-center border-2 border-yellow/50 ">
-          <CardHeader>
-            <div className="flex flex-col gap-4 justify-between items-center">
-              <CardTitle>{title}</CardTitle>
-            </div>
+      <div className="flex justify-around d ">
+        <Card className=" w-[25rem] h-[29rem] flex flex-col items-center border-2  ">
+          <CardHeader className="flex flex-col justify-between items-center">
+            <CardTitle className="text-[1.1rem]">{title}</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="customized-scrollbar flex gap-4 h-[19rem] overflow-x-auto overflow-y-hidden  ">
+            <div className="customized-scrollbar flex gap-4 h-[16rem] overflow-x-auto overflow-y-hidden  ">
               {slides.map((slide, index) => (
                 <div
                   key={index}
-                  className="h-[18rem] flex-shrink-0 flex items-center  justify-center relative"
+                  className="h-[14rem] flex-shrink-0  flex items-center  justify-center relative "
                 >
-                  <div className=" flex justify-center items-center">
+                  <div className=" flex justify-center items-center ">
                     <Image
                       src={slide.path}
-                      width={200}
-                      height={200}
+                      width={280}
+                      height={180}
                       alt={`Photo ${index + 1}`}
-                      style={{ objectFit: "cover", objectPosition: "center" }}
+                      // style={{ objectFit: "cover", objectPosition: "center" }}
                       priority
-                      className=" p-0  w-auto"
+                      className=" w-auto h-56 object-scale-down"
                     />
                   </div>
-                  <Button
-                    onClick={() => handleDeleteClick(slide.fileName)}
-                    className=" absolute  bg-white  p-1 rounded-tr-md border-l-2 border-b-2"
-                  >
-                    <Trash2 size={20} className=" hover:scale-110" />
-                  </Button>
+
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          onClick={() => handleDeleteClick(slide.fileName)}
+                          className="absolute  bg-yellow/60 mr-4  p-1 rounded-full px-2 border-l-2 border-2"
+                        >
+                          <Trash2 size={22} className="" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent className="bg-white">
+                        <p>Supprimer</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 </div>
               ))}{" "}
             </div>

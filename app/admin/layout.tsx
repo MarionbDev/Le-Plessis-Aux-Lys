@@ -32,7 +32,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <section className=" h-screen font-text">
+    <section className=" h-screen font-text 0 ">
       <NavbarDesktopAdmin />
       <NavBarMobileAdmin />
 

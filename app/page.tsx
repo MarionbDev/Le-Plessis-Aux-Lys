@@ -20,10 +20,7 @@ export default function Home() {
   return (
     <UserLayout>
       <div className="min-h-screen">
-        <div className="fixed  top-0 z-50 bg-none bg-transparent">
-          {/* <NavbarUser />
-          <NavBarMobile /> */}
-        </div>
+        <div className="fixed  top-0 z-50 bg-none bg-transparent"></div>
         <main className=" ">
           <ImageHomeWebSite />
           <DescriptionWebSite />

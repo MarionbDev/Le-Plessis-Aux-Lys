@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Save } from "lucide-react";
 import { useState } from "react";
 import { toast, Toaster } from "sonner";
 
@@ -90,10 +91,10 @@ export default function RateRentalCardAdmin({
 
   return (
     <div className=" flex flex-col shadow-md rounded-md border-2  pb-2 md:p-4  ">
-      <Table className="text-text_color  w-[20rem] md:w-[30rem] font-text ">
+      <Table className="text-text_color text-[0.9rem] min-w-[22rem] sm:w-[35rem] font-text ">
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[40px] md:w-[150px] text-center  font-semibold md:text-[1.1rem]">
+            <TableHead className="w-[40px] md:w-[150px] text-center  font-semibold sm:text-[1rem]">
               {nameRental.charAt(0).toUpperCase() + nameRental.slice(1)}
             </TableHead>
             <TableHead className=" text-center w-[50px] md:w-[150px]">
@@ -107,7 +108,7 @@ export default function RateRentalCardAdmin({
         <TableBody>
           <TableRow>
             <TableCell className="font-medium">Nuit</TableCell>
-            <TableCell className="flex justify-center items-center text-center ">
+            <TableCell className=" text-center p-1 ">
               <input
                 type="text"
                 name="lowSeasonRateNight"
@@ -117,7 +118,7 @@ export default function RateRentalCardAdmin({
               />
               <span className="ml-1">€</span>
             </TableCell>
-            <TableCell className=" text-center">
+            <TableCell className=" text-center p-1">
               <input
                 type="text"
                 name="highSeasonRateNight"
@@ -130,7 +131,7 @@ export default function RateRentalCardAdmin({
           </TableRow>
           <TableRow>
             <TableCell className="font-medium">Semaine</TableCell>
-            <TableCell className=" text-center">
+            <TableCell className=" text-center p-1">
               <input
                 type="text"
                 name="lowSeasonRateWeek"
@@ -140,7 +141,7 @@ export default function RateRentalCardAdmin({
               />
               <span className="ml-1">€</span>
             </TableCell>
-            <TableCell className=" text-center">
+            <TableCell className=" text-center p-1">
               <input
                 type="text"
                 name="highSeasonRateWeek"
@@ -157,9 +158,9 @@ export default function RateRentalCardAdmin({
         <Toaster richColors />
         <Button
           onClick={handleSave}
-          className=" font-text text-text_color  hover:text-white hover:bg-gold/80 bg-gold/30 mt-4"
+          className=" font-text gap-2 text-text_color  hover:text-white hover:bg-gold/80 bg-gold/30 mt-4"
         >
-          Enregistrer
+          <Save size="16" /> Enregistrer
         </Button>
       </div>
     </div>

@@ -266,7 +266,7 @@ export default function DescriptionWebSite() {
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt="Le logis de la petite Ourse"
+                  alt=""
                   aria-label="Accéder à la page du gîte Le Logis de la Petite Ourse"
                   className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-1000 h-auto pointer-events-none  "
                 />
@@ -285,8 +285,7 @@ export default function DescriptionWebSite() {
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt="photo du gîte"
-             
+                  alt=""
                   className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-1000 h-auto pointer-events-none pointer-events-non  "
                 /> */}
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
@@ -322,7 +321,7 @@ export default function DescriptionWebSite() {
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt="Chambre Orion"
+                  alt=""
                   className=" rounded-sm shadow-basic w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
@@ -343,7 +342,7 @@ export default function DescriptionWebSite() {
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt="Chambre Cassiopee"
+                  alt=""
                   className="rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125 duration-500 h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
@@ -380,7 +379,7 @@ export default function DescriptionWebSite() {
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt="Chambre Andromède"
+                  alt=""
                   className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
@@ -400,7 +399,7 @@ export default function DescriptionWebSite() {
                   width={380}
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt="Suite familiale Pégase"
+                  alt=""
                   className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-500 h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
