@@ -7,7 +7,7 @@ import { CustomDateRange, RentalType } from "../types";
 
 type PropType = {
   title: string;
-  subTitle: string;
+  capacity: string;
   description: string;
   lowSeasonNightRate?: number;
   lowSeasonWeeklyRate?: number;
@@ -21,7 +21,7 @@ type PropType = {
 
 export default function RentalPage({
   title,
-  subTitle,
+  capacity,
   description,
   lowSeasonNightRate,
   lowSeasonWeeklyRate,
@@ -33,9 +33,6 @@ export default function RentalPage({
   const [reservedDates, setReservedDates] = useState<CustomDateRange[]>([]);
   const [mainImage, setMainImage] = useState<string>(imagesSlide[0]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [loaded, setLoaded] = useState(false);
-
-  console.log("rental page");
 
   useEffect(() => {
     async function fetchReservedDates() {
@@ -66,15 +63,15 @@ export default function RentalPage({
   const displayRate = (rate?: number) =>
     rate !== undefined && rate !== null ? `${rate} €` : "-";
 
-  useEffect(() => {
-    console.time("RentalPage Render Time");
-    return () => {
-      console.timeEnd("RentalPage Render Time");
-    };
-  }, []);
+  // useEffect(() => {
+  //   console.time("RentalPage Render Time");
+  //   return () => {
+  //     console.timeEnd("RentalPage Render Time");
+  //   };
+  // }, []);
 
   return (
-    <div className="font-text text-text_color mt-10 md:pt-[2rem] flex justify-center md:justify-around  min-h-screen ">
+    <div className="font-text text-text_color mt-10 md:pt-[2rem] flex justify-center md:justify-around ">
       <div className="flex flex-col  md:flex-row gap-20 md:py-4 md:mt-14">
         <div className="flex flex-col justify-between xl:w-full  ">
           <div className="flex flex-col justify-center ">
@@ -82,15 +79,14 @@ export default function RentalPage({
               <div className="flex flex-col lg:mb-10">
                 <div className="flex flex-col xl:w-full lg:flex-row items-center justify-center  mt-16  md:mb-0 sm:mt-0 gap-4 xl:gap-12 lg:my-8">
                   <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
-
-                  <h2 className=" font-prata font-semibold text-center lg:text-2xl uppercase lg:w-[27rem]  ">
+                  <h1 className=" font-prata font-semibold text-center lg:text-2xl uppercase lg:w-[27rem]  ">
                     {title}
-                  </h2>
+                  </h1>
                   <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
                 </div>
-                <h3 className="lg:text-md mb-8 h-4 mt-4 lg:mt-2  mx-10  font-bold ">
-                  {subTitle}
-                </h3>
+                <h2 className="lg:text-md mb-8 h-4 mt-4 lg:mt-2  mx-10  font-bold ">
+                  {capacity}
+                </h2>
               </div>{" "}
             </div>
             <div className="flex flex-col md:mt-10 lg:mt-0 ">
@@ -146,7 +142,10 @@ export default function RentalPage({
 
               <section className=" flex justify-center  ">
                 <div className="max-w-[60rem] px-4 sm:mx-8 md:mx-14 mt-12">
-                  <p className=" text-[0.9rem] px-6  ">{description}</p>
+                  <p
+                    dangerouslySetInnerHTML={{ __html: description }}
+                    className=" text-[0.9rem] px-6 "
+                  />
                 </div>
               </section>
 

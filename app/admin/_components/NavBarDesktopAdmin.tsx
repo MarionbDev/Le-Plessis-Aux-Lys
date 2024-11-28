@@ -45,10 +45,10 @@ export default function NavbarDesktopAdmin() {
             <span className={styles.underline}></span>
           </Link>
           <Link
-            href={"/admin/activites"}
-            className={`flex flex-col ${currentRoute === "/admin/activites" ? styles.activeLink : styles.nonActiveLink}`}
+            href={"/admin/details"}
+            className={`flex flex-col ${currentRoute === "/admin/details" ? styles.activeLink : styles.nonActiveLink}`}
           >
-            Activités
+            Détails
             <span className={styles.underline}></span>
           </Link>
           <Link
@@ -58,6 +58,14 @@ export default function NavbarDesktopAdmin() {
             Photos
             <span className={styles.underline}></span>
           </Link>
+          <Link
+            href={"/admin/activites"}
+            className={`flex flex-col ${currentRoute === "/admin/activites" ? styles.activeLink : styles.nonActiveLink}`}
+          >
+            Activités
+            <span className={styles.underline}></span>
+          </Link>
+
           <Link
             href={"/admin/parametres"}
             className={`flex flex-col ${currentRoute === "/admin/parametre" ? styles.activeLink : styles.nonActiveLink}`}

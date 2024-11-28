@@ -3,6 +3,7 @@
 import RentalPage from "@/app/_components/RentalPage";
 import { getImagesFromBucket } from "@/app/api/uploadPhotos/route";
 import { ImageType } from "@/app/types";
+import { useRentalDetails } from "@/hooks/useRentalDetails";
 import { useRentalRates } from "@/hooks/useRentalRates";
 import { Loader } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -11,6 +12,7 @@ export default function Pegase() {
   const [imagesPegase, setImagesPegase] = useState<ImageType[]>([]);
 
   const { rates, loading, error } = useRentalRates("pegase");
+  const { rentals } = useRentalDetails("pegase");
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -42,11 +44,11 @@ export default function Pegase() {
 
   return (
     <div className="">
-      {rates && (
+      {rates && rentals ? (
         <RentalPage
-          title="Suite familiale Pégase"
-          subTitle="Pour 5 personnes"
-          description="Cette suite familial dispose de deux chambres. Une chambre avec un grand lit de 140 cm et d'un lit de 90 cm ainsi que la salle de bain. Une chambre avec un grand lit de 140 cm."
+          title={rentals.title_rental}
+          capacity={rentals.capacity_rental}
+          description={rentals.description_rental}
           lowSeasonNightRate={rates.price_low_season_night}
           lowSeasonWeeklyRate={rates.price_low_season_week}
           highSeasonNightRate={rates.price_high_season_night}
@@ -54,7 +56,7 @@ export default function Pegase() {
           imagesSlide={imageUrls}
           rentalType="pegase"
         />
-      )}
+      ) : null}
     </div>
   );
 }

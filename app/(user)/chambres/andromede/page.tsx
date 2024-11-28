@@ -3,6 +3,7 @@
 import RentalPage from "@/app/_components/RentalPage";
 import { getImagesFromBucket } from "@/app/api/uploadPhotos/route";
 import { ImageType } from "@/app/types";
+import { useRentalDetails } from "@/hooks/useRentalDetails";
 import { useRentalRates } from "@/hooks/useRentalRates";
 import { Loader } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -11,6 +12,7 @@ export default function RoomThree() {
   const [imagesAndromede, setImagesAndromede] = useState<ImageType[]>([]);
 
   const { rates, loading, error } = useRentalRates("andromede");
+  const { rentals } = useRentalDetails("andromede");
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -43,11 +45,11 @@ export default function RoomThree() {
 
   return (
     <div className="">
-      {rates && (
+      {rates && rentals ? (
         <RentalPage
-          title="Chambre Andromède"
-          subTitle=""
-          description=""
+          title={rentals.title_rental}
+          capacity={rentals.capacity_rental}
+          description={rentals.description_rental}
           lowSeasonNightRate={rates.price_low_season_night}
           lowSeasonWeeklyRate={rates.price_low_season_week}
           highSeasonNightRate={rates.price_high_season_night}
@@ -55,7 +57,7 @@ export default function RoomThree() {
           imagesSlide={imageUrls}
           rentalType="andromede"
         />
-      )}
+      ) : null}
     </div>
   );
 }

@@ -67,6 +67,12 @@ export type UpdatedRates = {
   highSeasonRateWeek: number | null | undefined;
 };
 
+export type UpdateRentalDetails = {
+  title_rental: string;
+  capacity_rental: string;
+  description_rental: string;
+};
+
 export type onUploadComplete = {
   orientation: "horizontal" | "vertical";
   id: string;
@@ -113,5 +119,22 @@ export type ImageType = {
   path: string;
   orientation: "horizontal" | "vertical";
   fileName: string;
+};
+
+// export type RentalsDetailsProps = {
+//   id: string;
+//   title: string;
+//   capacity: string;
+//   description: string;
+//   handleUpdate?: (id: string) => void;
+// };
+
+export type ListRentalsDetailsProps = {
+  id: string;
+  type: string;
+  title_rental: string;
+  capacity_rental: string;
+  description_rental: string;
+  handleUpdate?: (id: string) => void;
 };
 

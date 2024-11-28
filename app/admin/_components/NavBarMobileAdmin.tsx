@@ -78,13 +78,12 @@ export default function NavBarMobileAdmin() {
 
             <MenubarMenu>
               <MenubarTrigger
-                onClick={() => handleNavigation("/admin/activites")}
+                onClick={() => handleNavigation("/admin/details")}
                 className="text-[1rem]"
               >
-                Activités
+                Détails
               </MenubarTrigger>
             </MenubarMenu>
-
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin/photos")}
@@ -93,6 +92,15 @@ export default function NavBarMobileAdmin() {
                 Photos
               </MenubarTrigger>
             </MenubarMenu>
+            <MenubarMenu>
+              <MenubarTrigger
+                onClick={() => handleNavigation("/admin/activites")}
+                className="text-[1rem]"
+              >
+                Activités
+              </MenubarTrigger>
+            </MenubarMenu>
+
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin/parametres")}

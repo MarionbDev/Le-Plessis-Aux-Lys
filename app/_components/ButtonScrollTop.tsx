@@ -14,7 +14,7 @@ export default function ButtonScrollTop() {
       onClick={ScrollTop}
       id="buttonScroll"
       aria-label="Scroll vers le haut"
-      className=" fixed bottom-4 right-4"
+      className=" fixed bottom-4 right-4 z-50"
     >
       <CircleChevronUp
         size={38}

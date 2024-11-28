@@ -72,9 +72,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-[#fdfdfd] ">
+    <html lang="en" className="bg-[#fdfdfd] min-h-screen ">
       <body className={inter.className}>
-        <div className="fixed w-screen top-0 z-50 bg-none bg-transparent"></div>
+        <div className="fixed  w-screen top-0 z-50 bg-none bg-transparent"></div>
         <main> {children}</main>
       </body>
     </html>

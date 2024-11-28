@@ -10,13 +10,13 @@ export default function UserLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className=" min-h-screen ">
-      <div className=" fixed top-0 md:w-full z-50 bg-none bg-transparent">
+    <div className=" ">
+      <nav className=" fixed top-0 md:w-full z-50 bg-none bg-transparent">
         <NavbarUser />
         <NavBarMobile />
-      </div>
+      </nav>
       <ButtonScrollTop />
-      <main> {children}</main>
+      <main className="min-h-screen"> {children}</main>
       <footer className="">
         <Footer />
       </footer>
