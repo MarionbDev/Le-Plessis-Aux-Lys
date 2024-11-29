@@ -42,7 +42,7 @@ export default function ImageHomeWebSite() {
           priority={true}
           loading="eager"
           alt="photo du parc"
-          className="object-cover object-center w-3/4 max-w-[900px]"
+          className="object-cover object-center w-3/4 max-w-[900px] h-auto"
         />
         <div className="image-home-desk absolute flex justify-center items-center bg-[#fdfdfd]/85 rounded-sm w-[22rem] h-[6.5rem] md:w-[25rem] md:h-[7rem] lg:w-[36rem] lg:h-[11rem] tracking-[6px]">
           <h2 className="flex flex-col justify-center items-center w-[20rem] h-[8rem] md:w-[23rem] md:h-[10rem] lg:w-[32rem] lg:h-[14rem] border-[2.3px] border-[#ffffff] font-prata text-[#a18527] uppercase text-2xl lg:text-3xl xl:text-4xl max-[390px]:tracking-[1px] max-[461px]:tracking-[2px] min-[462px]:tracking-[6px]">

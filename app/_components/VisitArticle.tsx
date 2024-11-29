@@ -79,7 +79,7 @@ export default function VisitArticle({
                   width={280}
                   height={180}
                   alt={`Photo de l'article ${title}`}
-                  className=" max-w-[13rem] h-auto object-contain"
+                  className=" max-w-[13rem] h-auto object-contain rounded-sm"
                 />
               </div>
             </CardHeader>
