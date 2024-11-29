@@ -83,16 +83,16 @@ export default function Map() {
                     ></iframe> */}
 
                   {/* Intégration du service  */}
-
-                  <div className="googlemaps_embed">
+                  <div id="google-map-element" className="googlemaps_embed">
                     <iframe
+                      id="google-map"
                       src={mapUrl}
                       width="600"
                       height="500"
                       style={{ border: "0" }}
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      sandbox="allow-scripts allow-same-origin allow-popups"
+                      // sandbox="allow-scripts allow-same-origin allow-popups"
                       title="Carte Google"
                       className="w-[20rem] h-[20rem] sm:w-[30rem] sm:h-[22rem] md:w-[35rem]"
                     ></iframe>

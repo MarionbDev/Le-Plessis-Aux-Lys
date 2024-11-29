@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import Link from "next/link";
 import Script from "next/script";
 import "./globals.css";
 
@@ -79,8 +80,15 @@ export default function RootLayout({
           src="https://tarteaucitron.io/load.js?domain=le-plessis-aux-lys.fr&uuid=d247d9b897e6f481fff316fa219c61cac598820b"
           async
         />
+
+        <Link
+          rel="stylesheet"
+          href="https://tarteaucitron.io/tarteaucitron.css"
+          type="text/css"
+        />
         <Script id="tarteaucitron-init" strategy="afterInteractive">
           {`
+            (tarteaucitron.job = tarteaucitron.job || []).push('maps_noapi');
             tarteaucitron.init({
               privacyUrl: "", // Optionnel : Lien vers votre politique de confidentialité
               bodyPosition: "bottom", // Position du bandeau
@@ -111,13 +119,14 @@ export default function RootLayout({
             });
 
             // Ajouter le service Google Maps à Tarteaucitron.js
-            (tarteaucitron.job = tarteaucitron.job || []).push('maps_noapi');
+           
           `}
         </Script>
       </head>
       <body className={inter.className}>
         <div className="fixed  w-screen top-0 z-50 bg-none bg-transparent"></div>
-        <main> {children}</main>
+
+        <main> {children} </main>
       </body>
     </html>
   );
