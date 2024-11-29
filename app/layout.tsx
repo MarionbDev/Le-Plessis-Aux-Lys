@@ -2,6 +2,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import Link from "next/link";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -72,10 +74,59 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-[#fdfdfd] ">
+    <html lang="en" className="bg-[#fdfdfd] min-h-screen ">
+      <head>
+        <Script
+          src="https://tarteaucitron.io/load.js?domain=le-plessis-aux-lys.fr&uuid=d247d9b897e6f481fff316fa219c61cac598820b"
+          async
+        />
+
+        <Link
+          rel="stylesheet"
+          href="https://tarteaucitron.io/tarteaucitron.css"
+          type="text/css"
+        />
+        <Script id="tarteaucitron-init" strategy="afterInteractive">
+          {`
+            (tarteaucitron.job = tarteaucitron.job || []).push('maps_noapi');
+            tarteaucitron.init({
+              privacyUrl: "", // Optionnel : Lien vers votre politique de confidentialité
+              bodyPosition: "bottom", // Position du bandeau
+              hashtag: "#tarteaucitron", // L'ID de la section pour les cookies
+              cookieName: "tarteaucitron", // Nom du cookie
+              orientation: "middle", // Position du bandeau
+              groupServices: false, // Pas de groupe de services
+              showDetailsOnClick: true, // Afficher les détails sur clic
+              serviceDefaultState: "wait", // Etat par défaut (attente de consentement)
+              showAlertSmall: false, // Désactive la bannière réduite
+              cookieslist: false, // Désactive la liste des cookies
+              closePopup: false, // Le bouton de fermeture de la popup est désactivé
+              showIcon: true, // Afficher l'icône de gestion des cookies
+              iconPosition: "BottomRight", // Position de l'icône
+              DenyAllCta: true, // Permet d'ajouter un bouton "Refuser tout"
+              AcceptAllCta: true, // Permet d'ajouter un bouton "Accepter tout"
+              highPrivacy: true, // Demander l'autorisation de cookies avant d'afficher le contenu
+              alwaysNeedConsent: false, // Nécessite toujours un consentement explicite
+              handleBrowserDNTRequest: false, // Ne pas respecter le "Do Not Track" du navigateur
+              removeCredit: false, // Ne pas supprimer le crédit Tarteaucitron
+              moreInfoLink: true, // Afficher le lien d'informations sur les cookies
+              useExternalCss: false, // Ne pas charger de CSS externe
+              useExternalJs: false, // Ne pas charger de JS externe
+              mandatory: true, // Exiger un consentement pour le service Google Maps
+              googleConsentMode: true, // Activer le mode de consentement Google
+              partnersList: false // Ne pas afficher la liste des partenaires
+             
+            });
+
+            // Ajouter le service Google Maps à Tarteaucitron.js
+           
+          `}
+        </Script>
+      </head>
       <body className={inter.className}>
-        <div className="fixed w-screen top-0 z-50 bg-none bg-transparent"></div>
-        <main> {children}</main>
+        <div className="fixed  w-screen top-0 z-50 bg-none bg-transparent"></div>
+
+        <main> {children} </main>
       </body>
     </html>
   );

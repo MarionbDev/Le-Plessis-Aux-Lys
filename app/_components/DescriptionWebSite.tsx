@@ -182,14 +182,14 @@ export default function DescriptionWebSite() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <div className="flex flex-col items-center md:flex-row   gap-6 lg:gap-10     ">
+                    <div className="flex flex-col items-center md:flex-row   gap-6 lg:gap-10    ">
                       <Image
                         src={parc6}
                         width={400}
                         height={225}
                         sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                         alt="Photo du parc du gîte"
-                        className=" object-contain   rounded-sm     "
+                        className=" object-contain   rounded-sm h-auto   "
                       />
                     </div>
                   </motion.div>
@@ -259,7 +259,7 @@ export default function DescriptionWebSite() {
           className="flex  justify-center"
         >
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-14 w-2/3 md:w-full ">
-            <li className="relative overflow-hidden  group  ">
+            <li className="relative overflow-hidden  group   ">
               <Link href={"/gites/le-logis-de-la-petite-ourse"}>
                 <Image
                   src={petiteOurse}
@@ -480,14 +480,14 @@ export default function DescriptionWebSite() {
                             height={180}
                             sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                             alt="Plage des Sables d'Olonne"
-                            className=" object-contain  rounded-sm     "
+                            className=" object-contain  rounded-sm h-auto    "
                           />
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Plage des Sables d'Olonne
                           </figcaption>
                         </figure>
                       </motion.div>
-                    </motion.section>{" "}
+                    </motion.section>
                     <motion.section
                       initial="hide"
                       whileInView="show"
@@ -506,7 +506,7 @@ export default function DescriptionWebSite() {
                             height={129}
                             sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 230px"
                             alt="Les marais Poitevin"
-                            className=" object-contain rounded-sm    "
+                            className=" object-contain rounded-sm h-auto   "
                           />{" "}
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Les Marais poitevin
@@ -532,7 +532,7 @@ export default function DescriptionWebSite() {
                             height={180}
                             sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                             alt="Moulins du Mont-des-Alouettes"
-                            className=" object-contain  lg:object-scale-down  rounded-sm     "
+                            className=" object-contain  lg:object-scale-down  rounded-sm   h-auto  "
                           />{" "}
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Moulins du Mont-des-Alouettes

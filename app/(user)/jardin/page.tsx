@@ -2,16 +2,14 @@
 
 import { getImagesFromBucket } from "@/app/api/uploadPhotos/route";
 import { ImageType } from "@/app/types";
-import { useRentalRates } from "@/hooks/useRentalRates";
-import { motion } from "framer-motion";
 import { Loader } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Garden() {
   const [imagesJardin, setImagesJardin] = useState<ImageType[]>([]);
-
-  const { rates, loading, error } = useRentalRates("jardin");
+  const [loading] = useState();
+  const [error] = useState();
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -48,18 +46,18 @@ export default function Garden() {
 
       <div className="flex flex-wrap gap-[.5rem] ">
         {imagesJardin.map((image, index) => (
-          <motion.div
+          <div
             key={index}
-            className="relative flex justify-center items-center overflow-hidden rounded-sm  "
+            className="relative flex justify-center items-center overflow-hidden  "
           >
             <Image
               src={image.path}
               width={475}
               height={390}
               alt={image.path}
-              className="object-scale-down w-4/5  md:h-[250px] md:w-full"
+              className="object-scale-down w-4/5  md:h-[220px] md:w-full rounded-sm "
             />
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

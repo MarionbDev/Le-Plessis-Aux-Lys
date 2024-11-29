@@ -3,6 +3,7 @@
 import RentalPage from "@/app/_components/RentalPage";
 import { getImagesFromBucket } from "@/app/api/uploadPhotos/route";
 import { ImageType } from "@/app/types";
+import { useRentalDetails } from "@/hooks/useRentalDetails";
 import { useRentalRates } from "@/hooks/useRentalRates";
 import { Loader } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -11,6 +12,7 @@ export default function LaGrandeOurse() {
   const [imagesGrandeOurse, setGrandeOurse] = useState<ImageType[]>([]);
 
   const { rates, loading, error } = useRentalRates("grandeOurse");
+  const { rentals } = useRentalDetails("grandeOurse");
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -41,12 +43,12 @@ export default function LaGrandeOurse() {
   }
 
   return (
-    <div className=" ">
-      {rates && (
+    <div className="">
+      {rates && rentals ? (
         <RentalPage
-          title="Le logis de la grande Ourse"
-          subTitle=""
-          description=""
+          title={rentals.title_rental}
+          capacity={rentals.capacity_rental}
+          description={rentals.description_rental}
           lowSeasonNightRate={rates.price_low_season_night}
           lowSeasonWeeklyRate={rates.price_low_season_week}
           highSeasonNightRate={rates.price_high_season_night}
@@ -54,7 +56,7 @@ export default function LaGrandeOurse() {
           imagesSlide={imageUrls}
           rentalType="grandeOurse"
         />
-      )}
+      ) : null}
     </div>
   );
 }

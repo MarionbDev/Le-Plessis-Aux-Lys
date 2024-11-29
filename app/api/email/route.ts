@@ -22,29 +22,20 @@ const getAdminEmail = async () => {
 // Fonction POST pour gérer l'envoi d'email
 export const POST = async (request: NextRequest) => {
   try {
-    console.log("Received a POST request");
-
     // Parse le corps de la requête (le formulaire)
     const body = await request.json();
     const { firstname, lastname, email, phone, message } = body;
-
-    // Affiche les données pour débogage
-    console.log("Body server:", body);
 
     // Récupérer l'email de l'admin depuis l'API
     const adminEmail = await getAdminEmail();
 
     // Envoi de l'email via Resend
     const emailResult = await resend.emails.send({
-      from: "contact@le-plessis-aux-lys.fr",
-      // `${firstname} ${lastname} <leplessis@resend.dev>`,
-      // to: process.env.TO_EMAIL ?? "marionbaston84@gmail.com",
+      from: '"le-plessis-aux-lys" <noreply@le-plessis-aux-lys.fr>',
       to: adminEmail,
-      subject: "Message envoyé depuis Le Plessis Aux Lys",
+      subject: "Vous avez reçu un nouveau message",
       react: EmailTemplate({ firstname, lastname, email, phone, message }),
     });
-
-    console.log("Email sent result:", emailResult);
 
     return NextResponse.json({ message: "Email successfully sent!" });
   } catch (error) {

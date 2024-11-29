@@ -10,8 +10,8 @@ type Rates = {
     | "orion"
     | "cassiopee"
     | "andromede"
-    | "pegase"
-    | "jardin";
+    | "pegase";
+
   price_low_season_night: number;
   price_high_season_night: number;
   price_low_season_week: number;
