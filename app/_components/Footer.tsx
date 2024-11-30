@@ -9,7 +9,10 @@ export default function Footer() {
         <Link href={"/mentions-legales"} className="hover:text-[#bbbb57]">
           <p>Mentions Légales </p>
         </Link>{" "}
-        <Link href={"/nous-contacter"} className="hover:text-[#bbbb57]">
+        <Link
+          href={"/politique-confidentialite"}
+          className="hover:text-[#bbbb57]"
+        >
           <p>Politique de Confidentialité</p>
         </Link>
         <Link href={"/nous-contacter"} className="hover:text-[#bbbb57]">
@@ -21,8 +24,4 @@ export default function Footer() {
     </div>
   );
 }
-
-// importer logo pour contact + lien du mail
-// lien mentions légales
-// lien office tourisme
 

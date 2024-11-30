@@ -64,7 +64,7 @@ export default function CookieBanner({
             correctement.
           </p>
           <Link
-            href="https://le-plessis-aux-lys.fr/politique-confidentialite "
+            href="/politique-confidentialite "
             className="text-[0.7rem]  underline"
           >
             Politique de confidentialité
