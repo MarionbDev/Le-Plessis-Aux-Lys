@@ -33,6 +33,12 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
 
   return (
     <section className=" h-screen font-text 0 ">
+      <div className="title-nav-mobile-admin flex justify-center">
+        <h1 className="font-title-home absolute top-20  text-title_color italic font-extralight text-3xl sm:text-4xl  tracking-[3px]  ">
+          Le Plessis Aux Lys
+        </h1>
+      </div>
+
       <NavbarDesktopAdmin />
       <NavBarMobileAdmin />
 

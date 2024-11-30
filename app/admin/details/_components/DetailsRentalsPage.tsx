@@ -45,9 +45,6 @@ export default function DetailsRentalPage() {
 
   return (
     <div className="pb-20 flex flex-col items-center">
-      {/* Modal d'ajout d'une location */}
-
-      {/* Modal de mise à jour d'une location */}
       {modalUpdate && rentalId && (
         <dialog className="fixed left-0 top-0 w-full h-full bg-black bg-opacity-50 z-50 overflow-auto backdrop-blur flex justify-center items-center">
           <div className="bg-white m-auto p-8">
@@ -65,7 +62,7 @@ export default function DetailsRentalPage() {
           </div>
         </dialog>
       )}
-      {/* Liste des locations */}
+
       <div className="flex justify-center w-full">
         <ListDetails
           rentalsDetails={rentalsDetails}

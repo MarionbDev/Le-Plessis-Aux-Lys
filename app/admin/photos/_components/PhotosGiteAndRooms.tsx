@@ -30,7 +30,6 @@ export default function GiteAndRooms() {
         const andromedeImages = await getImagesFromBucket("andromede");
         const pegaseImages = await getImagesFromBucket("pegase");
         const jardinImages = await getImagesFromBucket("jardin");
-        // console.log("gite", giteImages);
 
         setPetiteOurse(petiteOurseImages);
         setGrandeOurse(grandeOurseImages);
@@ -53,15 +52,11 @@ export default function GiteAndRooms() {
     image_path: string;
     fullPath: string;
   }) => {
-    // console.log("Upload complete data:", uploadedFileData);
-
     const newImage: ImageType = {
       path: uploadedFileData.fullPath,
       orientation: uploadedFileData.orientation,
       fileName: uploadedFileData.fullPath.split("/").pop() ?? "",
     };
-
-    // console.log("Uploaded file data fullPath:", uploadedFileData.fullPath);
 
     if (uploadedFileData.fullPath.includes("petiteOurse")) {
       setPetiteOurse((prevPetiteOurse) => [...prevPetiteOurse, newImage]);
@@ -92,7 +87,6 @@ export default function GiteAndRooms() {
       },
       error: "Error",
     });
-    // toast.success("Téléchargement de l'image réussi !");
   };
 
   useEffect(() => {
@@ -102,10 +96,6 @@ export default function GiteAndRooms() {
   const handleDelete = async (fileName: string, bucket: string) => {
     // Définir le bucket
     try {
-      // console.log(
-      //   `Attempting to delete file: ${fileName} from bucket: ${bucket}`,
-      // );
-
       // Appeler la fonction pour supprimer le fichier
       await deleteUploadFile(fileName, bucket);
 
@@ -138,68 +128,71 @@ export default function GiteAndRooms() {
     }
   };
   return (
-    <div className="py-20 mx-4  flex justify-center">
-      <div className="flex justify-center lg:justify-start  gap-x-10 gap-y-20 flex-wrap lg:pl-28 ">
-        <CardPhotosAdmin
-          title="Le logis de la petite Ourse"
-          slides={petiteOurse}
-          onUploadComplete={handleUploadComplete}
-          onDelete={handleDelete}
-          bucket="petiteOurse"
-        />
-        <CardPhotosAdmin
-          key={JSON.stringify(grandeOurse)}
-          title="Le logis de la grande Ourse"
-          slides={grandeOurse}
-          onUploadComplete={handleUploadComplete}
-          onDelete={handleDelete}
-          bucket="grandeOurse"
-        />
-        <CardPhotosAdmin
-          title="Orion"
-          slides={orion}
-          onUploadComplete={handleUploadComplete}
-          onDelete={handleDelete}
-          bucket="orion"
-        />
-        <CardPhotosAdmin
-          title="Cassiopée"
-          slides={cassiopee}
-          onUploadComplete={handleUploadComplete}
-          onDelete={handleDelete}
-          bucket="cassiopee"
-        />
-
-        <CardPhotosAdmin
-          title="Andromède"
-          slides={andromede}
-          onUploadComplete={handleUploadComplete}
-          onDelete={handleDelete}
-          bucket="andromede"
-        />
-        <CardPhotosAdmin
-          title="Pégase"
-          slides={pegase}
-          onUploadComplete={handleUploadComplete}
-          onDelete={handleDelete}
-          bucket="pegase"
-        />
-
-        <CardPhotosAdmin
-          title="Jardin"
-          slides={jardin}
-          onUploadComplete={handleUploadComplete}
-          onDelete={handleDelete}
-          bucket="jardin"
-        />
+    <div className=" py-20 mt-6 lg:mt-0">
+      <div className=" flex flex-col lg:flex-row items-center justify-center my-4  lg:mt-0 gap-4  lg:gap-8 lg:my-8">
+        <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
+        <h1 className=" text-text_color font-semibold text-center lg:text-lg uppercase ">
+          Mise à jour des photos
+        </h1>
+        <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
       </div>
-      <Toaster
-        toastOptions={{
-          style: {
-            background: "#f5f7dc ",
-          },
-        }}
-      />
+      <div className="py-20 lg:py-10 mx-4 lg:mt-0 flex justify-center">
+        <div className="flex justify-center lg:justify-start  gap-x-10 gap-y-20 flex-wrap lg:pl-28 ">
+          <CardPhotosAdmin
+            title="Le logis de la petite Ourse"
+            slides={petiteOurse}
+            onUploadComplete={handleUploadComplete}
+            onDelete={handleDelete}
+            bucket="petiteOurse"
+          />
+          <CardPhotosAdmin
+            key={JSON.stringify(grandeOurse)}
+            title="Le logis de la grande Ourse"
+            slides={grandeOurse}
+            onUploadComplete={handleUploadComplete}
+            onDelete={handleDelete}
+            bucket="grandeOurse"
+          />
+          <CardPhotosAdmin
+            title="Orion"
+            slides={orion}
+            onUploadComplete={handleUploadComplete}
+            onDelete={handleDelete}
+            bucket="orion"
+          />
+          <CardPhotosAdmin
+            title="Cassiopée"
+            slides={cassiopee}
+            onUploadComplete={handleUploadComplete}
+            onDelete={handleDelete}
+            bucket="cassiopee"
+          />
+
+          <CardPhotosAdmin
+            title="Andromède"
+            slides={andromede}
+            onUploadComplete={handleUploadComplete}
+            onDelete={handleDelete}
+            bucket="andromede"
+          />
+          <CardPhotosAdmin
+            title="Pégase"
+            slides={pegase}
+            onUploadComplete={handleUploadComplete}
+            onDelete={handleDelete}
+            bucket="pegase"
+          />
+
+          <CardPhotosAdmin
+            title="Jardin"
+            slides={jardin}
+            onUploadComplete={handleUploadComplete}
+            onDelete={handleDelete}
+            bucket="jardin"
+          />
+        </div>
+        <Toaster />
+      </div>
     </div>
   );
 }

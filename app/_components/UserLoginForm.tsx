@@ -279,13 +279,7 @@ export default function UserLoginForm() {
             </div>
           </form>
         </Form>
-        <Toaster
-          toastOptions={{
-            style: {
-              background: "#f5f7dc ",
-            },
-          }}
-        />
+        <Toaster />
       </div>
     </div>
   );

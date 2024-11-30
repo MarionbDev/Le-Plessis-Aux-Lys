@@ -140,7 +140,7 @@ export default function AddArticle() {
     <div className="w-[75vw] lg:w-[50vw] min-w-[200px]  h-[54rem]  xl:h-[36rem]    ">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleAddArticleFormSubmit)}>
-          <Card className="    text-text_color ">
+          <Card className="text-text_color ">
             <CardHeader>
               <CardTitle>Ajouter une activité</CardTitle>
             </CardHeader>
@@ -152,11 +152,11 @@ export default function AddArticle() {
                     name="title"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[0.9rem]">Titre </FormLabel>
+                        <FormLabel>Titre </FormLabel>
                         <FormControl>
                           <Input type="text" {...field} />
                         </FormControl>
-                        <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                        <FormMessage className="text-[0.85rem]  pl-2 text-red-500 italic" />
                       </FormItem>
                     )}
                   />
@@ -165,9 +165,7 @@ export default function AddArticle() {
                     name="description"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[0.9rem]">
-                          Sous-titre
-                        </FormLabel>
+                        <FormLabel>Sous-titre</FormLabel>
                         <FormControl>
                           <Input type="text" {...field} />
                         </FormControl>
@@ -184,9 +182,7 @@ export default function AddArticle() {
                       name="url_link"
                       render={({ field }) => (
                         <FormItem className="">
-                          <FormLabel className="text-[0.9rem]">
-                            Lien du site
-                          </FormLabel>
+                          <FormLabel>Lien du site</FormLabel>
                           <FormControl>
                             <Input type="link" {...field} className="" />
                           </FormControl>
@@ -199,9 +195,7 @@ export default function AddArticle() {
                       name="image_path"
                       render={({ field }) => (
                         <FormItem className=" xl:w-[20rem]">
-                          <FormLabel className="text-[0.9rem]">
-                            Sélectionner une photo
-                          </FormLabel>
+                          <FormLabel>Sélectionner une photo</FormLabel>
                           <FormControl>
                             <Input
                               type="file"
@@ -223,9 +217,7 @@ export default function AddArticle() {
                   name="content"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-[0.9rem]">
-                        Description
-                      </FormLabel>
+                      <FormLabel>Description</FormLabel>
                       <FormControl>
                         <Controller
                           name="content"
@@ -241,7 +233,7 @@ export default function AddArticle() {
                           )}
                         />
                       </FormControl>
-                      <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                      <FormMessage className="text-[0.85rem] -md pl-2 text-red-500 italic" />
                     </FormItem>
                   )}
                 />{" "}

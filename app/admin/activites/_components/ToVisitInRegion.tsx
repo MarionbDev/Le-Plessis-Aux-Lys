@@ -7,9 +7,9 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import AddArticle from "../activites/_components/AddArticle";
-import ListArticles from "../activites/_components/ListArticles";
-import UpdateArticle from "../activites/_components/UpdateArticle";
+import AddArticle from "./AddArticle";
+import ListArticles from "./ListArticles";
+import UpdateArticle from "./UpdateArticle";
 
 export default function ToVisitInTheRegion() {
   const searchParams = useSearchParams();

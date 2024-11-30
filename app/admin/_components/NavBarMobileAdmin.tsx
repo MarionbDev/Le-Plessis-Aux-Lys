@@ -35,8 +35,6 @@ export default function NavBarMobileAdmin() {
   return (
     <div className="navbar-mobile flex justify-start">
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-        {" "}
-        {/* Utilisation de onOpenChange */}
         <DropdownMenuTrigger
           aria-label="Menu de navigation"
           className="ml-6 mt-6"

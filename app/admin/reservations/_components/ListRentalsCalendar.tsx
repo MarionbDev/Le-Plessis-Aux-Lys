@@ -90,8 +90,15 @@ const ListRentalsCalendar: React.FC = () => {
   };
 
   return (
-    <div className=" ">
-      <div className="flex flex-col md:flex-row md:flex-wrap gap-8 md:gap-y-16  md:mx-10 justify-center py-20 ">
+    <div className=" py-20 mt-6 lg:mt-0">
+      <div className=" flex flex-col lg:flex-row items-center justify-center my-4  lg:mt-0 gap-4  lg:gap-8 lg:my-8">
+        <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
+        <h1 className="text-text_color font-semibold text-center lg:text-lg uppercase ">
+          Mise à jour des réservations
+        </h1>
+        <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
+      </div>
+      <div className="flex flex-col md:flex-row md:flex-wrap gap-8 md:gap-y-16  md:mx-10 justify-center lg:mt-16 ">
         {rentalsCalendar.map((rental) => (
           <div key={rental.id}>
             <AddReservation

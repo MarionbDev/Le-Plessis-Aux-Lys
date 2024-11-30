@@ -48,7 +48,6 @@ export function UpdateEmailButton() {
   const { user, loading, refreshSession } = useSession();
 
   // const isAdmin = user?.aud === "authenticated";
-  // console.log("user:", user);
 
   const form = useForm<z.infer<typeof UpdateEmailFormSchema>>({
     resolver: zodResolver(UpdateEmailFormSchema),
@@ -57,8 +56,6 @@ export function UpdateEmailButton() {
       password: "",
     },
   });
-
-  // console.log("data user:", user);
 
   const handleSubmit = async (values: FormSchemaType) => {
     if (!user?.email) {
@@ -98,35 +95,38 @@ export function UpdateEmailButton() {
   return (
     <Dialog open={isDialogOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild className="flex justify-between w-full">
-        <Button onClick={handleOpen} className=" ">
-          <div>Email</div> <div>{`${user?.email}`}</div>
+        <Button
+          onClick={handleOpen}
+          className="flex flex-col items-start md:flex-row md:justify-between text-[0.9rem]"
+        >
+          <p>Email</p>
+          <p> {`${user?.email}`}</p>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] bg-white dark:shadow-inner  shadow-md border-none  backdrop-blur-3xl drop-shadow-lg ">
+      <DialogContent className=" w-4/5 sm:max-w-[425px] bg-white dark:shadow-inner  shadow-md border-none  backdrop-blur-3xl drop-shadow-lg ">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSubmit)}>
             <DialogHeader>
-              <DialogTitle className="md:text-[1.4rem] text-text_color font-semibold">
+              <DialogTitle className=" text-text_color font-semibold">
                 Mise à jour de l'email
               </DialogTitle>
             </DialogHeader>
-            <div className=" py-4 ">
+            <div className=" py-4  ">
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem className="text-text_color mt-6 h-[6rem]   ">
-                    <FormLabel className="text-text_color text-md   ">
-                      Email
-                    </FormLabel>
+                  <FormItem className="text-text_color mt-6 h-[6rem]  ">
+                    <FormLabel className="text-text_color    ">Email</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="example@example.com"
                         type="email"
                         {...field}
+                        className="text-[0.85rem]"
                       />
                     </FormControl>
-                    <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                    <FormMessage className="text-[0.85rem]  pl-2 text-red-500 italic" />
                   </FormItem>
                 )}
               />
@@ -136,7 +136,7 @@ export function UpdateEmailButton() {
                 name="password"
                 render={({ field }) => (
                   <FormItem className="text-text_color mt-4 h-[6rem] ">
-                    <FormLabel className="text-text_color text-md   ">
+                    <FormLabel className="text-text_color ">
                       Mot de passe
                     </FormLabel>
                     <FormControl>
@@ -144,9 +144,10 @@ export function UpdateEmailButton() {
                         placeholder="********"
                         type={showPassword ? "text" : "password"}
                         {...field}
+                        className="text-[0.85rem]"
                       />
                     </FormControl>
-                    <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic " />
+                    <FormMessage className="text-[0.85rem]  pl-2 text-red-500 italic " />
                   </FormItem>
                 )}
               />
@@ -164,7 +165,7 @@ export function UpdateEmailButton() {
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="gap-2   bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md w-[12rem] "
+                  className="gap-2   bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-[0.9rem] w-[12rem] "
                 >
                   {isLoading ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -178,13 +179,7 @@ export function UpdateEmailButton() {
           </form>
         </Form>
       </DialogContent>
-      <Toaster
-        toastOptions={{
-          style: {
-            background: "#f5f7dc ",
-          },
-        }}
-      />
+      <Toaster />
     </Dialog>
   );
 }

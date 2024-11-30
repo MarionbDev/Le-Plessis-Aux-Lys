@@ -37,8 +37,15 @@ export default function ListDetails({
     }
   };
   return (
-    <>
-      <ul className="flex flex-col items-center mt-10 md:mt-[7.5rem] gap-8 ">
+    <div className="flex flex-col py-20 mt-6 lg:mt-0">
+      <div className=" flex flex-col lg:flex-row items-center justify-center my-4  lg:mt-0 gap-4  lg:gap-8 lg:my-8">
+        <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
+        <h1 className=" text-text_color font-semibold text-center lg:text-lg uppercase ">
+          Mise à jour des descriptions
+        </h1>
+        <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
+      </div>
+      <ul className="flex flex-col items-center mt-10 md:mt-8  gap-8 ">
         {rentalsDetails.map((detail) => (
           <li key={detail.id} className="">
             <Details
@@ -52,15 +59,9 @@ export default function ListDetails({
           </li>
         ))}
 
-        <Toaster
-          toastOptions={{
-            style: {
-              background: "#f5f7dc ",
-            },
-          }}
-        />
+        <Toaster />
       </ul>
-    </>
+    </div>
   );
 }
 
