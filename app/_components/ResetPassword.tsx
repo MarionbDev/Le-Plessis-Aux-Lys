@@ -122,7 +122,7 @@ export function ResetPassword() {
       form.reset();
 
       toast.success("Initialisation du mot de passe réussie.", {
-        duration: 4000,
+        duration: 2000,
       });
       router.push("/login");
     } catch (error) {
@@ -138,7 +138,6 @@ export function ResetPassword() {
 
   return (
     <div className="font-text flex justify-center items-center h-screen pt-20  ">
-      <Toaster richColors />
       {tokenNotFound ? (
         <div className="text-red-500">
           <p>Token manquant. Veuillez vérifier l'URL.</p>
@@ -149,10 +148,10 @@ export function ResetPassword() {
             onSubmit={form.handleSubmit(handleSubmitNewPassword)}
             className=" shadow-div rounded-md"
           >
-            <Card className=" rounded-md border-2 border-yellow/50 bg-white backdrop-blur-3xl drop-shadow-lg flex flex-col justify-center px-10 ">
+            <Card className=" rounded-md border-2  flex flex-col justify-center px-10 ">
               <CardContent className=" ">
                 <CardHeader className="px-0">
-                  <CardTitle className=" md:text-[1.4rem] text-text_color font-semibold ">
+                  <CardTitle className=" md:text-[1.2rem] text-text_color font-semibold ">
                     Réinitialisation du mot de passe
                   </CardTitle>
                 </CardHeader>
@@ -163,7 +162,7 @@ export function ResetPassword() {
                       name="newPassword"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-md  text-text_color ">
+                          <FormLabel className=" text-text_color ">
                             Nouveau mot de passe
                           </FormLabel>
                           <FormControl>
@@ -175,10 +174,10 @@ export function ResetPassword() {
                                 handlePasswordChange(e.target.value);
                               }}
                               value={field.value}
-                              className="w-64 text-md md:text-md"
+                              className="w-64 text-[0.85rem]"
                             />
                           </FormControl>
-                          <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                          <FormMessage className="text-[0.85rem] md:pl-2 text-red-500 italic" />
                         </FormItem>
                       )}
                     />
@@ -186,7 +185,7 @@ export function ResetPassword() {
                       className=" cursor-pointer hover:underline"
                       onClick={() => setShowNewPassword(!showNewPassword)}
                     >
-                      <p className=" text-[13px] pl-2 md:pl-0 mt-1 md:text-[0.8rem] underline  italic text-text_color ">
+                      <p className=" text-[13px] pl-2 md:pl-0 mt-1 underline  italic text-text_color ">
                         Afficher le mot de passe
                       </p>
                     </div>
@@ -250,7 +249,7 @@ export function ResetPassword() {
                       name="confirmNewPassword"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-md  text-text_color ">
+                          <FormLabel className=" text-text_color ">
                             Confirmer le nouveau le mot de passe
                           </FormLabel>
                           <FormControl>
@@ -258,10 +257,10 @@ export function ResetPassword() {
                               placeholder="********"
                               type={showConfirmPassword ? "text" : "password"}
                               {...field}
-                              className="w-64 text-md md:text-md"
+                              className="w-64 text-[0.85rem]"
                             />
                           </FormControl>
-                          <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                          <FormMessage className="text-[0.85rem] pl-2 text-red-500 italic" />
                         </FormItem>
                       )}
                     />
@@ -284,7 +283,7 @@ export function ResetPassword() {
                   role="button"
                   aria-label="réinitialisation du mot de passe"
                   disabled={isLoading}
-                  className="gap-3 lg:gap-4  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md w-[12rem] "
+                  className="gap-3 lg:gap-4  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-[0.9rem] w-[10rem] "
                 >
                   {isLoading ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -296,6 +295,7 @@ export function ResetPassword() {
               </CardFooter>
             </Card>
           </form>
+          <Toaster />
         </Form>
       )}
     </div>

@@ -11,10 +11,8 @@ export const getAllRentals = async () => {
       .from("rentals")
       .select("*")
       .order("title_rental", { ascending: true });
-    console.log("allrentals api", allRentals);
 
     if (error) throw error;
-    console.log("data rentals :", allRentals);
 
     return allRentals;
   } catch (error) {
@@ -75,7 +73,6 @@ export const getRentalById = async (
       .select("*")
       .eq("id", id)
       .single();
-    console.log("route api rentals :", data);
     if (error) {
       console.error("Error Fetched rental details id:", error);
       throw error;

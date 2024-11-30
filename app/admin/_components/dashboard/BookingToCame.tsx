@@ -65,10 +65,18 @@ const BookingToCome: React.FC = () => {
           const nextYear = currentMonth === 11 ? currentYear + 1 : currentYear;
 
           // Filter for ongoing reservations
+          // const ongoingReservations = reservedDates.filter((reservation) => {
+          //   const startDate = new Date(reservation.start_date);
+          //   const endDate = new Date(reservation.end_date);
+          //   return startDate <= now && endDate >= now;
+          // });
           const ongoingReservations = reservedDates.filter((reservation) => {
             const startDate = new Date(reservation.start_date);
             const endDate = new Date(reservation.end_date);
-            return startDate <= now && endDate >= now;
+            const bufferDays = 2; // Exemple : inclure les réservations terminées il y a 2 jours
+            const endWithBuffer = new Date(endDate);
+            endWithBuffer.setDate(endWithBuffer.getDate() + bufferDays);
+            return startDate <= now && endWithBuffer >= now;
           });
 
           // Filter for reservations in the current month
@@ -105,6 +113,8 @@ const BookingToCome: React.FC = () => {
             nextMonth: nextMonthReservations,
             upcoming: upcomingReservations,
           };
+
+          // console.log("Aujourd'hui :", now);
         }
 
         setReservationsByType(reservationsMap);
@@ -184,7 +194,7 @@ const BookingToCome: React.FC = () => {
                     {reservationsByType[rental.type]?.ongoing.length ? (
                       reservationsByType[rental.type].ongoing.map(
                         (reservation) => (
-                          <li key={reservation.id}>
+                          <li key={reservation.id} className="my-1">
                             {`Du ${new Date(reservation.start_date).toLocaleDateString()} au ${new Date(reservation.end_date).toLocaleDateString()}`}
                           </li>
                         ),
@@ -202,7 +212,7 @@ const BookingToCome: React.FC = () => {
                     {reservationsByType[rental.type]?.currentMonth.length ? (
                       reservationsByType[rental.type].currentMonth.map(
                         (reservation) => (
-                          <li key={reservation.id}>
+                          <li key={reservation.id} className="my-1">
                             {`Du ${new Date(reservation.start_date).toLocaleDateString()} au ${new Date(reservation.end_date).toLocaleDateString()}`}
                           </li>
                         ),
@@ -216,11 +226,11 @@ const BookingToCome: React.FC = () => {
                   <h3 className="text-md font-semibold">
                     Réservations pour le mois prochain
                   </h3>
-                  <ul className="list-disc pl-5">
+                  <ul className="list-disc pl-5  ">
                     {reservationsByType[rental.type]?.nextMonth.length ? (
                       reservationsByType[rental.type].nextMonth.map(
                         (reservation) => (
-                          <li key={reservation.id}>
+                          <li key={reservation.id} className="my-1">
                             {`Du ${new Date(reservation.start_date).toLocaleDateString()} au ${new Date(reservation.end_date).toLocaleDateString()}`}
                           </li>
                         ),
