@@ -21,6 +21,10 @@ export default function NavbarDesktopAdmin() {
 
   return (
     <div className="navbar-desktop-admin mx-10 mt-8">
+      <h1 className="font-title-home text-title_color italic font-extralight text-3xl sm:text-2xl xl:text-[2.6rem] tracking-[3px]  ">
+        Le Plessis Aux Lys
+      </h1>
+
       <div className="flex justify-between items-center text-text_color font-text">
         <div className=" gap-6 flex">
           <Link
@@ -78,19 +82,14 @@ export default function NavbarDesktopAdmin() {
         <Button
           onClick={handleLogOut}
           role="button"
-          className=" logOut gap-2 text-md "
+          className=" logOut gap-2 text-[0.9rem] hover:text-[#bbbb57]"
         >
-          <span>Se déconnecter</span>
-          <LogOut />
+          <span className="">Se déconnecter</span>
+
+          <LogOut size={22} />
         </Button>
       </div>
-      <Toaster
-        toastOptions={{
-          style: {
-            background: "#f5f7dc ",
-          },
-        }}
-      />
+      <Toaster />
     </div>
   );
 }

@@ -71,8 +71,6 @@ export function UpdatePasswordButton() {
     hasUpperCase: false,
   });
 
-  // console.log("data user:", user);
-
   const handlePasswordChange = (password: string) => {
     const validations = {
       minLength: password.length >= 8,
@@ -132,18 +130,22 @@ export function UpdatePasswordButton() {
   return (
     <Dialog open={isDialogOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild className="flex justify-between w-full">
-        <Button onClick={handleOpen} className="">
-          <div>Mote de passe</div> <div>**********</div>
+        <Button
+          onClick={handleOpen}
+          className="flex flex-col items-start md:flex-row md:justify-between text-[0.9rem]"
+        >
+          <p>Mote de passe</p>
+          <p>**********</p>
         </Button>
       </DialogTrigger>
-      <DialogContent className="w-[320px] sm:min-w-[360px]  bg-white backdrop-blur-3xl drop-shadow-lg text-text_color ">
+      <DialogContent className=" w-4/5 sm:min-w-[360px]  bg-white backdrop-blur-3xl drop-shadow-lg text-text_color ">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmitNewPassword)}
             className="flex flex-col justify-between"
           >
             <DialogHeader>
-              <DialogTitle className=" text-left">
+              <DialogTitle className="  text-left">
                 Mise à jour du mot de passe
               </DialogTitle>
             </DialogHeader>
@@ -153,7 +155,7 @@ export function UpdatePasswordButton() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-text_color">
+                    <FormLabel className="text-text_color ">
                       Mot de passe initial
                     </FormLabel>
                     <FormControl>
@@ -167,7 +169,7 @@ export function UpdatePasswordButton() {
                         value={field.value}
                       />
                     </FormControl>
-                    <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                    <FormMessage className="text-[0.85rem]  pl-2 text-red-500 italic" />
                   </FormItem>
                 )}
               />
@@ -198,7 +200,7 @@ export function UpdatePasswordButton() {
                         value={field.value}
                       />
                     </FormControl>
-                    <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                    <FormMessage className="text-[0.85rem] pl-2 text-red-500 italic" />
                   </FormItem>
                 )}
               />
@@ -225,7 +227,7 @@ export function UpdatePasswordButton() {
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                    <FormMessage className="text-[0.85rem] pl-2 text-red-500 italic" />
                   </FormItem>
                 )}
               />
@@ -284,7 +286,7 @@ export function UpdatePasswordButton() {
               <div className="flex w-full justify-center">
                 <Button
                   type="submit"
-                  className="gap-2  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md w-[12rem] "
+                  className="gap-2  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md w-[12rem] text-[0.9rem] "
                 >
                   {isLoading ? (
                     <Loader2 className="h-4 w-4 animate-spin" />

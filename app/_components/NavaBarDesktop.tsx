@@ -2,14 +2,13 @@
 
 import { LogIn } from "lucide-react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import styles from "./navDesktop.module.css";
 
 export default function NavBarDesktop() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const router = useRouter();
   const currentRoute = usePathname();
 
   const handleMouseEnter = (index: number) => {
@@ -20,16 +19,11 @@ export default function NavBarDesktop() {
     setActiveIndex(null);
   };
 
-  // const handleButtonClick = () => {
-  //   router.push("/login");
-  // };
-
   return (
     <div className="">
       <div className=" font-text text-text_color flex gap-2 xl:gap-6 lg:px-10  border-none ">
         <Link
           href={"/"}
-          // onClick={() => router.push("/")}
           className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/" ? styles.activeLink : styles.nonActiveLink}`}
         >
           Accueil
@@ -53,14 +47,12 @@ export default function NavBarDesktop() {
               </div>
               <Link
                 href={"/gites/le-logis-de-la-petite-ourse"}
-                // onClick={() => router.push("/gite")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
               >
                 Le Logis de la petite Ourse
               </Link>
               <Link
                 href={"/gites/le-logis-de-la-grande-ourse"}
-                // onClick={() => router.push("/gite")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
               >
                 Le Logis de la grande Ourse
@@ -86,28 +78,24 @@ export default function NavBarDesktop() {
               </div>
               <Link
                 href={"/chambres/orion"}
-                // onClick={() => router.push("/chambres/1")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
               >
                 Chambre Orion
               </Link>
               <Link
                 href={"/chambres/cassiopee"}
-                // onClick={() => router.push("/chambres/2")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem]"
               >
                 Chambre Cassiopée
               </Link>
               <Link
                 href={"/chambres/andromede"}
-                // onClick={() => router.push("/chambres/3")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] rounded-sm"
               >
                 Chambre Andromède
               </Link>
               <Link
                 href={"/chambres/suite-familiale-pegase"}
-                // onClick={() => router.push("/chambres/3")}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] rounded-sm"
               >
                 Suite familiale Pégase
@@ -117,7 +105,6 @@ export default function NavBarDesktop() {
         </div>
         <Link
           href={"/jardin"}
-          // onClick={() => router.push("/jardin")}
           className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/jardin" ? styles.activeLink : styles.nonActiveLink}`}
         >
           Parc & Jardin
@@ -126,7 +113,6 @@ export default function NavBarDesktop() {
 
         <Link
           href={"/activites"}
-          // onClick={() => router.push("/activites")}
           className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/activites" ? styles.activeLink : styles.nonActiveLink}`}
         >
           Activités
@@ -135,7 +121,6 @@ export default function NavBarDesktop() {
 
         <Link
           href={"/nous-contacter"}
-          // onClick={() => router.push("/nous-contacter")}
           className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/nous-contacter" ? styles.activeLink : styles.nonActiveLink}`}
         >
           Nous contacter

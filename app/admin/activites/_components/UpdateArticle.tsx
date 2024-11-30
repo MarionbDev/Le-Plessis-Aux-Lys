@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import "react-quill/dist/quill.snow.css";
 
+import { getArticleById, updateArticle } from "@/app/api/article/route";
+import { ArticleProps } from "@/app/types";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -15,12 +17,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
-// import { Loader2, LogIn } from "lucide-react";
-
-// import ReactQuill from "react-quill";
-import { getArticleById, updateArticle } from "@/app/api/article/route";
-import { ArticleProps } from "@/app/types";
 import supabase from "@/lib/database";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Save } from "lucide-react";
@@ -161,15 +157,15 @@ export default function UpdateArticle({ articleId }: { articleId: string }) {
   };
 
   return (
-    <div className=" w-[50vw] min-w-[200px]  h-[36rem]   ">
+    <div className="w-[75vw] lg:w-[50vw] min-w-[200px]  h-[54rem]  xl:h-[36rem]   ">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleUpdateArticleFormSubmit)}>
-          <Card className=" h-[36rem] text-text_color   ">
+          <Card className=" h-[36rem] text-text_color">
             <CardHeader>
               <CardTitle>Modifier l'activité</CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col justify-around p-4 h-[32rem] ">
-              <div className="flex justify-between gap-10">
+            <CardContent className="flex flex-col justify-around p-4 h-[48rem] xl:h-[32rem]">
+              <div className="flex flex-col xl:flex-row justify-between gap-10">
                 <div className=" w-full space-y-2">
                   <FormField
                     control={form.control}
@@ -180,7 +176,7 @@ export default function UpdateArticle({ articleId }: { articleId: string }) {
                         <FormControl>
                           <Input type="text" {...field} />
                         </FormControl>
-                        <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                        <FormMessage className="text-[0.85rem]  pl-2 text-red-500 italic" />
                       </FormItem>
                     )}
                   />
@@ -189,7 +185,9 @@ export default function UpdateArticle({ articleId }: { articleId: string }) {
                     name="description"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Sous-titre</FormLabel>
+                        <FormLabel className="text-[0.9rem]">
+                          Sous-titre
+                        </FormLabel>
                         <FormControl>
                           <Input type="text" {...field} />
                         </FormControl>
@@ -206,7 +204,9 @@ export default function UpdateArticle({ articleId }: { articleId: string }) {
                       name="url_link"
                       render={({ field }) => (
                         <FormItem className="">
-                          <FormLabel>Lien du site</FormLabel>
+                          <FormLabel className="text-[0.9rem]">
+                            Lien du site
+                          </FormLabel>
                           <FormControl>
                             <Input type="link" {...field} className="" />
                           </FormControl>
@@ -219,7 +219,9 @@ export default function UpdateArticle({ articleId }: { articleId: string }) {
                       name="image_path"
                       render={({ field }) => (
                         <FormItem className=" w-[20rem]">
-                          <FormLabel>Sélectionner une photo</FormLabel>
+                          <FormLabel className="text-[0.9rem]">
+                            Sélectionner une photo
+                          </FormLabel>
                           <FormControl>
                             <Input
                               type="file"
@@ -257,17 +259,17 @@ export default function UpdateArticle({ articleId }: { articleId: string }) {
                           )}
                         />
                       </FormControl>
-                      <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
+                      <FormMessage className="text-[0.85rem]  pl-2 text-red-500 italic" />
                     </FormItem>
                   )}
                 />{" "}
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-12 sm:mt-6">
                 <Button
                   role="button"
                   aria-label="ajouter l'article"
                   disabled={isLoading}
-                  className=" mt-9 w-40 gap-2 bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-md lg:text-md  "
+                  className=" mt-9 w-40 gap-2 bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-[0.9rem]  "
                 >
                   {isLoading ? (
                     <Loader2 className="animate-spin" size="16" />

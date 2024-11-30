@@ -83,6 +83,7 @@ export default function UpdateDetailsRental({
 
       const detailsRentalData: ListRentalsDetailsProps = {
         id: rentalId,
+        type: "",
         title_rental: values.title_rental,
         capacity_rental: values.capacity_rental,
         description_rental: values.description_rental,
@@ -109,7 +110,7 @@ export default function UpdateDetailsRental({
         <form onSubmit={form.handleSubmit(handleUpdateDetailsRentalFormSubmit)}>
           <Card className="h-[36rem] text-text_color">
             <CardHeader>
-              <CardTitle>Mise à jour</CardTitle>
+              <CardTitle>Mise à jour de la description</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col justify-around p-4 h-[32rem]">
               <div className="flex justify-between gap-10">

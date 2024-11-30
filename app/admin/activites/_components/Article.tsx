@@ -89,7 +89,7 @@ export default function Article({
               <TooltipTrigger asChild>
                 <Link href={`?modal-edit=true&articleId=${id}`}>
                   <Button onClick={() => handleUpdate(id)} className=" p-0">
-                    <FilePen size={24} />
+                    <FilePen size={20} />
                   </Button>
                 </Link>
               </TooltipTrigger>
@@ -100,7 +100,7 @@ export default function Article({
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button onClick={() => handleDelete(id)} className="p-0">
-                  <Trash2 size={24} className="" />
+                  <Trash2 size={20} className="" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent>

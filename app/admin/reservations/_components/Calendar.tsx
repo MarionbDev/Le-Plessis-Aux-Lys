@@ -83,15 +83,10 @@ const AddReservation: React.FC<AddReservationProps> = ({
   }, [rentalType, fetchReservedDates]);
 
   const handleSelect = useCallback((range: DateRange | undefined) => {
-    // console.log("handleSelect function created");
-
     setSelectedDates(range);
-    // console.log("Selected dates:", range);
   }, []);
 
   const handleSubmit = useCallback(async () => {
-    // console.log("handleSubmit function created");
-
     if (!selectedDates?.from || !selectedDates?.to) {
       toast.warning("Veuillez sélectionner une ou plusieurs dates");
       return;
@@ -118,8 +113,6 @@ const AddReservation: React.FC<AddReservationProps> = ({
         type: reservationType,
       });
 
-      // console.log("Setting state after successful submission");
-
       setSelectedDates({ from: undefined, to: undefined });
       setReservationType(undefined);
       const updatedReservedDates = await fetchReservedDates(rentalType);
@@ -138,14 +131,12 @@ const AddReservation: React.FC<AddReservationProps> = ({
 
   const handleDelete = useCallback(
     async (id: string) => {
-      // console.log("handleDelete function created");
       try {
         await deleteReservation(id);
         setReservedDates(
           reservedDates.filter((reservation) => reservation.id !== id),
         );
       } catch (error: any) {
-        // console.error("Error deleting reservation:", error.message);
         toast.error("Erreur lors de la suppression de la réservation !");
       }
     },
@@ -153,7 +144,6 @@ const AddReservation: React.FC<AddReservationProps> = ({
   );
 
   useEffect(() => {
-    // console.log("Effect triggered for filteredReservations");
     // Filtrer les réservations en fonction de searchTerm
     const filteredReservations = reservedDates.filter(
       (reservation) =>
@@ -186,8 +176,6 @@ const AddReservation: React.FC<AddReservationProps> = ({
     }),
     [selectedDates, reservedDates],
   );
-
-  // console.log("Modifiers updated:", modifiers);
 
   const modifiersStyles = useMemo(
     () => ({
@@ -237,7 +225,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="font-text md:gap-10 shadow-md rounded-md border-2 py-2 mx-4 ">
+    <div className="font-text md:gap-10 shadow-md rounded-md border-2 py-2 mx-4 mt-12 lg:mt-0 ">
       <p className="font-semibold text-text_color text-center text-[1.1rem] mb-2">
         {rentalNames[rentalType].charAt(0).toUpperCase() +
           rentalNames[rentalType].slice(1)}{" "}
@@ -263,8 +251,8 @@ const AddReservation: React.FC<AddReservationProps> = ({
               <Button
                 className={`px-4 py-2 ${
                   reservationType === "reserve"
-                    ? "bg-[#db3636] text-white shadow-div font-text rounded-md text-sm"
-                    : "bg-gray-200 rounded-md font-text text-sm"
+                    ? "bg-[#db3636] text-white shadow-div font-text rounded-md text-[0.9rem]"
+                    : "bg-gray-200 rounded-md font-text text-[0.9rem]"
                 }`}
                 onClick={() => setReservationType("reserve")}
               >
@@ -273,8 +261,8 @@ const AddReservation: React.FC<AddReservationProps> = ({
               <Button
                 className={`px-4 py-2 ${
                   reservationType === "indisponible"
-                    ? "bg-gray-400 text-white shadow-div font-text rounded-md text-sm"
-                    : "bg-gray-200 rounded-md font-text text-sm"
+                    ? "bg-gray-400 text-white shadow-div font-text rounded-md text-[0.9rem]"
+                    : "bg-gray-200 rounded-md font-text text-[0.9rem]"
                 }`}
                 onClick={() => {
                   console.log("Button Réservé clicked");
@@ -297,7 +285,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
           <div className="md:pb-2">
             <Button
               onClick={handleSubmit}
-              className="font-text text-base w-[12rem] hover:text-white hover:bg-gold/80 bg-gold/30 mt-4 py-2 px-2  rounded-md"
+              className="font-text text-[0.9rem] w-[12rem] hover:text-white hover:bg-gold/80 bg-gold/30 mt-4 py-2 px-2  rounded-md"
             >
               Ajouter Réservation
             </Button>

@@ -66,14 +66,21 @@ export default function ListArticles({
   };
 
   return (
-    <div className="flex flex-col  ">
+    <div className="flex flex-col mt-24 lg:mt-20 ">
+      <div className=" flex flex-col lg:flex-row items-center justify-center my-4  lg:mt-0 gap-4  lg:gap-8 lg:my-8">
+        <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
+        <h1 className=" text-text_color font-semibold text-center lg:text-lg uppercase ">
+          Mise à jour des activités
+        </h1>
+        <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
+      </div>
       <div className="px-4">
         <div className="lg:grid grid-cols-4 my-10 flex justify-center sm:justify-end sm:pr-4 md:pr-0   ">
           <div className=" grid col-start-4 place-items-end ">
             <Link href="?modal=true">
               <Button
                 type="button"
-                className=" gap-3 lg:gap-4 border border-gray-300  hover:bg-yellow/50  hover:text-white text-text_color text-md lg:text-md  "
+                className=" gap-3 lg:gap-4 border border-gray-300  hover:bg-yellow/50  hover:text-white text-text_color text-[0.9rem] "
               >
                 <CirclePlus color="#bbbb57" />
                 Ajouter une activité
@@ -99,13 +106,7 @@ export default function ListArticles({
               </li>
             ))}
           </VisitContext.Provider>
-          <Toaster
-            toastOptions={{
-              style: {
-                background: "#f5f7dc ",
-              },
-            }}
-          />
+          <Toaster />
         </ul>
       </div>
     </div>

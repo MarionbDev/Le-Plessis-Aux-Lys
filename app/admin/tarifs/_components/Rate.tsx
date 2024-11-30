@@ -94,7 +94,7 @@ export default function RateRentalCardAdmin({
       <Table className="text-text_color text-[0.9rem] min-w-[22rem] sm:w-[35rem] font-text ">
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[40px] md:w-[150px] text-center  font-semibold sm:text-[1rem]">
+            <TableHead className="w-[40px] md:w-[150px] text-center  font-semibold ">
               {nameRental.charAt(0).toUpperCase() + nameRental.slice(1)}
             </TableHead>
             <TableHead className=" text-center w-[50px] md:w-[150px]">
@@ -107,7 +107,7 @@ export default function RateRentalCardAdmin({
         </TableHeader>
         <TableBody>
           <TableRow>
-            <TableCell className="font-medium">Nuit</TableCell>
+            <TableCell>Nuit</TableCell>
             <TableCell className=" text-center p-1 ">
               <input
                 type="text"
@@ -130,7 +130,7 @@ export default function RateRentalCardAdmin({
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="font-medium">Semaine</TableCell>
+            <TableCell>Semaine</TableCell>
             <TableCell className=" text-center p-1">
               <input
                 type="text"
@@ -155,14 +155,14 @@ export default function RateRentalCardAdmin({
         </TableBody>
       </Table>
       <div className="flex justify-center">
-        <Toaster richColors />
         <Button
           onClick={handleSave}
-          className=" font-text gap-2 text-text_color  hover:text-white hover:bg-gold/80 bg-gold/30 mt-4"
+          className=" font-text text-[0.9rem] gap-2 text-text_color  hover:text-white hover:bg-gold/80 bg-gold/30 mt-4"
         >
           <Save size="16" /> Enregistrer
         </Button>
       </div>
+      <Toaster />
     </div>
   );
 }

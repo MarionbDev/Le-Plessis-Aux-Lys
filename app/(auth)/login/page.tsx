@@ -14,7 +14,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
+    <div className="mx-8">
       <Button
         type="button"
         onClick={handleClickHome}

@@ -53,9 +53,6 @@ html {
   font-size: 0.9rem;
 }
 
-/* 
-/* global.css ou votre fichier CSS principal */
-
 /* SCROLLBAR */
 .mostly-customized-scrollbar::-webkit-scrollbar {
   width: 4px;
@@ -74,7 +71,7 @@ html {
 .customized-scrollbar::-webkit-scrollbar-thumb {
   background: #ecde9d;
   cursor: pointer;
-  background-color: rgb(28, 105, 105);
+  background-color: "#EFAB67";
 }
 
 /* RESPONSIVE */
@@ -125,6 +122,10 @@ html {
 
 @media only screen and (min-width: 1024px) {
   .navbar-mobile {
+    display: none;
+  }
+
+  .title-nav-mobile-admin {
     display: none;
   }
 

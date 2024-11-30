@@ -157,19 +157,18 @@ const BookingToCome: React.FC = () => {
   };
 
   return (
-    <div className=" text-text_color  flex flex-col py-10 w-full ">
+    <div className=" text-text_color  flex flex-col  py-10 w-full mt-8 lg:mt-4">
       <div className=" mx-10 mb-6 mt-6">
-        <div className=" flex flex-col lg:flex-row items-center justify-center my-4  lg:mt-0 gap-4  lg:gap-10 lg:my-8">
+        <div className=" flex flex-col lg:flex-row items-center justify-center my-4  lg:mt-0 gap-4  lg:gap-8 lg:my-8">
           <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
           <h1 className=" font-semibold text-center lg:text-lg uppercase ">
             Suivi des réservations
           </h1>
           <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
         </div>
-        {/* <h2 className=" text-lg ">Suivi des réservations :</h2> */}
       </div>
 
-      <div className="flex flex-wrap justify-center xl:justify-start  xl:ml-10 gap-y-10 gap-x-20 text-[0.9rem]">
+      <div className="flex flex-wrap justify-center xl:justify-start mt-8 lg:mt-0 mx-1 md:mx-2 xl:ml-36 2xl:ml-48 gap-y-10 gap-x-8 text-[0.9rem]">
         {rentalsCalendar.map((rental) => (
           <div className="shadow-md rounded-md w-[22rem] " key={rental.id}>
             <Card className="mb-8 w-[22rem] h-full border-2 text-text_color   rounded-md">

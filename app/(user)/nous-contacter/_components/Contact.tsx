@@ -86,13 +86,14 @@ export default function ContactForm() {
   };
 
   return (
-    <div className=" shadow-div rounsm  mx-4 md:mx-0  md:mt-0 ">
+    <div className=" shadow-div rounsm  mx-4 md:mx-0 ">
       <Card className=" max-w-lg text-text_color border-none ">
         <form onSubmit={handleSubmitFormContact}>
           <CardHeader>
             <CardDescription className=" text-[0.9rem] font-medium ">
               Remplissez le formulaire ci-dessous et nous vous répondrons dans
-              les plus brefs délais.
+              les plus brefs délais.{" "}
+              <span className=" text-[0.7rem]">(Mentions obligatoires *)</span>
             </CardDescription>
           </CardHeader>
           <CardContent className="flex  flex-col gap-3">
@@ -102,7 +103,7 @@ export default function ContactForm() {
                   htmlFor="first-name"
                   className="text-text_color text-[0.9rem]"
                 >
-                  Nom
+                  Nom*
                 </Label>
                 <Input
                   id="first-name"
@@ -120,7 +121,7 @@ export default function ContactForm() {
                   htmlFor="last-name"
                   className="text-text_color text-[0.9rem]"
                 >
-                  Prénom
+                  Prénom*
                 </Label>
                 <Input
                   id="last-name"
@@ -140,7 +141,7 @@ export default function ContactForm() {
                   htmlFor="email"
                   className="text-text_color text-[0.9rem]"
                 >
-                  E-mail
+                  E-mail*
                 </Label>
                 <Input
                   id="email"
@@ -175,7 +176,7 @@ export default function ContactForm() {
                 htmlFor="message"
                 className="text-text_color text-[0.9rem]"
               >
-                Message
+                Message*
               </Label>
               <Textarea
                 id="message"

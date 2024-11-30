@@ -150,7 +150,7 @@ export default function RentalPage({
               </div>
             )}
 
-            <div className=" flex flex-col  gap-16 mb-36 ">
+            <div className=" flex flex-col  gap-16 md:mx-10 mb-36 ">
               <div className="flex flex-col-reverse xl:flex-row md:gap-18 items-center gap-20 xl:gap-32  ">
                 <section className=" md:p-2  w-[22rem] md:w-[40rem]  shadow-div rounded-md ">
                   <div className="min-h-[21rem] px-5 ">

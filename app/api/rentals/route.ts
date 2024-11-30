@@ -31,7 +31,7 @@ export const updateRentalPrices = async (
     const { data, error } = await supabase
       .from("rentals")
       .update({
-        title: updatePrices.lowSeasonRateNight,
+        price_low_season_night: updatePrices.lowSeasonRateNight,
         price_high_season_night: updatePrices.highSeasonRateNight,
         price_low_season_week: updatePrices.lowSeasonRateWeek,
         price_high_season_week: updatePrices.highSeasonRateWeek,

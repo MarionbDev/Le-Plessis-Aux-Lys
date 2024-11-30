@@ -18,7 +18,7 @@ import chambrePegase from "../../public/chambres/pegase/pegase2.webp";
 // import grandeOurse from "../../public/image.png";
 import petiteOurse from "../../public/petite-ourse/Gite-1.webp";
 
-import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getAllArticles } from "../api/article/route";
 import { ArticleProps, Slide } from "../types";
 import ActivityUserCarousel from "./ActivityUserCarousel";
@@ -601,14 +601,16 @@ export default function DescriptionWebSite() {
                 >
                   <div className="flex justify-center flex-col items-center  mt-10   ">
                     <div className=" xl:w-[80rem] flex  gap-4 items-center  my-10 cursor-grabbing ">
-                      <ArrowLeftFromLine
+                      <ChevronLeft
                         color="#bbbb57"
-                        className="sm:hidden opacity-60"
+                        size={24}
+                        className="sm:hidden opacity-30 mb-2"
                       />
                       <ActivityUserCarousel slides={slides} />
-                      <ArrowRightFromLine
+                      <ChevronRight
                         color="#bbbb57"
-                        className="sm:hidden opacity-60"
+                        size={24}
+                        className="sm:hidden opacity-30 mb-3"
                       />
                     </div>
                   </div>
