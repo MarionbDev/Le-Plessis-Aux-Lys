@@ -51,7 +51,7 @@ export default function ForgetPassword() {
       form.reset();
 
       toast.success("Un lien de réinitialisation vous a été envoyé.", {
-        duration: 4000,
+        duration: 2000,
       });
     } catch (error: any) {
       const errorMessage =
@@ -66,7 +66,7 @@ export default function ForgetPassword() {
   };
 
   return (
-    <div className="min-h-screen w-4/5 md:w-[40rem] ">
+    <div className="min-h-screen w-4/5 md:w-[30rem] ">
       <Card className="rounded-md border-2   ">
         <CardHeader>
           <CardTitle className=" md:text-[1.2rem] text-text_color font-semibold">
@@ -74,12 +74,8 @@ export default function ForgetPassword() {
           </CardTitle>
         </CardHeader>
         <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(handleResetPasswordSubmit)}
-            className=""
-          >
-            {" "}
-            <CardContent className="">
+          <form onSubmit={form.handleSubmit(handleResetPasswordSubmit)}>
+            <CardContent>
               <FormField
                 control={form.control}
                 name="email"
@@ -93,7 +89,7 @@ export default function ForgetPassword() {
                         <Input
                           placeholder="Votre e-mail"
                           type="email"
-                          className=" text-[0.9rem] md:w-[25rem] "
+                          className=" text-[0.85rem] md:w-[25rem] "
                           {...field}
                         />
                       </FormControl>
@@ -108,7 +104,7 @@ export default function ForgetPassword() {
                 type="submit"
                 role="button"
                 aria-label="envoi de l'email"
-                className="gap-3 lg:gap-4  bg-yellow/50 hover:bg-yellow hover:text-white text-wrap h-8  text-text_color text-[0.9rem] "
+                className="gap-3 lg:gap-4 h-auto  bg-yellow/50 hover:bg-yellow hover:text-white text-wrap  text-text_color text-[0.9rem] "
               >
                 Envoyer un mail permettant de changer le mot de passe
               </Button>
@@ -117,13 +113,7 @@ export default function ForgetPassword() {
         </Form>
       </Card>
 
-      <Toaster
-        toastOptions={{
-          style: {
-            background: "#f5f7dc ",
-          },
-        }}
-      />
+      <Toaster />
     </div>
   );
 }

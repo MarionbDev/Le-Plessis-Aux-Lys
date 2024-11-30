@@ -28,10 +28,10 @@ const ReservationList: React.FC<ReservationListProps> = ({
                 Du {new Date(reservation.start_date).toLocaleDateString()} au{" "}
                 {new Date(reservation.end_date).toLocaleDateString()}
               </p>
-              <div className=" ">
+              <div>
                 <button
                   onClick={() => handleDelete(reservation.id)}
-                  className=" text-text_color hover:underline rounded-full p-2 hover:duration-300   hover:text-red-600  "
+                  className=" text-text_color hover:underline rounded-full p-2 hover:duration-300   hover:text-[#bbbb57]  "
                 >
                   <Trash2 size={18} />
                 </button>

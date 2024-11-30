@@ -82,12 +82,30 @@ const AddReservation: React.FC<AddReservationProps> = ({
     fetchReservedDatesForRentalType();
   }, [rentalType, fetchReservedDates]);
 
+  // const handleSelect = useCallback((range: DateRange | undefined) => {
+  //   setSelectedDates(range);
+  // }, []);
   const handleSelect = useCallback((range: DateRange | undefined) => {
-    setSelectedDates(range);
+    if (range?.from && !range?.to) {
+      // Si une seule date est sélectionnée
+      setSelectedDates({ from: range.from, to: undefined });
+    } else if (range?.from && range?.to) {
+      // Si une plage de dates est sélectionnée
+      setSelectedDates(range);
+    } else {
+      // Aucune date sélectionnée
+      setSelectedDates({ from: undefined, to: undefined });
+    }
   }, []);
 
+  // const handleSubmit = useCallback(async () => {
+  //   if (!selectedDates?.from || !selectedDates?.to) {
+  //     toast.warning("Veuillez sélectionner une ou plusieurs dates");
+  //     return;
+  //   }
+
   const handleSubmit = useCallback(async () => {
-    if (!selectedDates?.from || !selectedDates?.to) {
+    if (!selectedDates?.from) {
       toast.warning("Veuillez sélectionner une ou plusieurs dates");
       return;
     }
@@ -97,14 +115,24 @@ const AddReservation: React.FC<AddReservationProps> = ({
       return;
     }
 
-    try {
-      const startDate = new Date(selectedDates.from);
-      const endDate = new Date(selectedDates.to);
-      endDate.setDate(endDate.getDate() + 1);
-      startDate.setDate(startDate.getDate() + 1);
+    // try {
+    //   const startDate = new Date(selectedDates.from);
+    //   const endDate = new Date(selectedDates.to);
+    //   endDate.setDate(endDate.getDate() + 1);
+    //   startDate.setDate(startDate.getDate() + 1);
 
-      const formattedStartDate = startDate.toISOString().split("T")[0];
-      const formattedEndDate = endDate.toISOString().split("T")[0];
+    try {
+      // Si une seule date est sélectionnée, on utilise la même pour start_date et end_date
+      const startDate = new Date(selectedDates.from);
+      const endDate = selectedDates.to
+        ? new Date(selectedDates.to)
+        : new Date(selectedDates.from);
+
+      // const formattedStartDate = startDate.toISOString().split("T")[0];
+      // const formattedEndDate = endDate.toISOString().split("T")[0];
+      // Formatage des dates avec toLocaleDateString pour prendre en compte le fuseau horaire local
+      const formattedStartDate = startDate.toLocaleDateString("fr-CA"); // format YYYY-MM-DD
+      const formattedEndDate = endDate.toLocaleDateString("fr-CA");
 
       await addCalendarEvent({
         rental_type: rentalType,
@@ -298,13 +326,7 @@ const AddReservation: React.FC<AddReservationProps> = ({
           handleDelete={handleDelete}
         />
       </div>
-      <Toaster
-        toastOptions={{
-          style: {
-            background: "#f5f7dc ",
-          },
-        }}
-      />
+      <Toaster />
     </div>
   );
 };

@@ -300,7 +300,7 @@ export function UpdatePasswordButton() {
           </form>
         </Form>
       </DialogContent>
-      <Toaster richColors />
+      <Toaster />
     </Dialog>
   );
 }
