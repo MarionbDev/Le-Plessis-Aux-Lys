@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "Le Plessis aux Lys",
     images: [
       {
-        url: "https://le-plessis-aux-lys.fr/parc/parc6.jpg", // URL d'une image optimisée pour les réseaux sociaux
+        url: "https://le-plessis-aux-lys.fr/parc/parc-6.webp",
         width: 800,
         height: 600,
         alt: "Gîtes et chambres d'hôtes Le Plessis aux Lys",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "Le Plessis aux Lys - Gîtes et Chambres d'Hôtes en Vendée",
     description:
       "Découvrez nos gîtes et chambres d'hôtes en Vendée, proches du Puy du Fou et autres attractions.",
-    images: "https://le-plessis-aux-lys.fr/parc/parc6.jpg",
+    images: "https://le-plessis-aux-lys.fr/parc/parc-6.webp",
     site: "@le-plessis-aux-lys",
   },
 };

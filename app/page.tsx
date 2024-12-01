@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Variants, motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+// import UserLayout from "./(user)/layout.tsx";
 import UserLayout from "./(user)/layout";
 import DescriptionWebSite from "./_components/DescriptionWebSite";
 import ImageHomeWebSite from "./_components/ImageHomeWebSite";
@@ -76,7 +77,6 @@ export default function Home() {
     <UserLayout>
       <div className="min-h-screen">
         <div className="fixed top-0 z-50 bg-none bg-transparent"></div>
-
         <main className="">
           <ImageHomeWebSite />
           <DescriptionWebSite />

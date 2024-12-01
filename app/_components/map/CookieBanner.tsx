@@ -54,9 +54,13 @@ export default function CookieBanner({
             <Image src={cookies} width={30} height={30} alt="" />
             <h3 className="text-[1rem]">Gérer les cookies</h3>
           </div>
-          <button onClick={handleReject} className="p-0 m-0">
+          <Button
+            onClick={handleReject}
+            aria-label="fermer"
+            className="flex p-0 -mt-3"
+          >
             <Plus size={22} className=" rotate-45" />
-          </button>
+          </Button>
         </div>
         <div className="mt-2">
           <p className="text-[0.7rem]">

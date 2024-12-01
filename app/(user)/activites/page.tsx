@@ -16,6 +16,8 @@ type PropType = {
 
 export default function ToVisited() {
   const [activities, setActivities] = useState<PropType[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchAllActivities() {
@@ -43,6 +45,14 @@ export default function ToVisited() {
       },
     },
   };
+
+  if (loading) {
+    return <div>Chargement...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <div className="py-10 pt-36 md:pt-44 px-6 xl:px-20 flex flex-col items-center mb-32  min-h-screen  ">

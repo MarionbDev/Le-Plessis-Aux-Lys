@@ -280,14 +280,6 @@ export default function DescriptionWebSite() {
             </li>
             <li className=" h-[220px]  relative overflow-hidden group w-96 flex justify-center items-center bg-[#f5f7dc] ">
               <Link href={"/gites/le-logis-de-la-grande-ourse"}>
-                {/* <Image
-                  src={grandeOurse}
-                  width={380}
-                  height={214}
-                  sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
-                  alt=""
-                  className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-1000 h-auto pointer-events-none pointer-events-non  "
-                /> */}
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p
                     className="pl-4 text-md font-semibold text-white py-2"
@@ -513,7 +505,7 @@ export default function DescriptionWebSite() {
                           </figcaption>
                         </figure>
                       </motion.div>
-                    </motion.section>{" "}
+                    </motion.section>
                     <motion.section
                       initial="hide"
                       whileInView="show"
@@ -533,7 +525,7 @@ export default function DescriptionWebSite() {
                             sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                             alt="Moulins du Mont-des-Alouettes"
                             className=" object-contain  lg:object-scale-down  rounded-sm   h-auto  "
-                          />{" "}
+                          />
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Moulins du Mont-des-Alouettes
                           </figcaption>
@@ -615,7 +607,7 @@ export default function DescriptionWebSite() {
                     </div>
                   </div>
                 </motion.div>
-              </motion.section>{" "}
+              </motion.section>
             </div>
           </div>
         </motion.div>
@@ -638,7 +630,9 @@ export default function DescriptionWebSite() {
               <div>
                 <p className=" font-semibold text-center lg:text-lg uppercase lg:w-[30rem]  ">
                   Réservez votre gîte ou chambre d'hôtes
-                  <p>au Plessis aux Lys</p>
+                  <br />
+                  au Plessis aux Lys
+                  <br />
                 </p>
               </div>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
@@ -658,13 +652,13 @@ export default function DescriptionWebSite() {
                 <p className=" text-[0.9rem]  my-8 md:my-12 lg:my-4 mx-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
                   Nous vous invitons à réserver votre séjour dans l'un de nos
                   gîtes ou chambres d'hôtes au cœur de la Vendée. Contactez-nous
-                  dès maintenant via notre{" "}
+                  dès maintenant via notre
                   <Link
                     href={"/nous-contacter"}
-                    className=" text-[#bbbb57] font-semibold"
+                    className=" text-[#313110] hover:text-[#bbbb57] font-semibold"
                   >
-                    formulaire de contact
-                  </Link>{" "}
+                    &nbsp;formulaire de contact &nbsp;
+                  </Link>
                   et réserver votre séjour unique dans notre cadre exceptionnel.
                   Nous serons ravis de vous accueillir pour une expérience
                   insolite et inoubliable dans l'une de nos maisons d'hôtes.

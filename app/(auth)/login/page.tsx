@@ -35,7 +35,7 @@ export default function LoginPage() {
             size={20}
             color="#bbbb57"
             className="transform scale-x-[-1] "
-          />{" "}
+          />
           Retour à l'accueil
         </Button>
       </div>

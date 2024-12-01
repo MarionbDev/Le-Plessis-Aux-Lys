@@ -1,62 +1,68 @@
-"use client";
+import { Metadata } from "next";
+import Pegase from "./_components/Pegase";
 
-import RentalPage from "@/app/_components/RentalPage";
-import { getImagesFromBucket } from "@/app/api/uploadPhotos/route";
-import { ImageType } from "@/app/types";
-import { useRentalDetails } from "@/hooks/useRentalDetails";
-import { useRentalRates } from "@/hooks/useRentalRates";
-import { Loader } from "lucide-react";
-import { useEffect, useState } from "react";
+export const metadata: Metadata = {
+  robots: {
+    index: true,
+    follow: true,
+  },
+  title: "Suite familiale Pégase - Chambre d'hôte en Vendée",
+  description:
+    "Séjournez dans le charmante chambre d'hôte 'Suite familiale Pégase ', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité.",
+  keywords: [
+    "chambre d'hôte suite familiale Pégase ",
+    "location chambre d'hôte Vendée",
+    "chambre d'hôte avec piscine chauffée",
+    "séjour Vendée",
+    "chambre d'hôte La Chapelle aux Lys",
+    "chambre d'hôte famille Vendée",
+    "vacances Vendée",
+    "chambre d'hôte avec activités en Vendée",
+    "location vacances Vendée",
+    "séjour à la campagne Vendée",
+    "chambre d'hôte en Vendée avec parc",
+    "séjour détente Vendée",
+    "tourisme Vendée",
+    "séjour nature Vendée",
+  ],
+  creator: "Marion Baston",
+  authors: [
+    {
+      name: "Thierry et Céline Gros",
+      url: "https://le-plessis-aux-lys.fr",
+    },
+  ],
+  openGraph: {
+    title: "Suite familiale Pégase - Chambre d'hôte en Vendée",
+    description:
+      "Séjournez dans le charmante chambre d'hôte 'Suite familiale Pégase ', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
+    url: "https://le-plessis-aux-lys.fr/chambres/pegase/pegase2.webp",
+    type: "website",
+    locale: "fr_FR",
+    siteName: "Suite familiale Pégase",
+    images: [
+      {
+        url: "https://le-plessis-aux-lys.fr/chambres/pegase/pegase2.webp",
+        width: 1200,
+        height: 630,
+        alt: "Suite familiale Pégase",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Suite familiale Pégase - Chambre en Vendée",
+    description:
+      "Séjournez dans le charmante chambre 'Suite familiale Pégase', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
+    images: "https://le-plessis-aux-lys.fr/chambres/pegase/pegase2.webp",
+    site: "@le-plessis-aux-lys",
+  },
+};
 
-export default function Pegase() {
-  const [imagesPegase, setImagesPegase] = useState<ImageType[]>([]);
-
-  const { rates, loading, error } = useRentalRates("pegase");
-  const { rentals } = useRentalDetails("pegase");
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const imagesPegase = await getImagesFromBucket("pegase");
-
-        setImagesPegase(imagesPegase);
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      }
-    };
-
-    fetchImages();
-  }, []);
-
-  const imageUrls = imagesPegase.map((image) => image.path);
-
-  if (loading) {
-    return (
-      <div className=" flex justify-center items-center h-screen">
-        <Loader size={50} className=" animate-spin" />
-      </div>
-    );
-  }
-
-  if (error) {
-    return <div>Une erreur s'est produite : {error}</div>;
-  }
-
+export default function PegasePage() {
   return (
-    <div className="">
-      {rates && rentals ? (
-        <RentalPage
-          title={rentals.title_rental}
-          capacity={rentals.capacity_rental}
-          description={rentals.description_rental}
-          lowSeasonNightRate={rates.price_low_season_night}
-          lowSeasonWeeklyRate={rates.price_low_season_week}
-          highSeasonNightRate={rates.price_high_season_night}
-          highSeasonWeeklyRate={rates.price_high_season_week}
-          imagesSlide={imageUrls}
-          rentalType="pegase"
-        />
-      ) : null}
+    <div>
+      <Pegase />
     </div>
   );
 }
