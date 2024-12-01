@@ -1,80 +1,68 @@
-"use client";
+import { Metadata } from "next";
+import LaPetiteOurse from "./_components/PetiteOurseComponent";
 
-import RentalPage from "@/app/_components/RentalPage";
-import { getImagesFromBucket } from "@/app/api/uploadPhotos/route";
-import { ImageType } from "@/app/types";
-import { useRentalDetails } from "@/hooks/useRentalDetails";
-import { useRentalRates } from "@/hooks/useRentalRates";
-import { Loader } from "lucide-react";
-import { useEffect, useState } from "react";
+export const metadata: Metadata = {
+  robots: {
+    index: true,
+    follow: true,
+  },
+  title: "Le Logis de la petite Ourse - Gîte en Vendée",
+  description:
+    "Séjournez dans le charmant gîte 'Le Logis de la Petite Ourse', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité.",
+  keywords: [
+    "gîte petite ourse",
+    "location gîte Vendée",
+    "gîte avec piscine chauffée",
+    "séjour Vendée",
+    "gîte La Chapelle aux Lys",
+    "gîte famille Vendée",
+    "vacances Vendée",
+    "gîte avec activités en Vendée",
+    "location vacances Vendée",
+    "séjour à la campagne Vendée",
+    "gîte en Vendée avec parc",
+    "séjour détente Vendée",
+    "tourisme Vendée",
+    "séjour nature Vendée",
+  ],
+  creator: "Marion Baston",
+  authors: [
+    {
+      name: "Thierry et Céline Gros",
+      url: "https://le-plessis-aux-lys.fr",
+    },
+  ],
+  openGraph: {
+    title: "Le Logis de la Petite Ourse - Gîte en Vendée",
+    description:
+      "Séjournez dans le charmant gîte 'Le Logis de la Petite Ourse', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
+    url: "https://le-plessis-aux-lys.fr/petite-ourse/Gite-1.webp",
+    type: "website",
+    locale: "fr_FR",
+    siteName: "Gîte Le Logis de la Petite Ourse",
+    images: [
+      {
+        url: "https://le-plessis-aux-lys.fr/petite-ourse/Gite-1.webp",
+        width: 1200,
+        height: 630,
+        alt: "Gîte Le Logis de la Petite Ourse",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Le Logis de la Petite Ourse - Gîte en Vendée",
+    description:
+      "Séjournez dans le charmant gîte 'Le Logis de la Petite Ourse', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
+    images: "https://le-plessis-aux-lys.fr/petite-ourse/Gite-1.webp",
+    site: "@le-plessis-aux-lys",
+  },
+};
 
-export default function LaPetiteOurse() {
-  const [imagesPetiteOurse, setImagesPetiteOurse] = useState<ImageType[]>([]);
-
-  const { rates, loading, error } = useRentalRates("petiteOurse");
-  const { rentals } = useRentalDetails("petiteOurse");
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const imagesPetiteOurse = await getImagesFromBucket("petiteOurse");
-
-        setImagesPetiteOurse(imagesPetiteOurse);
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      }
-    };
-
-    fetchImages();
-  }, []);
-
-  const imageUrls = imagesPetiteOurse.map((image) => image.path);
-
-  // useEffect(() => {
-  //   const fetchAllRentals = async () => {
-  //     try {
-  //       const rentalsDetails = await getAllRentals();
-  //       console.log("Fetched rentals details:", rentalsDetails); // DEBUG
-  //       setRentalsDetails(rentalsDetails);
-  //     } catch (error) {
-  //       console.error("Error fetching reserved dates:", error);
-  //     }
-  //   };
-  //   fetchAllRentals();
-  // }, []);
-
-  // Trouver les détails de "La Petite Ourse"
-  // const rentalDetail = rentalsDetails.find(
-  //   (rental) => rental.type === "petiteOurse",
-  // );
-
-  if (loading) {
-    return (
-      <div className=" flex justify-center items-center h-screen">
-        <Loader size={50} className=" animate-spin" />
-      </div>
-    );
-  }
-
-  if (error) {
-    return <div>Une erreur s'est produite : {error}</div>;
-  }
-
+export default function LaPetiteOursePage() {
   return (
-    <div className=" ">
-      {rates && rentals ? (
-        <RentalPage
-          title={rentals.title_rental}
-          capacity={rentals.capacity_rental}
-          description={rentals.description_rental}
-          lowSeasonNightRate={rates.price_low_season_night}
-          lowSeasonWeeklyRate={rates.price_low_season_week}
-          highSeasonNightRate={rates.price_high_season_night}
-          highSeasonWeeklyRate={rates.price_high_season_week}
-          imagesSlide={imageUrls}
-          rentalType="petiteOurse"
-        />
-      ) : null}
+    <div>
+      <LaPetiteOurse />
     </div>
   );
 }

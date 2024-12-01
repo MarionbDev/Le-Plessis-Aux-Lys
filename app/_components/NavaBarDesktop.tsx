@@ -20,7 +20,7 @@ export default function NavBarDesktop() {
   };
 
   return (
-    <div className="">
+    <div>
       <div className=" font-text text-text_color flex gap-2 xl:gap-6 lg:px-10  border-none ">
         <Link
           href={"/"}
@@ -35,16 +35,16 @@ export default function NavBarDesktop() {
           onMouseLeave={handleMouseLeave}
           className={`flex flex-col  ${currentRoute === "/gites" ? styles.activeLink : styles.nonActiveLink}`}
         >
-          <div className="text-xl relative z-50 lg:text-[1rem]">Gîtes</div>
+          <button className="text-xl relative z-50 lg:text-[1rem]">
+            Gîtes
+          </button>
           <span className={styles.underline}></span>
 
           <div
             className={`${activeIndex === 0 ? "block" : "hidden"} text-start h-[15rem] w-24  flex flex-col absolute top-[5px] z-0 pt-16 rounded-sm`}
           >
             <div className="flex flex-col bg-[#fafafc]  w-72  ">
-              <div className="px-2 text-xl lg:text-[0.9rem]">
-                Tous les gîtes
-              </div>
+              <p className="px-2 text-xl lg:text-[0.9rem]">Tous les gîtes</p>
               <Link
                 href={"/gites/le-logis-de-la-petite-ourse"}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
@@ -66,16 +66,18 @@ export default function NavBarDesktop() {
           onMouseLeave={handleMouseLeave}
           className={`flex flex-col  ${currentRoute === "/chambres" ? styles.activeLink : styles.nonActiveLink}`}
         >
-          <div className="text-xl relative z-50 lg:text-[1rem]">Chambres</div>
+          <button className="text-xl relative z-50 lg:text-[1rem]">
+            Chambres
+          </button>
           <span className={styles.underline}></span>
 
           <div
             className={`${activeIndex === 1 ? "block" : "hidden"} text-start h-[15rem] w-24  flex flex-col absolute top-[5px] z-0 pt-16 rounded-sm`}
           >
             <div className="flex flex-col bg-[#fafafc] w-60  ">
-              <div className="px-2 text-xl lg:text-[0.9rem]">
+              <p className="px-2 text-xl lg:text-[0.9rem] ">
                 Toutes les chambres
-              </div>
+              </p>
               <Link
                 href={"/chambres/orion"}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "

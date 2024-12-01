@@ -106,7 +106,7 @@ export default function ForgetPassword() {
                 aria-label="envoi de l'email"
                 className="gap-3 lg:gap-4 h-auto  bg-yellow/50 hover:bg-yellow hover:text-white text-wrap  text-text_color text-[0.9rem] "
               >
-                Envoyer un mail permettant de changer le mot de passe
+                Réinitialisation du mot de passe
               </Button>
             </CardFooter>
           </form>

@@ -2,7 +2,7 @@ import BookingToCome from "./_components/dashboard/BookingToCame";
 
 export default function DashboardAdmin() {
   return (
-    <div className="">
+    <div>
       <BookingToCome />
     </div>
   );

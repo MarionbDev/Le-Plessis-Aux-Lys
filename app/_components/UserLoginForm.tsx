@@ -88,7 +88,7 @@ export default function UserLoginForm() {
         new Promise((resolve) =>
           setTimeout(() => {
             resolve({ name: "Sonner" });
-          }, 2000),
+          }, 4000),
         );
 
       toast.promise(promise, {
@@ -112,15 +112,15 @@ export default function UserLoginForm() {
   };
 
   return (
-    <div className=" flex flex-col mt-20 lg:-mt-2 gap-24  h-screen">
+    <div className=" flex flex-col mt-20 lg:mt-2 gap-24  h-screen">
       <div className=" w-full">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleLoginFormSubmit)}
             className="space-y-8 flex justify-center items-center   "
           >
-            <div className=" rounded-md border-2  w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] ">
-              <Card className=" ">
+            <div className=" w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] ">
+              <Card className=" rounded-md border-2  ">
                 <CardHeader>
                   <CardTitle className=" md:text-[1.2rem] text-text_color font-semibold">
                     Espace réservé
@@ -136,13 +136,14 @@ export default function UserLoginForm() {
                     render={({ field }) => (
                       <FormItem className="flex  gap-2">
                         <FormLabel className="flex pt-4 text-md lg:text-lg  text-text_color ">
-                          <Mail size={24} color="#bbbb57" />
+                          <Mail size={20} color="#bbbb57" />
                         </FormLabel>
-                        <div className="flex flex-col w-full h-20 ">
+                        <div className="flex flex-col w-full ">
                           <FormControl>
                             <Input
                               placeholder="example@example.com"
                               type="email"
+                              aria-label="adresse email"
                               className=" text-[0.9rem]"
                               {...field}
                             />
@@ -159,13 +160,14 @@ export default function UserLoginForm() {
                       <FormItem className=" mt-4">
                         <div className="flex items-center gap-2">
                           <FormLabel className="  text-md lg:text-lg text-text_color ">
-                            <KeyRound size={25} color="#bbbb57" />
+                            <KeyRound size={20} color="#bbbb57" />
                           </FormLabel>
                           <FormControl>
                             <Input
                               placeholder="*********"
                               type={showPassword ? "text" : "password"}
                               autoComplete="current-password"
+                              aria-label="mot de passe"
                               className=" text-[0.9rem] "
                               onChange={(e) => {
                                 field.onChange(e);
@@ -254,11 +256,11 @@ export default function UserLoginForm() {
                       </FormItem>
                     )}
                   />
-                  <div className="mt-6 italic lg:ml-9 text-[#bbbb57] text-[0.9rem] ">
+                  <div className="mt-6 italic flex justify-center  text-text_color underline text-[0.9rem] ">
                     <Link href={"/mot-de-passe-oublie"}>
                       Mot de passe oublié ?
                     </Link>
-                  </div>{" "}
+                  </div>
                 </CardContent>
                 <CardFooter className="flex justify-center">
                   <Button
@@ -268,9 +270,9 @@ export default function UserLoginForm() {
                     className="gap-3 lg:gap-4  bg-yellow/50 hover:bg-yellow hover:text-white text-text_color text-[0.9rem] w-[12rem] "
                   >
                     {isLoading ? (
-                      <Loader className="animate-spin" size="16" />
+                      <Loader className="animate-spin" size={18} />
                     ) : (
-                      <LogIn className="w-6 h-6 " />
+                      <LogIn className=" " size={18} />
                     )}
                     Se connecter
                   </Button>
