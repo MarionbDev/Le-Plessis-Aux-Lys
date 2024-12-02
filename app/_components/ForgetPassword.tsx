@@ -80,7 +80,7 @@ export default function ForgetPassword() {
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem className="flex flex-col min-h-20">
+                  <FormItem className="flex flex-col ">
                     <div className="flex items-center gap-2">
                       <FormLabel className=" text-md lg:text-lg  text-text_color ">
                         <Mail size={24} color="#bbbb57" />
@@ -106,7 +106,7 @@ export default function ForgetPassword() {
                 aria-label="envoi de l'email"
                 className="gap-3 lg:gap-4 h-auto  bg-yellow/50 hover:bg-yellow hover:text-white text-wrap  text-text_color text-[0.9rem] "
               >
-                Réinitialisation du mot de passe
+                Envoyer
               </Button>
             </CardFooter>
           </form>

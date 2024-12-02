@@ -116,7 +116,7 @@ export function UpdateEmailButton() {
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem className="text-text_color mt-6 h-[6rem]  ">
+                  <FormItem className="text-text_color mt-6  ">
                     <FormLabel className="text-text_color    ">Email</FormLabel>
                     <FormControl>
                       <Input
@@ -135,7 +135,7 @@ export function UpdateEmailButton() {
                 control={form.control}
                 name="password"
                 render={({ field }) => (
-                  <FormItem className="text-text_color mt-4 h-[6rem] ">
+                  <FormItem className="text-text_color mt-4  ">
                     <FormLabel className="text-text_color ">
                       Mot de passe
                     </FormLabel>
