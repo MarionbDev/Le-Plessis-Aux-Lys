@@ -147,7 +147,42 @@ export default function privacyPolicyPage() {
           </div>
           <div className=" mb-8">
             <h2 className="text-[1.2rem] font-semibold mb-4  text-text_color ">
-              5. Modifications de la Politique de Confidentialité
+              5. Collecte de données via le formulaire de contact
+            </h2>
+            <p>
+              Nous collectons des informations personnelles (nom, prénom, email,
+              téléphone, message) lorsque vous utilisez notre formulaire de
+              contact. Ces données sont uniquement utilisées pour répondre à vos
+              demandes et sont envoyées par email au propriétaire du site.
+            </p>
+            <ul className=" flex flex-col gap-4 mx-20 mb-8 list-disc mt-4">
+              <li>
+                Utilisation des données : Les informations que vous fournissez
+                via le formulaire de contact seront utilisées exclusivement pour
+                traiter votre demande.
+              </li>
+              <li>
+                Gestion des informations : Ces données ne sont pas stockées dans
+                notre base de données, elles sont envoyées directement au
+                propriétaire du site sous forme de message électronique.
+              </li>
+              <li>
+                Sécurité des données : Bien que nous n'archivions pas ces
+                informations, nous nous engageons à garantir que la
+                communication par email respecte des mesures de sécurité pour
+                protéger vos données.
+              </li>
+            </ul>
+            <p>
+              Si vous avez des questions concernant la gestion de vos
+              informations personnelles via notre formulaire de contact,
+              n'hésitez pas à nous contacter.
+            </p>
+          </div>
+
+          <div className=" mb-8">
+            <h2 className="text-[1.2rem] font-semibold mb-4  text-text_color ">
+              6. Modifications de la Politique de Confidentialité
             </h2>
             <p>
               Nous nous réservons le droit de modifier cette politique de
