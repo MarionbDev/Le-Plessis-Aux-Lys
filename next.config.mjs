@@ -13,7 +13,14 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ["zsycdbufjrptszftdbdg.supabase.co"],
+    // domains: ["zsycdbufjrptszftdbdg.supabase.co"], => config dépréciée
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "zsycdbufjrptszftdbdg.supabase.co",
+        pathname: "/**",
+      },
+    ],
   },
 };
 

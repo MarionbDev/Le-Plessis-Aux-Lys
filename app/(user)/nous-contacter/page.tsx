@@ -1,9 +1,58 @@
 import anes from "@/public/home/anes.webp";
+import beach from "@/public/home/beach4.webp";
 import nature from "@/public/home/nature.webp";
-import vendee from "@/public/home/vendee.webp";
-
+import { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "./_components/Contact";
+
+export const metadata: Metadata = {
+  robots: {
+    index: true,
+    follow: true,
+  },
+  title: "Contactez-nous - Le Plessis aux Lys",
+  description:
+    "Vous avez des questions ou des demandes spécifiques ? Contactez-nous pour obtenir plus d'informations sur votre séjour au Plessis aux Lys.",
+  keywords: [
+    "contact gîte Vendée",
+    "réservation gîte Vendée",
+    "séjour Vendée",
+    "contact location gîte",
+    "contact Le Plessis aux Lys",
+  ],
+  creator: "Marion Baston",
+  authors: [
+    {
+      name: "Thierry et Céline Gros",
+      url: "https://le-plessis-aux-lys.fr",
+    },
+  ],
+  openGraph: {
+    title: "Contactez Le Plessis aux Lys",
+    description:
+      "Pour toute information ou question, contactez Le Plessis aux Lys et nous serons ravis de vous répondre.",
+    url: "https://le-plessis-aux-lys.fr/nous-contacter",
+    type: "website",
+    locale: "fr_FR",
+    siteName: "Le Le Plessis aux Lys",
+    images: [
+      {
+        url: "https://le-plessis-aux-lys.fr/home/beach4.webpg",
+        width: 1200,
+        height: 630,
+        alt: "Contactez Le Plessis aux Lys",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contactez Le Plessis aux Lys",
+    description:
+      "Pour toute information ou demande, contactez Le Plessis aux Lys pour en savoir plus sur votre séjour.",
+    images: "https://le-plessis-aux-lys.fr/home/beach4.webpg",
+    site: "@le-plessis-aux-lys",
+  },
+};
 
 export default function ContactPage() {
   return (
@@ -21,9 +70,9 @@ export default function ContactPage() {
           <div className="flex justify-center items-center sm:hidden"></div>
           <div className=" flex justify-center flex-wrap mx-7 sm:mx-0  gap-3  ">
             <Image
-              src={vendee}
-              width={180}
-              height={101}
+              src={beach}
+              width={300}
+              height={200}
               alt="image"
               className="  shadow-basic rounded-sm w-[9rem] sm:w-[18rem] md:w-[22rem]  lg:w-[16rem] xl:w-[18rem] h-auto "
             />

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Cassiopée - Chambre d'hôte en Vendée",
     description:
       "Séjournez dans le charmante chambre d'hôte 'Cassiopée', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
-    url: "https://le-plessis-aux-lys.fr/chambres/cassiopee/ch-2.webp",
+    url: "https://le-plessis-aux-lys.fr/chambres/cassiopee",
     type: "website",
     locale: "fr_FR",
     siteName: "Chambre Cassiopée",

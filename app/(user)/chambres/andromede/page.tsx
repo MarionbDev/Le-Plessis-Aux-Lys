@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Andromède - Chambre d'hôte en Vendée",
     description:
       "Séjournez dans le charmante chambre d'hôte 'Andromède', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
-    url: "https://le-plessis-aux-lys.fr/chambres/andromede/ch-3-1.webp",
+    url: "https://le-plessis-aux-lys.fr/chambres/andromede",
     type: "website",
     locale: "fr_FR",
     siteName: "Chambre Andromède",

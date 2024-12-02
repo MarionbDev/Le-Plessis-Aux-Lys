@@ -36,17 +36,17 @@ export default function Home() {
     // état initial du consentement
     if (consent === "true") {
       setIsConsentGiven(true);
-      setIsBannerVisible(false); // Si l'utilisateur a accepté, cacher la bannière
+      setIsBannerVisible(false);
     } else if (consent === "false") {
       setIsConsentGiven(false);
-      setIsBannerVisible(true); // Si l'utilisateur a refusé, afficher la bannière
+      setIsBannerVisible(true);
     } else {
       setIsConsentGiven(false);
-      setIsBannerVisible(true); // Si aucune donnée, afficher la bannière par défaut
+      setIsBannerVisible(true);
     }
   }, []);
 
-  // active les cookies
+  // acepte les cookies
   const handleAcceptCookies = () => {
     setIsConsentGiven(true);
     localStorage.setItem("cookiesAccepted", "true");
@@ -104,12 +104,33 @@ export default function Home() {
                   </div>
                 </motion.div>
               </motion.section>
+              {/* <motion.section
+                initial="hide"
+                whileInView="show"
+                exit="hide"
+                variants={sectionVariants}
+              > */}
+
               {isBannerVisible && (
-                <CookieBanner
-                  onAccept={handleAcceptCookies}
-                  onReject={handleRejectCookies}
-                />
+                <motion.div
+                  initial={{ x: "100vw" }}
+                  animate={{ x: 0 }}
+                  transition={{ type: "spring", stiffness: 60, damping: 15 }}
+                  style={{
+                    position: "fixed",
+                    bottom: "1px",
+                    right: "1px",
+                    zIndex: 1000,
+                  }}
+                >
+                  <CookieBanner
+                    onAccept={handleAcceptCookies}
+                    onReject={handleRejectCookies}
+                  />
+                </motion.div>
               )}
+
+              {/* </motion.section> */}
               {isConsentGiven ? (
                 <div className="flex flex-col justify-center">
                   <DynamicMap onResetConsent={handleResetCookiesConsent} />

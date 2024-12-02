@@ -58,7 +58,11 @@ export default function ToVisited() {
   }
 
   if (error) {
-    return <div>Une erreur s'est produite : {error}</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Une erreur s'est produite : {error}
+      </div>
+    );
   }
 
   return (
