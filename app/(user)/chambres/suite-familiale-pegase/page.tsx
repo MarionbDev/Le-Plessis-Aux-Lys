@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Suite familiale Pégase - Chambre d'hôte en Vendée",
     description:
       "Séjournez dans le charmante chambre d'hôte 'Suite familiale Pégase ', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
-    url: "https://le-plessis-aux-lys.fr/chambres/pegase/pegase2.webp",
+    url: "https://le-plessis-aux-lys.fr/chambres/suite-familiale-pegase",
     type: "website",
     locale: "fr_FR",
     siteName: "Suite familiale Pégase",

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Le Logis de la Grande Ourse - Gîte en Vendée",
     description:
       "Séjournez dans le charmant gîte 'Le Logis de la Grande Ourse', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
-    url: "https://le-plessis-aux-lys.fr/grande-ourse/Gite-2.webp",
+    url: "https://le-plessis-aux-lys.fr/gites/le-logis-de-la-grande-ourse",
     type: "website",
     locale: "fr_FR",
     siteName: "Gîte Le Logis de la Grande Ourse",

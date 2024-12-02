@@ -36,21 +36,6 @@ const sectionVariants: Variants = {
   },
 };
 
-// const textVariants: Variants = {
-//   hide: {
-//     opacity: 1,
-//     x: -600,
-//   },
-//   show: {
-//     opacity: 1,
-//     x: 0,
-//     transition: {
-//       duration: 1,
-//       ease: "easeOut",
-//     },
-//   },
-// };
-
 const imageVariants: Variants = {
   hide: {
     opacity: 0,

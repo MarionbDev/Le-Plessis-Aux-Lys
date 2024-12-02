@@ -47,7 +47,7 @@ export default function CookieBanner({
           background: "#fff",
           zIndex: 1000,
         }}
-        className="mx-4 md:mx-auto text-text_color md:right-2 md:w-[18rem] shadow-div rounded p-3"
+        className="mx-4 md:mx-auto text-text_color md:right-2 md:w-[18rem] shadow-div rounded p-3 "
       >
         <div className="flex justify-between items-start">
           <div className="flex flex-row gap-3 items-center">

@@ -10,7 +10,7 @@ export default function UserLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className=" ">
+    <div>
       <nav className=" fixed top-0 md:w-full z-50 bg-none bg-transparent">
         <NavbarUser />
         <NavBarMobile />
