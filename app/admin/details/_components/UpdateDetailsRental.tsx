@@ -159,7 +159,7 @@ export default function UpdateDetailsRental({
                             <ReactQuill
                               value={field.value}
                               onChange={field.onChange}
-                              placeholder="Écrivez quelque chose..."
+                              placeholder="Votre texte..."
                               className="w-full h-[10rem]"
                             />
                           )}

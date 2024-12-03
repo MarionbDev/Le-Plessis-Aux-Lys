@@ -117,7 +117,9 @@ export function UpdateEmailButton() {
                 name="email"
                 render={({ field }) => (
                   <FormItem className="text-text_color mt-6  ">
-                    <FormLabel className="text-text_color    ">Email</FormLabel>
+                    <FormLabel className="text-text_color    ">
+                      Nouvel Email
+                    </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="example@example.com"

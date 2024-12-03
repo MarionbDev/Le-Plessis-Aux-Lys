@@ -37,7 +37,10 @@ export const POST = async (request: NextRequest) => {
       react: EmailTemplate({ firstname, lastname, email, phone, message }),
     });
 
-    return NextResponse.json({ message: "Email successfully sent!" });
+    return NextResponse.json({
+      message: "Email successfully sent!",
+      emailResult,
+    });
   } catch (error) {
     console.error("Error sending email:", error);
     return NextResponse.json(
