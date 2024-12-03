@@ -16,7 +16,7 @@ const getAdminEmail = async () => {
     });
 
     const data = await res.json();
-    console.log("data email", data);
+    // console.log("data email", data);
     if (res.ok && data.admin) {
       return data.admin;
     } else {
