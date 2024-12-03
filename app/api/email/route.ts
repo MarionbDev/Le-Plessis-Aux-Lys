@@ -13,6 +13,7 @@ const getAdminEmail = async () => {
         headers: {
           "Cache-Control": "no-store", // Empêche la mise en cache ??
         },
+        cache: "no-store",
       },
     );
 
