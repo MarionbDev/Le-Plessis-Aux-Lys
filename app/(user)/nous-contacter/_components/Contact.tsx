@@ -45,7 +45,7 @@ export default function ContactForm() {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
-      console.log("data client : ", data);
+      // console.log("data client : ", data);
 
       if (data && data.message) {
         const promise = () =>
