@@ -6,16 +6,13 @@ import { resend } from "../../../lib/resend";
 // Fonction pour récupérer l'email de l'admin depuis l'API
 const getAdminEmail = async () => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/getAdmin?time=${Date.now()}`,
-      {
-        method: "GET",
-        headers: {
-          "Cache-Control": "no-store", // Empêche la mise en cache ??
-        },
-        cache: "no-store",
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getAdmin`, {
+      method: "GET",
+      headers: {
+        "Cache-Control": "no-store", // Empêche la mise en cache ??
       },
-    );
+      cache: "no-store",
+    });
 
     const data = await res.json();
     console.log("data email", data);
