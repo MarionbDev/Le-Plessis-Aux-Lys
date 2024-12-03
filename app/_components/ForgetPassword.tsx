@@ -19,7 +19,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { resetPassword } from "@/services/auth.services";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail } from "lucide-react";
+import { Loader2, Mail, Save } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast, Toaster } from "sonner";
@@ -103,9 +103,15 @@ export default function ForgetPassword() {
               <Button
                 type="submit"
                 role="button"
+                disabled={isLoading}
                 aria-label="envoi de l'email"
                 className="gap-3 lg:gap-4 h-auto  bg-yellow/50 hover:bg-yellow hover:text-white text-wrap  text-text_color text-[0.9rem] "
               >
+                {isLoading ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Save size="16" />
+                )}
                 Envoyer
               </Button>
             </CardFooter>

@@ -28,6 +28,7 @@ export const POST = async (request: NextRequest) => {
 
     // Récupérer l'email de l'admin depuis l'API
     const adminEmail = await getAdminEmail();
+    console.log("email admin :", adminEmail);
 
     // Envoi de l'email via Resend
     const emailResult = await resend.emails.send({

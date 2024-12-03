@@ -159,7 +159,7 @@ export default function RateRentalCardAdmin({
           onClick={handleSave}
           className=" font-text text-[0.9rem] gap-2 text-text_color  hover:text-white hover:bg-gold/80 bg-gold/30 mt-4"
         >
-          <Save size="16" /> Enregistrer
+          <Save size="16" className=" animate-spin" /> Enregistrer
         </Button>
       </div>
       <Toaster />
