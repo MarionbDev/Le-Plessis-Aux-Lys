@@ -1,4 +1,5 @@
 import EmailTemplate from "@/app/_components/contact/EmailTemplate";
+import { revalidateTag } from "next/cache";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { resend } from "../../../lib/resend";
@@ -45,6 +46,9 @@ export const POST = async (request: NextRequest) => {
       subject: "Vous avez reçu un nouveau message",
       react: EmailTemplate({ firstname, lastname, email, phone, message }),
     });
+
+    // Revalidation après avoir mis à jour les données de l'admin
+    revalidateTag("admin-email"); // Marque la balise associée comme obsolète et force une nouvelle récupération
 
     return NextResponse.json({
       message: "Email successfully sent!",
