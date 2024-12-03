@@ -144,6 +144,7 @@ export const resetPassword = async (email: string) => {
     // Si l'utilisateur existe, initie la réinitialisation
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: "http://localhost:3000/reinitialisation-mot-de-passe",
+      // redirectTo: "https://le-plessis-aux-lys.fr/reinitialisation-mot-de-passe",
     });
     if (error) throw error;
     return data;
