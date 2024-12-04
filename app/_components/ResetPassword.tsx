@@ -140,13 +140,15 @@ export function ResetPassword() {
     <div className="font-text flex justify-center items-center h-screen pt-20  ">
       {tokenNotFound ? (
         <div className="text-red-500">
-          <p>Token manquant. Veuillez vérifier l'URL.</p>
+          <p>
+            Erreur de réinitialisation. Veuillez faire une nouvelle demande.
+          </p>
         </div>
       ) : (
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmitNewPassword)}
-            className=" shadow-div rounded-md"
+            className=" "
           >
             <Card className=" rounded-md border-2  flex flex-col justify-center px-10 ">
               <CardContent className=" ">

@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Save } from "lucide-react";
+import { Loader2, Save } from "lucide-react";
 import { useState } from "react";
 import { toast, Toaster } from "sonner";
 
@@ -43,6 +43,8 @@ export default function RateRentalCardAdmin({
     highSeasonRateWeek,
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     const numericValue = value === "-" ? undefined : parseFloat(value);
@@ -54,6 +56,7 @@ export default function RateRentalCardAdmin({
 
   const handleSave = async () => {
     try {
+      setIsLoading(true);
       // Initialise updatedRates avec les valeurs actuelles de rates
       const updatedRates: UpdatedRates = {
         lowSeasonRateNight:
@@ -79,6 +82,8 @@ export default function RateRentalCardAdmin({
     } catch (error) {
       console.error("Error updating prices:", error);
       toast.error("Erreur de mise à jour des tarifs !");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -157,9 +162,15 @@ export default function RateRentalCardAdmin({
       <div className="flex justify-center">
         <Button
           onClick={handleSave}
+          disabled={isLoading}
           className=" font-text text-[0.9rem] gap-2 text-text_color  hover:text-white hover:bg-gold/80 bg-gold/30 mt-4"
         >
-          <Save size="16" className=" animate-spin" /> Enregistrer
+          {isLoading ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            <Save size="16" />
+          )}
+          Enregistrer
         </Button>
       </div>
       <Toaster />

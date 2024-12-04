@@ -51,7 +51,7 @@ export default function ForgetPassword() {
       form.reset();
 
       toast.success("Un lien de réinitialisation vous a été envoyé.", {
-        duration: 2000,
+        duration: 4000,
       });
     } catch (error: any) {
       const errorMessage =
@@ -83,7 +83,7 @@ export default function ForgetPassword() {
                   <FormItem className="flex flex-col ">
                     <div className="flex items-center gap-2">
                       <FormLabel className=" text-md lg:text-lg  text-text_color ">
-                        <Mail size={24} color="#bbbb57" />
+                        <Mail size={20} color="#bbbb57" />
                       </FormLabel>
                       <FormControl>
                         <Input

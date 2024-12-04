@@ -72,15 +72,17 @@ export default function VisitArticle({
       >
         <div className="  max-w-[1050px] ">
           <Card className=" font-text  text-[0.9rem] text-text_color flex flex-col md:flex-row border-none shadow-none ">
-            <CardHeader className=" pb-0  flex flex-col items-center  ">
+            <CardHeader className=" pb-0  flex flex-col items-center  xl:min-w-[16rem]  ">
               <div className="flex justify-center  ">
-                <Image
-                  src={image_path}
-                  width={280}
-                  height={180}
-                  alt={`Photo de l'article ${title}`}
-                  className=" max-w-[13rem] h-auto object-contain rounded-sm"
-                />
+                {image_path && (
+                  <Image
+                    src={image_path}
+                    width={280}
+                    height={180}
+                    alt={`Photo de l'article ${title}`}
+                    className=" max-w-[13rem] h-auto object-contain rounded-sm"
+                  />
+                )}
               </div>
             </CardHeader>
             <div className=" flex flex-col  ">
