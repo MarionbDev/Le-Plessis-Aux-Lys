@@ -151,7 +151,7 @@ const BookingToCome: React.FC = () => {
   ): Promise<ReservationInput[]> => {
     try {
       const fetchedDates = await getAllCalendar(rental_type);
-      console.log("Fetched Dates:", fetchedDates);
+      // console.log("Fetched Dates:", fetchedDates);
 
       return fetchedDates
         .filter((date) => typeof date.id === "string")

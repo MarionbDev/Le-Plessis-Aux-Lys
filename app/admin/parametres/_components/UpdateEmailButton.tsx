@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -103,13 +104,22 @@ export function UpdateEmailButton() {
           <p> {`${user?.email}`}</p>
         </Button>
       </DialogTrigger>
-      <DialogContent className=" w-4/5 sm:max-w-[425px] bg-white dark:shadow-inner  shadow-md border-none  backdrop-blur-3xl drop-shadow-lg ">
+      <DialogContent
+        aria-labelledby="dialog-description"
+        className=" w-4/5 sm:max-w-[425px] bg-white dark:shadow-inner  shadow-md border-none  backdrop-blur-3xl drop-shadow-lg "
+      >
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSubmit)}>
             <DialogHeader>
               <DialogTitle className=" text-text_color font-semibold">
                 Mise à jour de l'email
               </DialogTitle>
+              <DialogDescription>
+                <p id="dialog-description" className="sr-only">
+                  Veuillez entrer votre nouvel email pour mettre à jour vos
+                  informations
+                </p>
+              </DialogDescription>
             </DialogHeader>
             <div className=" py-4  ">
               <FormField

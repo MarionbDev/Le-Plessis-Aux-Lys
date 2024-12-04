@@ -84,7 +84,8 @@ export const updateEmail = async (
     const { data: adminUpdateData, error: adminUpdateError } = await supabase
       .from("admin")
       .update({ email: newEmail })
-      .eq("email", email); // Ici, on utilise l'email initial pour identifier l'utilisateur
+      .eq("email", email) // Ici, on utilise l'email initial pour identifier l'utilisateur
+      .select();
 
     if (adminUpdateError) {
       console.error(

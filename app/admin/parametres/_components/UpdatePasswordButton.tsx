@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -138,7 +139,10 @@ export function UpdatePasswordButton() {
           <p>**********</p>
         </Button>
       </DialogTrigger>
-      <DialogContent className=" w-4/5 sm:min-w-[360px]  bg-white backdrop-blur-3xl drop-shadow-lg text-text_color ">
+      <DialogContent
+        aria-labelledby="dialog-description"
+        className=" w-4/5 sm:min-w-[360px]  bg-white backdrop-blur-3xl drop-shadow-lg text-text_color "
+      >
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmitNewPassword)}
@@ -148,6 +152,12 @@ export function UpdatePasswordButton() {
               <DialogTitle className="  text-left">
                 Mise à jour du mot de passe
               </DialogTitle>
+              <DialogDescription>
+                <p id="dialog-description" className="sr-only">
+                  Veuillez entrer votre nouveau mot de passe pour mettre à jour
+                  vos informations
+                </p>
+              </DialogDescription>
             </DialogHeader>
             <div className="py-4">
               <FormField
