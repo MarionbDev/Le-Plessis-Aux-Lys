@@ -40,12 +40,13 @@ export default function ContactForm() {
         },
       );
       console.log("Received response :", response);
+      console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
-      // console.log("data client : ", data);
+      console.log("data client : ", data);
 
       if (data && data.message) {
         const promise = () =>

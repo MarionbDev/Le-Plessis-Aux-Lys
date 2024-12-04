@@ -1,5 +1,5 @@
 import EmailTemplate from "@/app/_components/contact/EmailTemplate";
-import { revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { resend } from "../../../lib/resend";
@@ -14,6 +14,7 @@ const getAdminEmail = async () => {
       },
       cache: "no-store",
     });
+    console.log("get admin email ", res);
 
     const data = await res.json();
     // console.log("data email", data);
@@ -37,18 +38,19 @@ export const POST = async (request: NextRequest) => {
 
     // Récupérer l'email de l'admin depuis l'API
     const adminEmail = await getAdminEmail();
-    // console.log("email admin :", adminEmail);
 
     // Envoi de l'email via Resend
+    console.log("Sending email to:", adminEmail);
     const emailResult = await resend.emails.send({
       from: '"le-plessis-aux-lys" <noreply@le-plessis-aux-lys.fr>',
-      to: adminEmail,
+      // to: adminEmail,
+      to: "marionbaston84@gmail.com",
       subject: "Vous avez reçu un nouveau message",
       react: EmailTemplate({ firstname, lastname, email, phone, message }),
     });
 
     // Revalidation après avoir mis à jour les données de l'admin
-    revalidateTag("admin-email"); // Marque la balise associée comme obsolète et force une nouvelle récupération
+    revalidatePath("/api/getAdmin"); // Marque la balise associée comme obsolète et force une nouvelle récupération
 
     return NextResponse.json({
       message: "Email successfully sent!",
