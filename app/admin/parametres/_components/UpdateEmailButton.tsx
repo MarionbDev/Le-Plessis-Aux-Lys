@@ -69,6 +69,26 @@ export function UpdateEmailButton() {
         email: user.email,
         password: values.password,
       });
+
+      // Appeler l'API pour mettre à jour l'email
+      // const response = await fetch("/api/update-email", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     newEmail: values.email,
+      //     email: user.email,
+      //     password: values.password,
+      //   }),
+      // });
+
+      // const data = await response.json();
+
+      // if (!response.ok) {
+      //   throw new Error(data?.error || "Une erreur est survenue");
+      // }
+
       form.reset();
       setIsDialogOpen(false);
       toast.success(
@@ -115,10 +135,10 @@ export function UpdateEmailButton() {
                 Mise à jour de l'email
               </DialogTitle>
               <DialogDescription>
-                <p id="dialog-description" className="sr-only">
+                <span id="dialog-description" className="sr-only">
                   Veuillez entrer votre nouvel email pour mettre à jour vos
                   informations
-                </p>
+                </span>
               </DialogDescription>
             </DialogHeader>
             <div className=" py-4  ">

@@ -12,7 +12,11 @@ const triggerVercelDeploy = async () => {
   const deployHookUrl =
     "https://api.vercel.com/v1/integrations/deploy/prj_FF50GcTZd9iVIGcTatO0eNL9mOAW/VL0dwMcdXM"; // Remplacez par votre URL du webhook
 
+  console.log("Déclenchement du déploiement Vercel...");
+
   try {
+    console.log("Déclenchement du déploiement Vercel...");
+
     const response = await fetch(deployHookUrl, {
       method: "POST",
       headers: {
@@ -20,13 +24,15 @@ const triggerVercelDeploy = async () => {
         Authorization: `Bearer ${process.env.VERCEL_ACCESS_TOKEN}`, // Remplacez par votre token Vercel si nécessaire
       },
       body: JSON.stringify({
-        event: "email-update", // L'événement que vous voulez suivre
+        event: "update-email", // L'événement que vous voulez suivre
         payload: {
           // Optionnel : vous pouvez passer des informations supplémentaires si nécessaire
           message: "Email mis à jour",
         },
       }),
     });
+
+    console.log("Réponse du webhook Vercel:", response);
 
     if (!response.ok) {
       throw new Error("Erreur lors du déclenchement du déploiement");
@@ -42,6 +48,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
+  console.log("Requête reçue dans handler", req.method);
+
   if (req.method === "POST") {
     const { newEmail, email, password }: RequestBody = req.body;
 

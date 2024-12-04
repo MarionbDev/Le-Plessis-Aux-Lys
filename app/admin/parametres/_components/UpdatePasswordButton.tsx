@@ -153,10 +153,10 @@ export function UpdatePasswordButton() {
                 Mise à jour du mot de passe
               </DialogTitle>
               <DialogDescription>
-                <p id="dialog-description" className="sr-only">
+                <span id="dialog-description" className="sr-only">
                   Veuillez entrer votre nouveau mot de passe pour mettre à jour
                   vos informations
-                </p>
+                </span>
               </DialogDescription>
             </DialogHeader>
             <div className="py-4">
