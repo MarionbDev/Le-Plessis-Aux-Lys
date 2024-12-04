@@ -80,11 +80,12 @@ export const updateEmail = async (
 
     console.log("Mise à jour réussie, confirmation envoyée :", updateData);
 
-    // Mettre à jour l'email dans la table 'admin' en utilisant l'auth.uid() pour garantir l'update de l'utilisateur connecté
+    // Mettre à jour l'email dans la table 'admin'
     const { data: adminUpdateData, error: adminUpdateError } = await supabase
       .from("admin")
       .update({ email: newEmail })
-      .eq("email", email); // Ici, on utilise l'email initial pour identifier l'utilisateur
+      .eq("email", email) // Ici, on utilise l'email initial pour identifier l'utilisateur
+      .select();
 
     if (adminUpdateError) {
       console.error(

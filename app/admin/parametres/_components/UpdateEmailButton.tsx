@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -68,6 +69,26 @@ export function UpdateEmailButton() {
         email: user.email,
         password: values.password,
       });
+
+      // Appeler l'API pour mettre à jour l'email
+      // const response = await fetch("/api/update-email", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     newEmail: values.email,
+      //     email: user.email,
+      //     password: values.password,
+      //   }),
+      // });
+
+      // const data = await response.json();
+
+      // if (!response.ok) {
+      //   throw new Error(data?.error || "Une erreur est survenue");
+      // }
+
       form.reset();
       setIsDialogOpen(false);
       toast.success(
@@ -103,13 +124,22 @@ export function UpdateEmailButton() {
           <p> {`${user?.email}`}</p>
         </Button>
       </DialogTrigger>
-      <DialogContent className=" w-4/5 sm:max-w-[425px] bg-white dark:shadow-inner  shadow-md border-none  backdrop-blur-3xl drop-shadow-lg ">
+      <DialogContent
+        aria-labelledby="dialog-description"
+        className=" w-4/5 sm:max-w-[425px] bg-white dark:shadow-inner  shadow-md border-none  backdrop-blur-3xl drop-shadow-lg "
+      >
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSubmit)}>
             <DialogHeader>
               <DialogTitle className=" text-text_color font-semibold">
                 Mise à jour de l'email
               </DialogTitle>
+              <DialogDescription>
+                <span id="dialog-description" className="sr-only">
+                  Veuillez entrer votre nouvel email pour mettre à jour vos
+                  informations
+                </span>
+              </DialogDescription>
             </DialogHeader>
             <div className=" py-4  ">
               <FormField
