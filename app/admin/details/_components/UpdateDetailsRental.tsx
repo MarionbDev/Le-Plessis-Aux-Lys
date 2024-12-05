@@ -135,7 +135,11 @@ export default function UpdateDetailsRental({
                       <FormItem>
                         <FormLabel>Capacité</FormLabel>
                         <FormControl>
-                          <Input type="text" {...field} />
+                          <Input
+                            type="text"
+                            {...field}
+                            placeholder="Nombre de personnes"
+                          />
                         </FormControl>
                         <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
                       </FormItem>
