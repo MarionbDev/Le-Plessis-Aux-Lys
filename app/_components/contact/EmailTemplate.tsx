@@ -32,7 +32,7 @@ const EmailTemplate = ({
   phone,
 }: PropType) => (
   <Tailwind>
-    <Html>
+    <Html className=" bg-white">
       <Container className={styles.container}>
         <img
           src={`${baseUrl}/title.png`}

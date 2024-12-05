@@ -1,9 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import "react-quill/dist/quill.snow.css";
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -15,6 +11,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 
 // import { Loader2, LogIn } from "lucide-react";
 
@@ -227,6 +225,15 @@ export default function AddArticle() {
                             <ReactQuill
                               value={field.value}
                               onChange={field.onChange}
+                              theme="snow"
+                              modules={{
+                                toolbar: [
+                                  [{ header: [1, 2, false] }],
+                                  ["bold", "italic", "underline"],
+                                  [{ list: "ordered" }, { list: "bullet" }],
+                                  ["link", "image"],
+                                ],
+                              }}
                               placeholder="Écrivez quelque chose..."
                               className="w-full h-[10rem]"
                             />
