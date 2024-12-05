@@ -11,11 +11,6 @@ interface Props extends UploadFileAdminProps {
 export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
   const [files, setFiles] = useState<File[]>([]);
   const [uploadedFilePaths, setUploadedFilePaths] = useState<string[]>([]);
-  console.log("UploadFileAdmin initialized with bucket:", bucket);
-  console.log(
-    "onUploadComplete provided:",
-    typeof onUploadComplete === "function",
-  );
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = event.target.files
@@ -52,7 +47,6 @@ export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
             orientation,
             bucket,
           );
-          console.log("Uploaded file admin:", uploadedFileData);
           const fileData: onUploadComplete = {
             orientation: uploadedFileData.orientation,
             id: uploadedFileData.id,
@@ -64,13 +58,11 @@ export default function UploadFileAdmin({ bucket, onUploadComplete }: Props) {
             ...prevPaths,
             uploadedFileData.fullPath,
           ]);
-          console.log("Calling onUploadComplete with:", fileData);
           onUploadComplete(fileData);
         } catch (error) {
           console.error("Error uploading file:", error);
         }
       };
-      console.log("Setting image src for preview.");
       img.src = URL.createObjectURL(file);
     }
   };

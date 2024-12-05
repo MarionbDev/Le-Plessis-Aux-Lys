@@ -48,8 +48,6 @@ export function UpdateEmailButton() {
   const [showPassword, setShowPassword] = useState(false);
   const { user, loading, refreshSession } = useSession();
 
-  // const isAdmin = user?.aud === "authenticated";
-
   const form = useForm<z.infer<typeof UpdateEmailFormSchema>>({
     resolver: zodResolver(UpdateEmailFormSchema),
     defaultValues: {
@@ -69,25 +67,6 @@ export function UpdateEmailButton() {
         email: user.email,
         password: values.password,
       });
-
-      // Appeler l'API pour mettre à jour l'email
-      // const response = await fetch("/api/update-email", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     newEmail: values.email,
-      //     email: user.email,
-      //     password: values.password,
-      //   }),
-      // });
-
-      // const data = await response.json();
-
-      // if (!response.ok) {
-      //   throw new Error(data?.error || "Une erreur est survenue");
-      // }
 
       form.reset();
       setIsDialogOpen(false);
@@ -121,7 +100,7 @@ export function UpdateEmailButton() {
           className="flex flex-col items-start md:flex-row md:justify-between text-[0.9rem]"
         >
           <p>Email</p>
-          <p> {`${user?.email}`}</p>
+          <p> {`${user?.email}`} </p>
         </Button>
       </DialogTrigger>
       <DialogContent

@@ -86,7 +86,6 @@ export function UpdatePasswordButton() {
   const form = useForm<z.infer<typeof UpdatePasswordFormSchema>>({
     resolver: zodResolver(UpdatePasswordFormSchema),
     defaultValues: {
-      // email: user?.email || "",
       password: "",
       newPassword: "",
       confirmNewPassword: "",
@@ -108,7 +107,7 @@ export function UpdatePasswordButton() {
       setIsDialogOpen(false);
       toast.success("Mise à jour du mot de passe réussie.", { duration: 4000 });
     } catch (error) {
-      // console.error(error);
+      console.error(error);
       toast.error(
         "Erreur lors du changement de mot de passe. Veuillez rééssayer ",
         { duration: 7000 },
@@ -124,7 +123,6 @@ export function UpdatePasswordButton() {
   };
 
   const handleOpen = () => {
-    console.log("Opening Dialog");
     setIsDialogOpen(true);
   };
 

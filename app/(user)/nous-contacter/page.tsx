@@ -1,4 +1,3 @@
-import EmailTemplate from "@/app/_components/contact/EmailTemplate";
 import anes from "@/public/home/anes.webp";
 import beach from "@/public/home/beach4.webp";
 import nature from "@/public/home/nature.webp";
@@ -94,13 +93,6 @@ export default function ContactPage() {
           </div>
         </div>
         <ContactForm />
-        <EmailTemplate
-          firstname="mm"
-          lastname="ff"
-          email="mm@gmail.com"
-          phone=""
-          message="dfsfsf"
-        />
       </div>
     </>
   );
