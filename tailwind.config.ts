@@ -11,6 +11,20 @@ const config = {
   prefix: "",
   theme: {
     extend: {
+      extend: {
+        typography: (theme: (path: string) => string | undefined) => ({
+          DEFAULT: {
+            css: {
+              "ul, ol": {
+                paddingLeft: theme("spacing.6"),
+              },
+              li: {
+                marginBottom: theme("spacing.2"),
+              },
+            },
+          },
+        }),
+      },
       screens: {
         "3xl": "1600px",
       },
@@ -42,7 +56,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
 
 export default config;

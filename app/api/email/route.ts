@@ -41,7 +41,7 @@ export const POST = async (request: NextRequest) => {
     const { data: adminData, error } = await supabase
       .from("admin")
       .select("email")
-      .eq("id", 1) // Adapte selon ta structure
+      .eq("id", 1)
       .single();
 
     if (error || !adminData) {

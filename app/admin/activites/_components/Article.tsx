@@ -12,11 +12,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import VisitContext from "@/hooks/VisitContext";
 import { FilePen, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
 
 type Props = {
   id: string;
@@ -29,6 +27,14 @@ type Props = {
   handleUpdate: (id: string) => void;
 };
 
+const getCompleteUrl = (url: string) => {
+  if (url.startsWith("www.")) {
+    return `https://${url}`;
+  }
+
+  return url;
+};
+
 export default function Article({
   id,
   title,
@@ -39,16 +45,13 @@ export default function Article({
   handleDelete,
   handleUpdate,
 }: Props) {
-  const visitContext = useContext(VisitContext);
-  const { framerMotionVariants } = visitContext;
-
   return (
-    <div className="xl:min-w-[1048px] max-w-[1050px]   ">
+    <div className=" md:min-w-[600px] lg:min-w-[900px]  xl:min-w-[1050px]  max-w-[1050px]  ">
       <Card className="font-text  text-[0.9rem] text-text_color flex flex-col-reverse  border-none shadow-none   ">
         <div className="flex flex-col  md:flex-row  ">
-          <CardHeader className="  pb-0  flex flex-col items-center xl:min-w-[16rem] ">
-            <div className="flex justify-center">
-              {image_path && (
+          {image_path && (
+            <CardHeader className="  pb-0  flex flex-col items-center xl:min-w-[16rem] ">
+              <div className="flex justify-center">
                 <Image
                   src={image_path}
                   layout="responsive"
@@ -57,9 +60,9 @@ export default function Article({
                   alt={`Photo ${title}`}
                   className="min-w-[13rem] max-w-[13rem] h-auto object-contain  "
                 />
-              )}
-            </div>
-          </CardHeader>
+              </div>
+            </CardHeader>
+          )}
           <div className="flex flex-col">
             <CardTitle className=" text-[1.1rem] mx-6 mt-6 md:mt-2 pb-3 ">
               {title}
@@ -69,11 +72,13 @@ export default function Article({
             </CardDescription>
             <CardContent
               dangerouslySetInnerHTML={{ __html: content }}
-              className=" pb-3 text-[0.9rem]"
+              className="prose pb-3 text-[0.9rem] marker:text-text_color"
             />
             {url_link ? (
               <Link
-                href={`/${url_link}`}
+                href={getCompleteUrl(url_link)}
+                target="blank"
+                rel="noopener noreferrer"
                 className="text-start mx-6 focus:outline-none focus:ring-2 focus:ring-gold font-medium hover:text-gold py-1 md:py-0 text-[0.9rem] "
               >
                 <p className="  font-semibold hover:text-gold ">{url_link}</p>
@@ -83,7 +88,7 @@ export default function Article({
             )}{" "}
           </div>
         </div>
-        <div className="flex justify-end gap-4 pt-2 pr-8 md:pr-4 ">
+        <div className="flex justify-center md:justify-end gap-4 pt-2  md:pr-4 ">
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -112,7 +117,7 @@ export default function Article({
       </Card>
 
       <div className="flex justify-center mt-14 md:pt-4  ">
-        <span className="w-2/4 border-t-2  border-separator"></span>
+        <span className=" w-[20rem] md:w-2/4 border-t-2  border-separator"></span>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-export const fetchCache = "force-no-store";
+// export const fetchCache = "force-no-store";
 
 import "./globals.css";
 

@@ -46,7 +46,9 @@ export default function CardPhotosAdmin({
       <div className="flex justify-around d ">
         <Card className=" w-[25rem] h-[29rem] flex flex-col items-center border-2  ">
           <CardHeader className="flex flex-col justify-between items-center">
-            <CardTitle className="text-[1.1rem]">{title}</CardTitle>
+            <CardTitle className="text-[1.1rem] text-text_color">
+              {title}
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="customized-scrollbar flex gap-4 h-[16rem] overflow-x-auto overflow-y-hidden  ">
@@ -61,7 +63,6 @@ export default function CardPhotosAdmin({
                       width={280}
                       height={180}
                       alt={`Photo ${index + 1}`}
-                      // style={{ objectFit: "cover", objectPosition: "center" }}
                       priority
                       className=" w-auto h-56 object-scale-down"
                     />
