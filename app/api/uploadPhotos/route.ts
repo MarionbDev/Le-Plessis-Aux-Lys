@@ -1,35 +1,6 @@
 import { ImageType } from "@/app/types";
 import supabase from "@/lib/database";
 
-// export const getImagesFromBucket = async (bucket: string) => {
-//   try {
-//     const { data, error } = await supabase.storage.from(bucket).list();
-//     if (error) {
-//       throw error;
-//     }
-
-//     const urls = data
-//       .filter((file) => !file.name.endsWith(".emptyFolderPlaceholder")) // Exclure les placeholders vides
-//       .map((file) => {
-//         const { publicUrl } = supabase.storage
-//           .from(bucket)
-//           .getPublicUrl(file.name).data;
-//         return publicUrl;
-//       });
-
-//     return urls;
-//   } catch (error: any) {
-//     console.error("Error fetching images :", error.message);
-//     throw error;
-//   }
-// };
-
-// Fonction pour récupérer les images avec le nom du bucket inclus
-// Fonction pour construire l'URL de l'image
-// const construireUrlImage = (bucket: string, fileName: string): string => {
-//   // Assurez-vous que l'URL est correctement formatée
-//   return `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${bucket}/${fileName}`;
-// };
 const construireUrlImage = (bucket: string, fileName: string): string => {
   const url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${bucket}/${fileName}`;
   // console.log(`URL construite: ${url}`);
@@ -70,7 +41,6 @@ export const uploadPhotos = async (
       .upload(fileName, file);
 
     if (error) throw error;
-    console.log("Uplaod file :", data);
 
     return {
       orientation,
@@ -85,13 +55,7 @@ export const uploadPhotos = async (
 };
 
 export const deleteUploadFile = async (fileName: string, bucket: string) => {
-  // console.log("bucket:", bucket);
-  // console.log("fileName:", fileName);
-
   try {
-    console.log(
-      `Attempting to delete file: ${fileName} from bucket: ${bucket}`,
-    );
     const { error } = await supabase.storage.from(bucket).remove([fileName]);
 
     if (error) {
@@ -100,10 +64,6 @@ export const deleteUploadFile = async (fileName: string, bucket: string) => {
         error,
       );
       throw error;
-    } else {
-      console.log(
-        `Successfully deleted file: ${fileName} from bucket: ${bucket}`,
-      );
     }
   } catch (error: any) {
     console.error("Error deleting file:", error.message);

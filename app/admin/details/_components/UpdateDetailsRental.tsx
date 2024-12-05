@@ -92,7 +92,7 @@ export default function UpdateDetailsRental({
       await updateRentalDetails(rentalId, detailsRentalData);
 
       form.reset();
-      toast.success("Mise à jour de la location réussie !");
+      toast.success("Mise à jour de la description réussie !");
       setTimeout(() => {
         router.push("/admin/details");
       }, 2000);
@@ -122,7 +122,7 @@ export default function UpdateDetailsRental({
                       <FormItem>
                         <FormLabel>Titre</FormLabel>
                         <FormControl>
-                          <Input type="text" {...field} />
+                          <Input type="text" required {...field} />
                         </FormControl>
                         <FormMessage className="text-[0.85rem] md:text-md pl-2 text-red-500 italic" />
                       </FormItem>
