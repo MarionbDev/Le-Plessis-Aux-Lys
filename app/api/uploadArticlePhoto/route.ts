@@ -24,7 +24,7 @@ export const POST = async (req: NextRequest) => {
     }
 
     const filePath = path.join(UPLOAD_DIR, file.name);
-    fs.writeFileSync(filePath, buffer);
+    fs.writeFileSync(filePath, new Uint8Array(buffer));
 
     return NextResponse.json({
       success: true,

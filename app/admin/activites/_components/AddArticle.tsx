@@ -13,10 +13,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-
-// import { Loader2, LogIn } from "lucide-react";
-
-// import ReactQuill from "react-quill";
 import { addArticle } from "@/app/api/article/route";
 import supabase from "@/lib/database";
 import { zodResolver } from "@hookform/resolvers/zod";

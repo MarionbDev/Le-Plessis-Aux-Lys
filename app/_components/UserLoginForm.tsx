@@ -119,7 +119,7 @@ export default function UserLoginForm() {
             onSubmit={form.handleSubmit(handleLoginFormSubmit)}
             className="space-y-8 flex justify-center items-center   "
           >
-            <div className=" w-[80%] md:w-[70%] lg:w-[50%] xl:w-[30%] ">
+            <div className=" w-full sm:w-[70%] lg:w-[50%] xl:w-[40%] ">
               <Card className=" rounded-md border-2  ">
                 <CardHeader>
                   <CardTitle className=" md:text-[1.2rem] text-text_color font-semibold">
