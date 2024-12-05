@@ -104,7 +104,7 @@ export default function UserLoginForm() {
       }, 4000);
     } catch (error) {
       toast.error(
-        "Une erreur s'est produite lors de la connexion. Vérifiez vos identifiants et réessayez.!",
+        "Une erreur s'est produite lors de la connexion. Vérifiez vos identifiants et réessayez !",
       );
     } finally {
       setIsLoading(false);

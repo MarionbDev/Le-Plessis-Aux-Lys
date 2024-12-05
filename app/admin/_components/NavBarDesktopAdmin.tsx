@@ -52,7 +52,7 @@ export default function NavbarDesktopAdmin() {
             href={"/admin/details"}
             className={`flex flex-col ${currentRoute === "/admin/details" ? styles.activeLink : styles.nonActiveLink}`}
           >
-            Détails
+            Descriptions
             <span className={styles.underline}></span>
           </Link>
           <Link

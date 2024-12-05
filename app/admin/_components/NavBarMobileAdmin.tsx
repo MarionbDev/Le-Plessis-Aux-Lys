@@ -79,7 +79,7 @@ export default function NavBarMobileAdmin() {
                 onClick={() => handleNavigation("/admin/details")}
                 className="text-[1rem]"
               >
-                Détails
+                Descriptions
               </MenubarTrigger>
             </MenubarMenu>
             <MenubarMenu>
