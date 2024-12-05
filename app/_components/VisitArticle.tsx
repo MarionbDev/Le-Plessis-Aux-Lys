@@ -96,6 +96,9 @@ export default function VisitArticle({
               </Link>
             </div>
           </Card>
+          <div className="flex justify-center mt-14 md:pt-4  ">
+            <span className=" w-[20rem] md:w-2/4 border-t-2  border-separator"></span>
+          </div>
         </div>
       </motion.div>
     </motion.section>
