@@ -89,10 +89,6 @@ export default function GiteAndRooms() {
     });
   };
 
-  useEffect(() => {
-    console.log("État mis à jour pour grandeOurse:", grandeOurse);
-  }, [grandeOurse]);
-
   const handleDelete = async (fileName: string, bucket: string) => {
     // Définir le bucket
     try {

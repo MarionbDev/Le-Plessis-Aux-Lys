@@ -35,7 +35,7 @@ export default function Details({
                   <p className="mb-2 text-[0.9rem]">Description :</p>
                   <div
                     dangerouslySetInnerHTML={{ __html: description_rental }}
-                    className=" pb-3 text-[0.9rem] "
+                    className="prose pb-3 text-[0.9rem]  marker:text-text_color "
                   />
                 </div>
               </div>

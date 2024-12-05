@@ -58,11 +58,6 @@ export const updateEmail = async (
       throw loginError;
     }
 
-    console.log(
-      "Utilisateur connecté avec succès pour mise à jour de l'email :",
-      email,
-    );
-
     // Mise à jour de l'email avec confirmation
     const { data: updateData, error: updateError } =
       await supabase.auth.updateUser({
@@ -78,7 +73,7 @@ export const updateEmail = async (
       throw updateError;
     }
 
-    console.log("Mise à jour réussie, confirmation envoyée :", updateData);
+    // console.log("Mise à jour réussie, confirmation envoyée :", updateData);
 
     // Mettre à jour l'email dans la table 'admin'
     const { data: adminUpdateData, error: adminUpdateError } = await supabase
@@ -95,15 +90,10 @@ export const updateEmail = async (
       throw adminUpdateError;
     }
 
-    console.log(
-      "Mise à jour de l'email dans la table 'admin' réussie :",
-      adminUpdateData,
-    );
-
     // Vérification du processus de confirmation (si nécessaire)
-    if (updateData?.user?.email) {
-      console.log(`Un email de confirmation a été envoyé à ${newEmail}`);
-    }
+    // if (updateData?.user?.email) {
+    //   console.log(`Un email de confirmation a été envoyé à ${newEmail}`);
+    // }
 
     return updateData;
   } catch (error) {

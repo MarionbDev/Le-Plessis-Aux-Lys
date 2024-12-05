@@ -24,9 +24,8 @@ export default function DetailsRentalPage() {
   // Fonction pour récupérer les détails des locations
   const fetchDetailsRental = async () => {
     try {
-      console.log("Appel à getAllRentals...");
       const allDetailsRentals = await getAllRentals();
-      console.log("Données récupérées:", allDetailsRentals); // Vérifiez les données ici
+
       if (allDetailsRentals) {
         setRentalsDetails(allDetailsRentals); // Mettez à jour l'état si les données sont valides
       } else {
@@ -39,7 +38,7 @@ export default function DetailsRentalPage() {
 
   useEffect(() => {
     if (!modal && !modalUpdate) {
-      fetchDetailsRental(); // Appel pour récupérer les données lors du montage du composant
+      fetchDetailsRental();
     }
   }, [modal, modalUpdate]);
 

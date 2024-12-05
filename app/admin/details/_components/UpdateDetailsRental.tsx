@@ -58,7 +58,7 @@ export default function UpdateDetailsRental({
     const fetchRentalsDetails = async () => {
       try {
         const detailsRentalData = await getRentalById(rentalId);
-        console.log("detail rental data", detailsRentalData);
+
         if (detailsRentalData) {
           form.reset({
             title_rental: detailsRentalData.title_rental,
