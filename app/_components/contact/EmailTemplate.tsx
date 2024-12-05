@@ -32,12 +32,12 @@ const EmailTemplate = ({
   phone,
 }: PropType) => (
   <Tailwind>
-    <Html className=" bg-white">
+    <Html className=" bg-[#fdfdfd]">
       <Container className={styles.container}>
         <img
           src={`${baseUrl}/title.png`}
           alt="nom du site"
-          className="-ml-6 mb-2"
+          className="-ml-6 mb-2 w-[20rem] h-auto"
         />
 
         <Heading as="h3" className=" font-medium">
