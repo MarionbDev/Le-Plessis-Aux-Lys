@@ -138,10 +138,10 @@ export default function RentalPage({
                   {/* Affichage de la description si elle existe */}
                   {hasDescription && (
                     <section className="flex justify-center w-full">
-                      <div className="w-96 max-w-[60rem]  sm:min-w-[34rem] md:min-w-[52rem] px-4 sm:mx-8 md:mx-14 mt-12 md:mt-20">
+                      <div className="mt-12 md:mt-20 ">
                         <p
                           dangerouslySetInnerHTML={{ __html: description }}
-                          className="prose text-[0.9rem] text-left "
+                          className="prose text-[0.9rem] text-left  px-4 md:px-20 lg:px-6 w-96 max-w-[60rem]  sm:min-w-[34rem] md:min-w-[52rem]"
                         />
                       </div>
                     </section>
