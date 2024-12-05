@@ -154,10 +154,7 @@ export const resetPassword = async (email: string) => {
   }
 };
 
-export const updatePasswordWithToken = async (
-  // token: string,
-  newPassword: string,
-) => {
+export const updatePasswordWithToken = async (newPassword: string) => {
   try {
     // console.log("Token utilisé pour la réinitialisation :", token);
     console.log("Nouveau mot de passe :", newPassword);

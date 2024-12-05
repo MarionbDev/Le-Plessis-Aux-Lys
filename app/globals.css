@@ -36,12 +36,12 @@ html {
 
 /* Flouter l'image */
 .img-blur {
-  filter: blur(8px); /* Ajustez la valeur pour plus ou moins de flou */
-  transition: filter 0.3s ease-in-out; /* Pour un effet de transition fluide */
+  filter: blur(8px);
+  transition: filter 0.3s ease-in-out;
 }
 
 .img-blur:hover {
-  filter: blur(0); /* Effet de déflouage au survol */
+  filter: blur(0);
 }
 
 /* CALENDAR */
@@ -96,9 +96,6 @@ html {
 }
 
 @media only screen and (min-width: 768px) {
-  /* .prices-section-mobile {
-    display: none;
-  } */
   .custom-placeholder {
     font-size: 13px;
   }
