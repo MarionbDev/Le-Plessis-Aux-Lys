@@ -58,7 +58,7 @@ export default function Map({ onResetConsent }: MapProps) {
               className="w-[20rem] h-[20rem] sm:w-[30rem] sm:h-[22rem] md:w-[35rem]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              sandbox="allow-scripts allow-same-origin allow-popups"
+              // sandbox="allow-scripts allow-same-origin allow-popups"
             ></iframe>
 
             <Button
