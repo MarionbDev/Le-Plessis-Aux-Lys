@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function Garden() {
   const [imagesJardin, setImagesJardin] = useState<ImageType[]>([]);
-  const [loading] = useState();
+  const [loading, setLoading] = useState(true);
   const [error] = useState();
 
   useEffect(() => {
@@ -18,6 +18,8 @@ export default function Garden() {
         setImagesJardin(imagesChambre1);
       } catch (error) {
         console.error("Error fetching images:", error);
+      } finally {
+        setLoading(false);
       }
     };
 

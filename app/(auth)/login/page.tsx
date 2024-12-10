@@ -2,7 +2,7 @@
 
 import UserLoginForm from "@/app/_components/UserLoginForm";
 import { Button } from "@/components/ui/button";
-import { Milestone } from "lucide-react";
+import { Undo2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
@@ -29,14 +29,16 @@ export default function LoginPage() {
         <Button
           type="button"
           onClick={handleClickHome}
-          className=" border w-[12rem] mt-10 rounded-full md:ml-6 gap-2   hover:border-2 hover:border-yellow/50 text-text_color text-[0.9rem]"
+          className=" border mt-10 rounded-full hover:border-2 hover:border-yellow/50 md:ml-6 w-12 h-12 p-0"
         >
-          <Milestone
+          {/* <Milestone
             size={20}
             color="#bbbb57"
             className="transform scale-x-[-1] "
           />
-          Retour à l'accueil
+          
+          Accueil */}
+          <Undo2 size={23} color="#bbbb57" />
         </Button>
       </div>
       <UserLoginForm />

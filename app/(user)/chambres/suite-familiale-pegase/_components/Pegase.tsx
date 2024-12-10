@@ -10,18 +10,20 @@ import { useEffect, useState } from "react";
 
 export default function Pegase() {
   const [imagesPegase, setImagesPegase] = useState<ImageType[]>([]);
+  const [imagesLoading, setImagesLoading] = useState(true);
 
-  const { rates, loading, error } = useRentalRates("pegase");
-  const { rentals } = useRentalDetails("pegase");
+  const { rates, loading: ratesLoading, error } = useRentalRates("pegase");
+  const { rentals, loading: rentalsLoading } = useRentalDetails("pegase");
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const imagesPegase = await getImagesFromBucket("pegase");
-
-        setImagesPegase(imagesPegase);
+        const images = await getImagesFromBucket("pegase");
+        setImagesPegase(images);
       } catch (error) {
         console.error("Error fetching images:", error);
+      } finally {
+        setImagesLoading(false);
       }
     };
 
@@ -30,10 +32,10 @@ export default function Pegase() {
 
   const imageUrls = imagesPegase.map((image) => image.path);
 
-  if (loading) {
+  if (ratesLoading || rentalsLoading || imagesLoading) {
     return (
-      <div className=" flex justify-center items-center h-screen">
-        <Loader size={50} className=" animate-spin" />
+      <div className="flex justify-center items-center h-screen">
+        <Loader size={50} className="animate-spin" />
       </div>
     );
   }
@@ -43,7 +45,7 @@ export default function Pegase() {
   }
 
   return (
-    <div className="">
+    <div>
       {rates && rentals ? (
         <RentalPage
           title={rentals.title_rental}

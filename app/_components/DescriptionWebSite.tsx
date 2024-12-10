@@ -125,7 +125,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="w-full flex justify-center bg-[#f5f7dc]/50 mt-20 rounded-t-[4rem] ">
+          <div className="w-full flex justify-center bg-[#f8f5f0] mt-20 rounded-t-[4rem] ">
             <div className="mx-[2rem] md:mx-10 lg:mx-10 xl:mx-32  my-12 md:my-14 xl:max-w-[100rem]  leading-loose   ">
               <div className="flex flex-col lg:flex-row md:items-center gap-14 lg:gap-8 overflow-hidden sm:mx-10 md:mx-20 lg:mx-22    ">
                 <motion.section
@@ -263,7 +263,7 @@ export default function DescriptionWebSite() {
                 </div>
               </Link>
             </li>
-            <li className=" h-[220px]  relative overflow-hidden group w-96 flex justify-center items-center bg-[#f5f7dc] ">
+            <li className=" h-[170px] md:h-[210px]  relative overflow-hidden group w-96 flex justify-center items-center bg-[#f5f0e8] ">
               <Link href={"/gites/le-logis-de-la-grande-ourse"}>
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p
@@ -409,7 +409,7 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <div className="w-full flex justify-center  bg-[#f5f7dc]/50 my-8 rounded-t-[4rem] ">
+            <div className="w-full flex justify-center  bg-[#f8f5f0] my-8 rounded-t-[4rem] ">
               <div className="overflow-hidden mx-[2rem] md:mx-10 lg:mx-10 xl:mx-32  my-12 md:my-14 xl:max-w-[100rem]  leading-loose   ">
                 <div className="flex flex-col items-center gap-8      ">
                   <motion.section
@@ -544,7 +544,7 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <div className="bg-[#f5f7dc]/50 w-full my-8 rounded-t-[4rem] mx-4 md:mx-10 lg:mx-10 xl:mx-32  p-4  md:my-14 ">
+            <div className="bg-[#f8f5f0] w-full my-8 rounded-t-[4rem] mx-4 md:mx-10 lg:mx-10 xl:mx-32  p-4  md:my-14 ">
               <motion.section
                 initial="hide"
                 whileInView="show"
@@ -587,7 +587,7 @@ export default function DescriptionWebSite() {
                       <ChevronRight
                         color="#bbbb57"
                         size={24}
-                        className="sm:hidden opacity-30 mb-3"
+                        className="sm:hidden opacity-30 mb-2"
                       />
                     </div>
                   </div>

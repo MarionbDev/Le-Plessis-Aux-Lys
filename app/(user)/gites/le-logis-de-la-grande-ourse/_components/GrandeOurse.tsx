@@ -10,18 +10,20 @@ import { useEffect, useState } from "react";
 
 export default function LaGrandeOurse() {
   const [imagesGrandeOurse, setGrandeOurse] = useState<ImageType[]>([]);
+  const [imagesLoading, setImagesLoading] = useState(true);
 
-  const { rates, loading, error } = useRentalRates("grandeOurse");
-  const { rentals } = useRentalDetails("grandeOurse");
+  const { rates, loading: ratesLoading, error } = useRentalRates("grandeOurse");
+  const { rentals, loading: rentalsLoading } = useRentalDetails("grandeOurse");
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const imagesGrandeOurse = await getImagesFromBucket("grandeOurse");
-
-        setGrandeOurse(imagesGrandeOurse);
+        const images = await getImagesFromBucket("grandeOurse");
+        setGrandeOurse(images);
       } catch (error) {
         console.error("Error fetching images:", error);
+      } finally {
+        setImagesLoading(false);
       }
     };
 
@@ -30,7 +32,7 @@ export default function LaGrandeOurse() {
 
   const imageUrls = imagesGrandeOurse.map((image) => image.path);
 
-  if (loading) {
+  if (ratesLoading || rentalsLoading || imagesLoading) {
     return (
       <div className=" flex justify-center items-center h-screen">
         <Loader size={50} className=" animate-spin" />
@@ -43,7 +45,7 @@ export default function LaGrandeOurse() {
   }
 
   return (
-    <div className="">
+    <div>
       {rates && rentals ? (
         <RentalPage
           title={rentals.title_rental}

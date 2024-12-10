@@ -10,19 +10,20 @@ import { useEffect, useState } from "react";
 
 export default function Andromede() {
   const [imagesAndromede, setImagesAndromede] = useState<ImageType[]>([]);
+  const [imagesLoading, setImagesLoading] = useState(true);
 
-  const { rates, loading, error } = useRentalRates("andromede");
-  const { rentals } = useRentalDetails("andromede");
+  const { rates, loading: ratesLoading, error } = useRentalRates("andromede");
+  const { rentals, loading: rentalsLoading } = useRentalDetails("andromede");
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const imagesAndromede = await getImagesFromBucket("andromede");
-
-        // Mettre à jour les états avec les nouvelles images
-        setImagesAndromede(imagesAndromede);
+        const images = await getImagesFromBucket("andromede");
+        setImagesAndromede(images);
       } catch (error) {
         console.error("Error fetching images:", error);
+      } finally {
+        setImagesLoading(false);
       }
     };
 
@@ -31,7 +32,7 @@ export default function Andromede() {
 
   const imageUrls = imagesAndromede.map((image) => image.path);
 
-  if (loading) {
+  if (ratesLoading || rentalsLoading || imagesLoading) {
     return (
       <div className=" flex justify-center items-center h-screen">
         <Loader size={50} className=" animate-spin" />
@@ -44,7 +45,7 @@ export default function Andromede() {
   }
 
   return (
-    <div className="">
+    <div>
       {rates && rentals ? (
         <RentalPage
           title={rentals.title_rental}

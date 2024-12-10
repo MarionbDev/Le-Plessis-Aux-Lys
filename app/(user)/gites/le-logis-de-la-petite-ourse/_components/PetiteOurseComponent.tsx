@@ -10,18 +10,21 @@ import { useEffect, useState } from "react";
 
 export default function LaPetiteOurse() {
   const [imagesPetiteOurse, setImagesPetiteOurse] = useState<ImageType[]>([]);
+  const [imagesLoading, setImagesLoading] = useState(true);
 
-  const { rates, loading, error } = useRentalRates("petiteOurse");
-  const { rentals } = useRentalDetails("petiteOurse");
+  const { rates, loading: ratesLoading, error } = useRentalRates("petiteOurse");
+  const { rentals, loading: rentalsLoading } = useRentalDetails("petiteOurse");
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const imagesPetiteOurse = await getImagesFromBucket("petiteOurse");
+        const images = await getImagesFromBucket("petiteOurse");
 
-        setImagesPetiteOurse(imagesPetiteOurse);
+        setImagesPetiteOurse(images);
       } catch (error) {
         console.error("Error fetching images:", error);
+      } finally {
+        setImagesLoading(false);
       }
     };
 
@@ -30,7 +33,7 @@ export default function LaPetiteOurse() {
 
   const imageUrls = imagesPetiteOurse.map((image) => image.path);
 
-  if (loading) {
+  if (ratesLoading || rentalsLoading || imagesLoading) {
     return (
       <div className=" flex justify-center items-center h-screen">
         <Loader size={50} className=" animate-spin" />
