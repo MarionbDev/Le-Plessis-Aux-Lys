@@ -14,23 +14,25 @@ export default function privacyPolicyPage() {
   };
   return (
     <div className="font-text text-text_color text-[0.9rem]">
-      <div className=" mx-10 py-32 flex flex-col gap-8 mb-8">
-        <Button
-          type="button"
-          onClick={handleClickHome}
-          className=" border w-[12rem] mt-10 rounded-full ml-6 gap-2   hover:border-2 hover:border-yellow/50 text-text_color text-[0.9rem]"
-        >
-          <Milestone
-            size={20}
-            color="#bbbb57"
-            className="transform scale-x-[-1] "
-          />
-          Retour à l'accueil
-        </Button>
+      <div className=" mx-10 py-20 lg:py-32 flex flex-col gap-8 mb-8">
+        <div className="flex justify-center lg:justify-start">
+          <Button
+            type="button"
+            onClick={handleClickHome}
+            className=" border w-[12rem] rounded-full lg:ml-6 gap-2   hover:border-2 hover:border-yellow/50 text-text_color text-[0.9rem]"
+          >
+            <Milestone
+              size={20}
+              color="#bbbb57"
+              className="transform scale-x-[-1] "
+            />
+            Retour à l'accueil
+          </Button>
+        </div>
         <h1 className="text-2xl font-bold text-text_color text-center mb-8">
           Politique de confidentialité
         </h1>
-        <div className="md:mx-44">
+        <div className="lg:mx-44">
           <div className=" mb-8">
             <h2 className="text-[1.2rem] font-semibold mb-4  text-text_color ">
               1. Politique de Confidentialité relative aux Cookies (Google Maps)
@@ -48,7 +50,7 @@ export default function privacyPolicyPage() {
             <p className="mt-6 mb-4">
               Les types de cookies utilisés par Google Maps incluent :
             </p>
-            <ul className="flex flex-col gap-4 mx-20 mb-8 list-disc">
+            <ul className="flex flex-col gap-4 mx-8 sm:mx-20 mb-8 list-disc">
               <li>
                 Cookies de performance : pour rendre le service plus rapide et
                 plus réactif, Google utilise des cookies qui collectent des
@@ -155,7 +157,7 @@ export default function privacyPolicyPage() {
               contact. Ces données sont uniquement utilisées pour répondre à vos
               demandes et sont envoyées par email au propriétaire du site.
             </p>
-            <ul className=" flex flex-col gap-4 mx-20 mb-8 list-disc mt-4">
+            <ul className=" flex flex-col gap-4 mx-8 sm:mx-20 mb-8 list-disc mt-4">
               <li>
                 Utilisation des données : Les informations que vous fournissez
                 via le formulaire de contact seront utilisées exclusivement pour

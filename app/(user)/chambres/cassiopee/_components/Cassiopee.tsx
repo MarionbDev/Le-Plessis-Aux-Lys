@@ -10,18 +10,20 @@ import { useEffect, useState } from "react";
 
 export default function Cassiopee() {
   const [imagesCassiopee, setImagesCassiopee] = useState<ImageType[]>([]);
+  const [imagesLoading, setImagesLoading] = useState(true);
 
-  const { rates, loading, error } = useRentalRates("cassiopee");
-  const { rentals } = useRentalDetails("cassiopee");
+  const { rates, loading: ratesLoading, error } = useRentalRates("cassiopee");
+  const { rentals, loading: rentalsLoading } = useRentalDetails("cassiopee");
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const imagesCassiopee = await getImagesFromBucket("cassiopee");
-
-        setImagesCassiopee(imagesCassiopee);
+        const images = await getImagesFromBucket("cassiopee");
+        setImagesCassiopee(images);
       } catch (error) {
         console.error("Error fetching images:", error);
+      } finally {
+        setImagesLoading(false);
       }
     };
 
@@ -30,7 +32,7 @@ export default function Cassiopee() {
 
   const imageUrls = imagesCassiopee.map((image) => image.path);
 
-  if (loading) {
+  if (ratesLoading || rentalsLoading || imagesLoading) {
     return (
       <div className=" flex justify-center items-center h-screen">
         <Loader size={50} className=" animate-spin" />
@@ -43,7 +45,7 @@ export default function Cassiopee() {
   }
 
   return (
-    <div className=" ">
+    <div>
       {rates && rentals ? (
         <RentalPage
           title={rentals.title_rental}

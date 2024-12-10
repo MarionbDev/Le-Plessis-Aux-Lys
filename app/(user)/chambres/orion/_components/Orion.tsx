@@ -10,18 +10,20 @@ import { useEffect, useState } from "react";
 
 export default function Orion() {
   const [imagesOrion, setImagesOrion] = useState<ImageType[]>([]);
+  const [imagesLoading, setImagesLoading] = useState(true);
 
-  const { rates, loading, error } = useRentalRates("orion");
-  const { rentals } = useRentalDetails("orion");
+  const { rates, loading: ratesLoading, error } = useRentalRates("orion");
+  const { rentals, loading: rentalsLoading } = useRentalDetails("orion");
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const imagesOrion = await getImagesFromBucket("orion");
-
-        setImagesOrion(imagesOrion);
+        const images = await getImagesFromBucket("orion");
+        setImagesOrion(images);
       } catch (error) {
         console.error("Error fetching images:", error);
+      } finally {
+        setImagesLoading(false);
       }
     };
 
@@ -30,7 +32,7 @@ export default function Orion() {
 
   const imageUrls = imagesOrion.map((image) => image.path);
 
-  if (loading) {
+  if (ratesLoading || rentalsLoading || imagesLoading) {
     return (
       <div className=" flex justify-center items-center h-screen">
         <Loader size={50} className=" animate-spin" />
@@ -43,7 +45,7 @@ export default function Orion() {
   }
 
   return (
-    <div className="">
+    <div>
       {rates && rentals ? (
         <RentalPage
           title={rentals.title_rental}
