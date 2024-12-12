@@ -57,9 +57,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <div className=" min-h-screen font-text flex flex-col lg:flex-row gap-16 lg:gap-4 lg:mx-4 md:justify-around items-center my-10    ">
+      <div className=" min-h-screen font-text flex flex-col lg:flex-row gap-16 lg:gap-4 lg:mx-4 md:justify-around items-center mt-12 mb-32  md:mb-0">
         <div className="flex flex-col  lg:w-[33rem] xl:w-[40rem] md:gap-8 lg:gap-20 xl:gap-10 md:mt-10">
-          <div className="flex flex-col lg:flex-row items-center justify-center mt-16   gap-4 my-8 md:mt-0 lg:-mt-10 ">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-4 my-12 md:mt-0 lg:-mt-10 ">
             <span className="flex justify-center w-[12rem]  border-t-2  border-separator"></span>
             <p className=" font-semibold text-text_color text-center md:text-xl uppercase md:w-[28rem]  ">
               COntactez-nous

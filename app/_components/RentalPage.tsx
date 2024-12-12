@@ -79,14 +79,14 @@ export default function RentalPage({
                   </h1>
                   <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
                 </div>
-                <h2 className="lg:text-md mb-8 h-4 mt-4 lg:mt-0 lg:mb-4  mx-10  font-bold ">
+                <h2 className="lg:text-md h-4 mt-4 lg:mt-0 lg:mb-4  mx-10  font-bold ">
                   {capacity}
                 </h2>
               </div>
             </div>
             {/* Section avec image et description */}
             {(hasImage || hasDescription) && (
-              <div className="flex flex-col md:mt-10 lg:mt-0 min-h-[30rem] mb-36">
+              <div className="flex flex-col mt-8 md:mt-10 lg:mt-0 min-h-[30rem] ">
                 <div className="  flex flex-col items-center">
                   <div className="md:min-h-[22rem]">
                     {hasImage && (
@@ -138,10 +138,10 @@ export default function RentalPage({
                   {/* Affichage de la description si elle existe */}
                   {hasDescription && (
                     <section className="flex justify-center w-full">
-                      <div className="mt-12 md:mt-20 ">
+                      <div className="mt-12 md:mt-20 mb-8 ">
                         <p
                           dangerouslySetInnerHTML={{ __html: description }}
-                          className="prose text-[0.9rem] text-left  px-4 md:px-20 lg:px-6 w-96 max-w-[60rem]  sm:min-w-[34rem] md:min-w-[52rem]"
+                          className="prose text-[0.9rem] text-left  px-4 md:px-20 lg:px-6 w-96 max-w-[60rem] sm:min-w-[34rem] md:min-w-[52rem] "
                         />
                       </div>
                     </section>
@@ -150,76 +150,86 @@ export default function RentalPage({
               </div>
             )}
 
-            <div className=" flex flex-col  gap-16 md:mx-10 mb-36 ">
-              <div className="flex flex-col-reverse xl:flex-row md:gap-18 items-center gap-20 xl:gap-32  ">
-                <section className=" md:p-2  w-[22rem] md:w-[40rem]  shadow-div rounded-md ">
-                  <div className="min-h-[21rem] px-5 ">
-                    <BookingCalendar reservedDates={reservedDates} />
+            <div className=" flex flex-col gap-16  md:mx-10 mb-36 ">
+              <div className="flex flex-col-reverse items-center  xl:flex-row md:gap-18 xl:items-start gap-12 xl:gap-28  ">
+                <div>
+                  <div className="mb-8 flex  justify-center xl:justify-start xl:ml-2">
+                    <h2 className=" font-prata font-medium lg:text-xl uppercase tracking-[2px] ">
+                      Les disponibilités
+                      <span className="flex w-[11rem] lg:w-[13.5rem] ml-1 border-t-2  border-separator"></span>
+                    </h2>
                   </div>
-                  <div>
-                    <ul className="flex flex-col md:flex-row justify-start  gap-4 italic pl-4 pb-4 text-[0.8rem]">
-                      <li className="flex gap-2 items-center ">
-                        <span className=" w-4 h-4 bg-white border-2 rounded-full"></span>
-                        <p>Disponible</p>
-                      </li>
-                      <li className="flex gap-2 items-center">
-                        <span className=" w-4 h-4 bg-[#db3636] border-2 rounded-full"></span>
-                        <p>Réservé</p>
-                      </li>
-                      <li className="flex gap-2 items-center">
-                        <span className=" w-4 h-4 bg-white border-2 rounded-full relative flex items-center">
-                          <div className="absolute h-px w-3 bg-[#a2a3a5] opacity-50 "></div>
-                        </span>
-                        <p>Indisponible</p>
-                      </li>
-                    </ul>
-                  </div>
-                </section>
+                  <section className=" md:p-2  w-[22rem] md:w-[40rem]  shadow-div rounded-md ">
+                    <div className="min-h-[21rem] px-5 ">
+                      <BookingCalendar reservedDates={reservedDates} />
+                    </div>
+                    <div>
+                      <ul className="flex flex-col md:flex-row justify-start  gap-4 italic pl-4 pb-4 text-[0.8rem]">
+                        <li className="flex gap-2 items-center ">
+                          <span className=" w-4 h-4 bg-white border-2 rounded-full"></span>
+                          <p>Disponible</p>
+                        </li>
+                        <li className="flex gap-2 items-center">
+                          <span className=" w-4 h-4 bg-[#db3636] border-2 rounded-full"></span>
+                          <p>Réservé</p>
+                        </li>
+                        <li className="flex gap-2 items-center">
+                          <span className=" w-4 h-4 bg-white border-2 rounded-full relative flex items-center">
+                            <div className="absolute h-px w-3 bg-[#a2a3a5] opacity-50 "></div>
+                          </span>
+                          <p>Indisponible</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </section>{" "}
+                </div>
 
                 {/* Section tarifs*/}
-                <section className=" flex flex-col items-center justify-center w-4/5 xl:border-l-2  xl:min-w-[30rem] max-w-[40rem]  lg:py-10   xl:mt-0">
-                  <div className="flex flex-col gap-10  items-center">
+                <section className=" flex flex-col items-center  xl:justify-start    xl:min-w-[30rem] max-w-[40rem] xl:mt-0 mb-10 ">
+                  <div className="flex flex-col gap-10 md:gap-14 xl:gap-8  items-center">
                     <div>
-                      <h2 className=" font-prata font-semibold text-center lg:text-2xl uppercase lg:w-[27rem]   ">
+                      <h2 className=" font-prata font-medium text-center lg:text-xl tracking-[2px] uppercase lg:w-[27rem]   ">
                         Les Tarifs
-                        <span className="flex justify-center w-[8rem] mx-auto border-t-2  border-separator"></span>
+                        <span className="flex justify-center w-[6rem] lg:w-[7rem] mx-auto border-t-2  border-separator"></span>
                       </h2>
                     </div>
-                    <div className=" text-center">
-                      <p className="font-semibold ">Haute Saison</p>
-                      <p className="italic text-center text-sm  px-5">
-                        de Juin à Août
-                      </p>
+                    <div className="flex flex-col md:flex-row xl:flex-col items-center gap-8 xl:gap-12 ">
+                      <div className=" text-center xl:mt-8 border-[2px] w-[22rem] xl:w-[28rem] py-4 border-separator/30">
+                        <p className="font-semibold ">Haute Saison</p>
+                        <p className="italic text-center text-sm mt-2  px-5">
+                          de Juin à Août
+                        </p>
 
-                      <div className="flex justify-center gap-20 mt-4 text-[0.9rem]">
-                        <div>
-                          <p>La nuit </p>
-                          <p>{displayRate(highSeasonNightRate)}</p>
-                        </div>
-                        <div>
-                          {" "}
+                        <div className="flex justify-center gap-20 mt-4 text-[0.9rem]">
                           <div>
-                            <p>La Semaine </p>
-                            <p>{displayRate(highSeasonWeeklyRate)}</p>
+                            <p>La nuit </p>
+                            <p>{displayRate(highSeasonNightRate)}</p>
+                          </div>
+                          <div>
+                            {" "}
+                            <div>
+                              <p>La Semaine </p>
+                              <p>{displayRate(highSeasonWeeklyRate)}</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className=" text-center">
-                      <p className="font-semibold">Basse Saison</p>
-                      <p className=" mt-2 italic text-center text-sm  px-5">
-                        de Septembre à Mai
-                      </p>
-                      <div className="flex gap-20 justify-center mt-4 text-[0.9rem]">
-                        <div>
-                          <p>La nuit </p>
-                          <p>{displayRate(lowSeasonNightRate)}</p>
-                        </div>
-                        <div>
-                          {" "}
+                      <div className=" text-center border-[2px] w-[22rem]  xl:w-[28rem] py-4 border-separator/30">
+                        <p className="font-semibold">Basse Saison</p>
+                        <p className=" mt-2 italic text-center text-sm  px-5">
+                          de Septembre à Mai
+                        </p>
+                        <div className="flex gap-20 justify-center mt-4 text-[0.9rem]">
                           <div>
-                            <p>La Semaine </p>
-                            <p>{displayRate(lowSeasonWeeklyRate)}</p>
+                            <p>La nuit </p>
+                            <p>{displayRate(lowSeasonNightRate)}</p>
+                          </div>
+                          <div>
+                            {" "}
+                            <div>
+                              <p>La Semaine </p>
+                              <p>{displayRate(lowSeasonWeeklyRate)}</p>
+                            </div>
                           </div>
                         </div>
                       </div>

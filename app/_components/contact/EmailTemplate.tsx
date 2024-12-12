@@ -34,12 +34,9 @@ const EmailTemplate = ({
   <Tailwind>
     <Html>
       <Container className={styles.container}>
-        <img
-          src={`${baseUrl}/title.png`}
-          alt="nom du site"
-          className="-ml-6 mb-2 w-[20rem] h-auto"
-        />
-
+        <h1 className="font-title-home text-title_color italic font-extralight text-[1.5rem] tracking-[3px]">
+          Le Plessis Aux Lys
+        </h1>
         <Heading as="h3" className=" font-medium">
           Vous avez reçu un nouveau message,
         </Heading>

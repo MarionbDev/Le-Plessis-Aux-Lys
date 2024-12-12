@@ -37,6 +37,9 @@ export const metadata: Metadata = {
       url: "https://le-plessis-aux-lys.fr",
     },
   ],
+  icons: {
+    icon: "../parc/icon-parc.png",
+  },
   openGraph: {
     title: "Le Plessis aux Lys - Gîtes et Chambres d'Hôtes en Vendée",
     description:

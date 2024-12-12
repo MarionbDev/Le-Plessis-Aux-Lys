@@ -112,7 +112,7 @@ export default function UserLoginForm() {
   };
 
   return (
-    <div className=" flex flex-col mt-20 lg:mt-2 gap-24  h-screen">
+    <div className=" flex flex-col mt-10 lg:mt-2 gap-24  h-screen">
       <div className=" w-full">
         <Form {...form}>
           <form

@@ -57,22 +57,26 @@ export default function LegalNoticePage() {
                   sa réalisation et de son suivi:
                 </span>
               </p>
-              <p className="mb-2">
-                <span className="font-semibold text-text_color ">
+              <div className="mb-2">
+                <p className="font-semibold text-text_color ">
                   Propriétaire du site:
-                </span>{" "}
-                Céline et Thierry Gros - Contact : grost@wanadoo.fr
-                <a
-                  className="text-blue-500 hover:underline"
-                  // href="mailto:contact@marionbaston.fr "
-                ></a>
-              </p>
-              <p className="mb-2">
-                <span className="font-semibold text-text_color ">
+                </p>{" "}
+                Céline et Thierry Gros
+                <p>
+                  <a
+                    className="text-blue-500 hover:underline"
+                    // href="mailto:contact@marionbaston.fr "
+                  ></a>
+                </p>{" "}
+                Contact : grost@wanadoo.fr
+              </div>
+              <div className="mb-2">
+                <p className="font-semibold text-text_color ">
                   Conception et développement :
-                </span>{" "}
-                Marion Baston - Contact : marionbaston84@gmail.com
-              </p>
+                </p>
+                <p>Marion Baston</p>
+                <p>Contact : marionbaston84@gmail.com</p>
+              </div>
 
               <p className="mb-2">
                 <span className="font-semibold text-text_color">
@@ -109,26 +113,43 @@ export default function LegalNoticePage() {
                   >
                     https://le-plessis-aux-lys.fr
                   </Link>{" "}
-                  est protégé par les lois en vigueur sur la propriété
-                  intellectuelle et le droit d'auteur. Toutes les informations
-                  disponibles sur le Site sont protégées par un copyright et
-                  sont propriété de Céline et Thierry Gros sous réserve de
-                  droits appartenant à des tiers. Les présentes informations ne
-                  devront pas être interprétées comme constituant une licence ou
-                  un droit d'utilisation portant sur toute image, marque
-                  déposée, marque de service ou logo de l'entreprise. Le
-                  téléchargement ou la copie de tout logiciel ou matériel à
-                  partir du Site ne vous confère aucun droit sur les éléments
-                  téléchargés ou copiés. Céline et Thierry Gros réservent tous
-                  leurs droits sur le copyright et la propriété de toute
-                  information disponible sur le Site et les fera valoir dans
-                  toute l'extension de la loi applicable.
+                  est protégé par les lois en vigueur, notamment le Code de la
+                  propriété intellectuelle. Tous les contenus disponibles sur le
+                  site, y compris les textes, images, graphismes, logos,
+                  marques, vidéos et logiciels, sont la propriété exclusive de
+                  Céline et Thierry Gros, sauf indication contraire et sous
+                  réserve de droits appartenant à des tiers dûment identifiés.{" "}
+                </p>
+                <p>
+                  Toute reproduction, représentation, modification, publication,
+                  adaptation de tout ou partie des éléments du site, quel que
+                  soit le moyen ou le procédé utilisé, est interdite sauf
+                  autorisation écrite préalable de Céline et Thierry Gros.
+                </p>
+                <p>
+                  L'accès au site ou le téléchargement de tout contenu ne
+                  confèrent aucun droit de propriété ou d’utilisation sur les
+                  éléments protégés. Céline et Thierry Gros se réservent tous
+                  leurs droits sur le contenu du site et engageront toutes les
+                  actions nécessaires en cas d'utilisation non autorisée ou de
+                  contrefaçon, conformément aux dispositions légales en vigueur.
                 </p>
               </div>
             </div>
             <div className="mb-8">
               <h2 className="text-[1.2rem] font-semibold mb-4  text-text_color ">
-                3 - Limitations de responsabilité.
+                3 - Utilisation d'images libres de droits.
+              </h2>
+              <p>
+                Certaines images utilisées sur le site proviennent de la
+                plateforme Pixabay, qui fournit des contenus libres de droits
+                d'auteur selon leurs conditions d'utilisation. Ces images sont
+                utilisées conformément aux dispositions légales en vigeur.
+              </p>
+            </div>
+            <div className="mb-8">
+              <h2 className="text-[1.2rem] font-semibold mb-4  text-text_color ">
+                4 - Limitations de responsabilité.
               </h2>
               <p>
                 Dans les limites autorisées par la loi, notamment en cas de
@@ -136,8 +157,8 @@ export default function LegalNoticePage() {
                 responsable de pertes ou de dommages de quelque nature que ce
                 soit, qu'il s'agisse, notamment mais non exclusivement, de
                 dommages directs, indirects ou consécutifs, liés à l'accès au
-                Site ou à tout autre site ayant un lien avec le Site, à son
-                utilisation, à son exploration ou à son téléchargement. Ce Site
+                site ou à tout autre site ayant un lien avec le site, à son
+                utilisation, à son exploration ou à son téléchargement. Ce site
                 vous offre la possibilité d'envoyer des e-mails. Ces e-mails
                 transitent par Internet, un réseau public sur lequel ils n'ont
                 aucun contrôle, et sont de ce fait susceptibles d'être
@@ -147,7 +168,7 @@ export default function LegalNoticePage() {
             </div>
             <div className="mb-8">
               <h2 className="text-[1.2rem] font-semibold mb-4  text-text_color ">
-                4 - CNIL et gestion des données personnelles.
+                5 - CNIL et gestion des données personnelles.
               </h2>
               <p>
                 Bien que le site ne prélève pas de données personnelles
@@ -162,7 +183,7 @@ export default function LegalNoticePage() {
             </div>
             <div className="mb-8">
               <h2 className="text-[1.2rem] font-semibold mb-4  text-text_color ">
-                5 - Liens hypertextes et cookies.
+                6 - Liens hypertextes et cookies.
               </h2>
               <p>
                 <span className="mr-1">Le site</span>
@@ -209,7 +230,7 @@ export default function LegalNoticePage() {
             </div>
             <div className="mb-8">
               <h2 className="text-[1.2rem] font-semibold mb-4  text-text_color ">
-                6 - Utilisation des Cookies.
+                7 - Utilisation des Cookies.
               </h2>
               <p>
                 Le site https://le-plessis-aux-lys.fr utilise des cookies pour
@@ -238,7 +259,7 @@ export default function LegalNoticePage() {
             </div>
             <div>
               <h2 className="text-[1.2rem] font-semibold mb-4  text-text_color ">
-                7 - Droit applicable et attribution de juridiction.
+                8 - Droit applicable et attribution de juridiction.
               </h2>
               <p>
                 <span className="mr-1">
