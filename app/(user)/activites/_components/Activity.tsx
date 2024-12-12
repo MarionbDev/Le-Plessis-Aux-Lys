@@ -66,14 +66,14 @@ export default function ToVisited() {
   }
 
   return (
-    <div className="py-10 pt-36 md:pt-44 px-6 xl:px-20 flex flex-col items-center mb-32  min-h-screen  ">
-      <h3 className="font-prata text-2xl px-6 max-w-[50rem] text-center mb-16 text-text_color ">
+    <div className="my-10 pt-12 md:pt-44 px-6 xl:px-20 flex flex-col items-center mb-32  min-h-screen  ">
+      <h3 className="font-prata text-2xl px-6 max-w-[50rem] text-center mb-8 text-text_color ">
         "Explorez la Vendée : entre océan et campagne, laissez-vous charmer par
         ses sites emblématiques et sa douceur de vivre."{" "}
       </h3>
-      <span className="flex justify-center w-2/4 md:w-1/4 border-t-2 py-6 md:py-10 border-separator"></span>
+      <span className="flex justify-center  w-2/4 lg:w-2/6 border-t-2 py-6 md:py-10 border-separator"></span>
 
-      <ul className="flex flex-col gap-20 xl:gap-32">
+      <ul className="flex flex-col gap-20 xl:gap-32 mt-20 md:mt-0 ">
         <VisitContext.Provider value={visitContextValue}>
           {activities.map((activity) => (
             <li key={activity.id}>

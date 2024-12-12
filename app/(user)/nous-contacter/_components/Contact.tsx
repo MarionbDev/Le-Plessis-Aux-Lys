@@ -204,7 +204,7 @@ export default function ContactForm() {
               )}
               Envoyer
             </Button>
-          </CardFooter>{" "}
+          </CardFooter>
         </form>
       </Card>
       <Toaster />

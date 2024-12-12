@@ -39,14 +39,14 @@ export default function Garden() {
   }
 
   return (
-    <div className="my-10 pt-12 md:pt-32 px-6 md:mx-20 flex flex-col items-center md:mb-96 min-h-screen">
-      <h3 className="font-prata text-2xl xl:w-[50rem] text-center mb-16 text-text_color ">
+    <div className="my-10 pb-20 md:pb-0 pt-12 md:pt-32 px-6 md:mx-20 flex flex-col items-center md:mb-96 min-h-screen">
+      <h3 className="font-prata text-2xl xl:w-[50rem] text-center mb-8 text-text_color ">
         "Entre le calme et la beauté de nos jardins, laissez-vous charmer par la
         nature environnante"
       </h3>
-      <span className="flex justify-center w-2/4 border-t-2 py-6 md:py-10 border-separator"></span>
+      <span className="flex justify-center  w-2/4 lg:w-2/6 border-t-2 py-6 md:py-10 border-separator"></span>
 
-      <div className="flex flex-wrap gap-[.5rem] ">
+      <div className="flex justify-center mt-20 md:mt-0  md:justify-normal flex-wrap gap-[.5rem] ">
         {imagesJardin.map((image, index) => (
           <div
             key={index}

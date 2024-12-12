@@ -1,3 +1,4 @@
+import { Mail } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -14,6 +15,14 @@ export default function Footer() {
           className="hover:text-[#bbbb57]"
         >
           Politique de Confidentialité
+        </Link>
+      </div>
+      <div className="flex flex-col gap-2 pl-6">
+        <p className="mb-2 text-[1rem] font-semibold">Contact</p>
+        <p>29, Rue de la Petite Chapelle, La Chapelle-aux-Lys, 85120 Terval</p>
+        <Link href={"/nous-contacter"} className="flex ">
+          <Mail size={20} color="#bbbb57" />
+          &nbsp; Contactez-nous
         </Link>
       </div>
       <span className="flex justify-center mx-4 border-t-2  border-[#e4e1de] "></span>

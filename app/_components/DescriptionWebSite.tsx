@@ -106,11 +106,11 @@ export default function DescriptionWebSite() {
   }, []);
 
   return (
-    <div className="font-text text-text_color mt-20  sm:mt-32 ">
+    <div className="font-text text-text_color mt-16  xl:mt-28 ">
       <div className="  text-center leading-loose  text-base xl:text-lg">
         <h3 className="sm:text-[1.2rem] flex flex-col items-center text-center mb-6 lg:mb-20 mx-10 sm:mx-24 md:mx-32 ">
           Céline et Thierry sont heureux de vous accueillir au Plessis aux Lys.
-          <span className="flex justify-center w-2/6 mt-10 border-t-2  border-separator"></span>
+          <span className="flex justify-center w-4/6 lg:max-w-[35rem] mt-10 border-t-2  border-separator"></span>
         </h3>
       </div>
 
@@ -139,7 +139,7 @@ export default function DescriptionWebSite() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <p className="text-[0.9rem] max-w-[50rem]  px-4 sm:px-0  ">
+                    <p className="text-[0.9rem] max-w-[50rem]  sm:px-0  ">
                       Demeure de caractère datant du XIXème siècle, située dans
                       le village de La chapelle aux Lys, cité au Guide Vert de
                       2023 comme étant le plus petit village possédant son
@@ -215,7 +215,7 @@ export default function DescriptionWebSite() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <p className=" text-[0.9rem] my-8 md:my-12 lg:my-4 mx-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72">
+                <p className=" text-[0.9rem] my-8 md:my-12 lg:my-4 mx-2 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72">
                   Trois chambres de charme, une suite familiale pour 5
                   personnes, possédant chacune leur salle d'eau et leurs
                   toilettes, ainsi que deux gîtes — l'un pour 2 à 4 personnes et
@@ -243,7 +243,7 @@ export default function DescriptionWebSite() {
           transition={{ duration: 0.9 }}
           className="flex  justify-center"
         >
-          <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-14 w-2/3 md:w-full ">
+          <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-14 w-4/5  md:w-full ">
             <li className="relative overflow-hidden  group   ">
               <Link href={"/gites/le-logis-de-la-petite-ourse"}>
                 <Image
@@ -257,7 +257,7 @@ export default function DescriptionWebSite() {
                 />
 
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-md font-semibold text-white py-2">
+                  <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
                     Le logis de la Petite Ourse
                   </p>
                 </div>
@@ -267,7 +267,7 @@ export default function DescriptionWebSite() {
               <Link href={"/gites/le-logis-de-la-grande-ourse"}>
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p
-                    className="pl-4 text-md font-semibold text-white py-2"
+                    className="pl-4 text-[0.9rem] font-semibold text-white py-2"
                     aria-label="Accéder au Logis de la Grande Ourse"
                   >
                     Le Logis de la Grande Ourse
@@ -290,7 +290,7 @@ export default function DescriptionWebSite() {
           transition={{ duration: 0.5 }}
           className="flex  justify-center"
         >
-          <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-2/3  md:w-full  cursor-pointer">
+          <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-4/5  md:w-full  cursor-pointer">
             <li className="relative overflow-hidden group">
               <Link href={"/chambres/orion"}>
                 <Image
@@ -302,7 +302,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-md font-semibold text-white py-2">
+                  <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
                     Chambre Orion
                   </p>
                 </div>
@@ -323,7 +323,7 @@ export default function DescriptionWebSite() {
                   className="rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125 duration-500 h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-md font-semibold text-white py-2">
+                  <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
                     Chambre Cassiopée
                   </p>
                 </div>
@@ -345,7 +345,7 @@ export default function DescriptionWebSite() {
           transition={{ duration: 0.5 }}
           className="flex  justify-center"
         >
-          <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-2/3  md:w-full  cursor-pointer">
+          <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-4/5  md:w-full  cursor-pointer">
             <li className="relative overflow-hidden group">
               <Link
                 href={"/chambres/andromede"}
@@ -360,7 +360,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-md font-semibold text-white py-2">
+                  <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
                     Chambre Andromède
                   </p>
                 </div>
@@ -380,7 +380,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-500 h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-md font-semibold text-white py-2">
+                  <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
                     Suite familiale Pégase
                   </p>
                 </div>
@@ -423,7 +423,7 @@ export default function DescriptionWebSite() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6 }}
                     >
-                      <p className="text-[0.9rem] mb-10  mx-4 sm:mx-10 md:mx-20 lg:mx-44  ">
+                      <p className="text-[0.9rem] mb-10  sm:mx-10 md:mx-20 lg:mx-44  ">
                         Idéalement situé pour découvrir notre belle région de
                         Vendée, Le Plessis aux Lys n'est qu'à 10mn d'un des plus
                         beaux villages de France : Vouvant et de la forêt de
@@ -529,12 +529,12 @@ export default function DescriptionWebSite() {
         initial="hide"
         whileInView="show"
         exit="hide"
-        variants={imageVariants}
+        variants={sectionVariants}
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1.5 }}
         >
           <div className="flex justify-center flex-col  items-center text-md mt-8 lg:text-md md:mt-20 lg:mt-72  xl:mt-28 leading-loose ">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center gap-4 my-8 lg:gap-12 lg:mt-20 lg:mb-10">
@@ -556,7 +556,7 @@ export default function DescriptionWebSite() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <p className=" text-[0.9rem] mt-8  md:mt-12 mx-6 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72">
+                  <p className=" text-[0.9rem] mt-8  md:mt-12  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72">
                     Entre balades bucoliques, découvertes historiques et
                     paysages grandioses, La Chapelle aux Lys est le point de
                     départ idéal pour explorer la région. Plongez dans les
@@ -634,7 +634,7 @@ export default function DescriptionWebSite() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <p className=" text-[0.9rem]  my-8 md:my-12 lg:my-4 mx-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
+                <p className=" text-[0.9rem]  my-8 md:my-12 lg:my-4  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
                   Nous vous invitons à réserver votre séjour dans l'un de nos
                   gîtes ou chambres d'hôtes au cœur de la Vendée. Contactez-nous
                   dès maintenant via notre
