@@ -156,7 +156,7 @@ export default function RentalPage({
                   <div className="mb-8 flex  justify-center xl:justify-start xl:ml-2">
                     <h2 className=" font-prata font-medium lg:text-xl uppercase tracking-[2px] ">
                       Les disponibilités
-                      <span className="flex w-[11rem] lg:w-[13.5rem] ml-1 border-t-2  border-separator"></span>
+                      <span className="flex w-[11rem] lg:w-[13.5rem] mx-auto border-t-2  border-separator"></span>
                     </h2>
                   </div>
                   <section className=" md:p-2  w-[22rem] md:w-[40rem]  shadow-div rounded-md ">
