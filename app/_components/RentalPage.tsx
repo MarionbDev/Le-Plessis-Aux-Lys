@@ -66,8 +66,8 @@ export default function RentalPage({
   const hasDescription = description && description.trim() !== "";
 
   return (
-    <div className="font-text text-text_color mt-10 md:pt-[2rem] flex justify-center md:justify-around ">
-      <div className="flex flex-col  md:flex-row gap-20 md:py-4 md:mt-14">
+    <div className="font-text text-text_color sm:mt-10  flex justify-center md:justify-around ">
+      <div className="flex flex-col  md:flex-row gap-20 md:py-4 mt-8 lg:mt-14">
         <div className="flex flex-col justify-between xl:w-full  ">
           <div className="flex flex-col justify-center ">
             <div className="flex justify-center text-center">
@@ -185,7 +185,7 @@ export default function RentalPage({
                 </div>
 
                 {/* Section tarifs*/}
-                <section className=" flex flex-col items-center  xl:justify-start    xl:min-w-[30rem] max-w-[40rem] xl:mt-0 mb-10 ">
+                <section className=" flex flex-col items-center  xl:justify-start mt-8 md:mt-0  xl:min-w-[30rem] max-w-[40rem] xl:mt-0 mb-16 ">
                   <div className="flex flex-col gap-10 md:gap-14 xl:gap-8  items-center">
                     <div>
                       <h2 className=" font-prata font-medium text-center lg:text-xl tracking-[2px] uppercase lg:w-[27rem]   ">
@@ -194,7 +194,7 @@ export default function RentalPage({
                       </h2>
                     </div>
                     <div className="flex flex-col md:flex-row xl:flex-col items-center gap-8 xl:gap-12 ">
-                      <div className=" text-center xl:mt-8 border-[2px] w-[22rem] xl:w-[28rem] py-4 border-separator/30">
+                      <div className=" text-center xl:mt-8 border-[2px] w-[22rem] xl:w-[28rem] py-4 border-separator/20">
                         <p className="font-semibold ">Haute Saison</p>
                         <p className="italic text-center text-sm mt-2  px-5">
                           de Juin à Août
@@ -214,7 +214,7 @@ export default function RentalPage({
                           </div>
                         </div>
                       </div>
-                      <div className=" text-center border-[2px] w-[22rem]  xl:w-[28rem] py-4 border-separator/30">
+                      <div className=" text-center border-[2px] w-[22rem]  xl:w-[28rem] py-4 border-separator/20">
                         <p className="font-semibold">Basse Saison</p>
                         <p className=" mt-2 italic text-center text-sm  px-5">
                           de Septembre à Mai

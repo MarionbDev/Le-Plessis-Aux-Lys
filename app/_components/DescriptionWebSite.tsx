@@ -634,7 +634,7 @@ export default function DescriptionWebSite() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <p className=" text-[0.9rem]  my-8 md:my-12 lg:my-4  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
+                <p className=" text-[0.9rem]  my-12 lg:my-4  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
                   Nous vous invitons à réserver votre séjour dans l'un de nos
                   gîtes ou chambres d'hôtes au cœur de la Vendée. Contactez-nous
                   dès maintenant via notre

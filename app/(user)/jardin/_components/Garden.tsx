@@ -46,7 +46,7 @@ export default function Garden() {
       </h3>
       <span className="flex justify-center  w-2/4 lg:w-2/6 border-t-2 py-6 md:py-10 border-separator"></span>
 
-      <div className="flex justify-center mt-20 md:mt-0  md:justify-normal flex-wrap gap-[.5rem] ">
+      <div className="flex justify-center mt-8 md:mt-0  md:justify-normal flex-wrap gap-[.5rem] ">
         {imagesJardin.map((image, index) => (
           <div
             key={index}
