@@ -29,3 +29,4 @@ export const useRentalDetails = (
 
   return { rentals, loading, error };
 };
+

@@ -1,11 +1,14 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Milestone } from "lucide-react";
+import { Loader } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function LegalNoticePage() {
+  const [emailAdmin, setEmailAdmin] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const handleClickHome = () => {
     if (router) {
@@ -13,24 +16,49 @@ export default function LegalNoticePage() {
     }
   };
 
+  useEffect(() => {
+    const fetchAdminEmail = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/email", {
+          method: "GET",
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch admin email");
+        }
+        const data = await response.json();
+        setEmailAdmin(data.email);
+      } catch (error: any) {
+        console.error("Error fetching admin email:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAdminEmail();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen ">
+        <Loader size={50} className="animate-spin" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Une erreur s'est produite : {error}
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="font-text text-text_color text-[0.9rem]">
         <div className=" mx-10 py-20 lg:py-32 flex flex-col  gap-8 mb-8  ">
-          <div className="flex justify-center lg:justify-start">
-            <Button
-              type="button"
-              onClick={handleClickHome}
-              className=" border w-[12rem]  rounded-full lg:ml-6 gap-2   hover:border-2 hover:border-yellow/50 text-text_color text-[0.9rem]"
-            >
-              <Milestone
-                size={20}
-                color="#bbbb57"
-                className="transform scale-x-[-1] "
-              />
-              Retour à l'accueil
-            </Button>
-          </div>
           <h1 className="text-2xl font-bold text-text_color text-center mb-8">
             Mentions légales
           </h1>
@@ -68,7 +96,7 @@ export default function LegalNoticePage() {
                     // href="mailto:contact@marionbaston.fr "
                   ></a>
                 </p>{" "}
-                Contact : grost@wanadoo.fr
+                Contact : {emailAdmin}
               </div>
               <div className="mb-2">
                 <p className="font-semibold text-text_color ">

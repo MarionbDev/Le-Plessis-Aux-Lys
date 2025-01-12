@@ -59,7 +59,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LaPetiteOursePage() {
+// Fonction de récupération des données côté serveur avec async
+export default async function LaPetiteOursePage() {
   return (
     <div>
       <LaPetiteOurse />
