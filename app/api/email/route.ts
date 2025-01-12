@@ -51,31 +51,3 @@ export const POST = async (request: NextRequest) => {
   }
 };
 
-export const GET = async (request: NextRequest) => {
-  try {
-    const { data, error } = await supabase
-      .from("admin")
-      .select("email")
-      .eq("id", 1)
-      .single();
-
-    if (error || !data) {
-      console.error("Error fetching admin email:", error);
-      return NextResponse.json(
-        { error: "Admin email not found" },
-        { status: 404 },
-      );
-    }
-
-    return NextResponse.json({
-      email: data.email,
-    });
-  } catch (error) {
-    console.log("Error fetching email :", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 },
-    );
-  }
-};
-
