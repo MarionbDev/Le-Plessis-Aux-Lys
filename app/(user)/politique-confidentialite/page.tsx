@@ -1,15 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 export default function privacyPolicyPage() {
-  const router = useRouter();
-  const handleClickHome = () => {
-    if (router) {
-      router.push("/");
-    }
-  };
   return (
     <div className="font-text text-text_color text-[0.9rem]">
       <div className=" mx-10 py-20 lg:py-32 flex flex-col gap-8 mb-8">

@@ -1,42 +1,34 @@
 "use client";
 
+import { getEmailAdmin } from "@/app/api/admin/route";
 import { Loader } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function LegalNoticePage() {
-  const [emailAdmin, setEmailAdmin] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const router = useRouter();
-  const handleClickHome = () => {
-    if (router) {
-      router.push("/");
-    }
-  };
+  const [emailAdmin, setEmailAdmin] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<Boolean>(true);
 
   useEffect(() => {
-    const fetchAdminEmail = async () => {
+    const fetEmailAdmin = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/email", {
-          method: "GET",
-        });
+        const fetchEmail = await getEmailAdmin();
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch admin email");
+        if (fetchEmail && fetchEmail.email) {
+          setEmailAdmin(fetchEmail.email);
         }
-        const data = await response.json();
-        setEmailAdmin(data.email);
-      } catch (error: any) {
-        console.error("Error fetching admin email:", error);
-        setError(error.message);
+      } catch (error) {
+        console.error("Error fetching activities:", error);
+        setError(
+          "Une erreur s'est produite lors de la récupération de l'email de l'admin.",
+        );
       } finally {
         setLoading(false);
       }
     };
 
-    fetchAdminEmail();
+    fetEmailAdmin();
   }, []);
 
   if (loading) {
@@ -91,10 +83,7 @@ export default function LegalNoticePage() {
                 </p>{" "}
                 Céline et Thierry Gros
                 <p>
-                  <a
-                    className="text-blue-500 hover:underline"
-                    // href="mailto:contact@marionbaston.fr "
-                  ></a>
+                  <a className="text-blue-500 hover:underline"></a>
                 </p>{" "}
                 Contact : {emailAdmin}
               </div>
