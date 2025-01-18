@@ -108,9 +108,9 @@ export default function DescriptionWebSite() {
   return (
     <div className="font-text text-text_color mt-16  xl:mt-28 ">
       <div className="  text-center leading-loose  text-base xl:text-lg">
-        <h3 className="sm:text-[1.2rem] flex flex-col items-center text-center mb-6 lg:mb-20 mx-10 sm:mx-24 md:mx-32 ">
-          Céline et Thierry sont heureux de vous accueillir au Plessis aux Lys.
-          <span className="flex justify-center w-4/6 lg:max-w-[35rem] mt-10 border-t-2  border-separator"></span>
+        <h3 className="sm:text-[1.3rem] flex flex-col items-center text-center mb-6 lg:mb-20 mx-10 sm:mx-24 md:mx-32 ">
+          Céline et Thierry sont heureux de vous accueillir au Plessis aux Lys !
+          <span className="flex justify-center w-4/6 lg:max-w-[22rem] mt-10 border-t-2  border-separator"></span>
         </h3>
       </div>
 
@@ -536,7 +536,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <div className="flex justify-center flex-col  items-center text-md mt-8 lg:text-md md:mt-20 lg:mt-72  xl:mt-28 leading-loose ">
+          <div className="flex justify-center flex-col  items-center text-md mt-8 lg:text-md md:mt-20  lg:mt-28 leading-loose ">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center gap-4 my-8 lg:gap-12 lg:mt-20 lg:mb-10">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
               <p className=" font-semibold text-center lg:text-lg uppercase ">
@@ -556,7 +556,7 @@ export default function DescriptionWebSite() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <p className=" text-[0.9rem] mt-8  md:mt-12  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72">
+                  <p className=" text-[0.9rem] mt-8 mb-8  md:mt-12  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72">
                     Entre balades bucoliques, découvertes historiques et
                     paysages grandioses, La Chapelle aux Lys est le point de
                     départ idéal pour explorer la région. Plongez dans les
@@ -576,21 +576,23 @@ export default function DescriptionWebSite() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.9 }}
                 >
-                  <div className="flex justify-center flex-col items-center  mt-10   ">
-                    <div className=" xl:w-[80rem] flex  gap-4 items-center  my-10 cursor-grabbing ">
-                      <ChevronLeft
-                        color="#bbbb57"
-                        size={24}
-                        className="sm:hidden opacity-30 mb-2"
-                      />
-                      <ActivityUserCarousel slides={slides} />
-                      <ChevronRight
-                        color="#bbbb57"
-                        size={24}
-                        className="sm:hidden opacity-30 mb-2"
-                      />
+                  {slides.length > 0 && (
+                    <div className="flex justify-center flex-col items-center  mt-2  ">
+                      <div className=" xl:w-[80rem] flex  gap-4 items-center  my-10 cursor-grabbing ">
+                        <ChevronLeft
+                          color="#bbbb57"
+                          size={24}
+                          className="sm:hidden opacity-30 mb-2"
+                        />
+                        <ActivityUserCarousel slides={slides} />
+                        <ChevronRight
+                          color="#bbbb57"
+                          size={24}
+                          className="sm:hidden opacity-30 mb-2"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </motion.div>
               </motion.section>
             </div>
@@ -609,7 +611,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4  mt-8 xl:mt-44  leading-loose">
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4  mt-8 lg:mt-44  leading-loose">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mt-16 lg:mt-0 gap-4 lg:gap-12 lg:my-20">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
               <div>

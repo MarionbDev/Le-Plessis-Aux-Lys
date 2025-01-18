@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader, Send } from "lucide-react";
+import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { toast, Toaster } from "sonner";
 
@@ -22,54 +23,66 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [acceptedPrivacyPolicy, setAccepedPrivacyPolicy] = useState(false);
 
   const handleSubmitFormContact = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       setIsLoading(true);
-      // console.log("Submitting form...");
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/email/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ lastname, firstname, email, phone, message }),
-        },
-      );
-      // console.log("Received response :", response);
-      // console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-      // console.log("data client : ", data);
-
-      if (data && data.message) {
-        const promise = () =>
-          new Promise((resolve) =>
-            setTimeout(() => {
-              resolve({ name: "Sonner" });
-            }, 400),
-          );
-
-        toast.promise(promise, {
-          success: (data) => {
-            return `Votre message à bien été envoyé !`;
-          },
-          error: "Error",
-        });
-
-        setLatsName("");
-        setFirstname("");
-        setEmail("");
-        setPhone("");
-        setMessage("");
+      if (!acceptedPrivacyPolicy) {
+        toast.warning("Veuillez accepter la politique de confidentialité .");
       } else {
-        toast.error("Une erreur s'est produite ! Veuillez réessayer !");
+        // console.log("Submitting form...");
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/email/`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              lastname,
+              firstname,
+              email,
+              phone,
+              message,
+            }),
+          },
+        );
+        // console.log("Received response :", response);
+        // console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        // console.log("data client : ", data);
+
+        if (data && data.message) {
+          const promise = () =>
+            new Promise((resolve) =>
+              setTimeout(() => {
+                resolve({ name: "Sonner" });
+              }, 400),
+            );
+
+          toast.promise(promise, {
+            success: (data) => {
+              return `Votre message à bien été envoyé !`;
+            },
+            error: "Error",
+          });
+
+          setLatsName("");
+          setFirstname("");
+          setEmail("");
+          setPhone("");
+          setMessage("");
+        } else {
+          toast.error("Une erreur s'est produite ! Veuillez réessayer !");
+        }
       }
     } catch (error) {
       console.error("Error :", error);
@@ -189,6 +202,31 @@ export default function ContactForm() {
                   setMessage(capitalizeFirstLetter(e.target.value))
                 }
               />
+            </div>
+            <div>
+              <Label className=" flex ">
+                <Input
+                  type="checkbox"
+                  id="acceptedPrivacyPolicy"
+                  checked={acceptedPrivacyPolicy}
+                  onChange={(e) => setAccepedPrivacyPolicy(e.target.checked)}
+                  className=" w-16 "
+                />
+                <span className=" text-[0.7rem] ml-2">
+                  * En soumettant ce formulaire, j'accepte que mes données
+                  personnelles soient utilisées pour me recontacter. Aucun autre
+                  traitement ne sera effectué avec mes informations. Pour
+                  connaître et exercer vos droits, veuillez consultez la
+                  <Link
+                    href={"/politique-confidentialite"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className=" hover:text-blue-700 italic"
+                  >
+                    &nbsp;Politique de confidentialité
+                  </Link>
+                </span>
+              </Label>
             </div>
           </CardContent>
           <CardFooter>

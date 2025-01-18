@@ -68,6 +68,8 @@ export default function LegalNoticePage() {
                 <Link
                   className="text-blue-500 hover:underline"
                   href="https://le-plessis-aux-lys.fr "
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   https://le-plessis-aux-lys.fr
                 </Link>
@@ -109,6 +111,8 @@ export default function LegalNoticePage() {
                 sur la collecte et l'utilisation des données, consultez la{" "}
                 <Link
                   href={"https://policies.google.com/privacy?hl=fr-CA"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
                   Politique de confidentialité de Google
@@ -126,6 +130,8 @@ export default function LegalNoticePage() {
                   Le site{" "}
                   <Link
                     className="text-blue-500 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     href="https://le-plessis-aux-lys.fr "
                   >
                     https://le-plessis-aux-lys.fr
@@ -206,6 +212,8 @@ export default function LegalNoticePage() {
                 <span className="mr-1">Le site</span>
                 <Link
                   href="https://le-plessis-aux-lys.fr "
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
                   https://le-plessis-aux-lys.fr
@@ -217,6 +225,8 @@ export default function LegalNoticePage() {
                 </span>
                 <Link
                   href="https://le-plessis-aux-lys.fr  "
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
                   https://le-plessis-aux-lys.fr
@@ -227,6 +237,8 @@ export default function LegalNoticePage() {
                 Le site{" "}
                 <Link
                   href="https://le-plessis-aux-lys.fr  "
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
                   https://le-plessis-aux-lys.fr
@@ -238,6 +250,8 @@ export default function LegalNoticePage() {
                 d'informations, consultez notre{" "}
                 <Link
                   href="https://le-plessis-aux-lys.fr/politique-confidentialite "
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
                   Politique de confidentialité
@@ -260,6 +274,8 @@ export default function LegalNoticePage() {
                 de votre navigateur. Pour plus d'informations, consultez notre{" "}
                 <Link
                   href="https://le-plessis-aux-lys.fr/politique-confidentialite "
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
                   Politique de confidentialité
@@ -267,6 +283,8 @@ export default function LegalNoticePage() {
                 et la politique de cookies de{" "}
                 <Link
                   href={"https://policies.google.com/privacy?hl=fr-CA"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
                   Google
@@ -282,7 +300,11 @@ export default function LegalNoticePage() {
                 <span className="mr-1">
                   Tout litige en relation avec l&apos;utilisation du site
                 </span>
-                <Link href="https://le-plessis-aux-lys.fr ">
+                <Link
+                  href="https://le-plessis-aux-lys.fr "
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   https://le-plessis-aux-lys.fr
                 </Link>
                 <span>
