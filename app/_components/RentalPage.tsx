@@ -63,8 +63,10 @@ export default function RentalPage({
 
   // Vérifiez si l'image ou la description sont présents
   const hasImage = mainImage && imagesSlide.length > 0;
-  const hasDescription = description && description.trim() !== "";
-
+  const isValidDescription = (description: string) => {
+    const cleanedDescription = description.replace(/<[^>]*>/g, "").trim(); // Enlève les balises HTML
+    return cleanedDescription.length > 0; // Vérifie s'il reste du texte
+  };
   return (
     <div className="font-text text-text_color sm:mt-10  flex justify-center md:justify-around ">
       <div className="flex flex-col  md:flex-row gap-20 md:py-4 mt-8 lg:mt-14">
@@ -85,7 +87,7 @@ export default function RentalPage({
               </div>
             </div>
             {/* Section avec image et description */}
-            {(hasImage || hasDescription) && (
+            {hasImage || isValidDescription(description) ? (
               <div className="flex flex-col mt-8 md:mt-10 lg:mt-0 min-h-[30rem] ">
                 <div className="  flex flex-col items-center">
                   <div className="md:min-h-[22rem]">
@@ -97,7 +99,6 @@ export default function RentalPage({
                             alt={`Photo de ${title}`}
                             className="object-scale-down max-h-[14rem] md:max-h-[22rem] md:w-[39rem] rounded-sm"
                             onLoad={() => setLoading(false)}
-                            // style={{ display: loading ? "none" : "block" }}
                           />
                         </div>
 
@@ -136,18 +137,39 @@ export default function RentalPage({
                   </div>
 
                   {/* Affichage de la description si elle existe */}
-                  {hasDescription && (
+
+                  {isValidDescription(description) ? (
                     <section className="flex justify-center w-full">
-                      <div className="mt-12 md:mt-20 mb-8 ">
+                      <div className="mt-12 md:mt-20 mb-8 md:mb-16 ">
                         <p
                           dangerouslySetInnerHTML={{ __html: description }}
-                          className="prose text-[0.9rem] text-left  px-4 md:px-20 lg:px-6 w-96 max-w-[60rem] sm:min-w-[34rem] md:min-w-[52rem] "
+                          className="prose text-[0.9rem] text-left  px-4 md:px-20 lg:px-6 w-96 max-w-[60rem] sm:min-w-[34rem] md:min-w-[52rem] mb-8"
                         />
+                      </div>
+                    </section>
+                  ) : (
+                    <section className="flex justify-center w-full ">
+                      <div className=" my-16 md:my-24  mb-8 md:mb-20">
+                        <p className="text-center text-lg text-gray-600 py-8 px-3">
+                          Les informations complémentaires sont en cours de mise
+                          à jour. <br />
+                          Elles seront disponibles très prochainement !
+                        </p>
                       </div>
                     </section>
                   )}
                 </div>
               </div>
+            ) : (
+              <section className="flex justify-center w-full ">
+                <div className="  mb-8 md:mb-20">
+                  <p className="text-center text-lg text-gray-600 py-8 px-3 ">
+                    Les informations complémentaires sont en cours de mise à
+                    jour. <br />
+                    Elles seront disponibles très prochainement !
+                  </p>
+                </div>
+              </section>
             )}
 
             <div className=" flex flex-col gap-16  md:mx-10 mb-36 ">

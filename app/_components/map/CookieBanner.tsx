@@ -69,6 +69,8 @@ export default function CookieBanner({
           </p>
           <Link
             href="/politique-confidentialite "
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[0.7rem]  underline"
           >
             Politique de confidentialité

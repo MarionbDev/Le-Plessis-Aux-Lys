@@ -69,6 +69,8 @@ export default function privacyPolicyPage() {
                 confidentialité de Google Maps :{" "}
                 <Link
                   href={"https://policies.google.com/privacy?hl=fr-CA"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
                 >
                   Politique de confidentialité de Google
