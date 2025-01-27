@@ -93,7 +93,7 @@ export default function Home() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <div className="flex justify-center flex-col items-center text-md lg:text-md mx-6 mt-8 :mt-44 leading-loose">
+                  <div className="flex justify-center flex-col items-center text-md lg:text-md mx-6 mt-8 md:mt-44 leading-loose">
                     <div className="flex flex-col lg:flex-row items-center justify-center mt-16 lg:mt-0 gap-4 my-8 lg:my-20">
                       <span className="flex justify-center w-[16rem] border-t-2 border-separator"></span>
                       <p className="font-semibold text-center lg:text-lg uppercase lg:w-[20rem]">

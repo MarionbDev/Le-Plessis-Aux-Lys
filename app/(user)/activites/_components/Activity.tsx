@@ -77,7 +77,8 @@ export default function ToVisited() {
 
         <div className="text-center text-xl text-gray-600 py-8">
           Bientôt disponible ! <br />
-          Nous ajoutons de nouvelles activités très bientôt.
+          De nouvelles activités à découvrir très prochainement dans notre belle
+          région.
         </div>
       </div>
     );
