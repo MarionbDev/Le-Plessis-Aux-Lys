@@ -80,6 +80,7 @@ export default function ContactForm() {
           setEmail("");
           setPhone("");
           setMessage("");
+          setAccepedPrivacyPolicy(false);
         } else {
           toast.error("Une erreur s'est produite ! Veuillez réessayer !");
         }
