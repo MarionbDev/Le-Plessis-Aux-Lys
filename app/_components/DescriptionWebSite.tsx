@@ -265,6 +265,9 @@ export default function DescriptionWebSite() {
             </li>
             <li className=" h-[170px] md:h-[210px]  relative overflow-hidden group w-96 flex justify-center items-center bg-[#f5f0e8] ">
               <Link href={"/gites/le-logis-de-la-grande-ourse"}>
+                <p className=" text-text_color">
+                  Disponible très prochainement !
+                </p>
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p
                     className="pl-4 text-[0.9rem] font-semibold text-white py-2"
