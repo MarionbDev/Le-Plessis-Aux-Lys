@@ -5,50 +5,51 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
-import { LogIn, Menu } from "lucide-react";
+import { ChevronDown, LogIn, Menu } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react"; // Importer useState
 
 export default function NavBarMobile() {
-  const [isOpen, setIsOpen] = useState(false); // Gérer l'état ouvert/fermé du menu
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null);
   const router = useRouter();
 
-  // Fonction pour naviguer et fermer le menu
   const handleNavigation = (path: string) => {
-    setIsOpen(false); // Fermer le menu
-    router.push(path); // Naviguer vers la page
+    setIsOpen(false);
+    router.push(path);
   };
 
   const handleButtonClick = () => {
-    setIsOpen(false); // Fermer le menu
-    router.push("/login"); // Naviguer vers la page de connexion
+    setIsOpen(false);
+    router.push("/login");
+  };
+
+  const toggleSubMenu = (menu: string) => {
+    setActiveSubMenu(activeSubMenu === menu ? null : menu);
   };
 
   return (
     <div className="navbar-mobile flex justify-start">
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-        {" "}
-        {/* Utilisation de onOpenChange */}
         <DropdownMenuTrigger
           aria-label="Menu de navigation"
           className="ml-6 mt-6"
         >
           <Menu className="w-11 h-11 text-white p-2 rounded-full bg-[#64641fd8]" />
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-[#fafafc] ml-4 w-64">
-          <DropdownMenuLabel className="flex justify-center my-2 text-lg">
-            Bienvenue
+        <DropdownMenuContent className="border-none shadow-none bg-bg_white w-[100vw] text-black h-screen">
+          <DropdownMenuLabel className="flex  justify-center mt-4 mb-6 text-lg">
+            <div className="flex flex-col items-center">
+              <p>Bienvenue </p>
+              <span className="underline-menu  "></span>
+            </div>
           </DropdownMenuLabel>
-          <DropdownMenuSeparator className="border-b-[1px]" />
-          <Menubar className="flex flex-col items-start h-82 gap-6 px-6 border-none">
+
+          <Menubar className="flex flex-col items-center gap-6 px-6 border-none bg-white">
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/")}
@@ -58,82 +59,107 @@ export default function NavBarMobile() {
               </MenubarTrigger>
             </MenubarMenu>
 
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger className="text-[1rem]">
+            {/* Sous-menu Gites */}
+            <MenubarMenu>
+              <MenubarTrigger
+                onClick={() => toggleSubMenu("gites")}
+                className="text-[1rem]   "
+              >
                 Gites
-              </DropdownMenuSubTrigger>
-              <DropdownMenuSubContent className="bg-[#fafafc]">
-                <DropdownMenuItem className="text-md">
-                  <Link
-                    href="/gites/le-logis-de-la-petite-ourse"
-                    className="text-[1rem]"
-                    onClick={() =>
-                      handleNavigation("/gites/le-logis-de-la-petite-ourse")
-                    } // Fermer le menu
-                  >
-                    Le Logis de la petite Ourse
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-md">
-                  <Link
-                    href="/gites/le-logis-de-la-grande-ourse"
-                    className="text-[1rem]"
-                    onClick={() =>
-                      handleNavigation("/gites/le-logis-de-la-grande-ourse")
-                    } // Fermer le menu
-                  >
-                    Le Logis de la grande Ourse
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuSub>
+                <ChevronDown
+                  size={20}
+                  color="#64641fd8"
+                  className="ml-1 mt-1"
+                />
+              </MenubarTrigger>
 
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger className="text-[1rem]">
+              {activeSubMenu === "gites" && (
+                <div className=" flex flex-col items-center -mt-6   ">
+                  <DropdownMenuItem className="text-md">
+                    <Link
+                      href="/gites/le-logis-de-la-petite-ourse"
+                      className="text-[1rem]"
+                      onClick={() =>
+                        handleNavigation("/gites/le-logis-de-la-petite-ourse")
+                      }
+                    >
+                      Le Logis de la petite Ourse
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-md ">
+                    <Link
+                      href="/gites/le-logis-de-la-grande-ourse"
+                      className="text-[1rem]"
+                      onClick={() =>
+                        handleNavigation("/gites/le-logis-de-la-grande-ourse")
+                      }
+                    >
+                      Le Logis de la grande Ourse
+                    </Link>
+                  </DropdownMenuItem>
+                </div>
+              )}
+            </MenubarMenu>
+
+            {/* Sous-menu Chambres */}
+            <MenubarMenu>
+              <MenubarTrigger
+                onClick={() => toggleSubMenu("chambres")}
+                className="text-[1rem] "
+              >
                 Chambres
-              </DropdownMenuSubTrigger>
-              <DropdownMenuSubContent className="bg-[#fafafc]">
-                <DropdownMenuItem className="text-md">
-                  <Link
-                    href="/chambres/orion"
-                    className="text-[1rem]"
-                    onClick={() => handleNavigation("/chambres/orion")}
-                  >
-                    Chambre Orion
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-md">
-                  <Link
-                    href="/chambres/cassiopee"
-                    className="text-[1rem]"
-                    onClick={() => handleNavigation("/chambres/cassiopee")}
-                  >
-                    Chambre Cassiopée
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-md">
-                  <Link
-                    href="/chambres/andromede"
-                    className="text-[1rem]"
-                    onClick={() => handleNavigation("/chambres/andromede")}
-                  >
-                    Chambre Andromède
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-md">
-                  <Link
-                    href="/chambres/suite-familiale-pegase"
-                    className="text-[1rem]"
-                    onClick={() =>
-                      handleNavigation("/chambres/suite-familiale-pegase")
-                    }
-                  >
-                    Suite familiale Pégase
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuSub>
+                <ChevronDown
+                  size={20}
+                  color="#64641fd8"
+                  className="ml-1 mt-1"
+                />
+              </MenubarTrigger>
 
+              {activeSubMenu === "chambres" && (
+                <div className=" flex flex-col items-center -mt-6   ">
+                  <DropdownMenuItem className="text-md ">
+                    <Link
+                      href="/chambres/orion"
+                      className="text-[1rem]"
+                      onClick={() => handleNavigation("/chambres/orion")}
+                    >
+                      Chambre Orion
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-md">
+                    <Link
+                      href="/chambres/cassiopee"
+                      className="text-[1rem]"
+                      onClick={() => handleNavigation("/chambres/cassiopee")}
+                    >
+                      Chambre Cassiopée
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-md">
+                    <Link
+                      href="/chambres/andromede"
+                      className="text-[1rem]"
+                      onClick={() => handleNavigation("/chambres/andromede")}
+                    >
+                      Chambre Andromède
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-md">
+                    <Link
+                      href="/chambres/suite-familiale-pegase"
+                      className="text-[1rem]"
+                      onClick={() =>
+                        handleNavigation("/chambres/suite-familiale-pegase")
+                      }
+                    >
+                      Suite familiale Pégase
+                    </Link>
+                  </DropdownMenuItem>
+                </div>
+              )}
+            </MenubarMenu>
+
+            {/* Autres menus */}
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/jardin")}
@@ -163,7 +189,7 @@ export default function NavBarMobile() {
 
             <MenubarMenu>
               <MenubarTrigger
-                onClick={handleButtonClick} // Fermer le menu et naviguer vers la page de connexion
+                onClick={handleButtonClick}
                 type="button"
                 className="flex gap-2 text-[1rem] italic opacity-50 hover:opacity-100"
               >
