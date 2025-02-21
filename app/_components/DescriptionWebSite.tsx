@@ -585,13 +585,13 @@ export default function DescriptionWebSite() {
                         <ChevronLeft
                           color="#bbbb57"
                           size={24}
-                          className="sm:hidden opacity-30 mb-2"
+                          className="sm:hidden opacity-30 mb-16"
                         />
                         <ActivityUserCarousel slides={slides} />
                         <ChevronRight
                           color="#bbbb57"
                           size={24}
-                          className="sm:hidden opacity-30 mb-2"
+                          className="sm:hidden opacity-30 mb-16"
                         />
                       </div>
                     </div>

@@ -33,7 +33,7 @@ export default function NavBarMobile() {
   };
 
   return (
-    <div className="navbar-mobile flex justify-start">
+    <div className="navbar-mobile flex justify-start bg-[#fdfdfd] ">
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger
           aria-label="Menu de navigation"
@@ -41,7 +41,10 @@ export default function NavBarMobile() {
         >
           <Menu className="w-11 h-11 text-white p-2 rounded-full bg-[#64641fd8]" />
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="border-none shadow-none bg-bg_white w-[100vw] text-black h-screen ">
+        <DropdownMenuContent
+          sideOffset={0}
+          className="border-none shadow-none bg-[#fdfdfd] w-[100vw] text-black h-screen  "
+        >
           <DropdownMenuLabel className="flex  justify-center mt-4 mb-6 text-lg">
             <div className="flex flex-col items-center">
               <p>Bienvenue </p>

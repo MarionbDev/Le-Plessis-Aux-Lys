@@ -11,7 +11,7 @@ export default function UserLayout({
 }>) {
   return (
     <div>
-      <nav className=" fixed top-0 md:w-full z-50 bg-none bg-transparent">
+      <nav className=" fixed top-0 w-full md:w-full z-50 bg-none bg-transparent">
         <NavbarUser />
         <NavBarMobile />
       </nav>
