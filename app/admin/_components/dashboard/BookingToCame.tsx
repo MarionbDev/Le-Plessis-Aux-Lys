@@ -55,6 +55,7 @@ const BookingToCome: React.FC = () => {
 
         for (const rental of sortedRentalsCalendar) {
           const reservedDates = await fetchReservedDates(rental.type);
+          console.log("reservations", reservedDates);
 
           const now = new Date();
           const currentMonth = now.getMonth();
@@ -151,10 +152,10 @@ const BookingToCome: React.FC = () => {
   ): Promise<ReservationInput[]> => {
     try {
       const fetchedDates = await getAllCalendar(rental_type);
-      // console.log("Fetched Dates:", fetchedDates);
-
       return fetchedDates
-        .filter((date) => typeof date.id === "string")
+        .filter(
+          (date) => typeof date.id === "string" && date.type === "reserve",
+        )
         .map((date) => ({
           id: date.id as string,
           rental_type: date.rental_type,

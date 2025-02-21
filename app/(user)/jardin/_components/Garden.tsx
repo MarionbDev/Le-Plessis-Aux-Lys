@@ -17,7 +17,6 @@ export default function Garden() {
     const fetchImages = async () => {
       try {
         const imageJardin = await getImagesFromBucket("jardin");
-        console.log("image", imageJardin);
         setImagesJardin(imageJardin);
       } catch (error) {
         console.error("Error fetching images:", error);
