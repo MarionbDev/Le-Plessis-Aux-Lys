@@ -84,8 +84,6 @@ export default function ToVisited() {
     );
   }
 
-  console.log("Activities:", activities);
-
   return (
     <div className="my-10 pt-12 md:pt-44 px-6 xl:px-20 flex flex-col items-center mb-32  min-h-screen  ">
       <h3 className="font-prata text-2xl px-6 max-w-[50rem] text-center mb-8 text-text_color ">
