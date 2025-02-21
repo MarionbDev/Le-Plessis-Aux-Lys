@@ -33,7 +33,6 @@ export default function Home() {
 
   useEffect(() => {
     const consent = localStorage.getItem("cookiesAccepted");
-    // état initial du consentement
     if (consent === "true") {
       setIsConsentGiven(true);
       setIsBannerVisible(false);
@@ -107,13 +106,13 @@ export default function Home() {
               {isBannerVisible && (
                 <div>
                   <motion.div
-                    initial={{ x: "100vw" }}
+                    initial={{ x: "-100vw" }}
                     animate={{ x: 0 }}
                     transition={{ type: "spring", stiffness: 60, damping: 15 }}
                     style={{
                       position: "fixed",
                       bottom: "0",
-                      right: "0",
+                      left: "0",
                       width: "100%",
                       zIndex: 1000,
                     }}

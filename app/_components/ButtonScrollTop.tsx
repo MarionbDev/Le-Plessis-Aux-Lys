@@ -18,9 +18,9 @@ export default function ButtonScrollTop() {
     >
       <CircleChevronUp
         size={38}
-        color="#bbbb57"
+        color="#ffff"
         strokeWidth={1.5}
-        className="  rounded-full hover:scale-95"
+        className="  rounded-full hover:scale-95 bg-yellow  "
       />
     </Button>
   );
