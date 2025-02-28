@@ -1,4 +1,5 @@
 // app/layout.tsx
+import { Analytics } from "@vercel/analytics/react";
 import ButtonScrollTop from "../_components/ButtonScrollTop";
 import Footer from "../_components/Footer";
 import NavBarMobile from "../_components/NavbarMobile";
@@ -16,7 +17,10 @@ export default function UserLayout({
         <NavBarMobile />
       </nav>
       <ButtonScrollTop />
-      <main className="min-h-screen"> {children}</main>
+      <main className="min-h-screen">
+        {" "}
+        {children} <Analytics />
+      </main>
       <footer className="">
         <Footer />
       </footer>
