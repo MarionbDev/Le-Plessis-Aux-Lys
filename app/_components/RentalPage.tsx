@@ -1,5 +1,7 @@
 "use client";
+import { Mail } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import BookingCalendar from "../_components/calendar/BookingCalendar";
 import { getAllCalendar } from "../api/calendar/route";
@@ -207,7 +209,7 @@ export default function RentalPage({
                 </div>
 
                 {/* Section tarifs*/}
-                <section className=" flex flex-col items-center  xl:justify-start mt-8 md:mt-0  xl:min-w-[30rem] max-w-[40rem] xl:mt-0 mb-16 ">
+                <section className=" flex flex-col items-center  xl:justify-start mt-8 md:mt-0  xl:min-w-[30rem] max-w-[40rem] xl:mt-0  ">
                   <div className="flex flex-col gap-10 md:gap-14 xl:gap-8  items-center">
                     <div>
                       <h2 className=" font-prata font-medium text-center lg:text-xl tracking-[2px] uppercase lg:w-[27rem]   ">
@@ -258,6 +260,22 @@ export default function RentalPage({
                     </div>
                   </div>
                 </section>
+              </div>
+            </div>
+            <div className="flex flex-col items-center mb-44 text-[1.1rem]">
+              <p className="w-2/3 text-center text-pretty ">
+                Profitez d'un séjour inoubliable ! Offrez-vous un moment de
+                détente dans un cadre unique en Vendée. Contactez-nous dès
+                maintenant pour réserver votre séjour.
+              </p>
+              <div className="flex justify-center mt-20 ">
+                <Link
+                  href={"/nous-contacter"}
+                  className=" bg-yellow text-white  px-4 py-1 rounded-md flex items-center gap-2 hover:bg-gold/80 duration-100"
+                >
+                  <Mail size={20} />
+                  Réservez dès maintenant
+                </Link>
               </div>
             </div>
           </div>

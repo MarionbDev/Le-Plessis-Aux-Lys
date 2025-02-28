@@ -37,7 +37,7 @@ export default function NavBarMobile() {
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger
           aria-label="Menu de navigation"
-          className="ml-6 mt-6"
+          className="ml-6 my-3"
         >
           <Menu className="w-11 h-11 text-white p-2 rounded-full bg-[#64641fd8]" />
         </DropdownMenuTrigger>

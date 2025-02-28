@@ -18,7 +18,7 @@ import chambrePegase from "../../public/chambres/pegase/pegase2.webp";
 // import grandeOurse from "../../public/image.png";
 import petiteOurse from "../../public/petite-ourse/Gite-1.webp";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Mail } from "lucide-react";
 import { getAllArticles } from "../api/article/route";
 import { ArticleProps, Slide } from "../types";
 import ActivityUserCarousel from "./ActivityUserCarousel";
@@ -640,19 +640,19 @@ export default function DescriptionWebSite() {
                 transition={{ duration: 0.5 }}
               >
                 <p className=" text-[0.9rem]  my-12 lg:my-4  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
-                  Nous vous invitons à réserver votre séjour dans l'un de nos
-                  gîtes ou chambres d'hôtes au cœur de la Vendée. Contactez-nous
-                  dès maintenant via notre
+                  Profitez d’un séjour unique en Vendée dans l’un de nos gîtes
+                  ou chambres d’hôtes de charme. Consultez les disponibilités et
+                  contactez-nous pour réserver votre expérience inoubliable.
+                </p>
+                <div className="flex justify-center mt-20 ">
                   <Link
                     href={"/nous-contacter"}
-                    className=" text-[#313110] hover:text-[#bbbb57] font-semibold"
+                    className=" bg-yellow text-white  px-4 py-1 rounded-md flex items-center gap-2 hover:bg-gold/80 duration-100"
                   >
-                    &nbsp;formulaire de contact &nbsp;
+                    <Mail size={20} />
+                    Réservez votre séjour maintenant
                   </Link>
-                  et réserver votre séjour unique dans notre cadre exceptionnel.
-                  Nous serons ravis de vous accueillir pour une expérience
-                  insolite et inoubliable dans l'une de nos maisons d'hôtes.
-                </p>
+                </div>
               </motion.div>
             </motion.section>
           </div>
