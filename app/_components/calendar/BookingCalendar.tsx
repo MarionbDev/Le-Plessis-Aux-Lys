@@ -51,7 +51,7 @@ export default function BookingCalendar({
         numberOfMonths={2}
         modifiers={modifiers}
         modifiersStyles={modifiersStyles}
-        className="day-picker-desktop calendar-size text-slate-600 h-[17rem]"
+        className="day-picker-desktop calendar-size  text-slate-600 h-[17rem]"
       />
     </div>
   );

@@ -126,7 +126,7 @@ export default function Garden() {
               width={800}
               height={600}
               alt="photo du parc et jardin"
-              className="w-auto h-auto max-w-[90vw] max-h-[80vh] object-contain rounded-md"
+              className="w-auto h-auto max-w-[90vw] max-h-[80vh] object-contain rounded-md "
             />
 
             <Button

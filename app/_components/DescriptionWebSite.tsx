@@ -106,9 +106,9 @@ export default function DescriptionWebSite() {
   }, []);
 
   return (
-    <div className="font-text text-text_color mt-16  xl:mt-28 ">
+    <div className="description-top font-text text-text_color mt-[30%]  md:mt-[25%] lg:mt-[20rem] ">
       <div className="  text-center leading-loose  text-base xl:text-lg">
-        <h3 className="sm:text-[1.3rem] flex flex-col items-center text-center mb-6 lg:mb-20 mx-10 sm:mx-24 md:mx-32 ">
+        <h3 className="text-[1.1rem] sm:text-[1.3rem] flex flex-col items-center text-center mb-6 lg:mb-20 mx-10 sm:mx-24 md:mx-32 text-pretty ">
           Céline et Thierry sont heureux de vous accueillir au Plessis aux Lys !
           <span className="flex justify-center w-4/6 lg:max-w-[22rem] mt-10 border-t-2  border-separator"></span>
         </h3>
@@ -139,7 +139,7 @@ export default function DescriptionWebSite() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <p className="text-[0.9rem] max-w-[50rem]  sm:px-0  ">
+                    <p className="text-[0.9rem] max-w-[50rem] text-pretty sm:px-0  ">
                       Demeure de caractère datant du XIXème siècle, située dans
                       le village de La chapelle aux Lys, cité au Guide Vert de
                       2023 comme étant le plus petit village possédant son
@@ -167,14 +167,14 @@ export default function DescriptionWebSite() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <div className="flex flex-col items-center md:flex-row   gap-6 lg:gap-10    ">
+                    <div className="flex flex-col items-center md:flex-row   gap-6 lg:gap-10   ">
                       <Image
                         src={parc6}
                         width={400}
                         height={225}
                         sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                         alt="Photo du parc du gîte"
-                        className=" object-contain   rounded-sm h-auto   "
+                        className=" object-contain rounded-tl-[2rem] h-auto "
                       />
                     </div>
                   </motion.div>
@@ -215,7 +215,7 @@ export default function DescriptionWebSite() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <p className=" text-[0.9rem] my-8 md:my-12 lg:my-4 mx-2 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72">
+                <p className=" text-[0.9rem] my-8 md:my-12 lg:my-4 mx-2 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 text-pretty">
                   Trois chambres de charme, une suite familiale pour 5
                   personnes, possédant chacune leur salle d'eau et leurs
                   toilettes, ainsi que deux gîtes — l'un pour 2 à 4 personnes et
@@ -253,7 +253,7 @@ export default function DescriptionWebSite() {
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt=""
                   aria-label="Accéder à la page du gîte Le Logis de la Petite Ourse"
-                  className="rounded-sm shadow-basic transition-transform transform group-hover:scale-125 duration-1000 h-auto pointer-events-none  "
+                  className="rounded-sm transition-transform transform group-hover:scale-125 duration-1000 h-auto pointer-events-none shadow-basic "
                 />
 
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
@@ -426,7 +426,7 @@ export default function DescriptionWebSite() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6 }}
                     >
-                      <p className="text-[0.9rem] mb-10  sm:mx-10 md:mx-20 lg:mx-44  ">
+                      <p className="text-[0.9rem] mb-10  sm:mx-10 md:mx-20 lg:mx-44 text-pretty">
                         Idéalement situé pour découvrir notre belle région de
                         Vendée, Le Plessis aux Lys n'est qu'à 10mn d'un des plus
                         beaux villages de France : Vouvant et de la forêt de
@@ -460,7 +460,7 @@ export default function DescriptionWebSite() {
                             height={180}
                             sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                             alt="Plage des Sables d'Olonne"
-                            className=" object-contain  rounded-sm h-auto    "
+                            className=" object-contain  rounded-sm h-auto  shadow-md shadow-slate-400   "
                           />
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Plage des Sables d'Olonne
@@ -486,7 +486,7 @@ export default function DescriptionWebSite() {
                             height={129}
                             sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 230px"
                             alt="Les marais Poitevin"
-                            className=" object-contain rounded-sm h-auto   "
+                            className=" object-contain rounded-sm h-auto shadow-md shadow-slate-400    "
                           />{" "}
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Les Marais poitevin
@@ -512,7 +512,7 @@ export default function DescriptionWebSite() {
                             height={180}
                             sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                             alt="Moulins du Mont-des-Alouettes"
-                            className=" object-contain  lg:object-scale-down  rounded-sm   h-auto  "
+                            className=" object-contain  lg:object-scale-down  rounded-sm   h-auto shadow-md shadow-slate-400  "
                           />
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Moulins du Mont-des-Alouettes
@@ -559,7 +559,7 @@ export default function DescriptionWebSite() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <p className=" text-[0.9rem] mt-8 mb-8  md:mt-12  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72">
+                  <p className=" text-[0.9rem] mt-8 mb-8  md:mt-12  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 text-pretty">
                     Entre balades bucoliques, découvertes historiques et
                     paysages grandioses, La Chapelle aux Lys est le point de
                     départ idéal pour explorer la région. Plongez dans les
@@ -647,7 +647,7 @@ export default function DescriptionWebSite() {
                 <div className="flex justify-center mt-20 ">
                   <Link
                     href={"/nous-contacter"}
-                    className=" bg-yellow text-white  px-4 py-1 rounded-md flex items-center gap-2 hover:bg-gold/80 duration-100"
+                    className=" bg-yellow text-white  px-4 py-1 rounded-md flex items-center gap-2 hover:bg-gold/80 duration-100 shadow-md"
                   >
                     <Mail size={20} />
                     Réservez votre séjour maintenant

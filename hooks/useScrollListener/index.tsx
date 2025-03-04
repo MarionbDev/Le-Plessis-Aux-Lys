@@ -8,7 +8,6 @@ export default function useScrollListener() {
     lastY: 0,
   });
 
-  // mise à jour des écouteurs de scroll
   useEffect(() => {
     const handleScroll = () => {
       setData((last) => {
