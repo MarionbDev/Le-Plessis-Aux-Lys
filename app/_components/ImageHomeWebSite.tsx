@@ -2,12 +2,11 @@
 
 import cassio from "@/public/chambres/cassiopee/ch-2-2.webp";
 import orion from "@/public/chambres/orion/ch2.jpg";
-import mare from "@/public/parc/mare.jpg";
+import mare from "@/public/parc/eau.webp";
 import parc2 from "@/public/parc/Parc-2.webp";
 import parc3 from "@/public/parc/parc3.jpg";
 import gite from "@/public/petite-ourse/Gite.webp";
 import Image from "next/image";
-
 // import parc3 from "@/public/parc/Parc-6.webp";
 import { useEffect, useState } from "react";
 
