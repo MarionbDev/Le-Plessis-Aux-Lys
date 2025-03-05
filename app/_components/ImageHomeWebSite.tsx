@@ -25,8 +25,8 @@ export default function ImageHomeWebSite() {
   }, []);
 
   return (
-    <div className=" mt-6 lg:mt-24 ">
-      <div className="hidden lg:flex bg-yellow/50 w-full h-[20rem] "></div>
+    <div className=" mt-6 lg:mt-[5rem] ">
+      <div className="hidden lg:flex bg-gradient-header w-full h-[20rem] "></div>
       <div className=" flex flex-col items-center md:justify-center ">
         {/* <div className=" flex flex-col items-center md:justify-center "> */}
         <div className="home-title flex flex-col justify-center gap-4 md:mb-10 border-4  ">

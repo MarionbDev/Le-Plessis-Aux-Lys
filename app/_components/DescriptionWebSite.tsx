@@ -125,7 +125,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="w-full flex justify-center bg-[#f8f5f0] mt-20 rounded-t-[4rem] ">
+          <div className="w-full flex justify-center bg-gradient-text mt-20 rounded-t-[4rem] ">
             <div className="mx-[2rem] md:mx-10 lg:mx-10 xl:mx-32  my-12 md:my-14 xl:max-w-[100rem]  leading-loose   ">
               <div className="flex flex-col lg:flex-row md:items-center gap-14 lg:gap-8 overflow-hidden sm:mx-10 md:mx-20 lg:mx-22    ">
                 <motion.section
@@ -412,7 +412,7 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <div className="w-full flex justify-center  bg-[#f8f5f0] my-8 rounded-t-[4rem] ">
+            <div className="w-full flex justify-center bg-gradient-text my-8 rounded-t-[4rem] ">
               <div className="overflow-hidden mx-[2rem] md:mx-10 lg:mx-10 xl:mx-32  my-12 md:my-14 xl:max-w-[100rem]  leading-loose   ">
                 <div className="flex flex-col items-center gap-8      ">
                   <motion.section
@@ -547,7 +547,7 @@ export default function DescriptionWebSite() {
               </p>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <div className="bg-[#f8f5f0] w-full my-8 rounded-t-[4rem] mx-4 md:mx-10 lg:mx-10 xl:mx-32  p-4  md:my-14 ">
+            <div className="bg-gradient-text w-full my-8 rounded-t-[4rem] mx-4 md:mx-10 lg:mx-10 xl:mx-32  p-4  md:my-14 ">
               <motion.section
                 initial="hide"
                 whileInView="show"
@@ -614,7 +614,7 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mx-4  mt-8 lg:mt-44  leading-loose">
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mt-8 lg:mt-44  leading-loose">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mt-16 lg:mt-0 gap-4 lg:gap-12 lg:my-20">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
               <div>
@@ -627,34 +627,36 @@ export default function DescriptionWebSite() {
               </div>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-
-            <motion.section
-              initial="hide"
-              whileInView="show"
-              exit="hide"
-              variants={imageVariants}
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
+            <div className="bg-gradient-text w-full mb-8 rounded-t-[4rem] mx-4 md:mx-10 lg:mx-10 xl:mx-32  p-4 ">
+              <motion.section
+                initial="hide"
+                whileInView="show"
+                exit="hide"
+                variants={imageVariants}
               >
-                <p className=" text-[0.9rem]  my-12 lg:my-4  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
-                  Profitez d’un séjour unique en Vendée dans l’un de nos gîtes
-                  ou chambres d’hôtes de charme. Consultez les disponibilités et
-                  contactez-nous pour réserver votre expérience inoubliable.
-                </p>
-                <div className="flex justify-center mt-20 ">
-                  <Link
-                    href={"/nous-contacter"}
-                    className=" bg-yellow text-white  px-4 py-1 rounded-md flex items-center gap-2 hover:bg-gold/80 duration-100 shadow-md"
-                  >
-                    <Mail size={20} />
-                    Réservez votre séjour maintenant
-                  </Link>
-                </div>
-              </motion.div>
-            </motion.section>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <p className=" text-[0.9rem]  my-12 lg:my-4  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
+                    Profitez d’un séjour unique en Vendée dans l’un de nos gîtes
+                    ou chambres d’hôtes de charme. Consultez les disponibilités
+                    et contactez-nous pour réserver votre expérience
+                    inoubliable.
+                  </p>
+                  <div className="flex justify-center mt-20 ">
+                    <Link
+                      href={"/nous-contacter"}
+                      className=" bg-yellow text-white  px-4 py-1 rounded-md flex items-center gap-2 hover:bg-gold/80 duration-100 shadow-md"
+                    >
+                      <Mail size={20} />
+                      Réservez votre séjour maintenant
+                    </Link>
+                  </div>
+                </motion.div>
+              </motion.section>
+            </div>
           </div>
         </motion.div>
       </motion.section>

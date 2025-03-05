@@ -118,7 +118,10 @@ export default function Garden() {
               className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-yellow text-white px-1 rounded-full hover:bg-gray-900"
               onClick={showPrevImage}
             >
-              <ChevronLeft size={30} />
+              {" "}
+              <div className="rounded-full border-2  border-white">
+                <ChevronLeft size={30} />
+              </div>
             </Button>
 
             <Image
@@ -130,10 +133,12 @@ export default function Garden() {
             />
 
             <Button
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-yellow text-white px-1 rounded-full hover:bg-gray-900"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-yellow text-white p-1 rounded-full hover:bg-gray-900"
               onClick={showNextImage}
             >
-              <ChevronRight size={30} />
+              <div className="rounded-full border-2  border-white">
+                <ChevronRight size={30} />
+              </div>
             </Button>
           </div>
         </div>

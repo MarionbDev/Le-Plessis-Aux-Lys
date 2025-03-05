@@ -234,7 +234,7 @@ export default function ContactForm() {
             <Button
               type="submit"
               disabled={isLoading}
-              className="ml-auto text-white hover:bg-gold/90 duration-100 bg-yellow gap-2 shadow-md"
+              className="ml-auto text-white hover:bg-yellow/50 duration-100 bg-yellow gap-2 shadow-md"
             >
               {isLoading ? (
                 <Loader className="animate-spin" size="16" />
