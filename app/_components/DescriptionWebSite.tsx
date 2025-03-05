@@ -106,9 +106,9 @@ export default function DescriptionWebSite() {
   }, []);
 
   return (
-    <div className="description-top font-text text-text_color mt-[30%]  md:mt-[25%] lg:mt-[20rem] ">
+    <div className=" font-text text-text_color mt-[38%]  md:mt-[28%] lg:mt-[20rem]  ">
       <div className="  text-center leading-loose  text-base xl:text-lg">
-        <h3 className="text-[1.1rem] sm:text-[1.3rem] flex flex-col items-center text-center mb-6 lg:mb-20 mx-10 sm:mx-24 md:mx-32 text-pretty ">
+        <h3 className="text-[1.2rem] sm:text-[1.3rem] flex flex-col items-center text-center mb-6 lg:mb-20 mx-10 sm:mx-24 md:mx-32 text-pretty ">
           Céline et Thierry sont heureux de vous accueillir au Plessis aux Lys !
           <span className="flex justify-center w-4/6 lg:max-w-[22rem] mt-10 border-t-2  border-separator"></span>
         </h3>
@@ -199,9 +199,9 @@ export default function DescriptionWebSite() {
           <div className="flex justify-center flex-col items-center text-md lg:text-md mx-6  mt-8 xl:mt-44  leading-loose">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mt-16 lg:mt-0 gap-4 my-8 lg:gap-12 lg:my-20">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
-              <p className=" font-semibold text-center lg:text-lg uppercase lg:w-[27rem]  ">
+              <h2 className=" font-semibold text-center lg:text-lg uppercase lg:w-[27rem]  ">
                 DECOUVREZ SANS PLUS ATTENDRE
-              </p>
+              </h2>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
             <motion.section
@@ -407,9 +407,9 @@ export default function DescriptionWebSite() {
           <div className="flex justify-center flex-col items-center   text-md lg:text-md  mt-8 md:mt-20  lg:mt-48  leading-loose">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center my-8  mt-24 lg:mt-0 gap-4  lg:gap-10 lg:my-8">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
-              <p className=" font-semibold text-center lg:text-lg uppercase ">
+              <h2 className=" font-semibold text-center lg:text-lg uppercase ">
                 Vous Allez Adorer
-              </p>
+              </h2>
               <span className="flex  justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
             <div className="w-full flex justify-center bg-gradient-text my-8 rounded-t-[4rem] ">
@@ -440,7 +440,7 @@ export default function DescriptionWebSite() {
                     </motion.div>
                   </motion.section>
 
-                  <div className="flex flex-col items-center md:flex-row md:flex-wrap md:justify-center  gap-6     ">
+                  <div className="flex flex-col items-center md:flex-row md:flex-wrap md:justify-center  gap-20     ">
                     {" "}
                     <motion.section
                       initial="hide"
@@ -539,12 +539,12 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <div className="flex justify-center flex-col  items-center text-md mt-8 lg:text-md md:mt-20  lg:mt-28 leading-loose ">
+          <div className="flex justify-center flex-col  items-center text-md mt-8 lg:text-md md:mt-20 leading-loose ">
             <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center gap-4 my-8 lg:gap-12 lg:mt-20 lg:mb-10">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
-              <p className=" font-semibold text-center lg:text-lg uppercase ">
+              <h2 className=" font-semibold text-center lg:text-lg uppercase ">
                 à voir et à faire
-              </p>
+              </h2>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
             <div className="bg-gradient-text w-full my-8 rounded-t-[4rem] mx-4 md:mx-10 lg:mx-10 xl:mx-32  p-4  md:my-14 ">
@@ -614,20 +614,20 @@ export default function DescriptionWebSite() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex justify-center flex-col items-center text-md lg:text-md mt-8 lg:mt-44  leading-loose">
-            <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mt-16 lg:mt-0 gap-4 lg:gap-12 lg:my-20">
+          <div className="flex justify-center flex-col items-center text-md lg:text-md mt-8 lg:mt-36  leading-loose">
+            <div className="w-4/5 flex flex-col lg:flex-row items-center justify-center mt-16 mb-8 md:mb-0 lg:mt-0 gap-4 lg:gap-12 ">
               <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
               <div>
-                <p className=" font-semibold text-center lg:text-lg uppercase lg:w-[30rem]  ">
+                <h2 className=" font-semibold text-center lg:text-lg uppercase lg:w-[30rem]  ">
                   Réservez votre gîte ou chambre d'hôtes
                   <br />
                   au Plessis aux Lys
                   <br />
-                </p>
+                </h2>
               </div>
               <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
             </div>
-            <div className="bg-gradient-text w-full mb-8 rounded-t-[4rem] mx-4 md:mx-10 lg:mx-10 xl:mx-32  p-4 ">
+            <div className="bg-gradient-text w-full mb-8 rounded-t-[4rem] mx-4 md:mx-10 lg:mx-10 xl:mx-32 my-8 md:my-16  p-4 ">
               <motion.section
                 initial="hide"
                 whileInView="show"
@@ -639,19 +639,23 @@ export default function DescriptionWebSite() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <p className=" text-[0.9rem]  my-12 lg:my-4  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
-                    Profitez d’un séjour unique en Vendée dans l’un de nos gîtes
-                    ou chambres d’hôtes de charme. Consultez les disponibilités
-                    et contactez-nous pour réserver votre expérience
-                    inoubliable.
-                  </p>
+                  <div className="flex flex-col items-center text-[0.9rem]  my-12 lg:my-4  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
+                    <p>
+                      Profitez d’un séjour unique en Vendée dans l’un de nos
+                      gîtes ou chambres d’hôtes de charme.
+                    </p>
+                    <p>
+                      Consultez les disponibilités et contactez-nous pour
+                      réserver votre expérience inoubliable.
+                    </p>
+                  </div>
                   <div className="flex justify-center mt-20 ">
                     <Link
                       href={"/nous-contacter"}
-                      className=" bg-yellow text-white  px-4 py-1 rounded-md flex items-center gap-2 hover:bg-gold/80 duration-100 shadow-md"
+                      className=" bg-yellow text-white  px-4 py-1 rounded-md flex items-center text-center gap-2 hover:bg-yellow/50 duration-100 shadow-md"
                     >
-                      <Mail size={20} />
-                      Réservez votre séjour maintenant
+                      <Mail size={20} className="hidden sm:flex" />
+                      Réservez votre séjour maintenant !
                     </Link>
                   </div>
                 </motion.div>

@@ -37,11 +37,11 @@
 
 .embla__container_activity {
   display: flex;
-
-  gap: 1rem;
+  gap: 5rem;
   touch-action: pan-y pinch-zoom;
   justify-content: start;
   width: 100%;
+
   /* background-color: aqua; */
 }
 
@@ -78,6 +78,7 @@
 @media (min-width: 1024px) {
   .embla__container_activity {
     width: 60rem;
+    margin-left: -60px;
   }
   .embla_activity {
     width: 60rem;

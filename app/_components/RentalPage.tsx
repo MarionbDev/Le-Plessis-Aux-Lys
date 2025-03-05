@@ -268,7 +268,7 @@ export default function RentalPage({
               <div className="flex justify-center mt-20 ">
                 <Link
                   href={"/nous-contacter"}
-                  className=" bg-yellow text-white  px-4 py-1 rounded-md flex items-center gap-2 hover:bg-gold/80 duration-100 shadow-md"
+                  className=" bg-yellow text-white  px-5 py-[0.5rem] rounded-md flex items-center gap-2 hover:bg-yellow/50 duration-100 shadow-md"
                 >
                   <Mail size={20} />
                   Réservez dès maintenant

@@ -25,11 +25,11 @@ export default function ImageHomeWebSite() {
   }, []);
 
   return (
-    <div className=" mt-6 lg:mt-[5rem] ">
-      <div className="hidden lg:flex bg-gradient-header w-full h-[20rem] "></div>
+    <div className=" mt-6 md:mt-[5rem] ">
+      <div className="hidden lg:flex bg-yellow/50 w-full h-[20rem] "></div>
       <div className=" flex flex-col items-center md:justify-center ">
         {/* <div className=" flex flex-col items-center md:justify-center "> */}
-        <div className="home-title flex flex-col justify-center gap-4 md:mb-10 border-4  ">
+        <div className="home-title flex flex-col justify-center gap-4 md:mb-10  ">
           <h1 className=" font-title-home text-title_color italic font-extralight ml-4 md:ml-10 mt-20 md:mt-0 text-4xl md:text-[3rem] tracking-[3px]">
             Le Plessis Aux Lys
           </h1>
@@ -53,7 +53,7 @@ export default function ImageHomeWebSite() {
               loading="eager"
               priority={true}
               alt={`Slide ${index + 1}`}
-              className={`absolute object-cover  object-center w-11/12 md:w-3/4 h-[12rem] sm:h-[18rem] transition-opacity duration-1000 shadow-md shadow-slate-400 ${
+              className={`absolute object-cover  object-center w-11/12 md:w-3/4 h-[14rem] sm:h-[18rem] transition-opacity duration-1000 shadow-md shadow-slate-400 ${
                 index === currentIndex ? "opacity-100" : "opacity-0"
               }`}
             />
