@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <div className=" font-text text-text_color flex flex-col gap-6 text-[0.9rem] py-12  bg-[#f5f0e8] rounded-t-3xl md:rounded-none w-full ">
+    <div className=" font-text text-text_color flex flex-col gap-6 text-[0.9rem] py-12  bg-[#f8f5f0] rounded-t-3xl md:rounded-none w-full ">
       <div className="flex flex-col gap-2 pl-6">
         <p className="mb-2 text-[1rem] font-semibold">Informations Légales</p>
         <Link href={"/mentions-legales"} className="hover:text-[#bbbb57]">

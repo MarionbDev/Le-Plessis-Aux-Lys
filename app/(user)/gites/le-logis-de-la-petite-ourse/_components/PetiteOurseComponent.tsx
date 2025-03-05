@@ -6,37 +6,43 @@ import { ImageType } from "@/app/types";
 import { useRentalDetails } from "@/hooks/useRentalDetails";
 import { useRentalRates } from "@/hooks/useRentalRates";
 import { Loader } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export default function LaPetiteOurse() {
   const [imagesPetiteOurse, setImagesPetiteOurse] = useState<ImageType[]>([]);
-  const [imagesLoading, setImagesLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [mainImage, setMainImage] = useState<ImageType | null>(null);
 
   const { rates, loading: ratesLoading, error } = useRentalRates("petiteOurse");
   const { rentals, loading: rentalsLoading } = useRentalDetails("petiteOurse");
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const images = await getImagesFromBucket("petiteOurse");
-
-        setImagesPetiteOurse(images);
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      } finally {
-        setImagesLoading(false);
+  const fetchImages = useCallback(async () => {
+    try {
+      const images = await getImagesFromBucket("petiteOurse");
+      setImagesPetiteOurse(images);
+      if (images.length > 0) {
+        setMainImage(images[0]);
       }
-    };
-
-    fetchImages();
+    } catch (error) {
+      console.error("Error fetching images:", error);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  const imageUrls = imagesPetiteOurse.map((image) => image.path);
+  useEffect(() => {
+    fetchImages();
+  }, [fetchImages]);
 
-  if (ratesLoading || rentalsLoading || imagesLoading) {
+  const imageUrls = useMemo(
+    () => imagesPetiteOurse.map((image) => image.path),
+    [imagesPetiteOurse],
+  );
+
+  if (loading || ratesLoading || rentalsLoading) {
     return (
-      <div className=" flex justify-center items-center h-screen">
-        <Loader size={50} className=" animate-spin" />
+      <div className="flex justify-center items-center h-screen">
+        <Loader size={50} className="animate-spin" />
       </div>
     );
   }
@@ -46,7 +52,7 @@ export default function LaPetiteOurse() {
   }
 
   return (
-    <div className=" ">
+    <div>
       {rates && rentals ? (
         <RentalPage
           title={rentals.title_rental}

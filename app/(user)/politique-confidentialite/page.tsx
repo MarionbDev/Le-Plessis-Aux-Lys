@@ -90,13 +90,24 @@ export default function privacyPolicyPage() {
               2. Collecte et utilisation des Données
             </h2>
             <p>
-              Nous n'effectuons aucune collecte de données personnelles par
+              Nous ne collectons aucune donnée personnelle identifiable par
               nous-mêmes. Toutefois, Google peut collecter des données
               personnelles via ses cookies, comme l'adresse IP, la
               géolocalisation et d'autres informations techniques relatives à
               l'interaction avec les cartes. Ces informations sont gérées
               directement par Google, et nous n'y avons pas accès.
             </p>
+            <div className="mt-8 ">
+              <p className="mb-2 font-semibold">Analyse des visites </p>
+              <p>
+                Nous utilisons Vercel Analytics pour analyser les visites sur
+                notre site. Ce service ne dépose aucun cookie et collecte
+                uniquement des données anonymes telles que le nombre de
+                visiteurs, les pages consultées, le pays approximatif et le type
+                d’appareil. Ces informations sont utilisées exclusivement à des
+                fins statistiques afin d'améliorer l’expérience utilisateur.
+              </p>
+            </div>
           </div>
           <div className=" mb-8">
             <h2 className="text-[1.2rem] font-semibold mb-4  text-text_color ">

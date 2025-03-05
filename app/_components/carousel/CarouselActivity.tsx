@@ -31,14 +31,14 @@ const CarouselActivity: React.FC<PropType> = ({ slides, options }) => {
                 href={"/user/activites"}
                 onClick={() => router.push("/user/activites")}
               > */}
-                <div className="   flex flex-col justify-center items-center ">
+                <div className="   flex flex-col justify-center items-center  ">
                   <Image
                     src={slide.image_path}
-                    width={256}
+                    width={2500}
                     height={144}
                     sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 256px"
                     alt={`Photo ${index + 1}`}
-                    className="object-scale-down h-auto"
+                    className="object-scale-down h-auto shadow-md shadow-slate-400 "
                   />
 
                   <p className="mt-2 text-sm font-semibold text-center ">

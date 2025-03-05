@@ -1,6 +1,8 @@
 "use client";
+import { Mail } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
 import BookingCalendar from "../_components/calendar/BookingCalendar";
 import { getAllCalendar } from "../api/calendar/route";
 import { CustomDateRange, RentalType } from "../types";
@@ -29,33 +31,30 @@ export default function RentalPage({
   rentalType,
 }: PropType) {
   const [reservedDates, setReservedDates] = useState<CustomDateRange[]>([]);
-  const [mainImage, setMainImage] = useState<string>(imagesSlide[0]);
+  const [mainImage, setMainImage] = useState(imagesSlide[0] ?? "");
   const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(() => {
-    async function fetchReservedDates() {
-      try {
-        const reservations = await getAllCalendar(rentalType);
-        const reservedDates = reservations.map((reservation) => ({
-          from: new Date(reservation.start_date),
-          to: new Date(reservation.end_date),
-          rentalType,
-          type: reservation.type,
-        }));
-        // console.log("Dates réservés:", reservedDates);
-        setReservedDates(reservedDates);
-      } catch (error) {
-        console.error("Error fetching reserved dates:", error);
-      }
+  const fetchReservedDates = useCallback(async () => {
+    try {
+      const reservations = await getAllCalendar(rentalType);
+      const reservedDates = reservations.map((reservation) => ({
+        from: new Date(reservation.start_date),
+        to: new Date(reservation.end_date),
+        rentalType,
+        type: reservation.type,
+      }));
+      setReservedDates(reservedDates);
+    } catch (error) {
+      console.error("Error fetching reserved dates:", error);
     }
-    fetchReservedDates();
   }, [rentalType]);
 
-  // Effet pour mettre à jour mainImage lorsque imagesSlide change
   useEffect(() => {
-    if (imagesSlide.length > 0) {
-      setMainImage(imagesSlide[0]);
-    }
+    fetchReservedDates();
+  }, [fetchReservedDates]);
+
+  useEffect(() => {
+    setMainImage(imagesSlide[0] || "");
   }, [imagesSlide]);
 
   const displayRate = (rate?: number) =>
@@ -82,7 +81,7 @@ export default function RentalPage({
                   <span className="flex justify-center w-[16rem] border-t-2  border-separator"></span>
                 </div>
                 <h2 className="lg:text-md h-4 mt-4 lg:mt-0 lg:mb-4  mx-10  font-bold ">
-                  {capacity}
+                  Pour {capacity}
                 </h2>
               </div>
             </div>
@@ -172,7 +171,7 @@ export default function RentalPage({
               </section>
             )}
 
-            <div className=" flex flex-col gap-16  md:mx-10 mb-36 ">
+            <div className=" flex flex-col gap-16  md:mx-10 mb-20 md:mb-36 ">
               <div className="flex flex-col-reverse items-center  xl:flex-row md:gap-18 xl:items-start gap-12 xl:gap-28  ">
                 <div>
                   <div className="mb-8 flex  justify-center xl:justify-start xl:ml-2">
@@ -181,7 +180,7 @@ export default function RentalPage({
                       <span className="flex w-[11rem] lg:w-[13.5rem] mx-auto border-t-2  border-separator"></span>
                     </h2>
                   </div>
-                  <section className=" md:p-2  w-[22rem] md:w-[40rem]  shadow-div rounded-md ">
+                  <section className=" md:p-2  w-[22rem] md:w-[40rem]  shadow-md rounded-md ">
                     <div className="min-h-[21rem] px-5 ">
                       <BookingCalendar reservedDates={reservedDates} />
                     </div>
@@ -207,7 +206,7 @@ export default function RentalPage({
                 </div>
 
                 {/* Section tarifs*/}
-                <section className=" flex flex-col items-center  xl:justify-start mt-8 md:mt-0  xl:min-w-[30rem] max-w-[40rem] xl:mt-0 mb-16 ">
+                <section className=" flex flex-col items-center  xl:justify-start mt-8 md:mt-0  xl:min-w-[30rem] max-w-[40rem] xl:mt-0  ">
                   <div className="flex flex-col gap-10 md:gap-14 xl:gap-8  items-center">
                     <div>
                       <h2 className=" font-prata font-medium text-center lg:text-xl tracking-[2px] uppercase lg:w-[27rem]   ">
@@ -258,6 +257,22 @@ export default function RentalPage({
                     </div>
                   </div>
                 </section>
+              </div>
+            </div>
+            <div className="flex flex-col items-center mb-44 text-[1.1rem]">
+              <p className="w-2/3 text-center text-pretty ">
+                Profitez d'un séjour inoubliable ! Offrez-vous un moment de
+                détente dans un cadre unique en Vendée. Contactez-nous dès
+                maintenant pour réserver votre séjour.
+              </p>
+              <div className="flex justify-center mt-20 ">
+                <Link
+                  href={"/nous-contacter"}
+                  className=" bg-yellow text-white  px-5 py-[0.5rem] rounded-md flex items-center gap-2 hover:bg-yellow/50 duration-100 shadow-md"
+                >
+                  <Mail size={20} />
+                  Réservez dès maintenant
+                </Link>
               </div>
             </div>
           </div>

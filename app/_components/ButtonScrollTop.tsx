@@ -20,7 +20,7 @@ export default function ButtonScrollTop() {
         size={38}
         color="#ffff"
         strokeWidth={1.5}
-        className="  rounded-full hover:scale-95 bg-yellow  "
+        className="  rounded-full hover:scale-95 bg-yellow/50  "
       />
     </Button>
   );
