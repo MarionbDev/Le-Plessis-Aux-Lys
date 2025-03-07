@@ -55,7 +55,7 @@ const BookingToCome: React.FC = () => {
 
         for (const rental of sortedRentalsCalendar) {
           const reservedDates = await fetchReservedDates(rental.type);
-          console.log("reservations", reservedDates);
+          // console.log("reservations", reservedDates);
 
           const now = new Date();
           const currentMonth = now.getMonth();

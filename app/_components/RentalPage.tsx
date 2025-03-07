@@ -68,12 +68,14 @@ export default function RentalPage({
   };
   return (
     <div className="font-text text-text_color sm:mt-10  flex justify-center md:justify-around ">
+      <div className="absolute top-[14rem] sm:top-[12rem]  md:top-[14rem] lg:top-[17rem]  lgd:relative  lg:flex bg-yellow/50 w-full h-[11rem] md:h-[15rem]  "></div>
+
       <div className="flex flex-col  md:flex-row gap-20 md:py-4 mt-8 lg:mt-14">
         <div className="flex flex-col justify-between xl:w-full  ">
-          <div className="flex flex-col justify-center ">
+          <div className="flex flex-col justify-center  ">
             <div className="flex justify-center text-center">
               <div className="flex flex-col lg:mb-10">
-                <div className="flex flex-col xl:w-full lg:flex-row items-center justify-center  mt-16  md:mb-0 sm:mt-0 gap-4 xl:gap-12 lg:my-8">
+                <div className="flex flex-col xlw-full lg:flex-row items-center justify-center  mt-16  md:mb-0 sm:mt-0 gap-4 xl:gap-12 lg:my-8">
                   <span className="flex justify-center w-[16rem]  border-t-2  border-separator"></span>
                   <h1 className=" font-prata font-semibold text-center lg:text-2xl uppercase lg:w-[27rem]  ">
                     {title}
@@ -87,9 +89,9 @@ export default function RentalPage({
             </div>
             {/* Section avec image et description */}
             {hasImage || isValidDescription(description) ? (
-              <div className="flex flex-col mt-8 md:mt-10 lg:mt-0 min-h-[30rem] ">
+              <div className="flex flex-col mt-16  md:mt-24 lg:mt-10 min-h-[30rem] ">
                 <div className="  flex flex-col items-center">
-                  <div className="md:min-h-[22rem]">
+                  <div className="relative md:min-h-[22rem]">
                     {hasImage && (
                       <section className="flex flex-col lg:flex-row lg:justify-center lg:gap-8 sm:px-8 xl:mx-0">
                         <div className="flex justify-center items-center md:items-start  md:min-w-[39rem] xl:min-w-[48rem] mb-2 md:-mt-3 min-h-[14rem] ">

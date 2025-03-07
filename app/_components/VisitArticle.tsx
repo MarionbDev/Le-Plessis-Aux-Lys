@@ -67,10 +67,10 @@ export default function VisitArticle({
                 <div className="flex justify-center   ">
                   <Image
                     src={image_path}
-                    width={280}
+                    width={580}
                     height={180}
                     alt={`Photo de l'article ${title}`}
-                    className=" max-w-[13rem] h-auto object-contain rounded-sm shadow-md shadow-slate-400 "
+                    className=" max-w-[18rem] h-auto object-contain rounded-sm shadow-md shadow-slate-400 "
                   />
                 </div>
               </CardHeader>

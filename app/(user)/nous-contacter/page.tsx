@@ -74,21 +74,21 @@ export default function ContactPage() {
               width={300}
               height={200}
               alt="image"
-              className="  shadow-basic rounded-br-[5rem] rounded-tl-[5rem] w-[9rem] sm:w-[18rem] md:w-[22rem]  lg:w-[16rem] xl:w-[18rem] h-auto "
+              className="  shadow-basic rounded-tl-[2rem] rounded-br-[2rem] md:rounded-br-[5rem]  md:rounded-tl-[5rem] w-[9rem] sm:w-[18rem] md:w-[22rem]  lg:w-[16rem] xl:w-[18rem] h-auto "
             />
             <Image
               src={nature}
               width={300}
               height={169}
               alt="image"
-              className=" shadow-basic rounded-tl-[5rem] rounded-br-[5rem]  w-[9rem] sm:w-[18rem]  md:w-[22rem]   lg:w-[16rem] xl:w-[18rem] h-auto "
+              className=" shadow-basic rounded-tl-[2rem] rounded-br-[2rem] md:rounded-tl-[5rem]  md:rounded-br-[5rem]  w-[9rem] sm:w-[18rem]  md:w-[22rem]   lg:w-[16rem] xl:w-[18rem] h-auto "
             />
             <Image
               src={anes}
               width={200}
               height={101}
               alt="image"
-              className=" shadow-basic rounded-tl-[5rem] rounded-br-[5rem]  w-[9rem] sm:w-[18rem]  md:w-[22rem] d  lg:w-[16rem] xl:w-[18rem] h-auto "
+              className=" shadow-basic rounded-tl-[2rem] rounded-br-[2rem] md:rounded-tl-[5rem]  md:rounded-br-[5rem]  w-[9rem] sm:w-[18rem]  md:w-[22rem] d  lg:w-[16rem] xl:w-[18rem] h-auto "
             />
           </div>
         </div>

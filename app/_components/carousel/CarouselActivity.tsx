@@ -34,7 +34,7 @@ const CarouselActivity: React.FC<PropType> = ({ slides, options }) => {
                 <div className="   flex flex-col justify-center items-center  ">
                   <Image
                     src={slide.image_path}
-                    width={2500}
+                    width={800}
                     height={144}
                     sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 256px"
                     alt={`Photo ${index + 1}`}

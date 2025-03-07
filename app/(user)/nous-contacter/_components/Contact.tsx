@@ -101,7 +101,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className=" shadow-div rounsm  mx-4 md:mx-0 ">
+    <div className=" shadow-div rounded-sm  mx-4 md:mx-0 ">
       <Card className=" max-w-lg text-text_color border-none ">
         <form onSubmit={handleSubmitFormContact}>
           <CardHeader>
