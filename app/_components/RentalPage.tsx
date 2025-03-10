@@ -63,8 +63,8 @@ export default function RentalPage({
   // Vérifiez si l'image ou la description sont présents
   const hasImage = mainImage && imagesSlide.length > 0;
   const isValidDescription = (description: string) => {
-    const cleanedDescription = description.replace(/<[^>]*>/g, "").trim(); // Enlève les balises HTML
-    return cleanedDescription.length > 0; // Vérifie s'il reste du texte
+    const cleanedDescription = description.replace(/<[^>]*>/g, "").trim();
+    return cleanedDescription.length > 0;
   };
   return (
     <div className="font-text text-text_color sm:mt-10  flex justify-center md:justify-around ">
@@ -263,7 +263,7 @@ export default function RentalPage({
             </div>
             <div className="flex flex-col items-center mb-44 text-[1.1rem]">
               <p className="w-2/3 text-center text-pretty ">
-                Profitez d'un séjour inoubliable ! Offrez-vous un moment de
+                Profitez d'un séjour inoubliable! Offrez-vous un moment de
                 détente dans un cadre unique en Vendée. Contactez-nous dès
                 maintenant pour réserver votre séjour.
               </p>

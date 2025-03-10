@@ -140,19 +140,27 @@ export default function DescriptionWebSite() {
                     transition={{ duration: 0.6 }}
                   >
                     <p className="text-[0.9rem] max-w-[50rem] text-pretty sm:px-0  ">
-                      Demeure de caractère datant du XIXème siècle, située dans
-                      le village de La chapelle aux Lys, cité au Guide Vert de
-                      2023 comme étant le plus petit village possédant son
+                      <span className="font-semibold">
+                        Demeure de caractère
+                      </span>{" "}
+                      datant du XIXème siècle, située dans le village de{" "}
+                      <span className="font-semibold">La Chapelle aux Lys</span>
+                      , cité au{" "}
+                      <span className="font-semibold">Guide Vert de 2023</span>{" "}
+                      comme étant le plus petit village possédant son
                       planétarium que vous pourrez découvrir à 2 minutes à
-                      pieds. <br /> 4 chambres de charme, dont une suite
-                      familiale pouvant accueillir jusqu'à 5 personnes, chacune
-                      équipée de sa salle d'eau et ses toilettes, ainsi que 2
-                      gites - l'un pour 2 à 4 personnes et l'autre pour 8 à 10
-                      personnes - vous accueilleront au sein d'un parc où
-                      trônent des arbres séculaires. Ceux-ci vous inviteront à
-                      la quiétude , à la méditation et au repos, après vous être
-                      délassés dans la piscine chauffée mise à disposition de
-                      mai à septembre.
+                      pieds. <br /> 4{" "}
+                      <span className="font-semibold">chambres de charme</span>,
+                      dont une{" "}
+                      <span className="font-semibold">suite familiale</span>{" "}
+                      pouvant accueillir jusqu'à 5 personnes, chacune équipée de
+                      sa salle d'eau et ses toilettes, ainsi que 2 gites - l'un
+                      pour 2 à 4 personnes et l'autre pour 8 à 10 personnes -
+                      vous accueilleront au sein d'un parc où trônent des arbres
+                      séculaires. Ceux-ci vous inviteront à la quiétude , à la
+                      méditation et au repos, après vous être délassés dans la{" "}
+                      <span className="font-semibold">piscine chauffée</span>{" "}
+                      mise à disposition de mai à septembre.
                     </p>
                   </motion.div>
                 </motion.section>
@@ -216,14 +224,21 @@ export default function DescriptionWebSite() {
                 transition={{ duration: 0.5 }}
               >
                 <p className=" text-[0.9rem] my-8 md:my-12 lg:my-4 mx-2 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 text-pretty">
-                  Trois chambres de charme, une suite familiale pour 5
+                  Trois{" "}
+                  <span className="font-semibold">chambres de charme</span>, une{" "}
+                  <span className="font-semibold">suite familiale</span> pour 5
                   personnes, possédant chacune leur salle d'eau et leurs
-                  toilettes, ainsi que deux gîtes — l'un pour 2 à 4 personnes et
-                  l'autre pour 8 à 10 personnes — vous accueilleront au sein
-                  d'un parc où trônent des arbres séculaires qui vous inviteront
-                  à la quiétude, la méditation et au repos après vous être
-                  délassés dans la piscine chauffée mise à disposition de mai à
-                  septembre.
+                  toilettes, ainsi que deux{" "}
+                  <span className="font-semibold">gîtes</span> — l'un pour 2 à 4
+                  personnes et l'autre pour 8 à 10 personnes — vous
+                  accueilleront au sein d'un parc où trônent des arbres
+                  séculaires qui vous inviteront à la{" "}
+                  <span className="font-semibold">quiétude</span>, la{" "}
+                  <span className="font-semibold">méditation</span> et au{" "}
+                  <span className="font-semibold">repos</span> après vous être
+                  délassés dans la{" "}
+                  <span className="font-semibold">piscine chauffée </span>mise à
+                  disposition de mai à septembre.
                 </p>
               </motion.div>
             </motion.section>
@@ -245,7 +260,7 @@ export default function DescriptionWebSite() {
         >
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-14 w-4/5  md:w-full ">
             <li className="relative overflow-hidden  group   ">
-              <Link href={"/gites/le-logis-de-la-petite-ourse"}>
+              <Link href={"/gites-vendee/le-logis-de-la-petite-ourse"}>
                 <Image
                   src={petiteOurse}
                   width={380}
@@ -264,7 +279,7 @@ export default function DescriptionWebSite() {
               </Link>
             </li>
             <li className=" h-[170px] md:h-[210px]  relative overflow-hidden group w-96 flex justify-center items-center bg-[#f5f0e8] ">
-              <Link href={"/gites/le-logis-de-la-grande-ourse"}>
+              <Link href={"/gites-vendee/le-logis-de-la-grande-ourse"}>
                 <p className=" text-text_color">
                   Disponible très prochainement !
                 </p>
@@ -295,7 +310,7 @@ export default function DescriptionWebSite() {
         >
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-4/5  md:w-full  cursor-pointer">
             <li className="relative overflow-hidden group">
-              <Link href={"/chambres/orion"}>
+              <Link href={"/chambres-dhotes-vendee/orion"}>
                 <Image
                   src={chambreOrion}
                   width={380}
@@ -314,8 +329,8 @@ export default function DescriptionWebSite() {
 
             <li className="relative overflow-hidden group">
               <Link
-                href={"/chambres/cassiopee"}
-                onClick={() => router.push("/chambres/cassiopee")}
+                href={"/chambres-dhotes-vendee/cassiopee"}
+                // onClick={() => router.push("/chambres-dhotes-vendee/cassiopee")}
               >
                 <Image
                   src={chambreCassiopee}
@@ -351,8 +366,8 @@ export default function DescriptionWebSite() {
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-4/5  md:w-full  cursor-pointer">
             <li className="relative overflow-hidden group">
               <Link
-                href={"/chambres/andromede"}
-                onClick={() => router.push("/chambres/andromede")}
+                href={"/chambres-dhotes-vendee/andromede"}
+                // onClick={() => router.push("/chambres-dhotes-vendee/andromede")}
               >
                 <Image
                   src={chambreAndromede}
@@ -371,8 +386,10 @@ export default function DescriptionWebSite() {
             </li>
             <li className="relative overflow-hidden group">
               <Link
-                href={"/chambres/suite-familiale-pegase"}
-                onClick={() => router.push("/chambres/suite-familiale-pegase")}
+                href={"/chambres-dhotes-vendee/suite-familiale-pegase"}
+                // onClick={() =>
+                //   router.push("/chambres-dhotes-vendee/suite-familiale-pegase")
+                // }
               >
                 <Image
                   src={chambrePegase}
@@ -428,14 +445,31 @@ export default function DescriptionWebSite() {
                     >
                       <p className="text-[0.9rem] mb-10  sm:mx-10 md:mx-20 lg:mx-44 text-pretty">
                         Idéalement situé pour découvrir notre belle région de
-                        Vendée, Le Plessis aux Lys n'est qu'à 10mn d'un des plus
-                        beaux villages de France : Vouvant et de la forêt de
-                        Mervent; à 20mn du marais Poitevin et des Abbayes de
-                        Maillezais et de Nieul-sur-l'Autise ; à 45 mn du Puy du
-                        Fou, 45 mn du Mont aux Alouettes et de ses Moulins; à 1
-                        heure des premières plages et de bien d'autres
-                        curiosités telles que La Rochelle, les îles de Ré et
-                        d'Oléron.
+                        <span className="font-semibold">Vendée</span>, Le
+                        Plessis aux Lys n'est qu'à 10mn d'un des plus beaux
+                        villages de France :{" "}
+                        <span className="font-semibold">Vouvant</span> et de la{" "}
+                        <span className="font-semibold">forêt de Mervent</span>;
+                        à 20mn du{" "}
+                        <span className="font-semibold">marais Poitevin</span>{" "}
+                        et des{" "}
+                        <span className="font-semibold">
+                          Abbayes de Maillezais et de Nieul-sur-l'Autise{" "}
+                        </span>
+                        ; à 45 mn du{" "}
+                        <span className="font-semibold">Puy du Fou</span>, 45 mn
+                        du{" "}
+                        <span className="font-semibold">
+                          Mont aux Alouettes
+                        </span>{" "}
+                        et de ses Moulins; à 1 heure des premières{" "}
+                        <span className="font-semibold">plages de Vendée </span>
+                        et de bien d'autres curiosités telles que{" "}
+                        <span className="font-semibold">La Rochelle</span>, les{" "}
+                        <span className="font-semibold">
+                          îles de Ré et d'Oléron
+                        </span>
+                        .
                       </p>
                     </motion.div>
                   </motion.section>
@@ -560,11 +594,20 @@ export default function DescriptionWebSite() {
                   transition={{ duration: 0.4 }}
                 >
                   <p className=" text-[0.9rem] mt-8 mb-6  md:mt-12  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 text-pretty">
-                    Entre balades bucoliques, découvertes historiques et
-                    paysages grandioses, La Chapelle aux Lys est le point de
-                    départ idéal pour explorer la région. Plongez dans les
-                    merveilles locales, à la rencontre d'une Vendée authentique
-                    et préservée !
+                    Entre{" "}
+                    <span className="font-semibold">balades bucoliques</span>,{" "}
+                    <span className="font-semibold">
+                      découvertes historiques
+                    </span>{" "}
+                    et{" "}
+                    <span className="font-semibold">paysages grandioses</span>,{" "}
+                    <span className="font-semibold">La Chapelle aux Lys </span>
+                    est le point de départ idéal pour explorer la région.
+                    Plongez dans les merveilles locales, à la rencontre d'une{" "}
+                    <span className="font-semibold">
+                      Vendée authentique
+                    </span> et <span className="font-semibold">préservée</span>{" "}
+                    !
                   </p>
                 </motion.div>
               </motion.section>
@@ -585,13 +628,13 @@ export default function DescriptionWebSite() {
                         <ChevronLeft
                           color="#bbbb57"
                           size={24}
-                          className="sm:hidden opacity-30 mb-16"
+                          className="sm:hidden opacity-30"
                         />
                         <ActivityUserCarousel slides={slides} />
                         <ChevronRight
                           color="#bbbb57"
                           size={24}
-                          className="sm:hidden opacity-30 mb-16"
+                          className="sm:hidden opacity-30"
                         />
                       </div>
                     </div>
@@ -641,12 +684,25 @@ export default function DescriptionWebSite() {
                 >
                   <div className="flex flex-col items-center text-[0.9rem]  my-12 lg:my-4  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
                     <p>
-                      Profitez d’un séjour unique en Vendée dans l’un de nos
-                      gîtes ou chambres d’hôtes de charme.
+                      Profitez d’un{" "}
+                      <span className="font-semibold">
+                        séjour unique en Vendée{" "}
+                      </span>
+                      dans l’un de nos{" "}
+                      <span className="font-semibold">gîtes</span> ou{" "}
+                      <span className="font-semibold">
+                        chambres d’hôtes de charme
+                      </span>
+                      .
                     </p>
                     <p>
-                      Consultez les disponibilités et contactez-nous pour
-                      réserver votre expérience inoubliable.
+                      Consultez les{" "}
+                      <span className="font-semibold">disponibilités</span> et
+                      contactez-nous pour réserver votre{" "}
+                      <span className="font-semibold">
+                        expérience inoubliable
+                      </span>
+                      .
                     </p>
                   </div>
                   <div className="flex justify-center mt-20 ">
