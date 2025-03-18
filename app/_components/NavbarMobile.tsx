@@ -43,9 +43,9 @@ export default function NavBarMobile() {
         </DropdownMenuTrigger>
         <DropdownMenuContent
           sideOffset={0}
-          className="border-none shadow-none bg-[#fdfdfd] w-[100vw] text-black h-screen  "
+          className="border-none shadow-none bg-[#fdfdfd] w-[100vw] text-text_color h-screen  "
         >
-          <DropdownMenuLabel className="flex  justify-center mt-4 mb-6 text-lg">
+          <DropdownMenuLabel className="flex  justify-center mt-4 mb-6 text-lg ">
             <div className="flex flex-col items-center">
               <p>Bienvenue </p>
               <span className="underline-menu  "></span>

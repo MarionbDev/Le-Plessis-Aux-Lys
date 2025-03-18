@@ -8,23 +8,23 @@ export const metadata: Metadata = {
   },
   title: "Cassiopée - Chambre d'hôte en Vendée",
   description:
-    "Séjournez dans le charmante chambre d'hôte 'Cassiopée', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité.",
+    "Découvrez la chambre d'hôte Cassiopée en Vendée : un hébergement de charme avec piscine chauffée, cadre verdoyant et activités à proximité. Idéal pour un séjour détente ou une escapade romantique..",
   keywords: [
-    "chambre d'hôte cassiopée",
-    "location chambre d'hôte Vendée",
-    "chambre d'hôte avec piscine chauffée",
-    "séjour Vendée",
-    "chambre d'hôte La Chapelle aux Lys",
-    "chambre d'hôte famille Vendée",
-    "vacances Vendée",
-    "chambre d'hôte avec activités en Vendée",
-    "location vacances Vendée",
-    "séjour à la campagne Vendée",
-    "chambre d'hôte en Vendée avec parc",
-    "séjour détente Vendée",
-    "tourisme Vendée",
-    "séjour nature Vendée",
+    "chambre d'hôte en Vendée avec piscine",
+    "séjour romantique en Vendée",
+    "hébergement de charme en Vendée",
+    "gîte et chambre d'hôte Vendée",
+    "chambre d'hôte avec petit-déjeuner Vendée",
+    "chambre d'hôte près du Puy du Fou",
+    "week-end en amoureux Vendée",
+    "location de vacances Vendée",
+    "où dormir en Vendée",
+    "meilleure chambre d'hôte en Vendée",
   ],
+  alternates: {
+    canonical: "https://le-plessis-aux-lys.fr/chambres-dhotes-vendee/cassiopee",
+  },
+
   creator: "Marion Baston",
   authors: [
     {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Cassiopée - Chambre d'hôte en Vendée",
     description:
       "Séjournez dans le charmante chambre d'hôte 'Cassiopée', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
-    url: "https://le-plessis-aux-lys.fr/chambres/cassiopee",
+    url: "https://le-plessis-aux-lys.fr/chambres-dhotes-vendee/cassiopee",
     type: "website",
     locale: "fr_FR",
     siteName: "Chambre Cassiopée",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Cassiopée - Chambre en Vendée",
     description:
       "Séjournez dans le charmante chambre 'Cassiopée', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
-    images: "https://le-plessis-aux-lys.fr/chambres/cassiopee/ch-2.webp",
+    images: ["https://le-plessis-aux-lys.fr/chambres/cassiopee/ch-2.webp"],
     site: "@le-plessis-aux-lys",
   },
 };

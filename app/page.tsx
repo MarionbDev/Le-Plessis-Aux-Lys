@@ -9,6 +9,7 @@ import UserLayout from "./(user)/layout";
 import DescriptionWebSite from "./_components/DescriptionWebSite";
 import ImageHomeWebSite from "./_components/ImageHomeWebSite";
 import CookieBanner from "./_components/map/CookieBanner";
+import Head from "./_components/metadata/Head";
 
 const DynamicMap = dynamic(() => import("./_components/map/Map"), {
   ssr: false,
@@ -74,6 +75,7 @@ export default function Home() {
 
   return (
     <UserLayout>
+      <Head />
       <div className="min-h-screen">
         <div className="fixed top-0 z-50 bg-none bg-transparent"></div>
         <main className="">
@@ -92,7 +94,7 @@ export default function Home() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <div className="flex justify-center flex-col items-center text-md lg:text-md mx-6 mt-8 md:mt-24 xl:mt-36 leading-loose">
+                  <div className="flex justify-center flex-col items-center text-md lg:text-md mx-6 mt-8 md:mt-24a xl:mt-36 leading-loose">
                     <div className="flex flex-col lg:flex-row items-center justify-center mt-16 lg:mt-0 gap-4 my-8 lg:my-20">
                       <span className="flex justify-center w-[16rem] border-t-2 border-separator"></span>
                       <h2 className="font-semibold text-center lg:text-lg uppercase lg:w-[20rem]">

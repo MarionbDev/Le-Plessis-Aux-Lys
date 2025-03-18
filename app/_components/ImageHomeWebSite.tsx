@@ -25,7 +25,7 @@ export default function ImageHomeWebSite() {
 
   return (
     <div className=" mt-6 md:mt-[6rem] lg:mt-[5rem] ">
-      <div className="absolute top-[21rem] lg:top-0 md:top-[25rem] lg:relative  lg:flex bg-yellow/50 w-full h-[11rem] sm:h-[15rem] xl:h-[20rem] "></div>
+      <div className="absolute top-[21rem] lg:top-0 md:top-[25rem] lg:relative  lg:flex bg-yellow/50 w-full h-[11rem] sm:h-[15rem] lg:h-[20rem] "></div>
       <div className=" flex flex-col items-center md:justify-center ">
         {/* <div className=" flex flex-col items-center md:justify-center "> */}
         <div className="home-title flex flex-col justify-center gap-4 md:mb-10  ">
@@ -73,7 +73,7 @@ export default function ImageHomeWebSite() {
             }`}
           />
         ))}
-        <div className="image-home-desk absolute flex justify-center items-center bg-slate-200/80 rounded-sm w-[22rem] h-[6.5rem] md:w-[25rem] md:h-[7rem] lg:w-[36rem] lg:h-[11rem] tracking-[6px]">
+        <div className="image-home-desk absolute  flex justify-center items-center bg-slate-200/80 rounded-sm w-[22rem] h-[6.5rem] md:w-[25rem] md:h-[7rem] lg:w-[36rem] lg:h-[11rem] tracking-[6px] ">
           <h2 className="flex flex-col justify-center items-center w-[20rem] h-[8rem] md:w-[23rem] md:h-[10rem] lg:w-[32rem] lg:h-[14rem] border-[2.3px] border-[#ffffff] font-prata text-[#a18527] uppercase text-2xl lg:text-3xl xl:text-4xl max-[390px]:tracking-[1px] max-[461px]:tracking-[2px] min-[462px]:tracking-[6px] ">
             <p className=" ">Gîtes</p>
             <p className=" ">&</p>

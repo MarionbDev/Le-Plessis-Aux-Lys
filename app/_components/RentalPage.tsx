@@ -95,7 +95,9 @@ export default function RentalPage({
                     {hasImage && (
                       <section className="flex flex-col lg:flex-row lg:justify-center lg:gap-8 sm:px-8 xl:mx-0">
                         <div className="flex justify-center items-center md:items-start  md:min-w-[39rem] xl:min-w-[48rem] mb-2 md:-mt-3 min-h-[14rem] ">
-                          <img
+                          <Image
+                            width={900}
+                            height={400}
                             src={mainImage}
                             alt={`Photo de ${title}`}
                             className="object-scale-down max-h-[14rem] md:max-h-[22rem] md:w-[39rem] rounded-sm"
@@ -162,9 +164,9 @@ export default function RentalPage({
                 </div>
               </div>
             ) : (
-              <section className="flex justify-center w-full ">
-                <div className="  mb-8 md:mb-20">
-                  <p className="text-center text-lg text-gray-600 py-8 px-3 ">
+              <section className="flex justify-center w-full md:mb-10">
+                <div className="  my-8  md:my-24 lg:my-12">
+                  <p className="text-center text-lg text-gray-900 py-8 px-3 ">
                     Les informations complémentaires sont en cours de mise à
                     jour. <br />
                     Elles seront disponibles très prochainement !
@@ -270,7 +272,7 @@ export default function RentalPage({
               <div className="flex justify-center mt-20 ">
                 <Link
                   href={"/nous-contacter"}
-                  className=" bg-yellow text-white  px-5 py-[0.5rem] rounded-md flex items-center gap-2 hover:bg-yellow/50 duration-100 shadow-md"
+                  className=" bg-yellow text-white  px-6 py-[0.6rem] rounded-full flex items-center gap-2 hover:bg-yellow/50 hover:text-text_color duration-300 shadow-md"
                 >
                   <Mail size={20} />
                   Réservez dès maintenant

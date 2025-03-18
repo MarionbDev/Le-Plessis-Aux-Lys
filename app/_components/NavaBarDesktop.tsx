@@ -21,7 +21,7 @@ export default function NavBarDesktop() {
 
   return (
     <div>
-      <div className=" font-text text-text_color flex gap-2 xl:gap-6 lg:px-10  border-none ">
+      <div className=" font-text text-text_color flex items-center gap-2 xl:gap-6 lg:px-10  border-none ">
         <Link
           href={"/"}
           className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/" ? styles.activeLink : styles.nonActiveLink}`}
@@ -120,14 +120,20 @@ export default function NavBarDesktop() {
           Activités
           <span className={styles.underline}></span>
         </Link>
-
-        <Link
-          href={"/nous-contacter"}
-          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/nous-contacter" ? styles.activeLink : styles.nonActiveLink}`}
-        >
-          Nous contacter
-          <span className={styles.underline}></span>
-        </Link>
+        <div className="group relative overflow-hidden rounded-full px-4 h-14 xl:h-9 flex justify-center items-center bg-yellow transition-all duration-500 text-white hover:text-text_color ">
+          <div className="absolute inset-0 bg-[#e2e293] w-0 group-hover:w-full transition-all duration-500 "></div>
+          <Link
+            href={"/nous-contacter"}
+            className={`relative z-10 text-xl lg:text-[1rem] flex flex-col   ${
+              currentRoute === "/nous-contacter"
+                ? styles.activeLink
+                : styles.nonActiveLink
+            }`}
+          >
+            Nous contacter
+            <span className={styles.noneUnderline}></span>
+          </Link>
+        </div>
 
         <Link
           href={"/login"}

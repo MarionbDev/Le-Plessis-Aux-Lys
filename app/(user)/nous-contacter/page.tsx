@@ -1,6 +1,6 @@
-import anes from "@/public/home/anes.webp";
-import beach from "@/public/home/beach4.webp";
-import nature from "@/public/home/nature.webp";
+import anes from "@/public/img-home/anes.webp";
+import beach from "@/public/img-home/beach4.webp";
+import nature from "@/public/img-home/nature.webp";
 import { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "./_components/Contact";

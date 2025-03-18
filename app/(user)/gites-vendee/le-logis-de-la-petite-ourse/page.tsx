@@ -8,23 +8,29 @@ export const metadata: Metadata = {
   },
   title: "Le Logis de la petite Ourse - Gîte en Vendée",
   description:
-    "Séjournez dans le charmant gîte 'Le Logis de la Petite Ourse', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité.",
+    "Découvrez le gîte Le Logis de la Petite Ourse en Vendée : un hébergement de charme avec piscine chauffée, cadre verdoyant et activités à proximité. Idéal pour un séjour détente ou une escapade romantique.",
   keywords: [
     "gîte petite ourse",
     "location gîte Vendée",
     "gîte avec piscine chauffée",
-    "séjour Vendée",
-    "gîte La Chapelle aux Lys",
-    "gîte famille Vendée",
-    "vacances Vendée",
-    "gîte avec activités en Vendée",
+    "gîte en Vendée avec piscine chauffée et grand jardin",
+    "séjour en famille en Vendée",
+    "hébergement touristique en Vendée",
     "location vacances Vendée",
+    "gîte en Vendée proche plage et nature",
+    "maison de vacances en Vendée",
     "séjour à la campagne Vendée",
-    "gîte en Vendée avec parc",
-    "séjour détente Vendée",
-    "tourisme Vendée",
-    "séjour nature Vendée",
+    "gîte de charme avec piscine en Vendée",
+    "location saisonnière Vendée",
+    "gîte avec jardin privatif en Vendée",
+    "séjour détente en Vendée",
+    "tourisme et nature en Vendée",
   ],
+
+  alternates: {
+    canonical:
+      "https://le-plessis-aux-lys.fr/gites-vendee/le-logis-de-la-petite-ourse",
+  },
   creator: "Marion Baston",
   authors: [
     {
@@ -36,7 +42,7 @@ export const metadata: Metadata = {
     title: "Le Logis de la Petite Ourse - Gîte en Vendée",
     description:
       "Séjournez dans le charmant gîte 'Le Logis de la Petite Ourse', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
-    url: "https://le-plessis-aux-lys.fr/gites/le-logis-de-la-petite-ourse",
+    url: "https://le-plessis-aux-lys.fr/gites-vendee/le-logis-de-la-petite-ourse",
     type: "website",
     locale: "fr_FR",
     siteName: "Gîte Le Logis de la Petite Ourse",

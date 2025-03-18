@@ -1,8 +1,8 @@
 "use client";
 
-import beach from "@/public/home/beach.webp";
-import marais from "@/public/home/marais.webp";
-import moulins from "@/public/home/moulins.webp";
+import beach from "@/public/img-home/beach.webp";
+import marais from "@/public/img-home/marais.webp";
+import moulins from "@/public/img-home/moulins.webp";
 import parc6 from "@/public/parc/parc-6.webp";
 
 import { Variants, motion } from "framer-motion";
@@ -182,7 +182,7 @@ export default function DescriptionWebSite() {
                         height={225}
                         sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                         alt="Photo du parc du gîte"
-                        className=" object-contain rounded-tl-[2rem] h-auto "
+                        className=" object-contain rounded-tl-[2rem] rounded-md h-auto "
                       />
                     </div>
                   </motion.div>
@@ -259,7 +259,7 @@ export default function DescriptionWebSite() {
           className="flex  justify-center"
         >
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-14 w-4/5  md:w-full ">
-            <li className="relative overflow-hidden  group   ">
+            <li className="relative overflow-hidden  group rounded-md   ">
               <Link href={"/gites-vendee/le-logis-de-la-petite-ourse"}>
                 <Image
                   src={petiteOurse}
@@ -268,7 +268,7 @@ export default function DescriptionWebSite() {
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt=""
                   aria-label="Accéder à la page du gîte Le Logis de la Petite Ourse"
-                  className="rounded-sm transition-transform transform group-hover:scale-125 duration-1000 h-auto pointer-events-none shadow-basic "
+                  className="rounded-md transition-transform transform group-hover:scale-125 duration-1000 h-auto pointer-events-none shadow-basic "
                 />
 
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
@@ -278,7 +278,7 @@ export default function DescriptionWebSite() {
                 </div>
               </Link>
             </li>
-            <li className=" h-[170px] md:h-[210px]  relative overflow-hidden group w-96 flex justify-center items-center bg-[#f5f0e8] ">
+            <li className=" h-[170px] md:h-[210px]  relative overflow-hidden group w-96 flex justify-center items-center bg-[#f8f5f0] rounded-md ">
               <Link href={"/gites-vendee/le-logis-de-la-grande-ourse"}>
                 <p className=" text-text_color">
                   Disponible très prochainement !
@@ -309,7 +309,7 @@ export default function DescriptionWebSite() {
           className="flex  justify-center"
         >
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-4/5  md:w-full  cursor-pointer">
-            <li className="relative overflow-hidden group">
+            <li className="relative overflow-hidden group rounded-t-md ">
               <Link href={"/chambres-dhotes-vendee/orion"}>
                 <Image
                   src={chambreOrion}
@@ -317,7 +317,7 @@ export default function DescriptionWebSite() {
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt=""
-                  className=" rounded-sm shadow-basic w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none "
+                  className=" rounded-md shadow-basic w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
@@ -327,7 +327,7 @@ export default function DescriptionWebSite() {
               </Link>
             </li>
 
-            <li className="relative overflow-hidden group">
+            <li className="relative overflow-hidden group rounded-t-md ">
               <Link
                 href={"/chambres-dhotes-vendee/cassiopee"}
                 // onClick={() => router.push("/chambres-dhotes-vendee/cassiopee")}
@@ -338,7 +338,7 @@ export default function DescriptionWebSite() {
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt=""
-                  className="rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125 duration-500 h-auto pointer-events-none"
+                  className="rounded-md shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125 duration-500 h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
@@ -364,7 +364,7 @@ export default function DescriptionWebSite() {
           className="flex  justify-center"
         >
           <ul className=" flex gap-8 xl:gap-16 flex-wrap justify-center mt-8 xl:mt-16 w-4/5  md:w-full  cursor-pointer">
-            <li className="relative overflow-hidden group">
+            <li className="relative overflow-hidden group rounded-t-md ">
               <Link
                 href={"/chambres-dhotes-vendee/andromede"}
                 // onClick={() => router.push("/chambres-dhotes-vendee/andromede")}
@@ -375,7 +375,7 @@ export default function DescriptionWebSite() {
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt=""
-                  className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none"
+                  className=" rounded-md shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
@@ -384,7 +384,7 @@ export default function DescriptionWebSite() {
                 </div>
               </Link>
             </li>
-            <li className="relative overflow-hidden group">
+            <li className="relative overflow-hidden group rounded-t-md ">
               <Link
                 href={"/chambres-dhotes-vendee/suite-familiale-pegase"}
                 // onClick={() =>
@@ -487,14 +487,14 @@ export default function DescriptionWebSite() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6 }}
                       >
-                        <figure>
+                        <figure className="">
                           <Image
                             src={beach}
-                            width={320}
+                            width={600}
                             height={180}
                             sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                             alt="Plage des Sables d'Olonne"
-                            className=" object-contain  rounded-sm h-auto  shadow-md shadow-slate-400   "
+                            className=" object-contain  rounded-sm w-[300px] h-auto  shadow-md shadow-slate-400   "
                           />
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Plage des Sables d'Olonne
@@ -513,16 +513,16 @@ export default function DescriptionWebSite() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6 }}
                       >
-                        <figure>
+                        <figure className="">
                           <Image
                             src={marais}
-                            width={230}
+                            width={900}
                             height={129}
                             sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 230px"
                             alt="Les marais Poitevin"
-                            className=" object-contain rounded-sm h-auto shadow-md shadow-slate-400    "
+                            className=" object-contain rounded-sm w-[300px] md:w-[250px] lg:w-full h-auto shadow-md shadow-slate-400   mx-auto "
                           />{" "}
-                          <figcaption className="italic pl-1 text-[12px] mt-1">
+                          <figcaption className="italic pl-1 text-[12px] w-[300px] md:w-[250px]   mt-1 mx-auto">
                             Les Marais poitevin
                           </figcaption>
                         </figure>
@@ -542,11 +542,11 @@ export default function DescriptionWebSite() {
                         <figure>
                           <Image
                             src={moulins}
-                            width={320}
+                            width={600}
                             height={180}
                             sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                             alt="Moulins du Mont-des-Alouettes"
-                            className=" object-contain  lg:object-scale-down  rounded-sm   h-auto shadow-md shadow-slate-400  "
+                            className=" object-contain  lg:object-scale-down  rounded-sm   w-[300px] h-auto shadow-md shadow-slate-400  "
                           />
                           <figcaption className="italic pl-1 text-[12px] mt-1">
                             Moulins du Mont-des-Alouettes
@@ -708,7 +708,7 @@ export default function DescriptionWebSite() {
                   <div className="flex justify-center mt-20 ">
                     <Link
                       href={"/nous-contacter"}
-                      className=" bg-yellow text-white  px-4 py-1 rounded-md flex items-center text-center gap-2 hover:bg-yellow/50 duration-100 shadow-md"
+                      className=" bg-yellow text-white  px-5 py-2 rounded-full flex items-center text-center gap-2 hover:bg-yellow/50 duration-300 shadow-md hover:text-text_color"
                     >
                       <Mail size={20} className="hidden sm:flex" />
                       Réservez votre séjour maintenant !
