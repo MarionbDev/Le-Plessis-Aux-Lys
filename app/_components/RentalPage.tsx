@@ -93,14 +93,14 @@ export default function RentalPage({
                 <div className="  flex flex-col items-center">
                   <div className="relative md:min-h-[22rem]">
                     {hasImage && (
-                      <section className="flex flex-col lg:flex-row lg:justify-center lg:gap-8 sm:px-8 xl:mx-0">
+                      <section className="flex flex-col items-center lg:items-start lg:flex-row lg:justify-center lg:gap-8 sm:px-8 xl:mx-0">
                         <div className="flex justify-center items-center md:items-start  md:min-w-[39rem] xl:min-w-[48rem] mb-2 md:-mt-3 min-h-[14rem] ">
                           <Image
                             width={900}
                             height={400}
                             src={mainImage}
                             alt={`Photo de ${title}`}
-                            className="object-scale-down max-h-[14rem] md:max-h-[22rem] md:w-[39rem] rounded-sm"
+                            className="object-scale-down min-w-[17rem] w-[22rem]  h-auto  sm:w-[34rem] md:w-[39rem] rounded-sm"
                             onLoad={() => setLoading(false)}
                           />
                         </div>
@@ -269,13 +269,13 @@ export default function RentalPage({
                 détente dans un cadre unique en Vendée. Contactez-nous dès
                 maintenant pour réserver votre séjour.
               </p>
-              <div className="flex justify-center mt-20 ">
+              <div className="flex justify-center w-2/3 mt-20 ">
                 <Link
                   href={"/nous-contacter"}
-                  className=" bg-yellow text-white  px-6 py-[0.6rem] rounded-full flex items-center gap-2 hover:bg-yellow/50 hover:text-text_color duration-300 shadow-md"
+                  className=" bg-yellow text-white  px-6 py-[0.6rem] rounded-full flex items-center gap-2 hover:bg-yellow/50 hover:text-text_color duration-300 shadow-md  text-center"
                 >
-                  <Mail size={20} />
-                  Réservez dès maintenant
+                  <Mail size={20} className="hidden sm:flex" />
+                  Réservez votre séjour maintenant !
                 </Link>
               </div>
             </div>

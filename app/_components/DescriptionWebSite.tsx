@@ -268,12 +268,20 @@ export default function DescriptionWebSite() {
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt=""
                   aria-label="Accéder à la page du gîte Le Logis de la Petite Ourse"
-                  className="rounded-md transition-transform transform group-hover:scale-125 duration-1000 h-auto pointer-events-none shadow-basic "
+                  className="rounded-md  h-auto pointer-events-none shadow-basic "
                 />
 
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
                     Le logis de la Petite Ourse
+                  </p>
+                </div>
+                <div
+                  className="hidden absolute inset-0 md:flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-xl 
+      opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                >
+                  <p className="text-white font-semibold text-lg">
+                    Consultez les disponibilités
                   </p>
                 </div>
               </Link>
@@ -289,6 +297,14 @@ export default function DescriptionWebSite() {
                     aria-label="Accéder au Logis de la Grande Ourse"
                   >
                     Le Logis de la Grande Ourse
+                  </p>
+                </div>
+                <div
+                  className="hidden absolute inset-0 md:flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-xl 
+      opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                >
+                  <p className="text-white font-semibold text-lg">
+                    Consultez les disponibilités
                   </p>
                 </div>
               </Link>
@@ -317,11 +333,19 @@ export default function DescriptionWebSite() {
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt=""
-                  className=" rounded-md shadow-basic w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none "
+                  className=" rounded-md shadow-basic w-[24rem]   h-auto pointer-events-none "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
                     Chambre Orion
+                  </p>
+                </div>
+                <div
+                  className="hidden absolute inset-0 md:flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-xl 
+      opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                >
+                  <p className="text-white font-semibold text-lg">
+                    Consultez les disponibilités
                   </p>
                 </div>
               </Link>
@@ -338,11 +362,19 @@ export default function DescriptionWebSite() {
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt=""
-                  className="rounded-md shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125 duration-500 h-auto pointer-events-none"
+                  className="rounded-md shadow-basic  w-[24rem]   h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
                     Chambre Cassiopée
+                  </p>
+                </div>
+                <div
+                  className="hidden absolute inset-0 md:flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-xl 
+      opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                >
+                  <p className="text-white font-semibold text-lg">
+                    Consultez les disponibilités
                   </p>
                 </div>
               </Link>
@@ -375,11 +407,19 @@ export default function DescriptionWebSite() {
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt=""
-                  className=" rounded-md shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-1000 h-auto pointer-events-none"
+                  className=" rounded-md shadow-basic  w-[24rem]   h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
                     Chambre Andromède
+                  </p>
+                </div>
+                <div
+                  className="hidden absolute inset-0 md:flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-xl 
+      opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                >
+                  <p className="text-white font-semibold text-lg">
+                    Consultez les disponibilités
                   </p>
                 </div>
               </Link>
@@ -397,11 +437,19 @@ export default function DescriptionWebSite() {
                   height={214}
                   sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
                   alt=""
-                  className=" rounded-sm shadow-basic  w-[24rem]  transition-transform transform group-hover:scale-125  duration-500 h-auto pointer-events-none"
+                  className=" rounded-sm shadow-basic  w-[24rem]   h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
                     Suite familiale Pégase
+                  </p>
+                </div>
+                <div
+                  className="hidden absolute inset-0 md:flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-xl 
+      opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                >
+                  <p className="text-white font-semibold text-lg">
+                    Consultez les disponibilités
                   </p>
                 </div>
               </Link>
