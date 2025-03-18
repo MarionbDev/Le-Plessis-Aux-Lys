@@ -39,9 +39,10 @@ const CarouselActivity: React.FC<PropType> = ({ slides, options }) => {
                       height={144}
                       sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 256px"
                       alt={`Photo ${index + 1}`}
-                      className="object-scale-down h-auto shadow-md shadow-slate-400 "
+                      className="object-scale-down h-auto shadow-md shadow-slate-400 opacity-90   "
                     />
-                    <div className="absolute top-1/2 transform -translate-y-1/2 mx-8 left-0 right-0 bg-black  bg-opacity-30 backdrop-blur-xl flex items-center text-white rounded-md border-white border-2 ">
+
+                    <div className="absolute top-1/2 transform -translate-y-1/2 mx-8 left-0 right-0  bg-opacity-20 backdrop-blur-xl flex items-center text-white rounded-md border-white border-2 ">
                       <p className="px-2 py-1 w-full text-[14px] font-bold text-center ">
                         {slide.title}
                       </p>
