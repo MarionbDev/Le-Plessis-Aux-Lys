@@ -61,7 +61,7 @@ export default function VisitArticle({
         transition={{ duration: 0.5 }}
       >
         <div>
-          <Card className=" font-text  text-[0.9rem] text-text_color flex flex-col lg:flex-row bg-[#f8f5f0] border-none shadow-md  py-6 ">
+          <Card className=" font-text  text-[1rem] sm:text-[0.9rem] text-text_color flex flex-col lg:flex-row bg-[#f8f5f0] border-none shadow-md  py-6 ">
             {image_path && (
               <CardHeader className=" pb-0  flex flex-col items-center xl:min-w-[16rem]    ">
                 <div className="flex justify-center   ">
@@ -76,13 +76,13 @@ export default function VisitArticle({
               </CardHeader>
             )}
             <div className=" flex flex-col lg:w-[50rem]">
-              <CardTitle className="text-balance text-center lg:text-left text-[1.1rem] mx-6 mt-6 lg:mt-2 pb-3 ">
+              <CardTitle className="text-balance text-center lg:text-left text-[1.2rem] mx-6 mt-6 lg:mt-2 pb-3 ">
                 {title}
               </CardTitle>
-              <CardDescription className="mb-2 mx-6 text-[0.9rem]  ">
+              <CardDescription className="mb-2 mx-6 text-[1rem] sm:text-[0.9rem]  ">
                 <p>{description}</p>
               </CardDescription>
-              <CardContent className=" text-pretty lg:pr-12 pb-3 text-[0.9rem]  marker:text-text_color ">
+              <CardContent className=" text-pretty lg:pr-12 pb-3 text-[1rem] sm:text-[0.9rem]  marker:text-text_color ">
                 <p dangerouslySetInnerHTML={{ __html: content }} />
                 <div className="flex items-center flex-wrap mt-8">
                   <p>Pour en savoir plus : &nbsp;</p>
@@ -90,7 +90,7 @@ export default function VisitArticle({
                     href={getCompleteUrl(url_link)}
                     target="blank"
                     rel="noopener noreferrer"
-                    className=" text-start  focus:outline-none focus:ring-2 focus:ring-gold font-medium hover:text-gold py-2 md:py-0 text-[0.9rem]"
+                    className=" text-start  focus:outline-none focus:ring-2 focus:ring-gold font-medium hover:text-gold py-2 md:py-0 text-[1rem] sm:text-[0.9rem]"
                     aria-label={`Visiter le site  ${url_link}`}
                   >
                     {url_link}

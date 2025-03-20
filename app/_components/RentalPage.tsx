@@ -146,7 +146,7 @@ export default function RentalPage({
                       <div className="mt-12 md:mt-20 mb-8 md:mb-16 ">
                         <p
                           dangerouslySetInnerHTML={{ __html: description }}
-                          className="prose text-[0.9rem] text-left  px-4 md:px-20 lg:px-6 w-96 max-w-[60rem] sm:min-w-[34rem] md:min-w-[52rem] mb-8"
+                          className="prose text-pretty text-[1rem] text-left  px-4 md:px-20 lg:px-6 w-96 max-w-[60rem] sm:min-w-[34rem] md:min-w-[52rem] mb-8"
                         />
                       </div>
                     </section>
@@ -210,7 +210,7 @@ export default function RentalPage({
                 </div>
 
                 {/* Section tarifs*/}
-                <section className=" flex flex-col items-center  xl:justify-start mt-8 md:mt-0  xl:min-w-[30rem] max-w-[40rem] xl:mt-0  ">
+                <section className=" flex flex-col items-center  xl:justify-start mt-8 md:mt-0  xl:min-w-[30rem] max-w-[40rem] xl:mt-0   ">
                   <div className="flex flex-col gap-10 md:gap-14 xl:gap-8  items-center">
                     <div>
                       <h2 className=" font-prata font-medium text-center lg:text-xl tracking-[2px] uppercase lg:w-[27rem]   ">
@@ -225,16 +225,20 @@ export default function RentalPage({
                           de Juin à Août
                         </p>
 
-                        <div className="flex justify-center gap-20 mt-4 text-[0.9rem]">
+                        <div className="flex justify-center gap-20 mt-4 text-[1rem]">
                           <div>
                             <p>La nuit </p>
-                            <p>{displayRate(highSeasonNightRate)}</p>
+                            <p className="font-semibold">
+                              {displayRate(highSeasonNightRate)}
+                            </p>
                           </div>
                           <div>
                             {" "}
                             <div>
                               <p>La Semaine </p>
-                              <p>{displayRate(highSeasonWeeklyRate)}</p>
+                              <p className="font-semibold">
+                                {displayRate(highSeasonWeeklyRate)}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -244,16 +248,20 @@ export default function RentalPage({
                         <p className=" mt-2 italic text-center text-sm  px-5">
                           de Septembre à Mai
                         </p>
-                        <div className="flex gap-20 justify-center mt-4 text-[0.9rem]">
+                        <div className="flex gap-20 justify-center mt-4 text-[1rem]">
                           <div>
                             <p>La nuit </p>
-                            <p>{displayRate(lowSeasonNightRate)}</p>
+                            <p className="font-semibold">
+                              {displayRate(lowSeasonNightRate)}
+                            </p>
                           </div>
                           <div>
                             {" "}
                             <div>
                               <p>La Semaine </p>
-                              <p>{displayRate(lowSeasonWeeklyRate)}</p>
+                              <p className="font-semibold">
+                                {displayRate(lowSeasonWeeklyRate)}
+                              </p>
                             </div>
                           </div>
                         </div>

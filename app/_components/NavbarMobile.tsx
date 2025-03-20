@@ -39,7 +39,7 @@ export default function NavBarMobile() {
           aria-label="Menu de navigation"
           className="ml-6 my-3"
         >
-          <Menu className="w-11 h-11 text-white p-2 rounded-full bg-[#64641fd8]" />
+          <Menu className="w-11 h-11 text-white p-2 rounded-full bg-yellow" />
         </DropdownMenuTrigger>
         <DropdownMenuContent
           sideOffset={0}
@@ -193,7 +193,7 @@ export default function NavBarMobile() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/nous-contacter")}
-                className="text-[1rem]"
+                className="text-[1rem] text-white bg-yellow rounded-full px-6"
               >
                 Nous contacter
               </MenubarTrigger>

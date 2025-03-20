@@ -139,7 +139,7 @@ export default function DescriptionWebSite() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <p className="text-[0.9rem] max-w-[50rem] text-pretty sm:px-0  ">
+                    <p className="text-[1rem] sm:text-[0.9rem] max-w-[50rem] text-pretty sm:px-0  ">
                       <span className="font-semibold">
                         Demeure de caractère
                       </span>{" "}
@@ -223,7 +223,7 @@ export default function DescriptionWebSite() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <p className=" text-[0.9rem] my-8 md:my-12 lg:my-4 mx-2 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 text-pretty">
+                <p className=" text-[1rem] sm:text-[0.9rem] my-8 md:my-12 lg:my-4 mx-2 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 text-pretty">
                   Trois{" "}
                   <span className="font-semibold">chambres de charme</span>, une{" "}
                   <span className="font-semibold">suite familiale</span> pour 5
@@ -272,7 +272,7 @@ export default function DescriptionWebSite() {
                 />
 
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
+                  <p className="pl-4 text-[1rem] sm:text-[0.9rem] font-semibold text-white py-2">
                     Le logis de la Petite Ourse
                   </p>
                 </div>
@@ -293,7 +293,7 @@ export default function DescriptionWebSite() {
                 </p>
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p
-                    className="pl-4 text-[0.9rem] font-semibold text-white py-2"
+                    className="pl-4 text-[1rem] sm:text-[0.9rem] font-semibold text-white py-2"
                     aria-label="Accéder au Logis de la Grande Ourse"
                   >
                     Le Logis de la Grande Ourse
@@ -336,7 +336,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-md shadow-basic w-[24rem]   h-auto pointer-events-none "
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
+                  <p className="pl-4 text-[1rem] sm:text-[0.9rem] font-semibold text-white py-2">
                     Chambre Orion
                   </p>
                 </div>
@@ -365,7 +365,7 @@ export default function DescriptionWebSite() {
                   className="rounded-md shadow-basic  w-[24rem]   h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
+                  <p className="pl-4 text-[1rem] sm:text-[0.9rem] font-semibold text-white py-2">
                     Chambre Cassiopée
                   </p>
                 </div>
@@ -410,7 +410,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-md shadow-basic  w-[24rem]   h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
+                  <p className="pl-4 text-[1rem] sm:text-[0.9rem] font-semibold text-white py-2">
                     Chambre Andromède
                   </p>
                 </div>
@@ -440,7 +440,7 @@ export default function DescriptionWebSite() {
                   className=" rounded-sm shadow-basic  w-[24rem]   h-auto pointer-events-none"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
-                  <p className="pl-4 text-[0.9rem] font-semibold text-white py-2">
+                  <p className="pl-4 text-[1rem] sm:text-[0.9rem] font-semibold text-white py-2">
                     Suite familiale Pégase
                   </p>
                 </div>
@@ -491,7 +491,7 @@ export default function DescriptionWebSite() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.6 }}
                     >
-                      <p className="text-[0.9rem] mb-10  sm:mx-10 md:mx-20 lg:mx-44 text-pretty">
+                      <p className="text-[1rem] sm:text-[0.9rem] mb-10  sm:mx-10 md:mx-20 lg:mx-44 text-pretty">
                         Idéalement situé pour découvrir notre belle région de
                         <span className="font-semibold">Vendée</span>, Le
                         Plessis aux Lys n'est qu'à 10mn d'un des plus beaux
@@ -641,7 +641,7 @@ export default function DescriptionWebSite() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <p className=" text-[0.9rem] mt-8 mb-6  md:mt-12  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 text-pretty">
+                  <p className=" text-[1rem] sm:text-[0.9rem] mt-8 mb-6  md:mt-12  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 text-pretty">
                     Entre{" "}
                     <span className="font-semibold">balades bucoliques</span>,{" "}
                     <span className="font-semibold">
@@ -730,7 +730,7 @@ export default function DescriptionWebSite() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <div className="flex flex-col items-center text-[0.9rem]  my-12 lg:my-4  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
+                  <div className="flex flex-col items-center text-[1rem] sm:text-[0.9rem]  my-8 lg:my-4  px-4 sm:mx-10 md:mx-20 lg:mx-44 xl:mx-72 xl:max-w-[72rem]">
                     <p>
                       Profitez d’un{" "}
                       <span className="font-semibold">
