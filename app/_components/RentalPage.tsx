@@ -66,6 +66,7 @@ export default function RentalPage({
     const cleanedDescription = description.replace(/<[^>]*>/g, "").trim();
     return cleanedDescription.length > 0;
   };
+
   return (
     <div className="font-text text-text_color sm:mt-10  flex justify-center md:justify-around ">
       <div className="absolute top-[14rem] sm:top-[12rem]  md:top-[14rem] lg:top-[17rem]  lgd:relative  lg:flex bg-yellow/50 w-full h-[11rem] md:h-[15rem]  "></div>

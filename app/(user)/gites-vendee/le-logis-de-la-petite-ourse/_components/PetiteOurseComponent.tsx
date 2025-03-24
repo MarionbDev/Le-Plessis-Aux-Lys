@@ -15,7 +15,6 @@ export default function LaPetiteOurse() {
 
   const { rates, loading: ratesLoading, error } = useRentalRates("petiteOurse");
   const { rentals, loading: rentalsLoading } = useRentalDetails("petiteOurse");
-
   const fetchImages = useCallback(async () => {
     try {
       const images = await getImagesFromBucket("petiteOurse");
