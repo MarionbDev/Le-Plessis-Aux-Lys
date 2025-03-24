@@ -100,7 +100,7 @@ export default function RentalPage({
                             height={400}
                             src={mainImage}
                             alt={`Photo de ${title}`}
-                            className="object-scale-down min-w-[17rem] w-[22rem]  h-auto  sm:w-[34rem] md:w-[39rem] rounded-sm"
+                            className="object-scale-down min-w-[17rem] w-[22rem]  max-h-[30rem]  sm:w-[34rem] md:w-[39rem] rounded-sm"
                             onLoad={() => setLoading(false)}
                           />
                         </div>
