@@ -6,7 +6,7 @@ import { ImageType } from "@/app/types";
 import { useRentalDetails } from "@/hooks/useRentalDetails";
 import { useRentalRates } from "@/hooks/useRentalRates";
 import { Loader } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function LaPetiteOurse() {
   const [imagesPetiteOurse, setImagesPetiteOurse] = useState<ImageType[]>([]);
@@ -33,10 +33,13 @@ export default function LaPetiteOurse() {
     fetchImages();
   }, [fetchImages]);
 
-  const imageUrls = useMemo(
-    () => imagesPetiteOurse.map((image) => image.path),
-    [imagesPetiteOurse],
-  );
+  // const imageUrls = useMemo(
+  //   () => imagesPetiteOurse.map((image) => image.path),
+  //   [imagesPetiteOurse],
+  // );
+  const imageUrls = imagesPetiteOurse.map((image) => {
+    return image.path;
+  });
 
   if (loading || ratesLoading || rentalsLoading) {
     return (
