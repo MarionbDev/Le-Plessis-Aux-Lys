@@ -33,11 +33,11 @@ export default function NavBarMobile() {
   };
 
   return (
-    <div className="navbar-mobile flex justify-start bg-[#fdfdfd]  ">
+    <div className="navbar-mobile flex justify-end bg-[#fdfdfd]  ">
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger
           aria-label="Menu de navigation"
-          className="ml-6 my-3"
+          className="mr-6 my-3 "
         >
           <Menu className="w-11 h-11 text-white p-2 rounded-full bg-yellow" />
         </DropdownMenuTrigger>
