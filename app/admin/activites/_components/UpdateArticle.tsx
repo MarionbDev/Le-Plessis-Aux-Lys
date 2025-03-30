@@ -25,9 +25,7 @@ import { useRouter } from "next/navigation";
 import { toast, Toaster } from "sonner";
 import { z } from "zod";
 
-const ReactQuill = dynamic(() => import("react-quill"), {
-  ssr: false,
-});
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 const formSchema = z.object({
   title: z.string().min(1, { message: "Veuillez renseigner un titre !" }),
