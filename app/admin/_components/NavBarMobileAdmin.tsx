@@ -4,7 +4,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
@@ -33,7 +32,7 @@ export default function NavBarMobileAdmin() {
   };
 
   return (
-    <div className="navbar-mobile flex justify-start">
+    <div className="navbar-mobile flex justify-start bg-[#fdfdfd]">
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger
           aria-label="Menu de navigation"
@@ -41,12 +40,15 @@ export default function NavBarMobileAdmin() {
         >
           <Menu className="w-11 h-11 text-white p-2 rounded-full bg-[#64641fd8]" />
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-[#fafafc] ml-4 w-64">
-          <DropdownMenuLabel className="flex justify-center my-2 text-lg">
-            Bienvenue
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator className="border-b-[1px]" />
-          <Menubar className="flex flex-col items-start h-82 gap-6 px-6 border-none">
+        <DropdownMenuContent className="border-none shadow-none bg-[#fdfdfd] w-[100vw] text-black h-screen ">
+          <DropdownMenuLabel className="flex  justify-center mt-4 mb-6 text-lg">
+            <div className="flex flex-col items-center">
+              <p>Bienvenue </p>
+              <span className="underline-menu  "></span>
+            </div>
+          </DropdownMenuLabel>{" "}
+          <Menubar className="flex flex-col items-center gap-6 border-none  h-full overflow-y-auto pb-52">
+            {" "}
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin")} // Fermer le menu après la navigation
@@ -55,7 +57,6 @@ export default function NavBarMobileAdmin() {
                 Tableau de bord
               </MenubarTrigger>
             </MenubarMenu>
-
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin/tarifs")}
@@ -64,7 +65,6 @@ export default function NavBarMobileAdmin() {
                 Tarifs
               </MenubarTrigger>
             </MenubarMenu>
-
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin/reservations")}
@@ -73,7 +73,6 @@ export default function NavBarMobileAdmin() {
                 Réservations
               </MenubarTrigger>
             </MenubarMenu>
-
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin/details")}
@@ -98,7 +97,6 @@ export default function NavBarMobileAdmin() {
                 Activités
               </MenubarTrigger>
             </MenubarMenu>
-
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/admin/parametres")}
@@ -107,7 +105,6 @@ export default function NavBarMobileAdmin() {
                 Paramètres
               </MenubarTrigger>
             </MenubarMenu>
-
             <MenubarMenu>
               <MenubarTrigger
                 onClick={handleLogOut} // Fermer le menu et naviguer vers la page de connexion

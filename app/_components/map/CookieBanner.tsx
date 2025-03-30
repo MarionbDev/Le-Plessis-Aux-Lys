@@ -27,13 +27,13 @@ export default function CookieBanner({
   const handleAccept = () => {
     localStorage.setItem("cookiesAccepted", "true");
     setIsVisible(false);
-    if (onAccept) onAccept(); // notifie le parent si une fonction est fournie
+    if (onAccept) onAccept(); 
   };
 
   const handleReject = () => {
     localStorage.setItem("cookiesAccepted", "false");
     setIsVisible(false);
-    if (onReject) onReject(); // notifie le parent si une fonction est fournie
+    if (onReject) onReject(); 
   };
 
   if (!isVisible) return null;

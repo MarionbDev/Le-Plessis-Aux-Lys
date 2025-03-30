@@ -6,22 +6,24 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  title:
-    "Galerie Photo Parc & Jardin - Le Plessis aux Lys Gîtes et Chambres d'hôtes en Vendée",
+  title: "Galerie Photo Jardin - Le Plessis aux Lys en Vendée",
   description:
-    "Explorez la galerie photo du parc et jardin du Plessis aux Lys. Découvrez un espace verdoyant, des fleurs, des allées et des paysages enchanteurs en Vendée.",
+    "Découvrez le jardin du Plessis aux Lys en Vendée : un espace verdoyant idéal pour la détente, la balade et l'évasion au cœur de la nature.",
   keywords: [
-    "galerie photo parc Vendée",
-    "jardin Plessis aux Lys",
-    "parc et jardin Vendée",
-    "espace vert Vendée",
-    "paysage nature Vendée",
-    "parc floral Vendée",
-    "jardin détente Vendée",
-    "photos parc et jardin",
-    "balade parc Vendée",
-    "nature et détente Vendée",
+    "galerie photo jardin Vendée",
+    "parc fleuri Le Plessis aux Lys",
+    "balade nature en Vendée",
+    "jardin botanique en Vendée",
+    "parc et nature Vendée",
+    "jardin fleuri Vendée",
+    "détente en pleine nature Vendée",
+    "lieu paisible en Vendée",
+    "paysages verdoyants Vendée",
+    "où se promener en Vendée",
   ],
+  alternates: {
+    canonical: "https://le-plessis-aux-lys.fr/jardin",
+  },
   creator: "Marion Baston",
   authors: [
     {
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
         url: "https://le-plessis-aux-lys.fr/parc/Parc-2.webp",
         width: 1200,
         height: 630,
-        alt: "Vue du jardin fleuri au Plessis aux Lys",
+        alt: "Jardin fleuri et parc verdoyant du Plessis aux Lys en Vendée",
       },
     ],
   },
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
       "Galerie Photo Parc & Jardin - Le Plessis aux Lys Gîtes et Chambres d'hôtes en Vendée",
     description:
       "Découvrez les merveilles du parc et jardin du Plessis aux Lys en Vendée. Un espace naturel pour se détendre et se ressourcer.",
-    images: "https://le-plessis-aux-lys.fr/parc/Parc-2.webp",
+    images: ["https://le-plessis-aux-lys.fr/parc/Parc-2.webp"],
     site: "@le-plessis-aux-lys",
   },
 };

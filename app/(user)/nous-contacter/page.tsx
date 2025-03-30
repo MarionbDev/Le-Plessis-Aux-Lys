@@ -1,6 +1,6 @@
-import anes from "@/public/home/anes.webp";
-import beach from "@/public/home/beach4.webp";
-import nature from "@/public/home/nature.webp";
+import anes from "@/public/img-home/anes.webp";
+import beach from "@/public/img-home/beach4.webp";
+import nature from "@/public/img-home/nature.webp";
 import { Metadata } from "next";
 import Image from "next/image";
 import ContactForm from "./_components/Contact";
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: "Contactez Le Plessis aux Lys",
     description:
       "Pour toute information ou demande, contactez Le Plessis aux Lys pour en savoir plus sur votre séjour.",
-    images: "https://le-plessis-aux-lys.fr/home/beach4.webpg",
+    images: ["https://le-plessis-aux-lys.fr/home/beach4.webpg"],
     site: "@le-plessis-aux-lys",
   },
 };
@@ -68,27 +68,27 @@ export default function ContactPage() {
           </div>
 
           <div className="flex justify-center items-center sm:hidden"></div>
-          <div className=" flex justify-center flex-wrap mx-7 sm:mx-0  gap-3  ">
+          <div className=" flex justify-center flex-wrap mx-7 sm:mx-0  gap-6  ">
             <Image
               src={beach}
               width={300}
               height={200}
               alt="image"
-              className="  shadow-basic rounded-sm w-[9rem] sm:w-[18rem] md:w-[22rem]  lg:w-[16rem] xl:w-[18rem] h-auto "
+              className="  shadow-basic rounded-tl-[2rem] rounded-br-[2rem] md:rounded-br-[5rem]  md:rounded-tl-[5rem] w-[9rem] sm:w-[18rem] md:w-[22rem]  lg:w-[16rem] xl:w-[18rem] h-auto "
             />
             <Image
               src={nature}
               width={300}
-              height={169}
+              height={200}
               alt="image"
-              className=" shadow-basic rounded-sm  w-[9rem] sm:w-[18rem]  md:w-[22rem]   lg:w-[16rem] xl:w-[18rem] h-auto "
+              className=" shadow-basic rounded-tl-[2rem] rounded-br-[2rem] md:rounded-tl-[5rem]  md:rounded-br-[5rem]  w-[9rem] sm:w-[18rem]  md:w-[22rem]   lg:w-[16rem] xl:w-[18rem] h-auto "
             />
             <Image
               src={anes}
-              width={200}
-              height={101}
+              width={300}
+              height={200}
               alt="image"
-              className=" shadow-basic rounded-sm  w-[9rem] sm:w-[18rem]  md:w-[22rem]   lg:w-[16rem] xl:w-[18rem] h-auto "
+              className=" shadow-basic rounded-tl-[2rem] rounded-br-[2rem] md:rounded-tl-[5rem]  md:rounded-br-[5rem]  w-[10rem] sm:w-[19rem]  md:w-[23rem] d  lg:w-[17rem] xl:w-[20rem] h-auto "
             />
           </div>
         </div>

@@ -8,23 +8,23 @@ export const metadata: Metadata = {
   },
   title: "Activités en Vendée - Que faire autour du Plessis aux Lys",
   description:
-    "Découvrez les meilleures activités en Vendée autour du Plessis aux Lys : randonnées, visites culturelles, plages, parcs d'attractions, et gastronomie locale.",
+    "Explorez la Vendée autour du Plessis aux Lys : plages de sable fin, randonnées en pleine nature, patrimoine historique et activités familiales inoubliables. Idéal pour des vacances en Vendée !",
   keywords: [
-    "activités Vendée",
-    "tourisme Vendée",
-    "que faire en Vendée",
-    "Marais Poitevin",
-    "plage Vendée",
-    "vacances famille Vendée",
-    "visites culturelles Vendée",
-    "randonnées Vendée",
-    "parcs d'attractions Vendée",
-    "gastronomie Vendée",
-    "plages Vendée",
-    "activités familiales Vendée",
-    "loisirs nature Vendée",
-    "découvertes locales Vendée",
+    "activités en Vendée",
+    "que faire en Vendée ce week-end",
+    "meilleures randonnées en Vendée",
+    "plages familiales en Vendée",
+    "visites incontournables Vendée",
+    "Puy du Fou et autres parcs en Vendée",
+    "tourisme nature Vendée",
+    "balades et randonnées Vendée",
+    "idées de sorties Vendée",
+    "expériences gastronomiques Vendée",
+    "activités gratuites en Vendée",
   ],
+  alternates: {
+    canonical: "https://le-plessis-aux-lys.fr/activites",
+  },
   creator: "Marion Baston",
   authors: [
     {
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Activités en Vendée - Que faire autour du Plessis aux Lys",
     description:
       "Profitez d'activités variées autour du Plessis aux Lys en Vendée : randonnées, patrimoine, plages et parcs de loisirs pour toute la famille.",
-    images: "https://le-plessis-aux-lys.fr/activites/family.webp",
+    images: ["https://le-plessis-aux-lys.fr/activites/family.webp"],
     site: "@le-plessis-aux-lys",
   },
 };

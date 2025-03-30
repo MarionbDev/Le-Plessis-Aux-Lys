@@ -33,19 +33,19 @@ export default function NavBarMobile() {
   };
 
   return (
-    <div className="navbar-mobile flex justify-start bg-[#fdfdfd] ">
+    <div className="navbar-mobile flex justify-end bg-[#fdfdfd]  ">
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger
           aria-label="Menu de navigation"
-          className="ml-6 mt-6"
+          className="mr-6 my-3 "
         >
-          <Menu className="w-11 h-11 text-white p-2 rounded-full bg-[#64641fd8]" />
+          <Menu className="w-11 h-11 text-white p-2 rounded-full bg-yellow" />
         </DropdownMenuTrigger>
         <DropdownMenuContent
           sideOffset={0}
-          className="border-none shadow-none bg-[#fdfdfd] w-[100vw] text-black h-screen  "
+          className="border-none shadow-none bg-[#fdfdfd] w-[100vw] text-text_color h-screen  "
         >
-          <DropdownMenuLabel className="flex  justify-center mt-4 mb-6 text-lg">
+          <DropdownMenuLabel className="flex  justify-center mt-4 mb-6 text-lg ">
             <div className="flex flex-col items-center">
               <p>Bienvenue </p>
               <span className="underline-menu  "></span>
@@ -81,10 +81,12 @@ export default function NavBarMobile() {
                 <div className=" flex flex-col items-center -mt-6   ">
                   <DropdownMenuItem className="text-md">
                     <Link
-                      href="/gites/le-logis-de-la-petite-ourse"
+                      href="/gites-vendee/le-logis-de-la-petite-ourse"
                       className="text-[1rem]"
                       onClick={() =>
-                        handleNavigation("/gites/le-logis-de-la-petite-ourse")
+                        handleNavigation(
+                          "/gites-vendee/le-logis-de-la-petite-ourse",
+                        )
                       }
                     >
                       Le Logis de la petite Ourse
@@ -92,10 +94,12 @@ export default function NavBarMobile() {
                   </DropdownMenuItem>
                   <DropdownMenuItem className="text-md ">
                     <Link
-                      href="/gites/le-logis-de-la-grande-ourse"
+                      href="/gites-vendee/le-logis-de-la-grande-ourse"
                       className="text-[1rem]"
                       onClick={() =>
-                        handleNavigation("/gites/le-logis-de-la-grande-ourse")
+                        handleNavigation(
+                          "/gites-vendee/le-logis-de-la-grande-ourse",
+                        )
                       }
                     >
                       Le Logis de la grande Ourse
@@ -122,37 +126,45 @@ export default function NavBarMobile() {
                 <div className=" flex flex-col items-center -mt-6   ">
                   <DropdownMenuItem className="text-md ">
                     <Link
-                      href="/chambres/orion"
+                      href="/chambres-dhotes-vendee/orion"
                       className="text-[1rem]"
-                      onClick={() => handleNavigation("/chambres/orion")}
+                      onClick={() =>
+                        handleNavigation("/chambres-dhotes-vendee/orion")
+                      }
                     >
                       Chambre Orion
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="text-md">
                     <Link
-                      href="/chambres/cassiopee"
+                      href="/chambres-dhotes-vendee/cassiopee"
                       className="text-[1rem]"
-                      onClick={() => handleNavigation("/chambres/cassiopee")}
+                      onClick={() =>
+                        handleNavigation("/chambres-dhotes-vendee/cassiopee")
+                      }
                     >
                       Chambre Cassiopée
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="text-md">
                     <Link
-                      href="/chambres/andromede"
+                      href="/chambres-dhotes-vendee/andromede"
                       className="text-[1rem]"
-                      onClick={() => handleNavigation("/chambres/andromede")}
+                      onClick={() =>
+                        handleNavigation("/chambres-dhotes-vendee/andromede")
+                      }
                     >
                       Chambre Andromède
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="text-md">
                     <Link
-                      href="/chambres/suite-familiale-pegase"
+                      href="/chambres-dhotes-vendee/suite-familiale-pegase"
                       className="text-[1rem]"
                       onClick={() =>
-                        handleNavigation("/chambres/suite-familiale-pegase")
+                        handleNavigation(
+                          "/chambres-dhotes-vendee/suite-familiale-pegase",
+                        )
                       }
                     >
                       Suite familiale Pégase
@@ -181,7 +193,7 @@ export default function NavBarMobile() {
             <MenubarMenu>
               <MenubarTrigger
                 onClick={() => handleNavigation("/nous-contacter")}
-                className="text-[1rem]"
+                className="text-[1rem] text-white bg-yellow rounded-full px-6"
               >
                 Nous contacter
               </MenubarTrigger>

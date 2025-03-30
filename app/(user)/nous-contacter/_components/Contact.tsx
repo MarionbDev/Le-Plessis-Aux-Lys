@@ -101,7 +101,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className=" shadow-div rounsm  mx-4 md:mx-0 ">
+    <div className=" shadow-div rounded-sm  mx-4 md:mx-0 ">
       <Card className=" max-w-lg text-text_color border-none ">
         <form onSubmit={handleSubmitFormContact}>
           <CardHeader>
@@ -234,7 +234,7 @@ export default function ContactForm() {
             <Button
               type="submit"
               disabled={isLoading}
-              className="ml-auto hover:text-white hover:bg-gold bg-gold/30 gap-2 "
+              className="ml-auto text-white hover:bg-[#caca73] duration-100 bg-yellow gap-2 shadow-md"
             >
               {isLoading ? (
                 <Loader className="animate-spin" size="16" />

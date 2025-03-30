@@ -21,7 +21,7 @@ export default function NavBarDesktop() {
 
   return (
     <div>
-      <div className=" font-text text-text_color flex gap-2 xl:gap-6 lg:px-10  border-none ">
+      <div className=" font-text text-text_color flex items-center gap-2 xl:gap-6 lg:px-10  border-none ">
         <Link
           href={"/"}
           className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/" ? styles.activeLink : styles.nonActiveLink}`}
@@ -33,7 +33,7 @@ export default function NavBarDesktop() {
         <div
           onMouseEnter={() => handleMouseEnter(0)}
           onMouseLeave={handleMouseLeave}
-          className={`flex flex-col  ${currentRoute === "/gites" ? styles.activeLink : styles.nonActiveLink}`}
+          className={`flex flex-col  ${currentRoute === "/gites-vendee" ? styles.activeLink : styles.nonActiveLink}`}
         >
           <button className="text-xl relative z-50 lg:text-[1rem]">
             Gîtes
@@ -46,13 +46,13 @@ export default function NavBarDesktop() {
             <div className="flex flex-col bg-[#fafafc]  w-72  ">
               <p className="px-2 text-xl lg:text-[0.9rem]">Tous les gîtes</p>
               <Link
-                href={"/gites/le-logis-de-la-petite-ourse"}
+                href={"/gites-vendee/le-logis-de-la-petite-ourse"}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
               >
                 Le Logis de la petite Ourse
               </Link>
               <Link
-                href={"/gites/le-logis-de-la-grande-ourse"}
+                href={"/gites-vendee/le-logis-de-la-grande-ourse"}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
               >
                 Le Logis de la grande Ourse
@@ -64,7 +64,7 @@ export default function NavBarDesktop() {
         <div
           onMouseEnter={() => handleMouseEnter(1)}
           onMouseLeave={handleMouseLeave}
-          className={`flex flex-col  ${currentRoute === "/chambres" ? styles.activeLink : styles.nonActiveLink}`}
+          className={`flex flex-col  ${currentRoute === "/chambres-dhotes-vendee" ? styles.activeLink : styles.nonActiveLink}`}
         >
           <button className="text-xl relative z-50 lg:text-[1rem]">
             Chambres
@@ -79,25 +79,25 @@ export default function NavBarDesktop() {
                 Toutes les chambres
               </p>
               <Link
-                href={"/chambres/orion"}
+                href={"/chambres-dhotes-vendee/orion"}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] "
               >
                 Chambre Orion
               </Link>
               <Link
-                href={"/chambres/cassiopee"}
+                href={"/chambres-dhotes-vendee/cassiopee"}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem]"
               >
                 Chambre Cassiopée
               </Link>
               <Link
-                href={"/chambres/andromede"}
+                href={"/chambres-dhotes-vendee/andromede"}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] rounded-sm"
               >
                 Chambre Andromède
               </Link>
               <Link
-                href={"/chambres/suite-familiale-pegase"}
+                href={"/chambres-dhotes-vendee/suite-familiale-pegase"}
                 className=" hover:bg-subMenu px-2 text-xl lg:text-[0.9rem] rounded-sm"
               >
                 Suite familiale Pégase
@@ -120,14 +120,20 @@ export default function NavBarDesktop() {
           Activités
           <span className={styles.underline}></span>
         </Link>
-
-        <Link
-          href={"/nous-contacter"}
-          className={`text-xl lg:text-[1rem] flex flex-col ${currentRoute === "/nous-contacter" ? styles.activeLink : styles.nonActiveLink}`}
-        >
-          Nous contacter
-          <span className={styles.underline}></span>
-        </Link>
+        <div className="group relative overflow-hidden rounded-full px-4 h-14 xl:h-9 flex justify-center items-center bg-yellow transition-all duration-500 text-white hover:text-text_color ">
+          <div className="absolute inset-0 bg-[#e2e293] w-0 group-hover:w-full transition-all duration-500 "></div>
+          <Link
+            href={"/nous-contacter"}
+            className={`relative z-10 text-xl lg:text-[1rem] flex flex-col   ${
+              currentRoute === "/nous-contacter"
+                ? styles.activeLink
+                : styles.nonActiveLink
+            }`}
+          >
+            Nous contacter
+            <span className={styles.noneUnderline}></span>
+          </Link>
+        </div>
 
         <Link
           href={"/login"}

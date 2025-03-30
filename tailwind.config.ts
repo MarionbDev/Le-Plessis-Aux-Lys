@@ -44,7 +44,7 @@ const config = {
         bk_txt: "#1A1313",
         bg_menu: "#e0c133",
         bg_white: "#ffffff",
-        subMenu: "#f5f0e8",
+        subMenu: "#f8f5f0",
         gold: "#e0c133",
         text_color: "#59594b",
         titleHome_color: "#60605d",

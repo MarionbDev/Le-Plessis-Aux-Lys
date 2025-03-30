@@ -25,6 +25,11 @@
   border-radius: 50px;
 }
 
+.noneUnderline {
+  width: 0;
+  margin: 10px auto 0 auto;
+}
+
 .activeLink .underline {
   width: 100%;
   background-color: #bbbb57;
@@ -32,6 +37,6 @@
 
 .nonActiveLink:hover .underline {
   width: 100%;
-  background-color: #c7c75e71;
+  background-color: #bbbb5780;
 }
 

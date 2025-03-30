@@ -60,45 +60,45 @@ export default function VisitArticle({
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className=" md:min-w-[600px] lg:min-w-[900px]  xl:min-w-[1050px]  max-w-[1050px]">
-          <Card className=" font-text  text-[0.9rem] text-text_color flex flex-col md:flex-row border-none shadow-none ">
+        <div>
+          <Card className=" font-text  text-[1rem] sm:text-[0.9rem] text-text_color flex flex-col lg:flex-row bg-[#f8f5f0] border-none shadow-md  py-6 ">
             {image_path && (
-              <CardHeader className=" pb-0  flex flex-col items-center  xl:min-w-[16rem]    ">
+              <CardHeader className=" pb-0  flex flex-col items-center xl:min-w-[16rem]    ">
                 <div className="flex justify-center   ">
                   <Image
                     src={image_path}
-                    width={280}
+                    width={980}
                     height={180}
                     alt={`Photo de l'article ${title}`}
-                    className=" max-w-[13rem] h-auto object-contain rounded-sm "
+                    className=" w-[15rem] h-auto object-contain rounded-sm shadow-md shadow-slate-400 "
                   />
                 </div>
               </CardHeader>
             )}
-            <div className=" flex flex-col">
-              <CardTitle className="  text-[1.1rem] mx-6 mt-6 md:mt-2 pb-3 ">
+            <div className=" flex flex-col lg:w-[50rem]">
+              <CardTitle className="text-balance text-center lg:text-left text-[1.2rem] mx-6 mt-6 lg:mt-2 pb-3 ">
                 {title}
               </CardTitle>
-              <CardDescription className="mb-2 mx-6 text-[0.9rem] ">
+              <CardDescription className="mb-2 mx-6 text-[1rem] sm:text-[0.9rem]  ">
                 <p>{description}</p>
               </CardDescription>
-              <CardContent className="prose pb-3 text-[0.9rem]  marker:text-text_color ">
+              <CardContent className=" text-pretty lg:pr-12 pb-3 text-[1rem] sm:text-[0.9rem]  marker:text-text_color ">
                 <p dangerouslySetInnerHTML={{ __html: content }} />
+                <div className="flex items-center flex-wrap mt-8">
+                  <p>Pour en savoir plus : &nbsp;</p>
+                  <Link
+                    href={getCompleteUrl(url_link)}
+                    target="blank"
+                    rel="noopener noreferrer"
+                    className=" text-start  focus:outline-none focus:ring-2 focus:ring-gold font-medium hover:text-gold py-2 md:py-0 text-[1rem] sm:text-[0.9rem]"
+                    aria-label={`Visiter le site  ${url_link}`}
+                  >
+                    {url_link}
+                  </Link>{" "}
+                </div>{" "}
               </CardContent>
-              <Link
-                href={getCompleteUrl(url_link)}
-                target="blank"
-                rel="noopener noreferrer"
-                className=" text-start mx-6 focus:outline-none focus:ring-2 focus:ring-gold font-medium hover:text-gold py-2 md:py-0 text-[0.9rem]"
-                aria-label={`Visiter le site  ${url_link}`}
-              >
-                {url_link}
-              </Link>
             </div>
           </Card>
-          <div className="flex justify-center mt-14 md:pt-4  ">
-            <span className=" w-[20rem] md:w-2/4 border-t-2  border-separator"></span>
-          </div>
         </div>
       </motion.div>
     </motion.section>
