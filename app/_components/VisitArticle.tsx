@@ -80,7 +80,7 @@ export default function VisitArticle({
                 {title}
               </CardTitle>
               <CardDescription className="mb-2 mx-6 text-[1rem] sm:text-[0.9rem]  ">
-                <p>{description}</p>
+                {description}
               </CardDescription>
               <CardContent className=" text-pretty lg:pr-12 pb-3 text-[1rem] sm:text-[0.9rem]  marker:text-text_color ">
                 <p dangerouslySetInnerHTML={{ __html: content }} />
