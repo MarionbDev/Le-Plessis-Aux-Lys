@@ -72,7 +72,7 @@ export default function Article({
             </CardDescription>
             <CardContent
               dangerouslySetInnerHTML={{ __html: content }}
-              className="prose pb-3 text-[0.9rem] marker:text-text_color"
+              className=" pb-3 text-[0.9rem] marker:text-text_color"
             />
             {url_link ? (
               <Link

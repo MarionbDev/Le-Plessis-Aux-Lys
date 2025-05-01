@@ -1,5 +1,6 @@
 "use client";
 
+import { addArticle } from "@/app/api/article/route";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -11,20 +12,19 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { addArticle } from "@/app/api/article/route";
 import supabase from "@/lib/database";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Save } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 
-const ReactQuill = dynamic(() => import("react-quill"), {
-  ssr: false,
-});
+import "react-quill-new/dist/quill.snow.css";
+
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 const formSchema = z.object({
   title: z.string().min(1, { message: "Veuillez renseigner un titre !" }),
@@ -219,6 +219,7 @@ export default function AddArticle() {
                           defaultValue=""
                           render={({ field }) => (
                             <ReactQuill
+                              // ref={quillRef} // utiliser un ref pour accéder à l'éditeur
                               value={field.value}
                               onChange={field.onChange}
                               theme="snow"

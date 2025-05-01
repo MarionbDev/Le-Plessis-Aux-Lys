@@ -25,9 +25,7 @@ import { useRouter } from "next/navigation";
 import { toast, Toaster } from "sonner";
 import { z } from "zod";
 
-const ReactQuill = dynamic(() => import("react-quill"), {
-  ssr: false,
-});
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 const formSchema = z.object({
   title_rental: z.string(),
@@ -68,7 +66,10 @@ export default function UpdateDetailsRental({
         }
       } catch (error) {
         console.error("Erreur lors de la récupération de la location :", error);
-        toast.error("Erreur lors de la récupération de la location.");
+        setTimeout(
+          () => toast.error("Erreur lors de la récupération de la location."),
+          0,
+        );
       }
     };
 
@@ -98,7 +99,10 @@ export default function UpdateDetailsRental({
       }, 2000);
     } catch (error) {
       console.error("Erreur :", error);
-      toast.error("Erreur lors de la mise à jour de la location.");
+      setTimeout(
+        () => toast.error("Erreur lors de la récupération de la location."),
+        0,
+      );
     } finally {
       setIsLoading(false);
     }
