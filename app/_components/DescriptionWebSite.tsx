@@ -148,8 +148,8 @@ export default function DescriptionWebSite() {
                       , cité au{" "}
                       <span className="font-semibold">Guide Vert de 2023</span>{" "}
                       comme étant le plus petit village possédant son
-                      planétarium que vous pourrez découvrir à 2 minutes à
-                      pieds. <br /> 4{" "}
+                      planétarium que vous pourrez découvrir à 2 minutes à pied.{" "}
+                      <br /> 4{" "}
                       <span className="font-semibold">chambres de charme</span>,
                       dont une{" "}
                       <span className="font-semibold">suite familiale</span>{" "}
