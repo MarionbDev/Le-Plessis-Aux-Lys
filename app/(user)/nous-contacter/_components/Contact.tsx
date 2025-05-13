@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Loader, Send } from "lucide-react";
+import { Loader, MessageCircle, Phone, Send } from "lucide-react";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { toast, Toaster } from "sonner";
@@ -101,19 +101,38 @@ export default function ContactForm() {
   };
 
   return (
-    <div className=" shadow-div rounded-sm  mx-4 md:mx-0 ">
-      <Card className=" max-w-lg text-text_color border-none ">
+    <div className=" rounded-md  mx-4 md:mx-0  border-2 border-separator/20 mt-0 md:mt-24">
+      <Card className=" max-w-lg text-text_color border-none shadow-none   ">
         <form onSubmit={handleSubmitFormContact}>
           <CardHeader>
+            <div className="w-full flex justify-center">
+              <div className="bg-[#f4f1ec] border border-[#e0dedb] rounded-xl p-4  flex items-start flex-col gap-3 shadow-sm text-text_color ">
+                <Link
+                  href="tel:0689666711"
+                  className="flex hover:text-[#bbbb57] gap-4"
+                >
+                  <Phone size={20} color="#bbbb57" />
+                  06 89 66 67 11
+                </Link>
+                <div className="flex gap-3">
+                  <MessageCircle color="#bbbb57" className="mt-1 w-14" />
+                  <p className="text-[0.95rem] leading-snug">
+                    Vous pouvez nous laisser un message vocal avec vos
+                    coordonnées, nous vous rappellerons avec plaisir.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p className="mx-auto py-2 ">Ou</p>
             <CardDescription className=" text-[0.9rem] font-medium ">
               Remplissez le formulaire ci-dessous et nous vous répondrons dans
               les plus brefs délais.{" "}
               <span className=" text-[0.7rem]">(Mentions obligatoires *)</span>
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex  flex-col gap-3">
+          <CardContent className="flex  flex-col gap-2">
             <div className="grid grid-cols-2 gap-4 ">
-              <div className="space-y-2 ">
+              <div className=" ">
                 <Label
                   htmlFor="first-name"
                   className="text-text_color text-[0.9rem]"
@@ -131,7 +150,7 @@ export default function ContactForm() {
                   className="custom-placeholder"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="">
                 <Label
                   htmlFor="last-name"
                   className="text-text_color text-[0.9rem]"
@@ -151,7 +170,7 @@ export default function ContactForm() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4 ">
-              <div className="space-y-2">
+              <div className="">
                 <Label
                   htmlFor="email"
                   className="text-text_color text-[0.9rem]"
@@ -168,7 +187,7 @@ export default function ContactForm() {
                   className="custom-placeholder"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="">
                 <Label
                   htmlFor="phone"
                   className="text-text_color text-[0.9rem]"
@@ -186,7 +205,7 @@ export default function ContactForm() {
                 />
               </div>
             </div>
-            <div className="space-y-2">
+            <div className="">
               <Label
                 htmlFor="message"
                 className="text-text_color text-[0.9rem]"
@@ -246,6 +265,7 @@ export default function ContactForm() {
           </CardFooter>
         </form>
       </Card>
+
       <Toaster />
     </div>
   );
