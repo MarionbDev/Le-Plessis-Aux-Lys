@@ -24,20 +24,20 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Thierry et Céline Gros",
-      url: "https://le-plessis-aux-lys.fr",
+      url: "https://www.le-plessis-aux-lys.fr",
     },
   ],
   openGraph: {
     title: "Contactez Le Plessis aux Lys",
     description:
       "Pour toute information ou question, contactez Le Plessis aux Lys et nous serons ravis de vous répondre.",
-    url: "https://le-plessis-aux-lys.fr/nous-contacter",
+    url: "https://www.le-plessis-aux-lys.fr/nous-contacter",
     type: "website",
     locale: "fr_FR",
     siteName: "Le Le Plessis aux Lys",
     images: [
       {
-        url: "https://le-plessis-aux-lys.fr/home/beach4.webpg",
+        url: "https://www.le-plessis-aux-lys.fr/home/beach4.webpg",
         width: 1200,
         height: 630,
         alt: "Contactez Le Plessis aux Lys",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: "Contactez Le Plessis aux Lys",
     description:
       "Pour toute information ou demande, contactez Le Plessis aux Lys pour en savoir plus sur votre séjour.",
-    images: ["https://le-plessis-aux-lys.fr/home/beach4.webpg"],
+    images: ["https://www.le-plessis-aux-lys.fr/home/beach4.webpg"],
     site: "@le-plessis-aux-lys",
   },
 };

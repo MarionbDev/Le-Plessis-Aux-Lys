@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     "où se promener en Vendée",
   ],
   alternates: {
-    canonical: "https://le-plessis-aux-lys.fr/jardin",
+    canonical: "https://www.le-plessis-aux-lys.fr/jardin",
   },
   creator: "Marion Baston",
   authors: [
     {
       name: "Thierry et Céline Gros",
-      url: "https://le-plessis-aux-lys.fr",
+      url: "https://www.le-plessis-aux-lys.fr",
     },
   ],
   openGraph: {
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
       "Galerie Photo Parc & Jardin - Le Plessis aux Lys Gîtes et Chambres d'hôtes en Vendée",
     description:
       "Découvrez les merveilles du parc et jardin du Plessis aux Lys en Vendée. Un espace naturel pour se détendre et se ressourcer.",
-    url: "https://le-plessis-aux-lys.fr/jardin",
+    url: "https://www.le-plessis-aux-lys.fr/jardin",
     type: "website",
     locale: "fr_FR",
     siteName: "Parc et Jardin Le Plessis aux Lys",
     images: [
       {
-        url: "https://le-plessis-aux-lys.fr/parc/Parc-2.webp",
+        url: "https://www.le-plessis-aux-lys.fr/parc/Parc-2.webp",
         width: 1200,
         height: 630,
         alt: "Jardin fleuri et parc verdoyant du Plessis aux Lys en Vendée",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       "Galerie Photo Parc & Jardin - Le Plessis aux Lys Gîtes et Chambres d'hôtes en Vendée",
     description:
       "Découvrez les merveilles du parc et jardin du Plessis aux Lys en Vendée. Un espace naturel pour se détendre et se ressourcer.",
-    images: ["https://le-plessis-aux-lys.fr/parc/Parc-2.webp"],
+    images: ["https://www.le-plessis-aux-lys.fr/parc/Parc-2.webp"],
     site: "@le-plessis-aux-lys",
   },
 };

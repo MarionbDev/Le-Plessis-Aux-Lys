@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://le-plessis-aux-lys.fr",
+    canonical: "https://www.le-plessis-aux-lys.fr",
   },
   creator: "Marion Baston",
   authors: [
     {
       name: "Thierry et Céline Gros",
-      url: "https://le-plessis-aux-lys.fr",
+      url: "https://www.le-plessis-aux-lys.fr",
     },
   ],
   icons: {
@@ -35,7 +35,7 @@ export default function RootLayout({
     name: "Le Plessis aux Lys",
     description:
       "Découvrez nos gîtes et chambres d'hôtes au cœur de la Vendée, dans le village de La Chapelle aux Lys. Réservez dès maintenant votre séjour.",
-    image: "https://le-plessis-aux-lys.fr/parc/parc-6.webp",
+    image: "https://www.le-plessis-aux-lys.fr/parc/parc-6.webp",
     address: {
       "@type": "85120",
       streetAddress: "29, Rue de la Petite Chapelle",
@@ -44,7 +44,7 @@ export default function RootLayout({
       addressCountry: "FR",
     },
     priceRange: "75€ à 690€",
-    url: "https://le-plessis-aux-lys.fr",
+    url: "https://www.le-plessis-aux-lys.fr",
   };
 
   return (

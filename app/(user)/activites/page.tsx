@@ -23,32 +23,32 @@ export const metadata: Metadata = {
     "activités gratuites en Vendée",
   ],
   alternates: {
-    canonical: "https://le-plessis-aux-lys.fr/activites",
+    canonical: "https://www.le-plessis-aux-lys.fr/activites",
   },
   creator: "Marion Baston",
   authors: [
     {
       name: "Thierry et Céline Gros",
-      url: "https://le-plessis-aux-lys.fr",
+      url: "https://www.le-plessis-aux-lys.fr",
     },
   ],
   openGraph: {
     title: "Activités en Vendée - Que faire autour du Plessis aux Lys",
     description:
       "Profitez d'activités variées autour du Plessis aux Lys en Vendée : randonnées, patrimoine, plages et parcs de loisirs pour toute la famille.",
-    url: "https://le-plessis-aux-lys.fr/activites",
+    url: "https://www.le-plessis-aux-lys.fr/activites",
     type: "website",
     locale: "fr_FR",
     siteName: "Le Plessis aux Lys - Activités en Vendée",
     images: [
       {
-        url: "https://le-plessis-aux-lys.fr/activites/family.webp",
+        url: "https://www.le-plessis-aux-lys.fr/activites/family.webp",
         width: 1200,
         height: 630,
         alt: "Plage en famille",
       },
       {
-        url: "https://le-plessis-aux-lys.fr/home/marais.webp",
+        url: "https://www.le-plessis-aux-lys.fr/home/marais.webp",
         width: 1200,
         height: 630,
         alt: "Marais Poitevin",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Activités en Vendée - Que faire autour du Plessis aux Lys",
     description:
       "Profitez d'activités variées autour du Plessis aux Lys en Vendée : randonnées, patrimoine, plages et parcs de loisirs pour toute la famille.",
-    images: ["https://le-plessis-aux-lys.fr/activites/family.webp"],
+    images: ["https://www.le-plessis-aux-lys.fr/activites/family.webp"],
     site: "@le-plessis-aux-lys",
   },
 };

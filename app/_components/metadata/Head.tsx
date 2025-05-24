@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     title: "Le Plessis aux Lys – Gîtes et Chambres d'Hôtes en Vendée",
     description:
       "Profitez d’un séjour authentique dans nos gîtes et chambres d’hôtes en Vendée, proches du Puy du Fou et du Marais Poitevin.",
-    url: "https://le-plessis-aux-lys.fr",
+    url: "https://www.le-plessis-aux-lys.fr",
     type: "website",
     locale: "fr_FR",
     siteName: "Le Plessis aux Lys",
     images: [
       {
-        url: "https://le-plessis-aux-lys.fr/parc/parc3.jpg",
+        url: "https://www.le-plessis-aux-lys.fr/parc/parc3.jpg",
         width: 800,
         height: 600,
         alt: "Gîtes et chambres d'hôtes Le Plessis aux Lys",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Le Plessis aux Lys – Séjour en Vendée",
     description:
       "Gîtes et chambres d'hôtes au cœur de la Vendée. Découvrez un cadre paisible avec piscine chauffée et nature environnante.",
-    images: ["https://le-plessis-aux-lys.fr/parc/parc3.jpg"],
+    images: ["https://www.le-plessis-aux-lys.fr/parc/parc3.jpg"],
     site: "@le-plessis-aux-lys",
   },
 };
