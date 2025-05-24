@@ -94,7 +94,7 @@ export default function LegalNoticePage() {
                   Conception et développement :
                 </p>
                 <p>Marion Baston</p>
-                <p>Contact : marionbaston84@gmail.com</p>
+                <p>Contact : contact@marionbaston.fr</p>
               </div>
 
               <p className="mb-2">
@@ -141,7 +141,8 @@ export default function LegalNoticePage() {
                   site, y compris les textes, images, graphismes, logos,
                   marques, vidéos et logiciels, sont la propriété exclusive de
                   Céline et Thierry Gros, sauf indication contraire et sous
-                  réserve de droits appartenant à des tiers dûment identifiés.{" "}
+                  réserve de droits appartenant à des tiers dûment
+                  identifiés.{" "}
                 </p>
                 <p>
                   Toute reproduction, représentation, modification, publication,

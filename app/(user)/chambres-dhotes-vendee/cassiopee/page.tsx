@@ -22,27 +22,28 @@ export const metadata: Metadata = {
     "meilleure chambre d'hôte en Vendée",
   ],
   alternates: {
-    canonical: "https://le-plessis-aux-lys.fr/chambres-dhotes-vendee/cassiopee",
+    canonical:
+      "https://www.le-plessis-aux-lys.fr/chambres-dhotes-vendee/cassiopee",
   },
 
   creator: "Marion Baston",
   authors: [
     {
       name: "Thierry et Céline Gros",
-      url: "https://le-plessis-aux-lys.fr",
+      url: "https://www.le-plessis-aux-lys.fr",
     },
   ],
   openGraph: {
     title: "Cassiopée - Chambre d'hôte en Vendée",
     description:
       "Séjournez dans le charmante chambre d'hôte 'Cassiopée', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
-    url: "https://le-plessis-aux-lys.fr/chambres-dhotes-vendee/cassiopee",
+    url: "https://www.le-plessis-aux-lys.fr/chambres-dhotes-vendee/cassiopee",
     type: "website",
     locale: "fr_FR",
     siteName: "Chambre Cassiopée",
     images: [
       {
-        url: "https://le-plessis-aux-lys.fr/chambres/cassiopee/ch-2.webp",
+        url: "https://www.le-plessis-aux-lys.fr/chambres/cassiopee/ch-2.webp",
         width: 1200,
         height: 630,
         alt: "Chambre Cassiopée",
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     title: "Cassiopée - Chambre en Vendée",
     description:
       "Séjournez dans le charmante chambre 'Cassiopée', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
-    images: ["https://le-plessis-aux-lys.fr/chambres/cassiopee/ch-2.webp"],
+    images: ["https://www.le-plessis-aux-lys.fr/chambres/cassiopee/ch-2.webp"],
     site: "@le-plessis-aux-lys",
   },
 };

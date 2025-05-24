@@ -1,5 +1,12 @@
 import Link from "next/link";
 
+export const metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
+
 export default function privacyPolicyPage() {
   return (
     <div className="font-text text-text_color text-[0.9rem]">

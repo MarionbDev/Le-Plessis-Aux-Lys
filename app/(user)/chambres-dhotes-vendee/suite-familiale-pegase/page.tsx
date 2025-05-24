@@ -23,27 +23,27 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical:
-      "https://le-plessis-aux-lys.fr/chambres-dhotes-vendee/suite-familiale-pegase",
+      "https://www.le-plessis-aux-lys.fr/chambres-dhotes-vendee/suite-familiale-pegase",
   },
 
   creator: "Marion Baston",
   authors: [
     {
       name: "Thierry et Céline Gros",
-      url: "https://le-plessis-aux-lys.fr",
+      url: "https://www.le-plessis-aux-lys.fr",
     },
   ],
   openGraph: {
     title: "Suite familiale Pégase - Chambre d'hôte en Vendée",
     description:
       "Séjournez dans le charmante chambre d'hôte 'Suite familiale Pégase ', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
-    url: "https://le-plessis-aux-lys.fr/chambres-dhotes-vendee/suite-familiale-pegase",
+    url: "https://www.le-plessis-aux-lys.fr/chambres-dhotes-vendee/suite-familiale-pegase",
     type: "website",
     locale: "fr_FR",
     siteName: "Suite familiale Pégase",
     images: [
       {
-        url: "https://le-plessis-aux-lys.fr/chambres/pegase/pegase2.webp",
+        url: "https://www.le-plessis-aux-lys.fr/chambres/pegase/pegase2.webp",
         width: 1200,
         height: 630,
         alt: "Suite familiale Pégase",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: "Suite familiale Pégase - Chambre en Vendée",
     description:
       "Séjournez dans le charmante chambre 'Suite familiale Pégase', un hébergement confortable au cœur de la Vendée. Profitez de notre cadre idyllique avec piscine chauffée et de nombreuses activités à proximité. Réservez dès maintenant votre séjour.",
-    images: ["https://le-plessis-aux-lys.fr/chambres/pegase/pegase2.webp"],
+    images: ["https://www.le-plessis-aux-lys.fr/chambres/pegase/pegase2.webp"],
     site: "@le-plessis-aux-lys",
   },
 };
