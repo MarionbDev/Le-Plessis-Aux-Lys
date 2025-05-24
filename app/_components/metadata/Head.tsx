@@ -42,6 +42,6 @@ export const metadata: Metadata = {
 };
 
 export default function Head() {
-  return null;
+  return <>{metadata.title}</>;
 }
 
