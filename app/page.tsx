@@ -9,7 +9,6 @@ import UserLayout from "./(user)/layout";
 import DescriptionWebSite from "./_components/DescriptionWebSite";
 import ImageHomeWebSite from "./_components/ImageHomeWebSite";
 import CookieBanner from "./_components/map/CookieBanner";
-import Head from "./_components/metadata/Head";
 
 const DynamicMap = dynamic(() => import("./_components/map/Map"), {
   ssr: false,
@@ -75,7 +74,6 @@ export default function Home() {
 
   return (
     <UserLayout>
-      <Head />
       <div className="min-h-screen">
         <div className="fixed top-0 z-50 bg-none bg-transparent"></div>
         <main className="">
