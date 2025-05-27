@@ -10,7 +10,7 @@ export const POST = async (request: NextRequest) => {
   try {
     // Parse les données du formulaire
     const body = await request.json();
-    const { firstname, lastname, email, phone, message } = body;
+    const { firstname, lastname, email, phone, message, company } = body;
 
     // Récupérer l'email de l'admin depuis Supabase
     const { data: adminData, error } = await supabase
@@ -25,6 +25,16 @@ export const POST = async (request: NextRequest) => {
     }
 
     const adminEmail = adminData.email;
+
+    // 🛡️ Anti-spam : honeypot
+    if (company && company.trim() !== "") {
+      return NextResponse.json({ error: "Spam détecté" }, { status: 403 });
+    }
+
+    // 🛠️ Validation simple de l'email
+    if (!email || !email.includes("@")) {
+      return NextResponse.json({ error: "Email invalide" }, { status: 400 });
+    }
 
     // Envoi de l'email via Resend
     console.log("Sending email to:", adminEmail);
