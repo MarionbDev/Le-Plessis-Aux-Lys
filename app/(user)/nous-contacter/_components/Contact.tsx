@@ -17,11 +17,12 @@ import { FormEvent, useState } from "react";
 import { toast, Toaster } from "sonner";
 
 export default function ContactForm() {
-  const [lastname, setLatsName] = useState("");
+  const [lastname, setLastName] = useState("");
   const [firstname, setFirstname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [company, setCompany] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [acceptedPrivacyPolicy, setAccepedPrivacyPolicy] = useState(false);
 
@@ -33,6 +34,8 @@ export default function ContactForm() {
 
       if (!acceptedPrivacyPolicy) {
         toast.warning("Veuillez accepter la politique de confidentialité .");
+        setIsLoading(false);
+        return;
       } else {
         // console.log("Submitting form...");
         const response = await fetch(
@@ -48,6 +51,7 @@ export default function ContactForm() {
               email,
               phone,
               message,
+              company,
             }),
           },
         );
@@ -75,7 +79,7 @@ export default function ContactForm() {
             error: "Error",
           });
 
-          setLatsName("");
+          setLastName("");
           setFirstname("");
           setEmail("");
           setPhone("");
@@ -145,7 +149,7 @@ export default function ContactForm() {
                   required
                   value={lastname}
                   onChange={(e) =>
-                    setLatsName(capitalizeFirstLetter(e.target.value))
+                    setLastName(capitalizeFirstLetter(e.target.value))
                   }
                   className="custom-placeholder"
                 />
@@ -249,6 +253,28 @@ export default function ContactForm() {
               </Label>
             </div>
           </CardContent>
+          <div
+            style={{
+              position: "absolute",
+              left: "-9999px",
+              top: "auto",
+              width: "1px",
+              height: "1px",
+              overflow: "hidden",
+            }}
+          >
+            <label htmlFor="company">Company</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              autoComplete="off"
+              aria-hidden="true"
+              tabIndex={-1}
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+            />
+          </div>
           <CardFooter>
             <Button
               type="submit"
