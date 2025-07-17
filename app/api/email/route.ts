@@ -1,4 +1,5 @@
 import EmailTemplate from "@/app/_components/contact/EmailTemplate";
+import { withCorsHeaders } from "@/lib/cors";
 import supabase from "@/lib/database";
 import { revalidatePath } from "next/cache";
 import type { NextRequest } from "next/server";
@@ -37,7 +38,7 @@ export const POST = async (request: NextRequest) => {
     }
 
     // Envoi de l'email via Resend
-    console.log("Sending email to:", adminEmail);
+    // console.log("Sending email to:", adminEmail);
     const emailResult = await resend.emails.send({
       from: '"le-plessis-aux-lys" <noreply@le-plessis-aux-lys.fr>',
       to: adminEmail,
@@ -48,16 +49,21 @@ export const POST = async (request: NextRequest) => {
     // Revalidation après avoir mis à jour les données de l'admin
     revalidatePath("/api/getAdmin"); // Marque la balise associée comme obsolète et force une nouvelle récupération
 
-    return NextResponse.json({
-      message: "Email successfully sent!",
-      emailResult,
-    });
+    const response = withCorsHeaders(
+      NextResponse.json({
+        message: "Email successfully sent!",
+        emailResult,
+      }),
+    );
+
+    return response;
   } catch (error) {
     console.error("Error sending email:", error);
-    return NextResponse.json(
-      { error: "Internal Server Error" },
-      { status: 500 },
+    const errorResponse = withCorsHeaders(
+      NextResponse.json({ error: "Internal Server Error" }, { status: 500 }),
     );
+
+    return errorResponse;
   }
 };
 
