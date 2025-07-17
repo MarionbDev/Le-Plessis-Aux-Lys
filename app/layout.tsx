@@ -75,14 +75,26 @@ export default function RootLayout({
       "Découvrez nos gîtes et chambres d'hôtes au cœur de la Vendée, dans le village de La Chapelle aux Lys. Réservez dès maintenant votre séjour.",
     image: "https://www.le-plessis-aux-lys.fr/parc/parc-6.webp",
     address: {
-      "@type": "85120",
+      "@type": "PostalAddress",
       streetAddress: "29, Rue de la Petite Chapelle",
-      addressLocality: "La Chapelle aux Lys",
+      addressLocality: "La Chapelle aux Lys, Terval",
       postalCode: "85120",
       addressCountry: "FR",
     },
+    telephone: "+33 6 89 66 67 11",
+    email: "leplessisauxlys@orange.fr",
     priceRange: "75€ à 690€",
     url: "https://www.le-plessis-aux-lys.fr",
+    amenityFeature: {
+      "@type": "LocationFeatureSpecification",
+      name: "Piscine chauffée",
+      value: true,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 46.62950023714675,
+      longitude: -0.67319274140706,
+    },
   };
 
   return (
