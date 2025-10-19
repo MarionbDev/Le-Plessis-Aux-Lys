@@ -152,7 +152,7 @@ export default function RentalPage({
                       </div>
                     </section>
                   ) : (
-                    <section className="flex justify-center w-full ">
+                    <section className="flex justify-center w-full mt-16 ">
                       <div className=" my-16 md:my-24  mb-8 md:mb-20">
                         <p className="text-center text-lg text-gray-600 py-8 px-3">
                           Les informations complémentaires sont en cours de mise

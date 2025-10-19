@@ -291,6 +291,15 @@ export default function DescriptionWebSite() {
                 <p className=" text-text_color">
                   Disponible très prochainement !
                 </p>
+                {/* <Image
+                  src={grandeOurse}
+                  width={380}
+                  height={214}
+                  sizes="(max-width: 600px) 75vw, (max-width: 800px) 37.5vw, 400px"
+                  alt=""
+                  aria-label="Accéder à la page du gîte Le Logis de la Petite Ourse"
+                  className="rounded-md  h-auto pointer-events-none shadow-basic "
+                /> */}
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p
                     className="pl-4 text-[1rem] sm:text-[0.9rem] font-semibold text-white py-2"
