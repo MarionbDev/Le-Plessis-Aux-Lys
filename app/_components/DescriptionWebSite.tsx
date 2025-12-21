@@ -15,7 +15,7 @@ import chambreCassiopee from "../../public/chambres/cassiopee/ch-2.webp";
 import chambreOrion from "../../public/chambres/orion/ch-1.webp";
 import chambrePegase from "../../public/chambres/pegase/pegase2.webp";
 
-// import grandeOurse from "../../public/image.png";
+import grandeOurse from "../../public/grande-ourse/gite-2.jpg";
 import petiteOurse from "../../public/petite-ourse/Gite-1.webp";
 
 import { ChevronLeft, ChevronRight, Mail } from "lucide-react";
@@ -288,10 +288,10 @@ export default function DescriptionWebSite() {
             </li>
             <li className=" h-[170px] md:h-[210px]  relative overflow-hidden group w-96 flex justify-center items-center bg-[#f8f5f0] rounded-md ">
               <Link href={"/gites-vendee/le-logis-de-la-grande-ourse"}>
-                <p className=" text-text_color">
+                {/* <p className=" text-text_color">
                   Disponible très prochainement !
-                </p>
-                {/* <Image
+                </p> */}
+                <Image
                   src={grandeOurse}
                   width={380}
                   height={214}
@@ -299,7 +299,7 @@ export default function DescriptionWebSite() {
                   alt=""
                   aria-label="Accéder à la page du gîte Le Logis de la Petite Ourse"
                   className="rounded-md  h-auto pointer-events-none shadow-basic "
-                /> */}
+                />
                 <div className="absolute bottom-0 left-0 right-0 bg-black  bg-opacity-20 backdrop-blur-xl flex items-center  transform translate-y-0 group-hover:translate-y-full group-hover:bg-opacity-50 transition-all duration-500">
                   <p
                     className="pl-4 text-[1rem] sm:text-[0.9rem] font-semibold text-white py-2"
