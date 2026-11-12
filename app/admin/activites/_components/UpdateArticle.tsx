@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import "react-quill/dist/quill.snow.css";
+import "react-quill-new/dist/quill.snow.css";
 
 import { getArticleById, updateArticle } from "@/app/api/article/route";
 import { ArticleProps } from "@/app/types";
@@ -285,4 +285,3 @@ export default function UpdateArticle({ articleId }: { articleId: string }) {
     </div>
   );
 }
-
