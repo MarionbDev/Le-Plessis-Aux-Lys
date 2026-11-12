@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import "react-quill/dist/quill.snow.css";
+import "react-quill-new/dist/quill.snow.css";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -201,4 +201,3 @@ export default function UpdateDetailsRental({
     </div>
   );
 }
-
